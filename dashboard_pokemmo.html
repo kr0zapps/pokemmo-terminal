@@ -376,8 +376,12 @@
                             <span class="font-bold tracking-tight">⚡ Auto-capturar Pre-evos</span>
                         </label>
                         <label class="flex items-center gap-1.5 text-xs text-os-muted cursor-pointer select-none">
-                            <input type="checkbox" id="hideCaught"  onchange="renderDexResults(true)" class="w-4 h-4 accent-os-blue">
+                            <input type="checkbox" id="hideCaught" onchange="renderDexResults(true)" class="w-4 h-4 accent-os-blue">
                             Ocultar Capturados
+                        </label>
+                        <label class="flex items-center gap-1.5 text-xs text-os-muted cursor-pointer select-none" title="Si ya capturaste la pre-evolución (ej. Pidgey), oculta sus evoluciones (Pidgeotto, Pidgeot) para enfocarte en capturables fáciles">
+                            <input type="checkbox" id="hidePostEvos" onchange="renderDexResults(true)" class="w-4 h-4 accent-os-blue">
+                            Ocultar Post-evoluciones
                         </label>
                         <label class="flex items-center gap-1.5 text-xs text-os-muted cursor-pointer select-none">
                             <input type="checkbox" id="hideUnassigned" checked onchange="renderDexResults(true)" class="w-4 h-4 accent-os-blue">
@@ -1708,6 +1712,18 @@
             // Filtros de usuario
             if (hideCaught) {
                 parsedList = parsedList.filter(p => !dexCaughtList.includes(p.id));
+            }
+            const hidePostEvos = document.getElementById('hidePostEvos')?.checked;
+            if (hidePostEvos) {
+                parsedList = parsedList.filter(p => {
+                    const preEvos = PRE_EVO_MAP[p.id];
+                    if (preEvos && preEvos.length > 0) {
+                        // Si ya tiene capturada alguna de sus pre-evoluciones, ocultar esta evolución
+                        const hasPreCaught = preEvos.some(preId => dexCaughtList.includes(preId));
+                        if (hasPreCaught) return false;
+                    }
+                    return true;
+                });
             }
             if (hideUnassigned) {
                 parsedList = parsedList.filter(p => p.locationClean && !p.locationClean.includes('Desconocido') && !p.locationClean.includes('No salvaje'));
