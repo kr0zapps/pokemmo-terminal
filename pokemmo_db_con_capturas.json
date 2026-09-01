@@ -4541,7 +4541,7 @@
     {
       "id": 494,
       "name": "Victini",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -4550,7 +4550,7 @@
     {
       "id": 495,
       "name": "Snivy",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Pinwheel Forest (Inner)",
       "method": "Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -4559,7 +4559,7 @@
     {
       "id": 496,
       "name": "Servine",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Lostlorn Forest",
       "method": "Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -4568,7 +4568,7 @@
     {
       "id": 497,
       "name": "Serperior",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Abundant Shrine",
       "method": "Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -4577,7 +4577,7 @@
     {
       "id": 498,
       "name": "Tepig",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 3",
       "method": "Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -4586,7 +4586,7 @@
     {
       "id": 499,
       "name": "Pignite",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 7",
       "method": "Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -4595,7 +4595,7 @@
     {
       "id": 500,
       "name": "Emboar",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 15",
       "method": "Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -4604,7 +4604,7 @@
     {
       "id": 501,
       "name": "Oshawott",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 6",
       "method": "Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -4613,7 +4613,7 @@
     {
       "id": 502,
       "name": "Dewott",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 18",
       "method": "Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -4622,7 +4622,7 @@
     {
       "id": 503,
       "name": "Samurott",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Village Bridge",
       "method": "Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -4631,7 +4631,7 @@
     {
       "id": 504,
       "name": "Patrat",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Dreamyard | Route 1",
       "method": "Grass / Sweet ScentX3",
       "hint": "Tasa de Aparición: 35% (Nv. 8 - 11)",
@@ -4640,7 +4640,7 @@
     {
       "id": 505,
       "name": "Watchog",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Dreamyard (B1F) | Dreamyard",
       "method": "Dark Grass / Grass",
       "hint": "Tasa de Aparición: 25% (Nv. 50 - 52)",
@@ -4649,7 +4649,7 @@
     {
       "id": 506,
       "name": "Lillipup",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 1 | Route 2",
       "method": "Grass / Sweet ScentX3",
       "hint": "Tasa de Aparición: 45% (Nv. 2 - 4)",
@@ -4658,7 +4658,7 @@
     {
       "id": 507,
       "name": "Herdier",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Cold Storage | P2 Laboratory",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 25% (Nv. 24 - 26)",
@@ -4667,7 +4667,7 @@
     {
       "id": 508,
       "name": "Stoutland",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 1 | Route 10 (Gate)",
       "method": "Dark Grass / Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -4676,7 +4676,7 @@
     {
       "id": 509,
       "name": "Purrloin",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Dreamyard | Route 2",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 10% (Nv. 8 - 11)",
@@ -4685,7 +4685,7 @@
     {
       "id": 510,
       "name": "Liepard",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Dreamyard | Dreamyard (B1F)",
       "method": "Dark Grass / Dark GrassX5",
       "hint": "Extraído de PokeMMOHub",
@@ -4694,7 +4694,7 @@
     {
       "id": 511,
       "name": "Pansage",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Pinwheel Forest (Inner)",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 5% (Nv. 15 - 17)",
@@ -4703,7 +4703,7 @@
     {
       "id": 512,
       "name": "Simisage",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Lostlorn Forest | Pinwheel Forest (Inner)",
       "method": "Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -4712,7 +4712,7 @@
     {
       "id": 513,
       "name": "Pansear",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Pinwheel Forest (Inner)",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 2.5% (Nv. 15 - 17)",
@@ -4721,7 +4721,7 @@
     {
       "id": 514,
       "name": "Simisear",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Lostlorn Forest | Pinwheel Forest (Inner)",
       "method": "Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -4730,7 +4730,7 @@
     {
       "id": 515,
       "name": "Panpour",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Pinwheel Forest (Inner)",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 7.5% (Nv. 15 - 17)",
@@ -4739,7 +4739,7 @@
     {
       "id": 516,
       "name": "Simipour",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Lostlorn Forest | Pinwheel Forest (Inner)",
       "method": "Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -4748,7 +4748,7 @@
     {
       "id": 517,
       "name": "Munna",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Dreamyard | Dreamyard (B1F)",
       "method": "Grass / Sweet ScentX3",
       "hint": "Tasa de Aparición: 25% (Nv. 8 - 10)",
@@ -4757,7 +4757,7 @@
     {
       "id": 518,
       "name": "Musharna",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Dreamyard",
       "method": "Grass / Dark Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -4766,7 +4766,7 @@
     {
       "id": 519,
       "name": "Pidove",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Pinwheel Forest (Outer) | Pinwheel Forest (Inner)",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 15% (Nv. 12 - 15)",
@@ -4775,7 +4775,7 @@
     {
       "id": 520,
       "name": "Tranquill",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Lostlorn Forest | Pinwheel Forest (Inner)",
       "method": "Grass / GrassX3",
       "hint": "Tasa de Aparición: 10% (Nv. 22 - 24)",
@@ -4784,7 +4784,7 @@
     {
       "id": 521,
       "name": "Unfezant",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Lostlorn Forest | Route 7",
       "method": "Shadow / Dark Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -4793,7 +4793,7 @@
     {
       "id": 522,
       "name": "Blitzle",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 3",
       "method": "Grass / GrassX3",
       "hint": "Tasa de Aparición: 25% (Nv. 8 - 11)",
@@ -4802,7 +4802,7 @@
     {
       "id": 523,
       "name": "Zebstrika",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 7",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 20% (Nv. 27 - 29)",
@@ -4811,7 +4811,7 @@
     {
       "id": 524,
       "name": "Roggenrola",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Chargestone Cave (1F) | Chargestone Cave (B2F)",
       "method": "Rocks / Cave",
       "hint": "Tasa de Aparición: 50% (Nv. 30 - 32)",
@@ -4820,7 +4820,7 @@
     {
       "id": 525,
       "name": "Boldore",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Challenger's Cave (B2F) | Challenger's Cave (B1F)",
       "method": "Cave / CaveX5",
       "hint": "Tasa de Aparición: 15% (Nv. 53 - 55)",
@@ -4829,7 +4829,7 @@
     {
       "id": 526,
       "name": "Gigalith",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Giant Chasm (Entrance) | Giant Chasm (Forest)",
       "method": "Rocks / Cave",
       "hint": "Tasa de Aparición: 20% (Nv. 56 - 58)",
@@ -4838,7 +4838,7 @@
     {
       "id": 527,
       "name": "Woobat",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Challenger's Cave (B2F) | Challenger's Cave (B1F)",
       "method": "Cave / CaveX5",
       "hint": "Tasa de Aparición: 10% (Nv. 53 - 55)",
@@ -4847,7 +4847,7 @@
     {
       "id": 528,
       "name": "Swoobat",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Wellspring Cave (1F) | Wellspring Cave (B1F)",
       "method": "Cave / Dust Cloud",
       "hint": "Extraído de PokeMMOHub",
@@ -4856,7 +4856,7 @@
     {
       "id": 529,
       "name": "Drilbur",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Chargestone Cave (1F) | Chargestone Cave (B2F)",
       "method": "Dust Cloud",
       "hint": "Extraído de PokeMMOHub",
@@ -4865,7 +4865,7 @@
     {
       "id": 530,
       "name": "Excadrill",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Challenger's Cave (B2F) | Challenger's Cave (B1F)",
       "method": "Dust Cloud",
       "hint": "Extraído de PokeMMOHub",
@@ -4874,7 +4874,7 @@
     {
       "id": 531,
       "name": "Audino",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Cold Storage | Dreamyard",
       "method": "Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -4883,7 +4883,7 @@
     {
       "id": 532,
       "name": "Timburr",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Cold Storage | Pinwheel Forest (Outer)",
       "method": "Grass / GrassX5",
       "hint": "Tasa de Aparición: 15% (Nv. 24 - 26)",
@@ -4892,7 +4892,7 @@
     {
       "id": 533,
       "name": "Gurdurr",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Twist Mountain (Cold Room) | Twist Mountain (Tunnel)",
       "method": "Cave / CaveX5",
       "hint": "Tasa de Aparición: 10% (Nv. 31 - 33)",
@@ -4901,7 +4901,7 @@
     {
       "id": 534,
       "name": "Conkeldurr",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Twist Mountain (Tunnel)",
       "method": "Cave",
       "hint": "Extraído de PokeMMOHub",
@@ -4910,7 +4910,7 @@
     {
       "id": 535,
       "name": "Tympole",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Pinwheel Forest (Outer)",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 10% (Nv. 12 - 15)",
@@ -4919,7 +4919,7 @@
     {
       "id": 536,
       "name": "Palpitoad",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Moor Of Icirrus | Route 8",
       "method": "Water",
       "hint": "Tasa de Aparición: 10% (Nv. 33 - 35)",
@@ -4928,7 +4928,7 @@
     {
       "id": 537,
       "name": "Seismitoad",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Icirrus City | Moor Of Icirrus",
       "method": "Water",
       "hint": "Extraído de PokeMMOHub",
@@ -4937,7 +4937,7 @@
     {
       "id": 538,
       "name": "Throh",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Pinwheel Forest (Outer) | Route 10 (Gate)",
       "method": "Grass / GrassX3",
       "hint": "Tasa de Aparición: 10% (Nv. 11 - 12)",
@@ -4946,7 +4946,7 @@
     {
       "id": 539,
       "name": "Sawk",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Pinwheel Forest (Outer) | Route 10 (Gate)",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 10% (Nv. 11 - 12)",
@@ -4955,7 +4955,7 @@
     {
       "id": 540,
       "name": "Sewaddle",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Pinwheel Forest (Inner) | Route 12",
       "method": "Grass / GrassX3",
       "hint": "Tasa de Aparición: 25% (Nv. 15 - 16)",
@@ -4964,7 +4964,7 @@
     {
       "id": 541,
       "name": "Swadloon",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Lostlorn Forest | Pinwheel Forest (Inner)",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 15% (Nv. 22 - 24)",
@@ -4973,7 +4973,7 @@
     {
       "id": 542,
       "name": "Leavanny",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Lostlorn Forest | Route 6",
       "method": "Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -4982,7 +4982,7 @@
     {
       "id": 543,
       "name": "Venipede",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Lostlorn Forest | Pinwheel Forest (Inner)",
       "method": "Grass / GrassX3",
       "hint": "Tasa de Aparición: 10% (Nv. 22 - 24)",
@@ -4991,7 +4991,7 @@
     {
       "id": 544,
       "name": "Whirlipede",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Lostlorn Forest | Pinwheel Forest (Inner)",
       "method": "Dark Grass / Dark GrassX3",
       "hint": "Tasa de Aparición: 10% (Nv. 34 - 36)",
@@ -5000,7 +5000,7 @@
     {
       "id": 545,
       "name": "Scolipede",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Lostlorn Forest",
       "method": "Dark Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -5009,7 +5009,7 @@
     {
       "id": 546,
       "name": "Cottonee",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Abundant Shrine | Lostlorn Forest",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 10% (Nv. 52 - 54)",
@@ -5018,7 +5018,7 @@
     {
       "id": 547,
       "name": "Whimsicott",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Abundant Shrine | Lostlorn Forest",
       "method": "Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -5027,7 +5027,7 @@
     {
       "id": 548,
       "name": "Petilil",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Abundant Shrine | Lostlorn Forest",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 10% (Nv. 52 - 54)",
@@ -5036,7 +5036,7 @@
     {
       "id": 549,
       "name": "Lilligant",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Abundant Shrine | Lostlorn Forest",
       "method": "Grass / Dark Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -5045,7 +5045,7 @@
     {
       "id": 550,
       "name": "Basculin-red-striped",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5054,7 +5054,7 @@
     {
       "id": 551,
       "name": "Sandile",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Desert Resort (Outer) | Desert Resort (Inner)",
       "method": "Grass / GrassX3",
       "hint": "Tasa de Aparición: 30% (Nv. 19 - 22)",
@@ -5063,7 +5063,7 @@
     {
       "id": 552,
       "name": "Krokorok",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Relic Castle (B2F) | Relic Castle (B3F)",
       "method": "Cave / CaveX5",
       "hint": "Tasa de Aparición: 35% (Nv. 36 - 38)",
@@ -5072,7 +5072,7 @@
     {
       "id": 553,
       "name": "Krookodile",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5081,7 +5081,7 @@
     {
       "id": 554,
       "name": "Darumaka",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Desert Resort (Inner) | Desert Resort (Outer)",
       "method": "Grass",
       "hint": "Tasa de Aparición: 20% (Nv. 20 - 22)",
@@ -5090,7 +5090,7 @@
     {
       "id": 555,
       "name": "Darmanitan-standard",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5099,7 +5099,7 @@
     {
       "id": 556,
       "name": "Maractus",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Desert Resort (Outer) | Desert Resort (Inner)",
       "method": "Grass",
       "hint": "Tasa de Aparición: 10% (Nv. 20 - 22)",
@@ -5108,7 +5108,7 @@
     {
       "id": 557,
       "name": "Dwebble",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Desert Resort (Outer) | Desert Resort (Inner)",
       "method": "Grass / GrassX3",
       "hint": "Tasa de Aparición: 10% (Nv. 20 - 22)",
@@ -5117,7 +5117,7 @@
     {
       "id": 558,
       "name": "Crustle",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Relic Castle (B2F) | Relic Castle (B3F)",
       "method": "Rocks / Dark Grass",
       "hint": "Tasa de Aparición: 100% (Nv. 39 - 41)",
@@ -5126,7 +5126,7 @@
     {
       "id": 559,
       "name": "Scraggy",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Desert Resort (Outer) | P2 Laboratory",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 10% (Nv. 19 - 21)",
@@ -5135,7 +5135,7 @@
     {
       "id": 560,
       "name": "Scrafty",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 15 | Route 18",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 5% (Nv. 50 - 52)",
@@ -5144,7 +5144,7 @@
     {
       "id": 561,
       "name": "Sigilyph",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Desert Resort (Inner) | Desert Resort (Outer)",
       "method": "Grass / GrassX3",
       "hint": "Tasa de Aparición: 10% (Nv. 21 - 22)",
@@ -5153,7 +5153,7 @@
     {
       "id": 562,
       "name": "Yamask",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Relic Castle (B1F) | Relic Castle (1F)",
       "method": "Cave / CaveX3",
       "hint": "Tasa de Aparición: 50% (Nv. 23 - 24)",
@@ -5162,7 +5162,7 @@
     {
       "id": 563,
       "name": "Cofagrigus",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Relic Castle (Depths) | Relic Castle (B6F)",
       "method": "Cave / CaveX5",
       "hint": "Tasa de Aparición: 40% (Nv. 52 - 54)",
@@ -5171,7 +5171,7 @@
     {
       "id": 564,
       "name": "Tirtouga",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5180,7 +5180,7 @@
     {
       "id": 565,
       "name": "Carracosta",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5189,7 +5189,7 @@
     {
       "id": 566,
       "name": "Archen",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5198,7 +5198,7 @@
     {
       "id": 567,
       "name": "Archeops",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5207,7 +5207,7 @@
     {
       "id": 568,
       "name": "Trubbish",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 4 | Route 5",
       "method": "Grass / GrassX3",
       "hint": "Tasa de Aparición: 15% (Nv. 17 - 19)",
@@ -5216,7 +5216,7 @@
     {
       "id": 569,
       "name": "Garbodor",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 9",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 10% (Nv. 36 - 37)",
@@ -5225,7 +5225,7 @@
     {
       "id": 570,
       "name": "Zorua",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Lostlorn Forest",
       "method": "GrassX3",
       "hint": "Extraído de PokeMMOHub",
@@ -5234,7 +5234,7 @@
     {
       "id": 571,
       "name": "Zoroark",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5243,7 +5243,7 @@
     {
       "id": 572,
       "name": "Minccino",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Cold Storage | Route 4",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 15% (Nv. 24 - 25)",
@@ -5252,7 +5252,7 @@
     {
       "id": 573,
       "name": "Cinccino",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Cold Storage | Route 5",
       "method": "Grass / Dark Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -5261,7 +5261,7 @@
     {
       "id": 574,
       "name": "Gothita",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 5 | Route 16",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 15% (Nv. 22 - 23)",
@@ -5270,7 +5270,7 @@
     {
       "id": 575,
       "name": "Gothorita",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 9",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 15% (Nv. 35 - 37)",
@@ -5279,7 +5279,7 @@
     {
       "id": 576,
       "name": "Gothitelle",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 9",
       "method": "Dark Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -5288,7 +5288,7 @@
     {
       "id": 577,
       "name": "Solosis",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 5 | Route 16",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 25% (Nv. 22 - 23)",
@@ -5297,7 +5297,7 @@
     {
       "id": 578,
       "name": "Duosion",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 9",
       "method": "Grass / GrassX5",
       "hint": "Tasa de Aparición: 20% (Nv. 35 - 37)",
@@ -5306,7 +5306,7 @@
     {
       "id": 579,
       "name": "Reuniclus",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 9 | Route 14",
       "method": "Grass / Dark Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -5315,7 +5315,7 @@
     {
       "id": 580,
       "name": "Ducklett",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Chargestone Cave | Cold Storage",
       "method": "Shadow",
       "hint": "Extraído de PokeMMOHub",
@@ -5324,7 +5324,7 @@
     {
       "id": 581,
       "name": "Swanna",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Abundant Shrine | Marvelous Bridge",
       "method": "Shadow / Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -5333,7 +5333,7 @@
     {
       "id": 582,
       "name": "Vanillite",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Cold Storage | Route 6",
       "method": "Grass / GrassX5",
       "hint": "Tasa de Aparición: 40% (Nv. 24 - 25)",
@@ -5342,7 +5342,7 @@
     {
       "id": 583,
       "name": "Vanillish",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Dragonspiral Tower (Entryway) | Dragonspiral Tower (Outside)",
       "method": "Grass / GrassX5",
       "hint": "Tasa de Aparición: 20% (Nv. 35)",
@@ -5351,7 +5351,7 @@
     {
       "id": 584,
       "name": "Vanilluxe",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5360,7 +5360,7 @@
     {
       "id": 585,
       "name": "Deerling",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Dragonspiral Tower (Outside) | Dragonspiral Tower (Entryway)",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 30% (Nv. 32 - 34)",
@@ -5369,7 +5369,7 @@
     {
       "id": 586,
       "name": "Sawsbuck",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Dragonspiral Tower (Outside) | Dragonspiral Tower (Entryway)",
       "method": "Dark Grass / Dark GrassX5",
       "hint": "Tasa de Aparición: 30% (Nv. 35 - 37)",
@@ -5378,7 +5378,7 @@
     {
       "id": 587,
       "name": "Emolga",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Abundant Shrine | Dragonspiral Tower (Entryway)",
       "method": "Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -5387,7 +5387,7 @@
     {
       "id": 588,
       "name": "Karrablast",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 6 | Route 11",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 15% (Nv. 24 - 25)",
@@ -5396,7 +5396,7 @@
     {
       "id": 589,
       "name": "Escavalier",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 6 | Route 11",
       "method": "Grass / Dark Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -5405,7 +5405,7 @@
     {
       "id": 590,
       "name": "Foongus",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 6 | Route 7",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 10% (Nv. 24 - 25)",
@@ -5414,7 +5414,7 @@
     {
       "id": 591,
       "name": "Amoonguss",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 10 (Gate) | Route 10",
       "method": "Dark Grass / Grass",
       "hint": "Tasa de Aparición: 5% (Nv. 39 - 41)",
@@ -5423,7 +5423,7 @@
     {
       "id": 592,
       "name": "Frillish-male",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5432,7 +5432,7 @@
     {
       "id": 593,
       "name": "Jellicent-male",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5441,7 +5441,7 @@
     {
       "id": 594,
       "name": "Alomomola",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Driftveil City | P2 Laboratory",
       "method": "Water",
       "hint": "Extraído de PokeMMOHub",
@@ -5450,7 +5450,7 @@
     {
       "id": 595,
       "name": "Joltik",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Chargestone Cave (B2F) | Chargestone Cave (B1F)",
       "method": "Cave",
       "hint": "Tasa de Aparición: 15% (Nv. 27 - 29)",
@@ -5459,7 +5459,7 @@
     {
       "id": 596,
       "name": "Galvantula",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5468,7 +5468,7 @@
     {
       "id": 597,
       "name": "Ferroseed",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Chargestone Cave (1F) | Chargestone Cave (B2F)",
       "method": "Cave",
       "hint": "Tasa de Aparición: 15% (Nv. 27 - 29)",
@@ -5477,7 +5477,7 @@
     {
       "id": 598,
       "name": "Ferrothorn",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Challenger's Cave (B2F)",
       "method": "Cave",
       "hint": "Extraído de PokeMMOHub",
@@ -5486,7 +5486,7 @@
     {
       "id": 599,
       "name": "Klink",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Chargestone Cave (1F) | Chargestone Cave (B2F)",
       "method": "Cave / CaveX5",
       "hint": "Tasa de Aparición: 25% (Nv. 27 - 29)",
@@ -5495,7 +5495,7 @@
     {
       "id": 600,
       "name": "Klang",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5504,7 +5504,7 @@
     {
       "id": 601,
       "name": "Klinklang",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5513,7 +5513,7 @@
     {
       "id": 602,
       "name": "Tynamo",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Chargestone Cave (1F) | Chargestone Cave (B1F)",
       "method": "Cave / CaveX5",
       "hint": "Tasa de Aparición: 2.5% (Nv. 28 - 29)",
@@ -5522,7 +5522,7 @@
     {
       "id": 603,
       "name": "Eelektrik",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Undella Town",
       "method": "Water",
       "hint": "Extraído de PokeMMOHub",
@@ -5531,7 +5531,7 @@
     {
       "id": 604,
       "name": "Eelektross",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 13 | Undella Bay",
       "method": "Water",
       "hint": "Extraído de PokeMMOHub",
@@ -5540,7 +5540,7 @@
     {
       "id": 605,
       "name": "Elgyem",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Celestial Tower (3F) | Celestial Tower (4F)",
       "method": "Inside / Grass",
       "hint": "Tasa de Aparición: 25% (Nv. 29 - 31)",
@@ -5549,7 +5549,7 @@
     {
       "id": 606,
       "name": "Beheeyem",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 14",
       "method": "Grass / Dark Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -5558,7 +5558,7 @@
     {
       "id": 607,
       "name": "Litwick",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Celestial Tower (Rooftop) | Celestial Tower (4F)",
       "method": "Grass / Inside",
       "hint": "Tasa de Aparición: 30% (Nv. 29 - 31)",
@@ -5567,7 +5567,7 @@
     {
       "id": 608,
       "name": "Lampent",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5576,7 +5576,7 @@
     {
       "id": 609,
       "name": "Chandelure",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5585,7 +5585,7 @@
     {
       "id": 610,
       "name": "Axew",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Guidance Chamber | Mistralton Cave (2F)",
       "method": "Cave",
       "hint": "Tasa de Aparición: 10% (Nv. 32 - 34)",
@@ -5594,7 +5594,7 @@
     {
       "id": 611,
       "name": "Fraxure",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Mistralton Cave (2F) | Mistralton Cave (1F)",
       "method": "Dust Cloud / Grass",
       "hint": "Tasa de Aparición: 5% (Nv. 42 - 44)",
@@ -5603,7 +5603,7 @@
     {
       "id": 612,
       "name": "Haxorus",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5612,7 +5612,7 @@
     {
       "id": 613,
       "name": "Cubchoo",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Dragonspiral Tower (Entryway) | Dragonspiral Tower (Outside)",
       "method": "Grass / GrassX5",
       "hint": "Tasa de Aparición: 10% (Nv. 33 - 35)",
@@ -5621,7 +5621,7 @@
     {
       "id": 614,
       "name": "Beartic",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Dragonspiral Tower (Entryway) | Dragonspiral Tower (Outside)",
       "method": "Dark Grass / Dark GrassX5",
       "hint": "Tasa de Aparición: 10% (Nv. 37 - 38)",
@@ -5630,7 +5630,7 @@
     {
       "id": 615,
       "name": "Cryogonal",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Twist Mountain (Tunnel) | Twist Mountain (Cold Room)",
       "method": "Cave / CaveX5",
       "hint": "Tasa de Aparición: 10% (Nv. 32 - 33)",
@@ -5639,7 +5639,7 @@
     {
       "id": 616,
       "name": "Shelmet",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 6 | Route 11",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 10% (Nv. 24 - 25)",
@@ -5648,7 +5648,7 @@
     {
       "id": 617,
       "name": "Accelgor",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 6",
       "method": "Dark Grass",
       "hint": "Extraído de PokeMMOHub",
@@ -5657,7 +5657,7 @@
     {
       "id": 618,
       "name": "Stunfisk",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Icirrus City | Moor Of Icirrus",
       "method": "Water / Super Rod",
       "hint": "Tasa de Aparición: 65% (Nv. 32 - 34)",
@@ -5666,7 +5666,7 @@
     {
       "id": 619,
       "name": "Mienfoo",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Dragonspiral Tower (Entryway) | Dragonspiral Tower (Outside)",
       "method": "Grass / Inside",
       "hint": "Tasa de Aparición: 20% (Nv. 33 - 35)",
@@ -5675,7 +5675,7 @@
     {
       "id": 620,
       "name": "Mienshao",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 14",
       "method": "Dark Grass / Dark GrassX5",
       "hint": "Tasa de Aparición: 15% (Nv. 54 - 56)",
@@ -5684,7 +5684,7 @@
     {
       "id": 621,
       "name": "Druddigon",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Dragonspiral Tower (Entryway) | Dragonspiral Tower (1F)",
       "method": "Grass / Inside",
       "hint": "Tasa de Aparición: 5% (Nv. 33 - 35)",
@@ -5693,7 +5693,7 @@
     {
       "id": 622,
       "name": "Golett",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Dragonspiral Tower (1F) | Dragonspiral Tower (2F)",
       "method": "Inside / InsideX5",
       "hint": "Tasa de Aparición: 50% (Nv. 34 - 36)",
@@ -5702,7 +5702,7 @@
     {
       "id": 623,
       "name": "Golurk",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5711,7 +5711,7 @@
     {
       "id": 624,
       "name": "Pawniard",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 9 | Route 11",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 15% (Nv. 35 - 37)",
@@ -5720,7 +5720,7 @@
     {
       "id": 625,
       "name": "Bisharp",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 11",
       "method": "Dark Grass",
       "hint": "Tasa de Aparición: 10% (Nv. 54 - 55)",
@@ -5729,7 +5729,7 @@
     {
       "id": 626,
       "name": "Bouffalant",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 10 (Gate) | Route 10",
       "method": "Grass / Dark Grass",
       "hint": "Tasa de Aparición: 20% (Nv. 36 - 38)",
@@ -5738,7 +5738,7 @@
     {
       "id": 627,
       "name": "Rufflet",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Desert Resort (Inner) | Desert Resort (Outer)",
       "method": "Shadow / Grass",
       "hint": "Tasa de Aparición: 10% (Nv. 36 - 38)",
@@ -5747,7 +5747,7 @@
     {
       "id": 628,
       "name": "Braviary",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 11 | Route 12",
       "method": "Dark Grass / Shadow",
       "hint": "Tasa de Aparición: 5% (Nv. 54 - 55)",
@@ -5756,7 +5756,7 @@
     {
       "id": 629,
       "name": "Vullaby",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Desert Resort (Inner) | Desert Resort (Outer)",
       "method": "Shadow / Grass",
       "hint": "Tasa de Aparición: 10% (Nv. 36 - 38)",
@@ -5765,7 +5765,7 @@
     {
       "id": 630,
       "name": "Mandibuzz",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 11 | Route 12",
       "method": "Dark Grass / Shadow",
       "hint": "Tasa de Aparición: 5% (Nv. 54 - 55)",
@@ -5774,7 +5774,7 @@
     {
       "id": 631,
       "name": "Heatmor",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Twist Mountain (Tunnel) | Twist Mountain (Cold Room)",
       "method": "Cave / Grass",
       "hint": "Tasa de Aparición: 5% (Nv. 32 - 33)",
@@ -5783,7 +5783,7 @@
     {
       "id": 632,
       "name": "Durant",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Trial Chamber | Twist Mountain (Cold Room)",
       "method": "Cave / CaveX5",
       "hint": "Tasa de Aparición: 15% (Nv. 44 - 46)",
@@ -5792,7 +5792,7 @@
     {
       "id": 633,
       "name": "Deino",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Victory Road (1F)",
       "method": "Cave",
       "hint": "Tasa de Aparición: 10% (Nv. 43 - 45)",
@@ -5801,7 +5801,7 @@
     {
       "id": 634,
       "name": "Zweilous",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5810,7 +5810,7 @@
     {
       "id": 635,
       "name": "Hydreigon",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Route 15",
       "method": "Shadow",
       "hint": "Extraído de PokeMMOHub",
@@ -5819,7 +5819,7 @@
     {
       "id": 636,
       "name": "Larvesta",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "Parada: Relic Castle (Depths) | Relic Castle (B6F)",
       "method": "Cave",
       "hint": "Tasa de Aparición: 2.5% (Nv. 52 - 54)",
@@ -5828,7 +5828,7 @@
     {
       "id": 637,
       "name": "Volcarona",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5837,7 +5837,7 @@
     {
       "id": 638,
       "name": "Cobalion",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5846,7 +5846,7 @@
     {
       "id": 639,
       "name": "Terrakion",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5855,7 +5855,7 @@
     {
       "id": 640,
       "name": "Virizion",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5864,7 +5864,7 @@
     {
       "id": 641,
       "name": "Tornadus-incarnate",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5873,7 +5873,7 @@
     {
       "id": 642,
       "name": "Thundurus-incarnate",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5882,7 +5882,7 @@
     {
       "id": 643,
       "name": "Reshiram",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5891,7 +5891,7 @@
     {
       "id": 644,
       "name": "Zekrom",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5900,7 +5900,7 @@
     {
       "id": 645,
       "name": "Landorus-incarnate",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5909,7 +5909,7 @@
     {
       "id": 646,
       "name": "Kyurem",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5918,7 +5918,7 @@
     {
       "id": 647,
       "name": "Keldeo-ordinary",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5927,7 +5927,7 @@
     {
       "id": 648,
       "name": "Meloetta-aria",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",
@@ -5936,7 +5936,7 @@
     {
       "id": 649,
       "name": "Genesect",
-      "region": "Unova / Teselia",
+      "region": "Unova",
       "location": "No salvaje / Evento",
       "method": "Desconocido",
       "hint": "Edítame para asignarme a tu itinerario",

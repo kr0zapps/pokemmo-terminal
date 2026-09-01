@@ -1392,8 +1392,13 @@
         // SISTEMA DE CAPTURADOS Y EXPORTACIÓN DE BD
         // ==========================================
         function updateDexProgress() {
-            const total = POKEDEX_DB.length;
-            const caught = dexCaughtList.length;
+            const region = currentDexRegion;
+            let regionalDB = POKEDEX_DB;
+            if (region && region !== 'all') {
+                regionalDB = POKEDEX_DB.filter(p => p.region === region || (region === 'Unova' && (p.region.includes('Unova') || p.region.includes('Teselia'))));
+            }
+            const total = regionalDB.length;
+            const caught = regionalDB.filter(p => dexCaughtList.includes(p.id)).length;
             const pct = total > 0 ? Math.round((caught / total) * 100) : 0;
             
             const pText = document.getElementById('dexProgressText');
@@ -1402,7 +1407,7 @@
             
             if (pText) pText.innerText = `${caught}/${total}`;
             if (pBar) pBar.style.width = `${pct}%`;
-            if (btnCount) btnCount.innerText = caught;
+            if (btnCount) btnCount.innerText = dexCaughtList.length;
         }
 
         function showDexToast(msg) {
@@ -1699,7 +1704,7 @@
             // Filtrar región
             let list = POKEDEX_DB;
             if (region && region !== 'all') {
-                list = list.filter(p => p.region === region);
+                list = list.filter(p => p.region === region || (region === 'Unova' && (p.region.includes('Unova') || p.region.includes('Teselia'))));
             }
 
             // Procesar y parsear datos enriquecidos
