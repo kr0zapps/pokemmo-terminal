@@ -1,0 +1,8 @@
+*.py
+*.txt
+*.png
+*.log
+.user_uploaded/
+scratch/
+node_modules/
+.vercel
