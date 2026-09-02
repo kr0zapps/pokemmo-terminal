@@ -62,17 +62,18 @@ const AMULET_DURATION_MS = 60 * 60 * 1000;
 export function renderGymView() {
     return `
         <!-- Header principal de gimnasios -->
-        <div class="flex flex-wrap justify-between items-end mb-6 pb-4 border-b border-os-border gap-4">
+        <div class="flex flex-wrap justify-between items-center mb-6 pb-4 border-b border-os-border gap-4">
             <div>
-                <h1 class="text-2xl font-semibold text-os-text flex items-center gap-2">
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/exp-share.png" class="w-8 h-8 pokemon-sprite">
-                    Ruta de Gimnasios (Gym Reruns)
-                </h1>
-                <p class="text-sm text-os-muted mt-1">Temporizador de enfriamiento de 18 horas y calculadora de ganancias.</p>
+                <div class="flex items-center gap-2.5">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/exp-share.png" class="w-7 h-7 pokemon-sprite">
+                    <span class="text-xl font-pokemon text-amber-400">Gym Reruns</span>
+                    <span class="text-[10px] font-mono uppercase bg-os-elevated border border-os-border text-os-blue px-2 py-0.5 rounded font-semibold">18h CD</span>
+                </div>
+                <p class="text-xs text-os-muted mt-1">Temporizador de enfriamiento y calculadora de ganancias por líder de gimnasio.</p>
             </div>
             <div class="flex flex-wrap items-center gap-2">
-                <button id="btn-reset-gyms" class="text-xs font-mono uppercase text-os-red hover:text-white border border-os-red/30 hover:border-os-red px-3 py-1.5 transition rounded-sm">
-                    ⚠️
+                <button id="btn-reset-gyms" class="text-xs font-mono uppercase text-os-red hover:text-white bg-os-red/10 border border-os-red/30 hover:bg-os-red px-3 py-1.5 transition rounded-lg flex items-center gap-1.5 cursor-pointer">
+                    <span>⚠️</span> Resetear Todos
                 </button>
             </div>
         </div>
@@ -80,58 +81,58 @@ export function renderGymView() {
         <!-- DASHBOARD DE RERUNS: Ganancias, Progreso y Moneda Amuleto -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <!-- Ganancias Estimadas -->
-            <div class="panel p-4 flex flex-col justify-between">
+            <div class="panel p-4 flex flex-col justify-between rounded-xl">
                 <div class="flex justify-between items-start mb-2">
-                    <span class="text-[10px] font-mono uppercase tracking-widest text-os-muted">Ganancias Estimadas</span>
-                    <label class="flex items-center gap-1.5 text-[10px] font-mono text-amber-400 cursor-pointer select-none">
-                        <input type="checkbox" id="amuletCoinToggle" checked class="w-3.5 h-3.5 accent-amber-400">
-                        Moneda Amuleto (+50%)
+                    <span class="text-[10px] font-mono uppercase tracking-wider text-os-muted font-semibold">Ganancias Estimadas</span>
+                    <label class="flex items-center gap-1.5 text-[11px] font-mono text-amber-400 cursor-pointer select-none">
+                        <input type="checkbox" id="amuletCoinToggle" checked class="w-3.5 h-3.5 accent-amber-400 rounded">
+                        Amuleto (+50%)
                     </label>
                 </div>
                 <div class="flex items-baseline gap-2">
-                    <span id="gymEarningsTotal" class="text-2xl font-mono font-bold text-amber-400">$0</span>
+                    <span id="gymEarningsTotal" class="text-2xl font-mono font-bold text-amber-400 tabular-nums">$0</span>
                     <span class="text-xs font-mono text-os-muted">/ $540,000 máx</span>
                 </div>
-                <div class="w-full bg-os-bg h-1.5 rounded-full overflow-hidden border border-os-border mt-3">
-                    <div id="gymEarningsBar" class="bg-amber-400 h-full w-0 transition-all duration-500 shadow-[0_0_8px_rgba(251,191,36,0.5)]"></div>
+                <div class="w-full bg-os-bg h-2 rounded-full overflow-hidden border border-os-border mt-3">
+                    <div id="gymEarningsBar" class="bg-amber-400 h-full w-0 transition-all duration-500 rounded-full"></div>
                 </div>
             </div>
 
             <!-- Progreso de Líderes -->
-            <div class="panel p-4 flex flex-col justify-between">
+            <div class="panel p-4 flex flex-col justify-between rounded-xl">
                 <div class="flex justify-between items-start mb-2">
-                    <span class="text-[10px] font-mono uppercase tracking-widest text-os-muted">Líderes Vencidos</span>
-                    <span id="gymsReadyCount" class="text-[10px] font-mono text-os-green font-bold">40 Listos</span>
+                    <span class="text-[10px] font-mono uppercase tracking-wider text-os-muted font-semibold">Líderes Derrotados</span>
+                    <span id="gymsReadyCount" class="text-[10px] font-mono text-os-green font-bold bg-os-green/10 border border-os-green/30 px-1.5 py-0.5 rounded">40 Listos</span>
                 </div>
                 <div class="flex items-baseline gap-2">
-                    <span id="gymCountText" class="text-2xl font-mono font-bold text-os-blue">0 / 40</span>
+                    <span id="gymCountText" class="text-2xl font-mono font-bold text-os-blue tabular-nums">0 / 40</span>
                     <span class="text-xs font-mono text-os-muted">completados</span>
                 </div>
-                <div class="w-full bg-os-bg h-1.5 rounded-full overflow-hidden border border-os-border mt-3">
-                    <div id="gymCountBar" class="bg-os-blue h-full w-0 transition-all duration-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]"></div>
+                <div class="w-full bg-os-bg h-2 rounded-full overflow-hidden border border-os-border mt-3">
+                    <div id="gymCountBar" class="bg-os-blue h-full w-0 transition-all duration-500 rounded-full"></div>
                 </div>
             </div>
 
             <!-- Temporizador Moneda Amuleto (1 hora) & Compensación -->
-            <div class="panel p-4 flex flex-col justify-between">
+            <div class="panel p-4 flex flex-col justify-between rounded-xl">
                 <div class="flex justify-between items-center mb-2">
-                    <span class="text-[10px] font-mono uppercase tracking-widest text-os-muted">Temporizador Amuleto (1h)</span>
+                    <span class="text-[10px] font-mono uppercase tracking-wider text-os-muted font-semibold">Temporizador Amuleto (1h)</span>
                     <div class="flex items-center gap-1">
-                        <span class="text-[9px] font-mono text-os-muted">Compensar:</span>
-                        <input type="number" id="gymCompHours" value="0" min="0" max="18" step="0.5" class="w-12 p-1 text-[10px] text-center bg-os-bg border border-os-border text-os-green font-mono rounded" title="Horas que ya pasaron desde que hiciste el rerun">
-                        <span class="text-[9px] font-mono text-os-muted">h</span>
+                        <span class="text-[10px] font-mono text-os-muted">Compensar:</span>
+                        <input type="number" id="gymCompHours" value="0" min="0" max="18" step="0.5" class="w-12 p-1 text-[11px] text-center bg-os-bg border border-os-border text-os-green font-mono rounded" title="Horas que ya pasaron desde que hiciste el rerun">
+                        <span class="text-[10px] font-mono text-os-muted">h</span>
                     </div>
                 </div>
                 <div class="flex items-center justify-between mt-1">
                     <div>
-                        <span id="amuletTimerText" class="text-2xl font-mono font-bold text-amber-400">60:00</span>
-                        <p id="amuletStatusText" class="text-[10px] text-os-muted">Inactivo</p>
+                        <span id="amuletTimerText" class="text-2xl font-mono font-bold text-amber-400 tabular-nums">60:00</span>
+                        <p id="amuletStatusText" class="text-[10px] font-mono text-os-muted">Inactivo</p>
                     </div>
                     <div class="flex gap-2">
-                        <button id="amuletBtnStart" class="px-3 py-1.5 text-xs font-mono uppercase bg-amber-500/20 text-amber-400 border border-amber-500/40 hover:bg-amber-500 hover:text-black transition rounded-sm">
+                        <button id="amuletBtnStart" class="px-3 py-1.5 text-xs font-mono uppercase bg-amber-500/20 text-amber-400 border border-amber-500/40 hover:bg-amber-500 hover:text-black transition rounded-lg font-semibold cursor-pointer">
                             Iniciar
                         </button>
-                        <button id="amuletBtnReset" class="px-2 py-1.5 text-xs font-mono text-os-muted hover:text-os-red transition">
+                        <button id="amuletBtnReset" class="px-2 py-1.5 text-xs font-mono text-os-muted hover:text-os-red transition rounded-lg border border-os-border hover:border-os-red/40 cursor-pointer">
                             ↺
                         </button>
                     </div>
@@ -166,7 +167,7 @@ export function renderGyms() {
     for (const [regionName, list] of Object.entries(GYM_DATA)) {
         const cleanRegion = regionName.replace(/[^a-zA-Z]/g, '');
         const card = document.createElement('div');
-        card.className = "panel p-5 flex flex-col gap-4";
+        card.className = "panel p-5 flex flex-col gap-4 rounded-xl hover:border-os-border-strong transition-colors";
 
         let completedInRegion = 0;
         list.forEach((_, idx) => {
@@ -174,22 +175,22 @@ export function renderGyms() {
         });
 
         let html = `
-            <div class="flex items-center justify-between border-b border-os-border pb-2">
-                <h2 class="text-sm font-semibold text-os-blue flex items-center gap-2">
+            <div class="flex items-center justify-between border-b border-os-border pb-3">
+                <div class="flex items-center gap-2">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/vs-seeker.png" class="w-5 h-5 pokemon-sprite -ml-1">
-                    ${regionName}
-                    <span class="text-[10px] font-mono font-normal text-os-muted">(${completedInRegion}/8)</span>
-                </h2>
+                    <h2 class="text-sm font-bold text-os-text">${regionName}</h2>
+                    <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-os-elevated text-os-muted border border-os-border">(${completedInRegion}/8)</span>
+                </div>
                 <div class="flex gap-1.5">
-                    <button data-region="${regionName}" data-action="mark-all" class="text-[10px] font-mono uppercase bg-os-blue/10 hover:bg-os-blue hover:text-white text-os-blue px-2 py-0.5 border border-os-blue/30 rounded transition" title="Marcar los 8 líderes con compensación de hora">
-                        Marcar Toda
+                    <button data-region="${regionName}" data-action="mark-all" class="text-[10px] font-mono uppercase bg-os-elevated hover:bg-os-blue hover:text-black text-os-blue px-2 py-1 border border-os-border hover:border-os-blue rounded-md transition font-semibold cursor-pointer" title="Marcar los 8 líderes con compensación">
+                        Completar
                     </button>
-                    <button data-region="${regionName}" data-action="unmark-all" class="text-[10px] font-mono uppercase bg-os-bg hover:text-os-red text-os-muted px-1.5 py-0.5 border border-os-border rounded transition" title="Desmarcar region">
-                        Desmarcar
+                    <button data-region="${regionName}" data-action="unmark-all" class="text-[10px] font-mono uppercase bg-os-bg hover:text-os-red text-os-muted px-2 py-1 border border-os-border hover:border-os-red/40 rounded-md transition cursor-pointer" title="Desmarcar región">
+                        Reset
                     </button>
                 </div>
             </div>
-            <div class="space-y-3">
+            <div class="space-y-2.5">
         `;
 
         list.forEach((gym, index) => {
@@ -197,13 +198,13 @@ export function renderGyms() {
             const isChecked = localStorage.getItem(id) === 'true';
             const textClass = isChecked ? "checked-label text-os-muted line-through" : "text-os-text";
             html += `
-                <div class="flex items-center justify-between group">
-                    <label class="flex items-center gap-3 cursor-pointer w-3/4">
+                <div class="flex items-center justify-between group py-0.5">
+                    <label class="flex items-center gap-2.5 cursor-pointer flex-1 select-none">
                         <input type="checkbox" id="${id}" ${isChecked ? 'checked' : ''} data-gym-id="${id}"
-                               class="w-4 h-4 accent-os-red cursor-pointer gym-checkbox">
-                        <span id="label-${id}" class="text-[11px] font-medium ${textClass}">${gym.name}</span>
+                               class="w-4 h-4 rounded border-os-border bg-os-bg accent-os-blue cursor-pointer gym-checkbox">
+                        <span id="label-${id}" class="text-xs ${textClass}">${gym.name}</span>
                     </label>
-                    <span id="timer-${id}" class="text-[11px] font-mono tabular-nums ${isChecked ? 'text-os-red block' : 'text-os-muted hidden'}">--:--:--</span>
+                    <span id="timer-${id}" class="text-[11px] font-mono tabular-nums px-1.5 py-0.5 rounded bg-os-elevated border border-os-border ${isChecked ? 'text-amber-400 block' : 'text-os-muted hidden'}">--:--:--</span>
                 </div>`;
         });
 

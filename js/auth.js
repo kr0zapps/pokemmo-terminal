@@ -107,51 +107,55 @@ export function renderAuthUI(onSuccess) {
   if (!main) return;
 
   const html = safeHTML`
-    <div class="flex items-center justify-center min-h-screen" style="background-color: var(--os-bg, #090A0F); font-family: 'Inter', sans-serif;">
-      <div class="w-full max-w-md p-8 rounded-xl shadow-2xl" style="background-color: var(--os-panel, #13151F); border: 1px solid var(--os-border, #262A3D);">
+    <div class="flex items-center justify-center min-h-[80vh] px-4">
+      <div class="w-full max-w-md p-8 rounded-2xl shadow-2xl border border-os-border bg-os-surface">
         <div class="text-center mb-8">
-          <h1 class="text-3xl font-bold mb-2" style="color: var(--os-blue, #3B82F6);">PokéMMO Terminal</h1>
-          <p class="text-sm" style="color: var(--os-muted, #82889E);">Inicia sesión para continuar</p>
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-os-elevated border border-os-border mb-3 shadow-inner">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Pokeball" class="w-7 h-7 pokemon-sprite">
+          </div>
+          <div class="flex items-baseline justify-center gap-2 mb-1">
+            <span class="text-3xl font-pokemon tracking-wide text-[#FFCC00]">PokéMMO</span>
+            <span class="text-xs font-mono tracking-wider uppercase px-2 py-0.5 rounded bg-os-elevated border border-os-border text-os-blue font-semibold">Terminal v3.0</span>
+          </div>
+          <p class="text-xs text-os-muted mt-1">Cockpit de control táctico para entrenadores</p>
         </div>
         
-        <form id="auth-form" class="space-y-6">
-          <div id="auth-error" class="hidden p-3 text-sm rounded" style="background-color: rgba(249,56,34,0.1); color: var(--os-red, #F93822); border: 1px solid var(--os-red, #F93822);"></div>
+        <form id="auth-form" class="space-y-4">
+          <div id="auth-error" class="hidden p-3 text-xs rounded-lg bg-os-red/10 border border-os-red/30 text-os-red font-mono"></div>
           
           <div>
-            <label class="block text-sm font-medium mb-1" style="color: var(--os-text, #EDEDED);">Correo Electrónico</label>
+            <label class="block text-xs font-mono text-os-muted mb-1 uppercase font-semibold">Correo Electrónico</label>
             <input type="email" id="auth-email" required
-              class="w-full px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              style="background-color: var(--os-bg, #090A0F); border: 1px solid var(--os-border, #262A3D); color: var(--os-text, #EDEDED);" />
+              class="w-full px-3.5 py-2.5 rounded-lg text-xs font-mono bg-os-bg border border-os-border text-os-text focus:outline-none focus:border-os-blue focus:ring-2 focus:ring-os-blue/20 transition" placeholder="entrenador@pokemmo.com" />
           </div>
           
           <div>
-            <label class="block text-sm font-medium mb-1" style="color: var(--os-text, #EDEDED);">Contraseña</label>
+            <label class="block text-xs font-mono text-os-muted mb-1 uppercase font-semibold">Contraseña</label>
             <input type="password" id="auth-password" required
-              class="w-full px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              style="background-color: var(--os-bg, #090A0F); border: 1px solid var(--os-border, #262A3D); color: var(--os-text, #EDEDED);" />
+              class="w-full px-3.5 py-2.5 rounded-lg text-xs font-mono bg-os-bg border border-os-border text-os-text focus:outline-none focus:border-os-blue focus:ring-2 focus:ring-os-blue/20 transition" placeholder="••••••••" />
           </div>
 
-          <div class="flex items-center">
-            <input type="checkbox" id="auth-remember" class="w-4 h-4 rounded border-gray-600 bg-gray-700 text-blue-500 focus:ring-blue-500 focus:ring-offset-gray-900">
-            <label for="auth-remember" class="ml-2 text-sm" style="color: var(--os-muted, #82889E);">Recordar sesión</label>
+          <div class="flex items-center pt-1">
+            <input type="checkbox" id="auth-remember" class="w-4 h-4 rounded border-os-border bg-os-bg accent-os-blue cursor-pointer">
+            <label for="auth-remember" class="ml-2 text-xs text-os-muted select-none cursor-pointer">Recordar sesión</label>
           </div>
           
-          <div class="flex gap-4 pt-2">
-            <button type="submit" id="btn-login" class="flex-1 py-2 px-4 rounded font-medium transition-colors hover:opacity-90" style="background-color: var(--os-blue, #3B82F6); color: white;">
+          <div class="flex gap-3 pt-2">
+            <button type="submit" id="btn-login" class="flex-1 py-2.5 px-4 rounded-lg font-semibold text-xs transition-colors hover:opacity-90 bg-blue-600 hover:bg-blue-500 text-white cursor-pointer shadow-sm">
               Iniciar Sesión
             </button>
-            <button type="button" id="btn-register" class="flex-1 py-2 px-4 rounded font-medium transition-colors hover:opacity-90" style="background-color: transparent; border: 1px solid var(--os-blue, #3B82F6); color: var(--os-blue, #3B82F6);">
+            <button type="button" id="btn-register" class="flex-1 py-2.5 px-4 rounded-lg font-semibold text-xs transition-colors hover:bg-os-elevated border border-os-border text-os-text cursor-pointer">
               Registrarse
             </button>
           </div>
 
-          <div class="relative flex py-1 items-center">
-            <div class="flex-grow border-t" style="border-color: var(--os-border, #262A3D);"></div>
-            <span class="flex-shrink mx-3 text-[11px] font-mono uppercase" style="color: var(--os-muted, #82889E);">O sin cuenta</span>
-            <div class="flex-grow border-t" style="border-color: var(--os-border, #262A3D);"></div>
+          <div class="relative flex py-2 items-center">
+            <div class="flex-grow border-t border-os-border"></div>
+            <span class="flex-shrink mx-3 text-[10px] font-mono uppercase text-os-muted">O sin registrarte</span>
+            <div class="flex-grow border-t border-os-border"></div>
           </div>
 
-          <button type="button" id="btn-guest" class="w-full py-2 px-4 rounded font-medium text-xs transition-colors hover:opacity-90 flex items-center justify-center gap-2" style="background-color: rgba(255,255,255,0.03); border: 1px solid var(--os-border, #262A3D); color: var(--os-text, #EDEDED);">
+          <button type="button" id="btn-guest" class="w-full py-2.5 px-4 rounded-lg font-medium text-xs transition-all hover:bg-os-elevated border border-os-border hover:border-os-border-strong text-os-text flex items-center justify-center gap-2 cursor-pointer shadow-sm">
             <span>🎮</span> Continuar como Invitado (Guardado Local)
           </button>
         </form>

@@ -13,15 +13,19 @@ let POST_EVO_MAP = {};
 export function renderPokédexView() {
     return `
         <div id="view-pokedex" class="hidden animate-fade-in">
-            <div class="flex justify-between items-end mb-8 pb-4 border-b border-os-border">
+            <div class="flex flex-wrap justify-between items-center mb-6 pb-4 border-b border-os-border gap-4">
                 <div>
-                    <h1 class="text-2xl font-semibold text-os-text flex items-center gap-2"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/town-map.png" class="w-8 h-8 pokemon-sprite">Itinerario de Captura</h1>
-                    <p class="text-sm text-os-muted mt-1">Ruteo geográfico secuencial.</p>
+                    <div class="flex items-center gap-2.5">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/town-map.png" class="w-7 h-7 pokemon-sprite">
+                        <span class="text-xl font-pokemon text-amber-400">Pokédex Optimizer</span>
+                        <span class="text-[10px] font-mono uppercase bg-os-elevated border border-os-border text-os-blue px-2 py-0.5 rounded font-semibold">Itinerario</span>
+                    </div>
+                    <p class="text-xs text-os-muted mt-1">Ruteo geográfico secuencial y optimización de captura salvaje.</p>
                 </div>
                 <div class="flex flex-wrap items-center gap-2">
-                    <button onclick="window.pokedex.openCaughtModal()" class="border border-os-green/60 text-os-green hover:bg-os-green hover:text-white px-3 py-1.5 text-xs uppercase font-mono transition flex items-center gap-1.5 shadow-[0_0_10px_rgba(16,185,129,0.2)] rounded-sm">
+                    <button onclick="window.pokedex.openCaughtModal()" class="border border-os-green/40 bg-os-green/10 text-os-green hover:bg-os-green hover:text-black px-3.5 py-1.5 text-xs font-mono font-semibold transition flex items-center gap-2 rounded-lg cursor-pointer">
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" class="w-4 h-4 pixelated">
-                        <span>Capturados (<strong id="btnCaughtCount">0</strong>)</span>
+                        <span>Capturados (<strong id="btnCaughtCount" class="tabular-nums">0</strong>)</span>
                     </button>
                 </div>
             </div>
@@ -29,13 +33,13 @@ export function renderPokédexView() {
             <div class="flex flex-col gap-4 mb-6">
                 <!-- Region Tabs -->
                 <div class="flex flex-wrap items-center justify-between gap-4">
-                    <div id="regiónTabs" class="flex gap-2 overflow-x-auto pb-1">
-                        <button onclick="window.pokedex.setRegion('Kanto')" id="reg-Kanto" class="px-4 py-1.5 text-xs font-bold uppercase tracking-widest bg-os-blue text-white rounded shadow-[0_0_10px_rgba(59,130,246,0.3)] border border-os-blue transition">Kanto</button>
-                        <button onclick="window.pokedex.setRegion('Johto')" id="reg-Johto" class="px-4 py-1.5 text-xs font-bold uppercase tracking-widest bg-os-panel text-os-muted border border-os-border hover:text-os-blue hover:border-os-blue transition rounded">Johto</button>
-                        <button onclick="window.pokedex.setRegion('Hoenn')" id="reg-Hoenn" class="px-4 py-1.5 text-xs font-bold uppercase tracking-widest bg-os-panel text-os-muted border border-os-border hover:text-os-blue hover:border-os-blue transition rounded">Hoenn</button>
-                        <button onclick="window.pokedex.setRegion('Sinnoh')" id="reg-Sinnoh" class="px-4 py-1.5 text-xs font-bold uppercase tracking-widest bg-os-panel text-os-muted border border-os-border hover:text-os-blue hover:border-os-blue transition rounded">Sinnoh</button>
-                        <button onclick="window.pokedex.setRegion('Unova')" id="reg-Unova" class="px-4 py-1.5 text-xs font-bold uppercase tracking-widest bg-os-panel text-os-muted border border-os-border hover:text-os-blue hover:border-os-blue transition rounded">Unova</button>
-                        <button onclick="window.pokedex.setRegion('all')" id="reg-all" class="px-4 py-1.5 text-xs font-bold uppercase tracking-widest bg-os-panel text-os-muted border border-os-border hover:text-os-blue hover:border-os-blue transition rounded">Todas</button>
+                    <div id="regiónTabs" class="flex gap-1.5 overflow-x-auto pb-1 bg-os-surface border border-os-border p-1 rounded-lg">
+                        <button onclick="window.pokedex.setRegion('Kanto')" id="reg-Kanto" class="px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider bg-os-elevated text-white rounded-md border border-os-border-strong transition cursor-pointer">Kanto</button>
+                        <button onclick="window.pokedex.setRegion('Johto')" id="reg-Johto" class="px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-os-muted hover:text-white transition rounded-md border border-transparent cursor-pointer">Johto</button>
+                        <button onclick="window.pokedex.setRegion('Hoenn')" id="reg-Hoenn" class="px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-os-muted hover:text-white transition rounded-md border border-transparent cursor-pointer">Hoenn</button>
+                        <button onclick="window.pokedex.setRegion('Sinnoh')" id="reg-Sinnoh" class="px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-os-muted hover:text-white transition rounded-md border border-transparent cursor-pointer">Sinnoh</button>
+                        <button onclick="window.pokedex.setRegion('Unova')" id="reg-Unova" class="px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-os-muted hover:text-white transition rounded-md border border-transparent cursor-pointer">Unova</button>
+                        <button onclick="window.pokedex.setRegion('all')" id="reg-all" class="px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-os-muted hover:text-white transition rounded-md border border-transparent cursor-pointer">Todas</button>
                     </div>
                     
                     <div class="flex flex-wrap items-center gap-3">
@@ -347,9 +351,9 @@ export function setRegion(region) {
         const btn = document.getElementById('reg-' + r);
         if (!btn) return;
         if(r === region) {
-            btn.className = "px-4 py-1.5 text-xs font-bold uppercase tracking-widest bg-os-blue text-white rounded shadow-[0_0_10px_rgba(59,130,246,0.3)] border border-os-blue transition";
+            btn.className = "px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider bg-os-elevated text-white rounded-md border border-os-border-strong transition cursor-pointer";
         } else {
-            btn.className = "px-4 py-1.5 text-xs font-bold uppercase tracking-widest bg-os-panel text-os-muted border border-os-border hover:text-os-blue hover:border-os-blue transition rounded";
+            btn.className = "px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-os-muted hover:text-white transition rounded-md border border-transparent cursor-pointer";
         }
     });
     dexCurrentPage = 1;

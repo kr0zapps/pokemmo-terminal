@@ -19,68 +19,71 @@ let currentEggGroupSpecies = [];
 export function renderBreedingView() {
     return `
 <div id="view-breeding" class="hidden animate-fade-in pb-20">
-    <div class="flex justify-between items-end mb-8 pb-4 border-b border-os-border">
+    <div class="flex flex-wrap justify-between items-center mb-6 pb-4 border-b border-os-border gap-4">
         <div>
-            <h1 class="text-2xl font-semibold text-os-text flex items-center gap-2">🥚 Calculadora de Crianza Maestra</h1>
-            <p class="text-sm text-os-muted mt-1">Selecciona tus IVs deseados para generar la lista de compras exacta del GTL.</p>
+            <div class="flex items-center gap-2.5">
+                <span class="text-xl font-pokemon text-amber-400">Crianza Maestra</span>
+                <span class="text-[10px] font-mono uppercase bg-os-elevated border border-os-border text-os-blue px-2 py-0.5 rounded font-semibold">Simulador IVs</span>
+            </div>
+            <p class="text-xs text-os-muted mt-1">Generador de árboles genealógicos y presupuesto exacto de brazales para el GTL.</p>
         </div>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <!-- Controles -->
         <div class="lg:col-span-1 space-y-6">
-            <div class="panel p-5 border border-os-border rounded-md bg-os-bg shadow-lg">
+            <div class="panel p-5 rounded-xl">
                 
-                <div class="mb-4 border-b border-os-border/50 pb-4">
+                <div class="mb-4 border-b border-os-border pb-4">
                     <label class="block text-xs font-mono text-os-muted mb-2">Pokémon Objetivo (Opcional):</label>
                     <div class="flex gap-2">
-                        <input type="text" id="breeding-target" list="pokedex-list-breeding" class="w-full bg-os-bg border border-os-border text-sm p-2 rounded text-os-text focus:border-os-blue outline-none" placeholder="Ej. Garchomp">
-                        <button id="btn-fetch-pokemon" class="px-3 bg-os-border hover:bg-os-blue text-os-text rounded">🔍</button>
+                        <input type="text" id="breeding-target" list="pokedex-list-breeding" class="w-full bg-os-bg border border-os-border text-xs p-2.5 rounded-lg text-os-text focus:border-os-blue outline-none font-mono" placeholder="Ej. Garchomp">
+                        <button id="btn-fetch-pokemon" class="px-3 bg-os-elevated hover:bg-os-blue hover:text-black border border-os-border text-os-text rounded-lg transition cursor-pointer">🔍</button>
                     </div>
-                    <div id="target-info" class="text-xs text-os-muted mt-2 hidden flex flex-col gap-1">
+                    <div id="target-info" class="text-xs text-os-muted mt-2.5 hidden flex flex-col gap-1.5 bg-os-bg p-2.5 rounded-lg border border-os-border">
                         <div>Grupos Huevo: <span id="target-egg-group" class="text-white font-bold"></span></div>
-                        <div>Costo Género: <span id="target-gender-cost" class="text-amber-400 font-bold"></span> por cruce</div>
+                        <div>Costo Género: <span id="target-gender-cost" class="text-amber-400 font-bold tabular-nums"></span> por cruce</div>
                     </div>
                 </div>
                 <datalist id="pokedex-list-breeding"></datalist>
 
-                <h2 class="text-sm font-bold text-os-text mb-4 uppercase tracking-wider border-b border-os-border/50 pb-2">Selección de IVs a 31</h2>
+                <h2 class="text-xs font-mono font-semibold text-os-text mb-3 uppercase tracking-wider border-b border-os-border pb-2">Selección de IVs a 31</h2>
                 
-                <div class="grid grid-cols-2 gap-3 mb-4">
-                    <label class="flex items-center gap-2 p-2 border border-os-border rounded hover:bg-os-border/30 cursor-pointer transition">
+                <div class="grid grid-cols-2 gap-2.5 mb-4">
+                    <label class="flex items-center gap-2 p-2 border border-os-border rounded-lg hover:bg-os-elevated cursor-pointer transition select-none">
                         <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-os-blue" value="HP" checked>
-                        <span class="text-sm font-mono">Salud (HP)</span>
+                        <span class="text-xs font-mono">Salud (HP)</span>
                     </label>
-                    <label class="flex items-center gap-2 p-2 border border-os-border rounded hover:bg-os-border/30 cursor-pointer transition">
+                    <label class="flex items-center gap-2 p-2 border border-os-border rounded-lg hover:bg-os-elevated cursor-pointer transition select-none">
                         <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-os-blue" value="Atk" checked>
-                        <span class="text-sm font-mono">Ataque</span>
+                        <span class="text-xs font-mono">Ataque</span>
                     </label>
-                    <label class="flex items-center gap-2 p-2 border border-os-border rounded hover:bg-os-border/30 cursor-pointer transition">
+                    <label class="flex items-center gap-2 p-2 border border-os-border rounded-lg hover:bg-os-elevated cursor-pointer transition select-none">
                         <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-os-blue" value="Def" checked>
-                        <span class="text-sm font-mono">Defensa</span>
+                        <span class="text-xs font-mono">Defensa</span>
                     </label>
-                    <label class="flex items-center gap-2 p-2 border border-os-border rounded hover:bg-os-border/30 cursor-pointer transition">
+                    <label class="flex items-center gap-2 p-2 border border-os-border rounded-lg hover:bg-os-elevated cursor-pointer transition select-none">
                         <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-os-blue" value="SpA">
-                        <span class="text-sm font-mono">Atq. Esp</span>
+                        <span class="text-xs font-mono">Atq. Esp</span>
                     </label>
-                    <label class="flex items-center gap-2 p-2 border border-os-border rounded hover:bg-os-border/30 cursor-pointer transition">
+                    <label class="flex items-center gap-2 p-2 border border-os-border rounded-lg hover:bg-os-elevated cursor-pointer transition select-none">
                         <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-os-blue" value="SpD" checked>
-                        <span class="text-sm font-mono">Def. Esp</span>
+                        <span class="text-xs font-mono">Def. Esp</span>
                     </label>
-                    <label class="flex items-center gap-2 p-2 border border-os-border rounded hover:bg-os-border/30 cursor-pointer transition">
+                    <label class="flex items-center gap-2 p-2 border border-os-border rounded-lg hover:bg-os-elevated cursor-pointer transition select-none">
                         <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-os-blue" value="Spe" checked>
-                        <span class="text-sm font-mono">Velocidad</span>
+                        <span class="text-xs font-mono">Velocidad</span>
                     </label>
                 </div>
 
-                <div class="border-t border-os-border/50 pt-4">
-                    <label class="flex items-center gap-2 p-2 border border-amber-500/30 bg-amber-500/10 rounded cursor-pointer transition mb-4">
+                <div class="border-t border-os-border pt-4">
+                    <label class="flex items-center gap-2 p-2 border border-amber-500/30 bg-amber-500/10 rounded-lg cursor-pointer transition mb-4 select-none">
                         <input type="checkbox" id="breeding-nature" class="w-4 h-4 rounded border-os-border bg-os-bg accent-amber-500" checked>
-                        <span class="text-sm font-mono text-amber-300">Heredar Naturaleza</span>
+                        <span class="text-xs font-mono text-amber-300 font-semibold">Heredar Naturaleza</span>
                     </label>
                     
                     <label class="block text-xs font-mono text-os-muted mb-2">Ahorro: Ya poseo en mi caja...</label>
-                    <select id="owned-breeder" class="w-full bg-os-bg border border-os-border text-sm p-2 rounded text-os-text focus:border-os-blue outline-none cursor-pointer font-mono">
+                    <select id="owned-breeder" class="w-full bg-os-bg border border-os-border text-xs p-2.5 rounded-lg text-os-text focus:border-os-blue outline-none cursor-pointer font-mono">
                         <option value="none">Ninguno (Desde cero)</option>
                         <option value="2_false">Un 2x31</option>
                         <option value="2_true">Un 2x31 + Naturaleza</option>
@@ -93,25 +96,30 @@ export function renderBreedingView() {
                 </div>
             </div>
 
-            <div class="panel p-5 border border-os-border rounded-md bg-[#0a192f] border-blue-900/50 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-                <h2 class="text-sm font-bold text-blue-400 mb-4 uppercase tracking-wider border-b border-blue-900 pb-2">🛒 Lista de Compras GTL</h2>
-                <div id="shopping-list" class="space-y-3 font-mono text-xs text-os-text"></div>
-                <div class="mt-6 pt-4 border-t border-os-border/50 text-right">
-                    <div class="text-os-muted mb-1 text-[10px]">Presupuesto Estimado</div>
-                    <div id="cost-total-pokeyen" class="text-xl font-bold text-emerald-400">$0</div>
+            <div class="panel p-5 rounded-xl border border-os-border flex flex-col justify-between">
+                <div>
+                    <h2 class="text-xs font-mono font-semibold text-os-blue mb-3 uppercase tracking-wider border-b border-os-border pb-2 flex items-center justify-between">
+                        <span>🛒 Compras GTL</span>
+                        <span class="text-[10px] text-os-muted font-normal">Insumos</span>
+                    </h2>
+                    <div id="shopping-list" class="space-y-2 font-mono text-xs text-os-text"></div>
+                </div>
+                <div class="mt-6 pt-4 border-t border-os-border text-right">
+                    <div class="text-os-muted mb-1 text-[10px] uppercase font-mono font-semibold tracking-wider">Presupuesto Estimado</div>
+                    <div id="cost-total-pokeyen" class="text-2xl font-mono font-bold text-amber-400 tabular-nums">$0</div>
                 </div>
             </div>
         </div>
 
         <!-- Diagrama -->
         <div class="lg:col-span-3">
-            <div class="panel p-5 border border-os-border rounded-md bg-[#1e1e1e] min-h-[600px] overflow-auto relative shadow-lg">
-                <div class="flex justify-between items-center mb-4 border-b border-os-border/50 pb-2">
-                    <h2 class="text-sm font-bold text-os-text uppercase tracking-wider">Diagrama Genético (Bottom-Up)</h2>
-                    <button id="btn-update-tree" class="px-3 py-1 bg-os-border hover:bg-os-blue text-xs font-mono rounded transition shadow">Actualizar Árbol</button>
+            <div class="panel p-5 rounded-xl border border-os-border min-h-[600px] overflow-auto relative">
+                <div class="flex justify-between items-center mb-4 border-b border-os-border pb-3">
+                    <h2 class="text-xs font-mono font-semibold text-os-text uppercase tracking-wider">Diagrama Genético (Bottom-Up)</h2>
+                    <button id="btn-update-tree" class="px-3 py-1.5 bg-os-elevated hover:bg-os-blue hover:text-black border border-os-border text-xs font-mono rounded-lg transition font-semibold cursor-pointer">Actualizar Árbol</button>
                 </div>
                 <div id="mermaid-container" class="w-full flex justify-center mt-4">
-                    <div class="text-os-muted text-sm mt-10">Selecciona entre 2 y 6 IVs para generar el árbol...</div>
+                    <div class="text-os-muted text-xs font-mono mt-10">Selecciona entre 2 y 6 IVs para generar el árbol...</div>
                 </div>
             </div>
         </div>

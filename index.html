@@ -13,7 +13,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
     
     <!-- Tailwind Configuration -->
@@ -22,19 +22,25 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
+                        sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                        pokemon: ['"Pokemon Solid"', 'sans-serif'],
                     },
                     colors: {
                         os: {
-                            bg: '#090A0F',
-                            panel: '#13151F',
-                            border: '#262A3D',
-                            red: '#F93822',
+                            bg: '#0C0E14',
+                            panel: '#151921',
+                            surface: '#151921',
+                            elevated: '#1C222E',
+                            border: '#232A38',
+                            'border-subtle': '#1A202C',
+                            'border-strong': '#323D4E',
+                            red: '#E04848',
                             green: '#10B981',
-                            blue: '#3B82F6',
-                            text: '#EDEDED',
-                            muted: '#82889E'
+                            blue: '#38BDF8',
+                            gold: '#F59E0B',
+                            text: '#F1F5F9',
+                            muted: '#8592A6'
                         }
                     }
                 }
@@ -45,23 +51,35 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="font-sans antialiased min-h-screen flex flex-col selection:bg-os-red selection:text-white">
+<body class="font-sans antialiased min-h-screen flex flex-col bg-os-bg text-os-text selection:bg-os-blue/30 selection:text-white">
 
     <!-- HEADER / NAVIGATION -->
-    <header class="border-b border-os-border bg-os-panel">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center py-4 gap-4">
+    <header class="sticky top-0 z-40 border-b border-os-border bg-[#0C0E14]/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center py-3 gap-3">
                 <div class="flex items-center gap-3">
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Pokeball" class="w-5 h-5 animate-spin-slow pokemon-sprite">
-                    <span class="text-xl font-pokemon tracking-widest uppercase mt-1">PokéMMO Terminal</span>
-                    <span class="text-xs font-mono text-os-muted ml-2 mt-2">v3.0</span>
+                    <div class="w-8 h-8 rounded-lg bg-os-surface border border-os-border flex items-center justify-center shadow-inner">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Pokeball" class="w-5 h-5 pokemon-sprite">
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-2xl font-pokemon tracking-wide text-[#FFCC00]">PokéMMO</span>
+                        <span class="text-[10px] font-mono tracking-wider uppercase px-2 py-0.5 rounded bg-os-elevated border border-os-border text-os-blue font-semibold">Terminal v3.0</span>
+                    </div>
                 </div>
                 <div class="flex flex-wrap items-center justify-between w-full md:w-auto gap-3">
-                    <nav class="flex gap-2">
-                        <button id="nav-gyms" onclick="switchTab('gyms')" class="tab-btn">Gym Reruns</button>
-                        <button id="nav-berries" onclick="switchTab('berries')" class="tab-btn">Cultivo de Bayas</button>
-                        <button id="nav-pokedex" onclick="switchTab('pokedex')" class="tab-btn">Pokédex Optimizer</button>
-                        <button id="nav-breeding" onclick="switchTab('breeding')" class="tab-btn">Crianza (Breeding)</button>
+                    <nav class="flex items-center p-1 bg-os-surface border border-os-border rounded-lg gap-1 overflow-x-auto max-w-full">
+                        <button id="nav-gyms" onclick="switchTab('gyms')" class="tab-pill">
+                            <span>🏆</span> Gym Reruns
+                        </button>
+                        <button id="nav-berries" onclick="switchTab('berries')" class="tab-pill">
+                            <span>🌱</span> Cultivo de Bayas
+                        </button>
+                        <button id="nav-pokedex" onclick="switchTab('pokedex')" class="tab-pill">
+                            <span>📱</span> Pokédex
+                        </button>
+                        <button id="nav-breeding" onclick="switchTab('breeding')" class="tab-pill">
+                            <span>🥚</span> Crianza
+                        </button>
                     </nav>
                     <div id="auth-area">
                         <!-- User email, logout, and sync badge injected here -->

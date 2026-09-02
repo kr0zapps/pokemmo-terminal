@@ -1,63 +1,130 @@
-        .font-pokemon { font-family: 'Pokemon Solid', sans-serif; font-weight: normal; letter-spacing: 2px; color: #FFCC00; -webkit-text-stroke: 1px #3B4CCA; text-shadow: 2px 2px 0 #3B4CCA; }
-        @keyframes spin-slow { 100% { transform: rotate(360deg); } }
-        .animate-spin-slow { animation: spin-slow 4s linear infinite; }
-        .pokemon-sprite, .pixelated { image-rendering: pixelated; }
+/* css/styles.css - PokéMMO Terminal v3.0 Design System */
 
-        body { background-color: #090A0F; color: #EDEDED; }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #090A0F; }
-        ::-webkit-scrollbar-thumb { background: #262A3D; }
-        ::-webkit-scrollbar-thumb:hover { background: #82889E; }
-        
-        /* Hardware UI Accents */
-        .panel { background-color: #13151F; border: 1px solid #262A3D; }
-        .data-value { font-family: 'JetBrains Mono', monospace; }
-        
-        .tab-btn {
-            padding: 0.75rem 1.25rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: #82889E;
-            border-bottom: 2px solid transparent;
-            transition: all 0.2s;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .tab-btn:hover { color: #EDEDED; }
-        .tab-active {
-            color: #F93822;
-            border-bottom: 2px solid #F93822;
-        }
-        
-        /* Input overrides */
-        input, select { 
-            background: #090A0F !important; 
-            border: 1px solid #262A3D !important; 
-            color: #EDEDED !important;
-            border-radius: 2px !important;
-        }
-        input:focus, select:focus {
-            border-color: #F93822 !important;
-            outline: none !important;
-            box-shadow: none !important;
-        }
-        
-        /* Button overrides */
-        .btn-primary {
-            background-color: #F93822;
-            color: white;
-            border-radius: 2px;
-            font-weight: 600;
-            transition: opacity 0.2s;
-        }
-        .btn-primary:hover { opacity: 0.9; }
-        
-        /* Stop timeline rendering */
-        .timeline-line {
-            position: absolute;
-            left: 0.75rem;
-            top: 2rem;
-            bottom: -2rem;
-            width: 2px;
-            background: #262A3D;
-        }
+:root {
+    --os-bg: #0C0E14;
+    --os-panel: #151921;
+    --os-surface: #151921;
+    --os-elevated: #1C222E;
+    --os-border: #232A38;
+    --os-border-subtle: #1A202C;
+    --os-border-strong: #323D4E;
+    --os-text: #F1F5F9;
+    --os-muted: #8592A6;
+    --os-red: #E04848;
+    --os-green: #10B981;
+    --os-blue: #38BDF8;
+    --os-gold: #F59E0B;
+}
+
+/* Pokemon Solid Font Brand Accent */
+.font-pokemon {
+    font-family: 'Pokemon Solid', sans-serif;
+    font-weight: normal;
+    letter-spacing: 1.5px;
+    color: #FFCC00;
+    -webkit-text-stroke: 1px #253375;
+    text-shadow: 1px 1px 0 #182252;
+}
+
+.pokemon-sprite, .pixelated {
+    image-rendering: pixelated;
+}
+
+body {
+    background-color: var(--os-bg);
+    color: var(--os-text);
+}
+
+/* Technical Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--os-bg);
+}
+::-webkit-scrollbar-thumb {
+    background: #232A38;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #354054;
+}
+
+/* Cards & Surfaces */
+.panel, .card-cockpit {
+    background-color: var(--os-panel);
+    border: 1px solid var(--os-border);
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.data-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Nav Tab Pills */
+.tab-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--os-muted);
+    border-radius: 6px;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+.tab-pill:hover {
+    color: var(--os-text);
+    background: rgba(255, 255, 255, 0.04);
+}
+.tab-pill.tab-active {
+    color: #FFFFFF;
+    background-color: var(--os-elevated);
+    border-color: #354054;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+/* Input & Select Controls */
+input, select, textarea {
+    background-color: #0C0E14 !important;
+    border: 1px solid var(--os-border) !important;
+    color: var(--os-text) !important;
+    border-radius: 6px !important;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+input:focus, select:focus, textarea:focus {
+    border-color: var(--os-blue) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25) !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #2563EB;
+    color: white;
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.15s ease, transform 0.05s ease;
+}
+.btn-primary:hover {
+    background-color: #1D4ED8;
+}
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+    animation: fadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

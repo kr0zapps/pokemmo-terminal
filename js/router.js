@@ -25,11 +25,9 @@ export async function switchTab(tabId) {
     
     if (btn) {
       if (t.id === tabId) {
-        btn.classList.add('bg-[var(--os-panel)]', 'text-[var(--os-blue)]', 'border-b-2', 'border-[var(--os-blue)]');
-        btn.classList.remove('text-[var(--os-muted)]', 'hover:text-[var(--os-text)]');
+        btn.classList.add('tab-active');
       } else {
-        btn.classList.remove('bg-[var(--os-panel)]', 'text-[var(--os-blue)]', 'border-b-2', 'border-[var(--os-blue)]');
-        btn.classList.add('text-[var(--os-muted)]', 'hover:text-[var(--os-text)]');
+        btn.classList.remove('tab-active');
       }
     }
   });

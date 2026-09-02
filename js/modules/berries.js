@@ -135,38 +135,44 @@ let timerInterval = null;
 export function renderBerryView() {
     return `
         <div id="view-berries" class="hidden animate-fade-in">
-            <div class="flex justify-between items-end mb-8 pb-4 border-b border-os-border">
+            <div class="flex flex-wrap justify-between items-center mb-6 pb-4 border-b border-os-border gap-4">
                 <div>
-                    <h1 class="text-2xl font-semibold text-os-text">Módulo Botánico</h1>
-                    <p class="text-sm text-os-muted mt-1">Cálculo de inventario y monitoreo de suelo.</p>
+                    <div class="flex items-center gap-2.5">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/leppa-berry.png" class="w-7 h-7 pokemon-sprite">
+                        <span class="text-xl font-pokemon text-amber-400">Cultivo de Bayas</span>
+                        <span class="text-[10px] font-mono uppercase bg-os-elevated border border-os-border text-os-green px-2 py-0.5 rounded font-semibold">Sensor Botánico</span>
+                    </div>
+                    <p class="text-xs text-os-muted mt-1">Cálculo de inventario de semillas, recetas genéticas y monitoreo de hidratación.</p>
                 </div>
-                <div class="text-right">
-                    <p class="text-[10px] text-os-muted uppercase tracking-widest">Rondas Completadas</p>
-                    <p class="text-2xl data-value text-os-green" id="totalHarvested">0</p>
-                    <button id="btnResetHarvest" class="text-[10px] text-os-muted hover:text-os-red underline mt-1">Reset</button>
+                <div class="text-right flex items-center gap-3">
+                    <div class="bg-os-surface border border-os-border px-3.5 py-1.5 rounded-xl text-right">
+                        <p class="text-[10px] text-os-muted uppercase font-mono font-semibold tracking-wider">Rondas Cosechadas</p>
+                        <p class="text-xl font-mono font-bold text-os-green tabular-nums" id="totalHarvested">0</p>
+                    </div>
+                    <button id="btnResetHarvest" class="text-xs font-mono text-os-muted hover:text-os-red transition border border-os-border hover:border-os-red/40 px-2.5 py-2.5 rounded-lg cursor-pointer" title="Reiniciar contador">↺</button>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
                 <!-- SEED CALCULATOR -->
-                <section class="panel p-6">
-                    <h2 class="text-sm font-mono text-os-muted uppercase tracking-widest mb-4">Inventario de Semillas</h2>
+                <section class="panel p-5 rounded-xl">
+                    <h2 class="text-xs font-mono text-os-muted uppercase tracking-wider mb-4 font-semibold">Inventario de Semillas</h2>
                     
-                    <div class="grid grid-cols-5 gap-2 mb-6">
-                        <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Picante</label><input type="number" id="inv_picante" min="0" value="0" class="w-full p-2 text-sm text-center"></div>
-                        <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Dulce</label><input type="number" id="inv_dulce" min="0" value="0" class="w-full p-2 text-sm text-center"></div>
-                        <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Seca</label><input type="number" id="inv_seca" min="0" value="0" class="w-full p-2 text-sm text-center"></div>
-                        <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Amarga</label><input type="number" id="inv_amarga" min="0" value="0" class="w-full p-2 text-sm text-center"></div>
-                        <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Ácida</label><input type="number" id="inv_acida" min="0" value="0" class="w-full p-2 text-sm text-center"></div>
+                    <div class="grid grid-cols-5 gap-2 mb-5">
+                        <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Picante</label><input type="number" id="inv_picante" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
+                        <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Dulce</label><input type="number" id="inv_dulce" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
+                        <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Seca</label><input type="number" id="inv_seca" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
+                        <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Amarga</label><input type="number" id="inv_amarga" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
+                        <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Ácida</label><input type="number" id="inv_acida" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
                         
-                        <div><label class="block text-[10px] uppercase text-os-red mb-1 truncate font-bold">M. Picante</label><input type="number" id="inv_v_picante" min="0" value="0" class="w-full p-2 text-sm text-center border-os-red/30"></div>
-                        <div><label class="block text-[10px] uppercase text-pink-500 mb-1 truncate font-bold">M. Dulce</label><input type="number" id="inv_v_dulce" min="0" value="0" class="w-full p-2 text-sm text-center border-pink-500/30"></div>
-                        <div><label class="block text-[10px] uppercase text-blue-500 mb-1 truncate font-bold">M. Seca</label><input type="number" id="inv_v_seca" min="0" value="0" class="w-full p-2 text-sm text-center border-blue-500/30"></div>
-                        <div><label class="block text-[10px] uppercase text-green-500 mb-1 truncate font-bold">M. Amarga</label><input type="number" id="inv_v_amarga" min="0" value="0" class="w-full p-2 text-sm text-center border-green-500/30"></div>
-                        <div><label class="block text-[10px] uppercase text-yellow-500 mb-1 truncate font-bold">M. Ácida</label><input type="number" id="inv_v_acida" min="0" value="0" class="w-full p-2 text-sm text-center border-yellow-500/30"></div>
+                        <div><label class="block text-[10px] uppercase text-os-red mb-1 truncate font-bold">M. Picante</label><input type="number" id="inv_v_picante" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-os-red/40"></div>
+                        <div><label class="block text-[10px] uppercase text-pink-400 mb-1 truncate font-bold">M. Dulce</label><input type="number" id="inv_v_dulce" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-pink-500/40"></div>
+                        <div><label class="block text-[10px] uppercase text-blue-400 mb-1 truncate font-bold">M. Seca</label><input type="number" id="inv_v_seca" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-blue-500/40"></div>
+                        <div><label class="block text-[10px] uppercase text-green-400 mb-1 truncate font-bold">M. Amarga</label><input type="number" id="inv_v_amarga" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-green-500/40"></div>
+                        <div><label class="block text-[10px] uppercase text-yellow-400 mb-1 truncate font-bold">M. Ácida</label><input type="number" id="inv_v_acida" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-yellow-500/40"></div>
                     </div>
                     
-                    <button id="btnCalculateInventory" class="w-full btn-primary py-2 text-sm uppercase tracking-wide mb-6">
+                    <button id="btnCalculateInventory" class="w-full btn-primary py-2.5 text-xs font-mono uppercase tracking-wider mb-4 cursor-pointer">
                         Procesar Rendimiento
                     </button>
                     
@@ -648,16 +654,16 @@ export function renderCrops() {
         const dbInfo = BERRY_DB[crop.type] || BERRY_DB.zanama;
         const card = document.createElement('div');
         card.id = `crop-card-${crop.id}`;
-        card.className = `panel p-4 flex flex-col justify-between transition-all duration-300 relative overflow-hidden`;
+        card.className = `panel p-5 flex flex-col justify-between transition-all duration-200 relative overflow-hidden rounded-xl hover:border-os-border-strong`;
         
         card.innerHTML = `
             <div class="z-10 relative">
                 <div class="flex justify-between items-start mb-2">
-                    <div class="flex items-center gap-2">
+                    <div class="flex items-center gap-2.5">
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${dbInfo.sprite}.png" class="w-8 h-8 pokemon-sprite -ml-1" onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'">
                         <div>
-                            <h3 class="text-sm font-semibold text-os-text">${dbInfo.name}</h3>
-                            <p class="text-[10px] text-os-muted font-mono">📍 ${crop.location} <span class="text-os-green">(${dbInfo.yield || '5-7'})</span></p>
+                            <h3 class="text-sm font-bold text-os-text">${dbInfo.name}</h3>
+                            <p class="text-[10px] text-os-muted font-mono">📍 ${crop.location} <span class="text-os-green font-semibold">(${dbInfo.yield || '5-7'})</span></p>
                         </div>
                     </div>
                     <div id="crop-badge-${crop.id}"></div>
@@ -666,33 +672,33 @@ export function renderCrops() {
                 <!-- Indicador de Fase / Etapa -->
                 <div id="crop-stage-${crop.id}" class="text-[10px] font-mono mb-2"></div>
 
-                <!-- DROplets & Moisture status -->
-                <div class="bg-os-bg border border-os-border p-2 mb-3 rounded-sm">
+                <!-- Moisture status -->
+                <div class="bg-os-bg border border-os-border p-2.5 mb-3 rounded-lg">
                     <div class="flex justify-between items-center text-[10px] font-mono mb-1">
-                        <span class="text-os-muted uppercase">Humedad Suelo:</span>
+                        <span class="text-os-muted uppercase font-semibold">Humedad Suelo:</span>
                         <span id="crop-drops-${crop.id}" class="text-os-blue font-bold">💧💧⚪⚪⚪ (2/5)</span>
                     </div>
                     <p id="crop-advice-${crop.id}" class="text-[10px] text-os-muted leading-tight">Calculando estado de hidratación...</p>
                 </div>
 
-                <div class="grid grid-cols-2 gap-px bg-os-border mb-3 text-center border border-os-border">
-                    <div class="bg-os-bg p-2">
-                        <p id="crop-water-label-${crop.id}" class="text-[9px] text-os-muted uppercase tracking-widest mb-1">Humedad Restante</p>
-                        <p id="crop-water-time-${crop.id}" class="font-mono text-xs font-bold text-os-text">--:--:--</p>
+                <div class="grid grid-cols-2 gap-2 mb-3">
+                    <div class="bg-os-elevated border border-os-border p-2.5 rounded-lg text-center">
+                        <p id="crop-water-label-${crop.id}" class="text-[9px] text-os-muted uppercase tracking-wider mb-1 font-mono">Humedad Restante</p>
+                        <p id="crop-water-time-${crop.id}" class="font-mono text-xs font-bold text-os-text tabular-nums">--:--:--</p>
                     </div>
-                    <div class="bg-os-bg p-2">
-                        <p class="text-[9px] text-os-muted uppercase tracking-widest mb-1">Cosecha Total</p>
-                        <p id="crop-harvest-time-${crop.id}" class="font-mono text-xs font-bold text-os-text">--:--:--</p>
+                    <div class="bg-os-elevated border border-os-border p-2.5 rounded-lg text-center">
+                        <p class="text-[9px] text-os-muted uppercase tracking-wider mb-1 font-mono">Cosecha Total</p>
+                        <p id="crop-harvest-time-${crop.id}" class="font-mono text-xs font-bold text-os-text tabular-nums">--:--:--</p>
                     </div>
                 </div>
 
-                <div class="w-full bg-os-bg border border-os-border h-1.5 mb-4">
-                    <div id="crop-progress-${crop.id}" class="h-1.5 progress-bar-transition w-0 bg-os-green"></div>
+                <div class="w-full bg-os-bg border border-os-border h-2 rounded-full overflow-hidden mb-2">
+                    <div id="crop-progress-${crop.id}" class="h-2 progress-bar-transition w-0 bg-os-green rounded-full"></div>
                 </div>
             </div>
-            <div class="flex gap-2 mt-auto z-10 relative">
-                <button id="btn-water-${crop.id}" class="flex-1 border border-os-blue text-os-blue hover:bg-os-blue hover:text-white py-1.5 px-2 text-xs font-mono uppercase transition">Regar</button>
-                <button id="btn-harvest-${crop.id}" class="flex-1 border border-os-border text-os-muted hover:border-os-red hover:text-os-red py-1.5 px-2 text-xs font-mono uppercase transition">Cancelar</button>
+            <div class="flex gap-2 mt-auto z-10 relative pt-2">
+                <button id="btn-water-${crop.id}" class="flex-1 bg-os-blue/10 border border-os-blue/40 text-os-blue hover:bg-os-blue hover:text-black py-2 px-2 text-xs font-mono uppercase font-semibold transition rounded-lg cursor-pointer">Regar</button>
+                <button id="btn-harvest-${crop.id}" class="flex-1 bg-os-bg border border-os-border text-os-muted hover:border-os-red/40 hover:text-os-red py-2 px-2 text-xs font-mono uppercase transition rounded-lg cursor-pointer">Cancelar</button>
             </div>
         `;
         container.appendChild(card);
