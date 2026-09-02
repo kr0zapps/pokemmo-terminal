@@ -110,11 +110,17 @@
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" class="w-5 h-5 animate-spin-slow pokemon-sprite">
                     <span class="text-xl font-pokemon tracking-widest uppercase mt-1">PokéMMO Terminal</span><span class="text-xs font-mono text-os-muted ml-2 mt-2">v2.1</span>
                 </div>
-                <nav class="flex gap-2">
-                    <button id="tab-gyms" onclick="switchTab('gyms')" class="tab-btn tab-active">Gym Reruns</button>
-                    <button id="tab-berries" onclick="switchTab('berries')" class="tab-btn">Cultivo de Bayas</button>
-                    <button id="tab-pokedex" onclick="switchTab('pokedex')" class="tab-btn">Pokedex Optimizer</button>
-                </nav>
+                <div class="flex flex-wrap items-center gap-3">
+                    <nav class="flex gap-2">
+                        <button id="tab-gyms" onclick="switchTab('gyms')" class="tab-btn tab-active">Gym Reruns</button>
+                        <button id="tab-berries" onclick="switchTab('berries')" class="tab-btn">Cultivo de Bayas</button>
+                        <button id="tab-pokedex" onclick="switchTab('pokedex')" class="tab-btn">Pokedex Optimizer</button>
+                    </nav>
+                    <button onclick="openSyncModal()" class="border border-os-blue/80 bg-os-blue/10 text-os-blue hover:bg-os-blue hover:text-white px-3 py-1.5 text-xs uppercase font-mono font-bold transition flex items-center gap-1.5 rounded shadow-[0_0_12px_rgba(59,130,246,0.25)]" title="Sincroniza tus bayas, gimnasios y capturas entre tu PC y tu teléfono móvil">
+                        <span class="animate-pulse">☁️</span>
+                        <span>Sincronizar Nube</span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
@@ -537,7 +543,385 @@
             </div>
         </div>
     </div>
+
+    <!-- MODAL: CENTRO DE SINCRONIZACIÓN CLOUD & MULTI-DISPOSITIVO -->
+    <div id="syncModal" class="fixed inset-0 bg-[#090A0F]/95 hidden items-center justify-center z-50 p-4 backdrop-blur-md">
+        <div class="panel p-6 w-full max-w-2xl max-h-[90vh] flex flex-col border border-os-border shadow-2xl relative overflow-y-auto">
+            <!-- Header -->
+            <div class="flex items-center justify-between border-b border-os-border pb-4 mb-4">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl">☁️</span>
+                    <div>
+                        <h2 class="text-base font-bold text-os-text">Sincronización Móvil ↔ PC (Cloud Sync)</h2>
+                        <p class="text-xs font-mono text-os-muted">Comparte tus bayas, gimnasios y capturas entre tu celular y tu PC</p>
+                    </div>
+                </div>
+                <button onclick="closeSyncModal()" class="text-os-muted hover:text-white font-mono text-lg px-2">✕</button>
+            </div>
+
+            <!-- Tabs de Sincronización -->
+            <div class="flex gap-2 border-b border-os-border pb-3 mb-4 text-xs font-mono">
+                <button onclick="switchSyncTab('cloud')" id="sync-tab-cloud" class="px-3 py-1.5 bg-os-blue text-white font-bold rounded-sm border border-os-blue">☁️ Nube Directa</button>
+                <button onclick="switchSyncTab('qr')" id="sync-tab-qr" class="px-3 py-1.5 bg-os-bg text-os-muted rounded-sm border border-os-border hover:text-os-blue">📲 Escanear QR</button>
+                <button onclick="switchSyncTab('backup')" id="sync-tab-backup" class="px-3 py-1.5 bg-os-bg text-os-muted rounded-sm border border-os-border hover:text-os-blue">💾 Archivo .JSON</button>
+            </div>
+
+            <!-- Panel 1: Nube Directa -->
+            <div id="sync-view-cloud" class="space-y-4">
+                <div class="bg-os-bg border border-os-border p-4 rounded-sm">
+                    <label class="block text-xs font-mono uppercase text-os-muted mb-1">Tu PIN / Identificador de Nube:</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="syncPinInput" value="kr0z-pokemmo" class="flex-1 p-2 text-sm font-mono text-os-green font-bold">
+                        <button onclick="saveSyncPin()" class="px-3 py-2 text-xs font-mono uppercase bg-os-border text-os-text hover:bg-os-blue hover:text-white transition rounded-sm">Guardar PIN</button>
+                    </div>
+                    <p class="text-[11px] text-os-muted mt-2">
+                        💡 Pon el mismo PIN en tu móvil y en tu PC para que ambos compartan la misma partida en la nube.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <button onclick="pushCloudSync(true)" id="btnPushCloud" class="p-4 bg-emerald-950/30 border border-emerald-500/40 hover:bg-emerald-900/40 text-left transition rounded-sm flex flex-col justify-between shadow-lg">
+                        <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm mb-1">
+                            <span>⬆️ SUBIR A LA NUBE</span>
+                        </div>
+                        <p class="text-[11px] text-os-muted leading-relaxed">
+                            Guarda el estado actual (tus bayas de las 8:00, gimnasios y dex) en la nube para que esté disponible en tu otro dispositivo.
+                        </p>
+                    </button>
+
+                    <button onclick="pullCloudSync(true)" id="btnPullCloud" class="p-4 bg-blue-950/30 border border-blue-500/40 hover:bg-blue-900/40 text-left transition rounded-sm flex flex-col justify-between shadow-lg">
+                        <div class="flex items-center gap-2 text-blue-400 font-bold text-sm mb-1">
+                            <span>⬇️ DESCARGAR DE LA NUBE</span>
+                        </div>
+                        <p class="text-[11px] text-os-muted leading-relaxed">
+                            Carga el progreso guardado desde tu celular o PC (reemplaza los datos locales con lo último de la nube).
+                        </p>
+                    </button>
+                </div>
+
+                <div class="p-3 bg-os-bg border border-os-border rounded-sm flex items-center justify-between text-xs font-mono">
+                    <span id="cloudSyncStatusText" class="text-os-green">● Estado Nube: Listo</span>
+                    <span id="cloudLastSyncTime" class="text-[11px] text-os-muted">--</span>
+                </div>
+            </div>
+
+            <!-- Panel 2: Escanear QR -->
+            <div id="sync-view-qr" class="hidden space-y-4 text-center">
+                <p class="text-xs text-os-muted">
+                    Apunta la cámara de tu celular a este código QR para abrir la app móvil con todas tus bayas y datos transferidos al instante:
+                </p>
+                <div class="p-4 bg-white inline-block rounded shadow-lg mx-auto">
+                    <img id="syncQrImg" src="" alt="Código QR de sincronización" class="w-48 h-48 mx-auto">
+                </div>
+                <div class="flex gap-2 max-w-md mx-auto">
+                    <input type="text" id="syncLinkInput" readonly class="flex-1 p-2 text-xs font-mono bg-os-bg text-os-muted">
+                    <button onclick="copySyncLink()" class="px-3 py-2 text-xs font-mono uppercase bg-os-blue text-white rounded-sm hover:opacity-90">📋 Copiar Link</button>
+                </div>
+            </div>
+
+            <!-- Panel 3: Archivo de Respaldo Completo -->
+            <div id="sync-view-backup" class="hidden space-y-4">
+                <p class="text-xs text-os-muted">
+                    Exporta o importa un archivo único con toda tu información (Bayas + Reruns de Gimnasios + Progreso de Pokédex):
+                </p>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="exportFullBackupJSON()" class="p-3 border border-os-border hover:border-os-blue text-os-text hover:text-os-blue text-xs font-mono uppercase transition rounded-sm text-center">
+                        💾 Descargar Respaldo Total (.json)
+                    </button>
+                    <button onclick="document.getElementById('fullBackupInput').click()" class="p-3 border border-os-border hover:border-os-green text-os-text hover:text-os-green text-xs font-mono uppercase transition rounded-sm text-center">
+                        📥 Cargar Respaldo Total (.json)
+                    </button>
+                    <input type="file" id="fullBackupInput" accept=".json" onchange="importFullBackupJSON(event)" class="hidden">
+                </div>
+            </div>
+        </div>
+    </div>
+
 <script>
+        // ==========================================
+        // 0. SISTEMA DE SINCRONIZACIÓN CLOUD & MULTI-DISPOSITIVO
+        // ==========================================
+        const CLOUD_SYNC_API = 'https://api.restful-api.dev/objects';
+        const DEFAULT_SYNC_PIN = 'kr0z-pokemmo';
+        let currentSyncPin = localStorage.getItem('pokemmo_sync_pin') || DEFAULT_SYNC_PIN;
+        let cloudObjectId = localStorage.getItem('pokemmo_cloud_object_id') || 'ff808181a058d43f01a05fd12d4b1585';
+
+        function openSyncModal() {
+            const modal = document.getElementById('syncModal');
+            const pinInput = document.getElementById('syncPinInput');
+            if (pinInput) pinInput.value = currentSyncPin;
+            const lastSync = localStorage.getItem('pokemmo_last_cloud_sync');
+            const timeEl = document.getElementById('cloudLastSyncTime');
+            if (timeEl && lastSync) timeEl.innerText = `Última sincronización: ${lastSync}`;
+            generateSyncQR();
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+        }
+
+        function closeSyncModal() {
+            const modal = document.getElementById('syncModal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        function switchSyncTab(tab) {
+            ['cloud', 'qr', 'backup'].forEach(t => {
+                const v = document.getElementById(`sync-view-${t}`);
+                const b = document.getElementById(`sync-tab-${t}`);
+                if (t === tab) {
+                    if (v) v.classList.remove('hidden');
+                    if (b) {
+                        b.className = "px-3 py-1.5 bg-os-blue text-white font-bold rounded-sm border border-os-blue";
+                    }
+                } else {
+                    if (v) v.classList.add('hidden');
+                    if (b) {
+                        b.className = "px-3 py-1.5 bg-os-bg text-os-muted rounded-sm border border-os-border hover:text-os-blue";
+                    }
+                }
+            });
+            if (tab === 'qr') generateSyncQR();
+        }
+
+        function saveSyncPin() {
+            const input = document.getElementById('syncPinInput');
+            if (input && input.value.trim()) {
+                currentSyncPin = input.value.trim();
+                localStorage.setItem('pokemmo_sync_pin', currentSyncPin);
+                alert(`✅ PIN guardado como: "${currentSyncPin}". Asegúrate de usar este mismo PIN en tu móvil y en tu PC.`);
+            }
+        }
+
+        function exportFullAppState() {
+            const state = {
+                version: "3.0",
+                savedAt: Date.now(),
+                crops: crops,
+                harvestCount: harvestCounter,
+                dexCaught: dexCaughtList,
+                customDB: POKEDEX_DB,
+                gyms: {},
+                amulet: {
+                    start: localStorage.getItem('pokemmo_amulet_start'),
+                    duration: localStorage.getItem('pokemmo_amulet_duration')
+                }
+            };
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key && (key.startsWith('gym-') || key.startsWith('time-gym-'))) {
+                    state.gyms[key] = localStorage.getItem(key);
+                }
+            }
+            return state;
+        }
+
+        function importFullAppState(state) {
+            if (!state) return false;
+            if (state.crops) {
+                crops = state.crops;
+                localStorage.setItem('pokemmo_crops', JSON.stringify(crops));
+            }
+            if (state.harvestCount !== undefined) {
+                harvestCounter = state.harvestCount;
+                localStorage.setItem('pokemmo_harvest_count', harvestCounter);
+                const totalEl = document.getElementById('totalHarvested');
+                if (totalEl) totalEl.innerText = harvestCounter;
+            }
+            if (state.dexCaught) {
+                dexCaughtList = state.dexCaught;
+                localStorage.setItem('pokemmo_dex_caught', JSON.stringify(dexCaughtList));
+            }
+            if (state.customDB && state.customDB.length > 0) {
+                POKEDEX_DB = state.customDB;
+                localStorage.setItem('pokemmo_custom_db', JSON.stringify(POKEDEX_DB));
+            }
+            if (state.gyms) {
+                for (const [k, v] of Object.entries(state.gyms)) {
+                    localStorage.setItem(k, v);
+                }
+            }
+            if (state.amulet) {
+                if (state.amulet.start) localStorage.setItem('pokemmo_amulet_start', state.amulet.start);
+                if (state.amulet.duration) localStorage.setItem('pokemmo_amulet_duration', state.amulet.duration);
+            }
+            
+            if (typeof renderGyms === 'function') renderGyms();
+            if (typeof renderCrops === 'function') renderCrops();
+            if (typeof updateDexProgress === 'function') updateDexProgress();
+            if (typeof renderDexResults === 'function') renderDexResults();
+            if (typeof updateAmuletUI === 'function') updateAmuletUI();
+            return true;
+        }
+
+        async function pushCloudSync(manual = false) {
+            const statusEl = document.getElementById('cloudSyncStatusText');
+            const timeEl = document.getElementById('cloudLastSyncTime');
+            if (statusEl) statusEl.innerText = '⏳ Subiendo a la nube...';
+            
+            const pin = document.getElementById('syncPinInput')?.value || currentSyncPin;
+            const state = exportFullAppState();
+
+            try {
+                let res;
+                if (cloudObjectId) {
+                    res = await fetch(`${CLOUD_SYNC_API}/${cloudObjectId}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            name: `pokemmo_sync_${pin}`,
+                            data: state
+                        })
+                    });
+                }
+                
+                if (!res || !res.ok) {
+                    res = await fetch(CLOUD_SYNC_API, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            name: `pokemmo_sync_${pin}`,
+                            data: state
+                        })
+                    });
+                    if (res.ok) {
+                        const created = await res.json();
+                        cloudObjectId = created.id;
+                        localStorage.setItem('pokemmo_cloud_object_id', cloudObjectId);
+                    }
+                }
+
+                const nowStr = new Date().toLocaleTimeString();
+                localStorage.setItem('pokemmo_last_cloud_sync', nowStr);
+                if (statusEl) statusEl.innerText = '✅ Subida completada exitosamente';
+                if (timeEl) timeEl.innerText = `Última sincronización: Hoy a las ${nowStr}`;
+                if (manual) {
+                    alert(`☁️ ¡Progreso subido a la nube!\n\nAhora abre PokeMMO Terminal en tu otro dispositivo (móvil o PC) y pulsa "Descargar de la Nube" con el PIN "${pin}".`);
+                }
+            } catch (err) {
+                console.error('Error al subir a la nube:', err);
+                if (statusEl) statusEl.innerText = '❌ Error de conexión al subir';
+                if (manual) alert('Error al conectar con la nube. Revisa tu conexión a internet.');
+            }
+        }
+
+        async function pullCloudSync(manual = false) {
+            const statusEl = document.getElementById('cloudSyncStatusText');
+            const timeEl = document.getElementById('cloudLastSyncTime');
+            if (statusEl) statusEl.innerText = '⏳ Descargando de la nube...';
+
+            const pin = document.getElementById('syncPinInput')?.value || currentSyncPin;
+
+            try {
+                let url = cloudObjectId ? `${CLOUD_SYNC_API}/${cloudObjectId}` : `${CLOUD_SYNC_API}?name=pokemmo_sync_${pin}`;
+                const res = await fetch(url);
+                if (res.ok) {
+                    const dataObj = await res.json();
+                    const cloudData = Array.isArray(dataObj) ? (dataObj[0]?.data) : dataObj?.data;
+                    
+                    if (cloudData && cloudData.crops) {
+                        importFullAppState(cloudData);
+                        const nowStr = new Date().toLocaleTimeString();
+                        if (statusEl) statusEl.innerText = '✅ Progreso descargado y aplicado';
+                        if (timeEl) timeEl.innerText = `Sincronizado: ${nowStr}`;
+                        if (manual) {
+                            alert(`🎉 ¡Progreso sincronizado!\n\nSe cargaron exitosamente tus bayas (${cloudData.crops.length} activas), gimnasios y Pokédex.`);
+                        }
+                        return true;
+                    } else {
+                        if (statusEl) statusEl.innerText = '⚠️ No hay datos en la nube con este PIN';
+                        if (manual) alert(`No se encontraron datos guardados en la nube con el PIN "${pin}". Primero sube el progreso desde el dispositivo donde tienes tus bayas.`);
+                    }
+                }
+            } catch (err) {
+                console.error('Error al descargar de la nube:', err);
+                if (statusEl) statusEl.innerText = '❌ Error al descargar de la nube';
+                if (manual) alert('Error al descargar de la nube. Revisa tu conexión.');
+            }
+            return false;
+        }
+
+        function generateSyncQR() {
+            try {
+                const state = exportFullAppState();
+                const jsonStr = JSON.stringify(state);
+                const base64 = btoa(unescape(encodeURIComponent(jsonStr)));
+                const currentUrl = window.location.origin + window.location.pathname;
+                const syncUrl = `${currentUrl}#sync=${base64}`;
+                
+                const qrImg = document.getElementById('syncQrImg');
+                const linkInput = document.getElementById('syncLinkInput');
+                
+                if (linkInput) linkInput.value = syncUrl;
+                if (qrImg) {
+                    qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(syncUrl)}`;
+                }
+            } catch (e) {
+                console.error('Error generating QR:', e);
+            }
+        }
+
+        function copySyncLink() {
+            const linkInput = document.getElementById('syncLinkInput');
+            if (linkInput && linkInput.value) {
+                navigator.clipboard.writeText(linkInput.value).then(() => {
+                    alert('📋 ¡Enlace de sincronización copiado!\n\nPégalo en el navegador de tu móvil o envíatelo por WhatsApp para sincronizar en 1 segundo.');
+                });
+            }
+        }
+
+        function exportFullBackupJSON() {
+            const state = exportFullAppState();
+            const jsonStr = JSON.stringify(state, null, 2);
+            const blob = new Blob([jsonStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `pokemmo_progreso_completo_${new Date().toISOString().slice(0,10)}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function importFullBackupJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const state = JSON.parse(e.target.result);
+                    if (importFullAppState(state)) {
+                        alert('🎉 ¡Respaldo importado y aplicado con éxito!');
+                        closeSyncModal();
+                    } else {
+                        alert('❌ Formato de archivo de respaldo no válido.');
+                    }
+                } catch (err) {
+                    alert('❌ Error al leer el archivo JSON.');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function checkUrlSyncPayload() {
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#sync=')) {
+                try {
+                    const base64 = hash.replace('#sync=', '');
+                    const jsonStr = decodeURIComponent(escape(atob(base64)));
+                    const state = JSON.parse(jsonStr);
+                    if (importFullAppState(state)) {
+                        history.replaceState(null, null, window.location.pathname);
+                        alert('🎉 ¡DISPOSITIVO SINCRONIZADO!\n\nSe transfirieron todas tus bayas activas, progreso de gimnasios y Pokédex desde tu otro dispositivo.');
+                    }
+                } catch (err) {
+                    console.error('Error decoding sync payload from URL:', err);
+                }
+            }
+        }
+
         // ==========================================
         // 1. SISTEMA DE NAVEGACIN (TABS)
         // ==========================================
@@ -1058,36 +1442,6 @@
             }
         };
 
-        // Reposición exacta de las 2 bayas de la foto para pruebas reales del usuario
-        if (localStorage.getItem('pokemmo_user_reset_v4') !== 'applied') {
-            const nowMs = Date.now();
-            const elapsedZanama = (1 * 3600 + 17 * 60 + 14) * 1000; // 18h 42m 46s restantes
-            const elapsedBasicas = (1 * 3600 + 17 * 60 + 12) * 1000; // 14h 42m 48s restantes
-            const restoredCrops = [
-                { 
-                    id: 1725140001, 
-                    type: 'zanama', 
-                    location: 'Sin ubicación', 
-                    initialDryHours: 8.5, 
-                    plantedAt: nowMs - elapsedZanama, 
-                    watered: false, 
-                    wateredAt: null, 
-                    waterCount: 0 
-                },
-                { 
-                    id: 1725140002, 
-                    type: 'basicas', 
-                    location: 'Sin ubicación', 
-                    initialDryHours: 7.0, 
-                    plantedAt: nowMs - elapsedBasicas, 
-                    watered: false, 
-                    wateredAt: null, 
-                    waterCount: 0 
-                }
-            ];
-            localStorage.setItem('pokemmo_crops', JSON.stringify(restoredCrops));
-            localStorage.setItem('pokemmo_user_reset_v4', 'applied');
-        }
         let crops = JSON.parse(localStorage.getItem('pokemmo_crops')) || [];
         let harvestCounter = parseInt(localStorage.getItem('pokemmo_harvest_count')) || 0;
         const totalHarvestedEl = document.getElementById('totalHarvested');
@@ -2227,9 +2581,15 @@
         }
 
         // ==========================================
+        checkUrlSyncPayload();
         renderGyms();
         renderCrops();
         initPokedex();
+
+        // Intentar auto-sincronizar con la nube en segundo plano al abrir
+        setTimeout(() => {
+            pullCloudSync(false);
+        }, 1200);
 
         // Inicialización inmediata al cargar
         document.addEventListener('DOMContentLoaded', () => {
