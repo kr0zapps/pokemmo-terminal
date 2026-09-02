@@ -33,6 +33,12 @@ export async function switchTab(tabId) {
       }
     }
   });
+
+  if (tabId === 'breeding') {
+    if (typeof window.generateBreedingTree === 'function') {
+      setTimeout(() => window.generateBreedingTree(), 80);
+    }
+  }
 }
 
 export function initRouter() {

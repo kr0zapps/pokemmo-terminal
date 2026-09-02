@@ -13,6 +13,8 @@ const BRACER_NAMES = {
 
 let currentGenderCost = 0;
 let currentEggGroup = "";
+let panZoomInstance = null;
+let currentEggGroupSpecies = [];
 
 export function renderBreedingView() {
     return `
@@ -120,16 +122,19 @@ export function renderBreedingView() {
 
 export function renderEggGroupModal() {
     return `
-<div id="egg-group-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
-    <div class="bg-os-bg border border-os-border rounded-lg shadow-2xl w-full max-w-2xl max-h-[80vh] flex flex-col relative" id="egg-group-modal-content-wrapper">
-        <button id="btn-close-egg-group-modal" class="absolute top-4 right-4 text-os-muted hover:text-white transition cursor-pointer">
+<div id="egg-group-modal" class="fixed inset-0 bg-black/70 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
+    <div class="bg-os-bg border border-os-border rounded-xl shadow-2xl w-full max-w-2xl max-h-[85vh] flex flex-col relative" id="egg-group-modal-content-wrapper">
+        <button id="btn-close-egg-group-modal" class="absolute top-4 right-4 text-os-muted hover:text-white transition cursor-pointer p-1">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
-        <div class="p-5 border-b border-os-border flex-shrink-0 bg-os-border/10 rounded-t-lg">
-            <h3 class="text-xl font-bold text-white flex items-center gap-2">🥚 Grupo Huevo: <span id="egg-group-modal-title" class="text-os-blue uppercase"></span></h3>
-            <p class="text-xs text-os-muted mt-1">Lista de Pokémon que pertenecen a este grupo huevo.</p>
+        <div class="p-5 border-b border-os-border flex-shrink-0 bg-os-border/10 rounded-t-xl">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">🥚 Grupo Huevo: <span id="egg-group-modal-title" class="text-os-blue uppercase"></span></h3>
+            <p class="text-xs text-os-muted mt-1 mb-3">Toca cualquier Pokémon para seleccionarlo como objetivo de crianza.</p>
+            <div class="relative">
+                <input type="text" id="egg-group-search-input" placeholder="🔍 Filtrar Pokémon de este grupo huevo..." class="w-full bg-os-bg border border-os-border text-xs p-2.5 rounded text-os-text focus:border-os-blue outline-none font-mono">
+            </div>
         </div>
-        <div id="egg-group-modal-content" class="p-5 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-sm font-mono flex-1">
+        <div id="egg-group-modal-content" class="p-4 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-sm font-mono flex-1">
         </div>
     </div>
 </div>
@@ -171,22 +176,48 @@ export function initBreeding() {
         btnCloseModal.addEventListener('click', closeEggGroupModal);
     }
 
-    try {
-        let db = JSON.parse(localStorage.getItem('pokemmo_custom_db')) || [];
-        if(db.length > 0) {
-            const datalist = $('#pokedex-list-breeding');
-            if (datalist) {
-                let uniqueNames = [...new Set(db.map(p => p.name))];
-                datalist.innerHTML = uniqueNames.map(n => `<option value="${n}">`).join('');
+    fetch('data/pokemmo_db.json')
+        .then(res => res.json())
+        .then(db => {
+            if (Array.isArray(db)) {
+                const datalist = $('#pokedex-list-breeding');
+                if (datalist) {
+                    const uniqueNames = [...new Set(db.map(p => p.name))].sort();
+                    datalist.innerHTML = uniqueNames.map(n => `<option value="${n}">`).join('');
+                }
             }
-        }
-    } catch(e) {}
+        })
+        .catch(e => console.warn('Could not populate breeding datalist:', e));
+
+    const eggSearch = $('#egg-group-search-input');
+    if (eggSearch) {
+        eggSearch.addEventListener('input', (e) => {
+            const q = e.target.value.trim().toLowerCase();
+            renderEggGroupFiltered(q);
+        });
+    }
 
     const btnFetch = $('#btn-fetch-pokemon');
     if (btnFetch) btnFetch.addEventListener('click', fetchPokemonData);
     
     const targetInput = $('#breeding-target');
-    if (targetInput) targetInput.addEventListener('change', fetchPokemonData);
+    if (targetInput) {
+        targetInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                fetchPokemonData();
+            }
+        });
+        targetInput.addEventListener('change', fetchPokemonData);
+        targetInput.addEventListener('input', (e) => {
+            const val = e.target.value.trim().toLowerCase();
+            const datalist = $('#pokedex-list-breeding');
+            if (datalist && val.length >= 3) {
+                const isExactMatch = Array.from(datalist.options).some(o => o.value.toLowerCase() === val);
+                if (isExactMatch) fetchPokemonData();
+            }
+        });
+    }
 
     const btnUpdateTree = $('#btn-update-tree');
     if (btnUpdateTree) btnUpdateTree.addEventListener('click', generateBreedingTree);
@@ -200,7 +231,7 @@ export function initBreeding() {
     const ownedBreeder = $('#owned-breeder');
     if (ownedBreeder) ownedBreeder.addEventListener('change', generateBreedingTree);
 
-    // Initial generate
+    // Initial generate if tab is active
     setTimeout(generateBreedingTree, 800);
 }
 
@@ -479,9 +510,27 @@ export async function generateBreedingTree() {
     buildGraph(targetStats, useNature);
     mGraph += `style N0 fill:#1e3a8a,stroke:#3b82f6,stroke-width:3px,color:#fff\n`;
 
+    const viewBreeding = $('#view-breeding');
+    if (viewBreeding && viewBreeding.classList.contains('hidden')) {
+        // Tab is hidden, skip SVG bounding-box calculation until tab becomes active
+        return;
+    }
+
     try {
-        if(window.mermaid) {
-            const { svg } = await window.mermaid.render('breeding-mermaid-svg', mGraph);
+        if (window.mermaid) {
+            if (panZoomInstance) {
+                try {
+                    panZoomInstance.destroy();
+                } catch(err) {
+                    console.warn('panZoom cleanup:', err);
+                }
+                panZoomInstance = null;
+            }
+
+            container.innerHTML = '';
+
+            const uniqueId = 'mermaid-tree-' + Math.random().toString(36).substring(2, 9);
+            const { svg } = await window.mermaid.render(uniqueId, mGraph);
             container.innerHTML = svg;
             
             const svgElement = container.querySelector('svg');
@@ -490,7 +539,7 @@ export async function generateBreedingTree() {
                 svgElement.style.height = '600px'; 
                 svgElement.style.maxWidth = 'none';
                 
-                window.svgPanZoom(svgElement, {
+                panZoomInstance = window.svgPanZoom(svgElement, {
                     zoomEnabled: true,
                     controlIconsEnabled: true,
                     fit: true,
@@ -503,44 +552,68 @@ export async function generateBreedingTree() {
         }
     } catch (e) {
         console.error('Mermaid render error:', e);
-        container.innerHTML = `<div class="text-red-400 p-4 bg-red-900/30 rounded border border-red-500">Error renderizando el diagrama.</div>`;
+        container.innerHTML = `<div class="text-red-400 p-4 bg-red-900/30 rounded border border-red-500 text-xs">Error renderizando el diagrama: ${e.message || e}</div>`;
     }
 }
 
 export function closeEggGroupModal() {
     const modal = $('#egg-group-modal');
-    if(modal) modal.classList.add('hidden');
+    if (modal) modal.classList.add('hidden');
+}
+
+export function renderEggGroupFiltered(filter = '') {
+    const content = $('#egg-group-modal-content');
+    if (!content) return;
+    
+    const query = filter.trim().toLowerCase();
+    const filtered = query 
+        ? currentEggGroupSpecies.filter(name => name.toLowerCase().includes(query))
+        : currentEggGroupSpecies;
+
+    if (filtered.length === 0) {
+        content.innerHTML = '<div class="col-span-full text-center text-os-muted py-8 text-xs">No se encontraron Pokémon con ese nombre en este grupo.</div>';
+        return;
+    }
+
+    content.innerHTML = filtered.map(name => 
+        `<button type="button" data-pokename="${name}" class="btn-select-egg-pokemon bg-os-border/20 hover:bg-os-blue/30 hover:border-os-blue/60 border border-os-border/50 px-2 py-2.5 rounded text-os-text capitalize text-center cursor-pointer transition-colors text-xs flex items-center justify-center min-h-[38px] break-words active:scale-95" title="Seleccionar ${name}">
+            ${name.replace(/-/g, ' ')}
+        </button>`
+    ).join('');
+
+    content.querySelectorAll('.btn-select-egg-pokemon').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const pokename = btn.getAttribute('data-pokename');
+            if (pokename) {
+                const targetInput = $('#breeding-target');
+                if (targetInput) targetInput.value = pokename;
+                closeEggGroupModal();
+                fetchPokemonData();
+            }
+        });
+    });
 }
 
 export async function showEggGroupModal(groupName) {
     const modal = $('#egg-group-modal');
     const title = $('#egg-group-modal-title');
     const content = $('#egg-group-modal-content');
+    const searchInput = $('#egg-group-search-input');
     
-    if(modal) modal.classList.remove('hidden');
-    if(title) title.innerText = groupName;
-    if(content) content.innerHTML = '<div class="col-span-full text-center text-os-blue py-10 animate-pulse">Cargando Pokémon del grupo...</div>';
+    if (searchInput) searchInput.value = '';
+    if (modal) modal.classList.remove('hidden');
+    if (title) title.innerText = groupName;
+    if (content) content.innerHTML = '<div class="col-span-full text-center text-os-blue py-10 animate-pulse text-xs">Cargando Pokémon del grupo huevo...</div>';
     
     try {
         const data = await fetchEggGroup(groupName);
         if (!data) throw new Error('Error al cargar');
         
-        let species = data.pokemon_species.map(p => p.name);
-        species.sort();
-        
-        if (species.length === 0) {
-            if(content) content.innerHTML = '<div class="col-span-full text-center text-os-muted py-8">No hay Pokémon en este grupo.</div>';
-            return;
-        }
-
-        if(content) {
-            content.innerHTML = species.map(name => 
-                `<div class="bg-os-border/20 hover:bg-os-border/60 border border-os-border/50 px-2 py-2 rounded text-os-text capitalize text-center cursor-default transition-colors text-xs flex items-center justify-center min-h-[36px] break-words" title="${name}">${name.replace('-', ' ')}</div>`
-            ).join('');
-        }
-        
+        currentEggGroupSpecies = data.pokemon_species.map(p => p.name).sort();
+        renderEggGroupFiltered('');
+        if (searchInput) searchInput.focus();
     } catch (e) {
-        if(content) content.innerHTML = '<div class="col-span-full text-center text-red-400 py-8">Error de red al obtener datos de PokeAPI.</div>';
+        if (content) content.innerHTML = '<div class="col-span-full text-center text-red-400 py-8 text-xs">Error de red al obtener datos de PokeAPI.</div>';
     }
 }
 
