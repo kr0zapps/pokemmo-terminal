@@ -983,11 +983,6 @@
         });
         window.addEventListener('focus', () => fetchLatestCloudState(false));
 
-        // Heartbeat de seguridad cada 4s
-        setInterval(() => {
-            if (document.visibilityState === 'visible') {
-                fetchLatestCloudState(false);
-            }
         }, 4000);
 
         // ==========================================
