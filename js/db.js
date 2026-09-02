@@ -1,4 +1,4 @@
-﻿import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
 // REPLACE THESE WITH YOUR ACTUAL SUPABASE URL AND ANON KEY
 const SUPABASE_URL = 'https://gbgfickifhnshhulsxwy.supabase.co';

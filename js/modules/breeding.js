@@ -1,4 +1,4 @@
-﻿import { fetchPokémonSpecies, fetchEggGroup } from '../utils/api.js';
+import { fetchPokemonSpecies, fetchEggGroup } from '../utils/api.js';
 import { formatMoney } from '../utils/format.js';
 import { $ } from '../utils/dom.js';
 
@@ -183,10 +183,10 @@ export function initBreeding() {
     } catch(e) {}
 
     const btnFetch = $('#btn-fetch-pokemon');
-    if (btnFetch) btnFetch.addEventListener('click', fetchPokémonDíata);
+    if (btnFetch) btnFetch.addEventListener('click', fetchPokemonData);
     
     const targetInput = $('#breeding-target');
-    if (targetInput) targetInput.addEventListener('change', fetchPokémonDíata);
+    if (targetInput) targetInput.addEventListener('change', fetchPokemonData);
 
     const btnUpdateTree = $('#btn-update-tree');
     if (btnUpdateTree) btnUpdateTree.addEventListener('click', generateBreedingTree);
@@ -204,7 +204,7 @@ export function initBreeding() {
     setTimeout(generateBreedingTree, 800);
 }
 
-export async function fetchPokémonDíata() {
+export async function fetchPokemonData() {
     const inputEl = $('#breeding-target');
     const input = inputEl ? inputEl.value.trim().toLowerCase() : '';
     if (!input) {
@@ -224,7 +224,7 @@ export async function fetchPokémonDíata() {
     if(infoDiv) infoDiv.classList.remove('hidden');
 
     try {
-        const data = await fetchPokémonSpecies(input);
+        const data = await fetchPokemonSpecies(input);
         if (!data) throw new Error('No encontrado');
         
         const eggGroupsStr = data.egg_groups.map(eg => eg.name).join(', ').toUpperCase();
@@ -543,6 +543,7 @@ export async function showEggGroupModal(groupName) {
         if(content) content.innerHTML = '<div class="col-span-full text-center text-red-400 py-8">Error de red al obtener datos de PokeAPI.</div>';
     }
 }
+
 
 
 

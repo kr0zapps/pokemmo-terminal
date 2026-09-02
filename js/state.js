@@ -1,4 +1,4 @@
-﻿import { getGymProgress, getCrops, getCaughtPokemon, getPreferences } from './db.js';
+import { getGymProgress, getCrops, getCaughtPokemon, getPreferences } from './db.js';
 
 export const state = {
   gyms: [],

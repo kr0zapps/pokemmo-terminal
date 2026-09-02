@@ -1,4 +1,4 @@
-﻿import { supabase, addCrop, catchPokÃ©mon, savePreferences, toggleGym } from './db.js';
+import { supabase, addCrop, catchPokemon, savePreferences, toggleGym } from './db.js';
 import { safeHTML, h, text, $ } from './utils/dom.js';
 
 export async function login(email, password) {
@@ -48,7 +48,7 @@ export async function migrateLocalStorage() {
     if (dexCaught) {
       const caughtList = JSON.parse(dexCaught);
       for (const pid of caughtList) {
-        await catchPokÃ©mon(pid).catch(() => {}); // ignore duplicates
+        await catchPokemon(pid).catch(() => {}); // ignore duplicates
       }
     }
 
@@ -171,4 +171,7 @@ export function renderAuthUI(onSuccess) {
     }
   });
 }
+
+
+
 

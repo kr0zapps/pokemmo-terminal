@@ -1,4 +1,4 @@
-﻿// js/app.js - PokéMMO Terminal v3.0 Entry Point
+// js/app.js - PokéMMO Terminal v3.0 Entry Point
 
 import { supabase } from './db.js';
 import { getSession, onAuthStateChange, renderAuthUI, migrateLocalStorage, logout } from './auth.js';

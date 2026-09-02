@@ -1,4 +1,4 @@
-﻿import { state, setState, subscribe } from '../state.js';
+import { state, setState, subscribe } from '../state.js';
 import { addCrop, updateCrop, removeCrop } from '../db.js';
 import { formatTime } from '../utils/format.js';
 // We're importing DOM functions if they existed, but we'll manipulate directly for now

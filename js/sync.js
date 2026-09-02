@@ -1,4 +1,4 @@
-﻿import { supabase } from './db.js';
+import { supabase } from './db.js';
 
 let currentStatus = 'disconnected';
 

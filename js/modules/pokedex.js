@@ -1,4 +1,4 @@
-﻿import { state, setState } from '../state.js';
+import { state, setState } from '../state.js';
 
 
 let POKEDEX_DB = [];
@@ -309,7 +309,7 @@ export function renderCaughtGrid() {
 }
 
 export function uncatchFromModal(id) {
-    catchPokémon(id);
+    catchPokemon(id);
     renderCaughtGrid();
 }
 
@@ -363,7 +363,7 @@ export function changeDexPage(delta) {
     window.scrollTo({ top: 150, behavior: 'smooth' });
 }
 
-function parsePokémonDíata(p) {
+function parsePokemonData(p) {
     const hint = p.hint || '';
     const method = p.method || 'Hierba';
     const location = (p.location || '').replace('Parada: ', '').trim();
@@ -454,7 +454,7 @@ export function renderDexResults(resetPage = false) {
         list = list.filter(p => p.región === región || (región === 'Unova' && (p.región.includes('Unova') || p.región.includes('Teselia'))));
     }
 
-    let parsedList = list.map(parsePokémonDíata);
+    let parsedList = list.map(parsePokemonData);
 
     if (hideCaught) {
         parsedList = parsedList.filter(p => !dexCaughtList.includes(p.id));
@@ -614,7 +614,7 @@ export function renderDexResults(resetPage = false) {
                 <td class="py-2 px-2 text-center">${formatRateSlot(p.day)}</td>
                 <td class="py-2 px-2 text-center">${formatRateSlot(p.night)}</td>
                 <td class="py-2 px-3 text-center">
-                    <button onclick="window.pokedex.catchPokémon(${p.id})" class="px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-sm transition ${isCaught ? 'bg-os-border/40 text-os-muted hover:border-os-red hover:text-os-red' : 'bg-os-blue text-white hover:bg-blue-600 shadow-[0_0_8px_rgba(59,130,246,0.4)]'}">
+                    <button onclick="window.pokedex.catchPokemon(${p.id})" class="px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-sm transition ${isCaught ? 'bg-os-border/40 text-os-muted hover:border-os-red hover:text-os-red' : 'bg-os-blue text-white hover:bg-blue-600 shadow-[0_0_8px_rgba(59,130,246,0.4)]'}">
                         ${isCaught ? 'Liberar' : 'Capturar'}
                     </button>
                 </td>
@@ -641,7 +641,7 @@ export function renderDexResults(resetPage = false) {
     resultsDiv.innerHTML = htmlStr;
 }
 
-export function catchPokémon(id) {
+export function catchPokemon(id) {
     const idx = dexCaughtList.indexOf(id);
     if (idx === -1) {
         dexCaughtList.push(id);
@@ -684,7 +684,7 @@ export async function submitSuggestion(pokemonId, field, currentValue, suggested
 window.pokedex = {
     setRegion,
     changeDexPage,
-    catchPokémon,
+    catchPokemon,
     renderDexResults,
     openCaughtModal,
     closeCaughtModal,
@@ -694,5 +694,7 @@ window.pokedex = {
     copyCaughtListText,
     promptSuggestion
 };
+
+
 
 

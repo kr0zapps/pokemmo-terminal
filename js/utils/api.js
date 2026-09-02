@@ -1,4 +1,4 @@
-﻿const POKEAPI_BASE = 'https://pokeapi.co/api/v2';
+const POKEAPI_BASE = 'https://pokeapi.co/api/v2';
 const cache = new Map();
 
 export async function fetchPokemonSpecies(nameOrId) {

@@ -1,4 +1,4 @@
-﻿export function formatTime(ms) {
+export function formatTime(ms) {
   if (ms < 0) return '00:00:00';
   const totalSeconds = Math.floor(ms / 1000);
   const hours = Math.floor(totalSeconds / 3600);

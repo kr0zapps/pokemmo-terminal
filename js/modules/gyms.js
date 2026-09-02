@@ -1,4 +1,4 @@
-﻿import { state } from '../state.js';
+import { state } from '../state.js';
 
 import { formatTime } from '../utils/format.js';
 

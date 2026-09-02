@@ -1,4 +1,4 @@
-﻿import { state, setState } from './state.js';
+import { state, setState } from './state.js';
 import { savePreferences } from './db.js';
 import { $, safeHTML } from './utils/dom.js';
 
