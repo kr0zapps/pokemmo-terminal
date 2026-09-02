@@ -144,6 +144,16 @@ export function renderAuthUI(onSuccess) {
               Registrarse
             </button>
           </div>
+
+          <div class="relative flex py-1 items-center">
+            <div class="flex-grow border-t" style="border-color: var(--os-border, #262A3D);"></div>
+            <span class="flex-shrink mx-3 text-[11px] font-mono uppercase" style="color: var(--os-muted, #82889E);">O sin cuenta</span>
+            <div class="flex-grow border-t" style="border-color: var(--os-border, #262A3D);"></div>
+          </div>
+
+          <button type="button" id="btn-guest" class="w-full py-2 px-4 rounded font-medium text-xs transition-colors hover:opacity-90 flex items-center justify-center gap-2" style="background-color: rgba(255,255,255,0.03); border: 1px solid var(--os-border, #262A3D); color: var(--os-text, #EDEDED);">
+            <span>🎮</span> Continuar como Invitado (Guardado Local)
+          </button>
         </form>
       </div>
     </div>
@@ -155,6 +165,7 @@ export function renderAuthUI(onSuccess) {
   const emailInput = $('#auth-email');
   const passwordInput = $('#auth-password');
   const btnRegister = $('#btn-register');
+  const btnGuest = $('#btn-guest');
 
   const showError = (msg) => {
     errorDiv.textContent = msg;
@@ -166,6 +177,7 @@ export function renderAuthUI(onSuccess) {
     errorDiv.classList.add('hidden');
     try {
       await login(emailInput.value, passwordInput.value);
+      setGuestMode(false);
       if (onSuccess) onSuccess();
     } catch (err) {
       showError(err.message || 'Error al iniciar sesión');
@@ -180,6 +192,7 @@ export function renderAuthUI(onSuccess) {
     errorDiv.classList.add('hidden');
     try {
       await register(emailInput.value, passwordInput.value);
+      setGuestMode(false);
       showError('Registro exitoso. Puede iniciar sesión.');
       errorDiv.style.color = 'var(--os-green, #10B981)';
       errorDiv.style.borderColor = 'var(--os-green, #10B981)';
@@ -188,6 +201,25 @@ export function renderAuthUI(onSuccess) {
       showError(err.message || 'Error al registrarse');
     }
   });
+
+  if (btnGuest) {
+    btnGuest.addEventListener('click', () => {
+      setGuestMode(true);
+      if (onSuccess) onSuccess();
+    });
+  }
+}
+
+export function isGuestMode() {
+  return localStorage.getItem('pokemmo_guest_mode') === 'true';
+}
+
+export function setGuestMode(val) {
+  if (val) {
+    localStorage.setItem('pokemmo_guest_mode', 'true');
+  } else {
+    localStorage.removeItem('pokemmo_guest_mode');
+  }
 }
 
 

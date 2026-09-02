@@ -1,7 +1,7 @@
 // js/app.js - PokéMMO Terminal v3.0 Entry Point
 
 import { supabase } from './db.js';
-import { getSession, onAuthStateChange, renderAuthUI, migrateLocalStorage, logout } from './auth.js';
+import { getSession, onAuthStateChange, renderAuthUI, migrateLocalStorage, logout, isGuestMode, setGuestMode } from './auth.js';
 import { loadInitialState, state } from './state.js';
 import { initRealtimeSync, renderSyncBadge } from './sync.js';
 import { switchTab, initRouter } from './router.js';
@@ -12,6 +12,12 @@ import * as pokedex from './modules/pokedex.js';
 // Attach UI functions to window for inline HTML onclick handlers
 window.switchTab = switchTab;
 window.logout = logout;
+window.showAuthModal = () => {
+    setGuestMode(false);
+    isAppInitialized = false;
+    isAppInitializing = false;
+    renderAuthUI(initApp);
+};
 Object.assign(window, gyms, berries, pokedex);
 
 let isAppInitialized = false;
@@ -94,6 +100,17 @@ async function updateHeaderAuth() {
             const container = document.getElementById('sync-badge-container');
             if (container) container.innerHTML = renderSyncBadge();
         });
+    } else if (isGuestMode()) {
+        authArea.innerHTML = `
+            <div class="flex items-center gap-2 sm:gap-3">
+                <span class="text-[11px] font-mono text-amber-400 bg-amber-400/10 border border-amber-400/30 px-2 py-0.5 rounded-sm">
+                    🎮 Invitado (Local)
+                </span>
+                <button onclick="window.showAuthModal()" class="text-[11px] text-os-blue hover:text-white border border-os-blue/40 hover:bg-os-blue px-2 py-0.5 rounded transition font-mono uppercase font-semibold">
+                    Iniciar Sesión
+                </button>
+            </div>
+        `;
     } else {
         authArea.innerHTML = '';
     }
@@ -101,7 +118,7 @@ async function updateHeaderAuth() {
 
 async function main() {
     const session = await getSession();
-    if (!session) {
+    if (!session && !isGuestMode()) {
         renderAuthUI(initApp);
     } else {
         await initApp();
@@ -109,8 +126,12 @@ async function main() {
 
     onAuthStateChange((event, session) => {
         if (event === 'SIGNED_IN') {
+            setGuestMode(false);
             if (!isAppInitialized) initApp();
         } else if (event === 'SIGNED_OUT') {
+            setGuestMode(false);
+            isAppInitialized = false;
+            isAppInitializing = false;
             const main = document.getElementById('app-main');
             if (main) main.innerHTML = '';
             renderAuthUI(initApp);

@@ -8,6 +8,8 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // --- Gym ---
 export async function getGymProgress() {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) return [];
   const { data, error } = await supabase.from('gym_progress').select('*');
   if (error) throw error;
   return data;
@@ -15,7 +17,7 @@ export async function getGymProgress() {
 
 export async function toggleGym(gymId, completed) {
   const { data: { session } } = await supabase.auth.getSession();
-  if (!session) throw new Error('No session');
+  if (!session) return null;
   const user_id = session.user.id;
   const { data, error } = await supabase
     .from('gym_progress')
@@ -26,6 +28,8 @@ export async function toggleGym(gymId, completed) {
 }
 
 export async function resetAllGyms() {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) return;
   const { error } = await supabase.from('gym_progress').update({ completed: false, completed_at: null }).neq('gym_id', '');
   if (error) throw error;
 }
@@ -72,11 +76,14 @@ export async function getCrops() {
 
 export async function addCrop(crop) {
   const { data: { session } } = await supabase.auth.getSession();
-  if (!session) throw new Error('No session');
-  
   let validId = crop.id;
   if (!validId || !/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(validId)) {
     validId = crypto.randomUUID();
+  }
+
+  if (!session) {
+    crop.id = validId;
+    return crop;
   }
 
   const dbCrop = {
@@ -96,6 +103,9 @@ export async function addCrop(crop) {
 }
 
 export async function updateCrop(id, updateData) {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) return null;
+
   const dbData = {};
   if (updateData.type !== undefined) dbData.berry_type = updateData.type;
   if (updateData.location !== undefined) dbData.location = updateData.location;
@@ -110,12 +120,18 @@ export async function updateCrop(id, updateData) {
 }
 
 export async function removeCrop(id) {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) return;
   const { error } = await supabase.from('berry_crops').delete().eq('id', id);
   if (error) throw error;
 }
 
 // --- Pokemon ---
 export async function getCaughtPokemon() {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) {
+    return JSON.parse(localStorage.getItem('pokemmo_dex_caught') || '[]');
+  }
   const { data, error } = await supabase.from('pokemon_caught').select('pokemon_id');
   if (error) throw error;
   return data.map(row => row.pokemon_id);
@@ -123,7 +139,7 @@ export async function getCaughtPokemon() {
 
 export async function catchPokemon(pokemonId) {
   const { data: { session } } = await supabase.auth.getSession();
-  if (!session) throw new Error('No session');
+  if (!session) return null;
   const user_id = session.user.id;
   const { data, error } = await supabase
     .from('pokemon_caught')
@@ -134,12 +150,18 @@ export async function catchPokemon(pokemonId) {
 }
 
 export async function uncatchPokemon(pokemonId) {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) return;
   const { error } = await supabase.from('pokemon_caught').delete().eq('pokemon_id', pokemonId);
   if (error) throw error;
 }
 
 // --- Preferences ---
 export async function getPreferences() {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) {
+    return JSON.parse(localStorage.getItem('pokemmo_dex_prefs') || '{}');
+  }
   const { data, error } = await supabase.from('user_preferences').select('*').single();
   if (error && error.code !== 'PGRST116') throw error; // ignore row not found
   return data || {};
@@ -147,7 +169,10 @@ export async function getPreferences() {
 
 export async function savePreferences(prefs) {
   const { data: { session } } = await supabase.auth.getSession();
-  if (!session) throw new Error('No session');
+  if (!session) {
+    localStorage.setItem('pokemmo_dex_prefs', JSON.stringify(prefs));
+    return prefs;
+  }
   
   const cleanPrefs = { user_id: session.user.id };
   const allowed = ['active_tab', 'dex_region', 'dex_filters', 'amulet_coin_enabled', 'breeding_config'];
@@ -163,7 +188,7 @@ export async function savePreferences(prefs) {
 // --- Suggestions ---
 export async function submitSuggestion(suggestion) {
   const { data: { session } } = await supabase.auth.getSession();
-  if (!session) throw new Error('No session');
+  if (!session) throw new Error('Debes iniciar sesión para enviar sugerencias.');
   suggestion.user_id = session.user.id;
   const { data, error } = await supabase.from('pokedex_suggestions').insert([suggestion]).select();
   if (error) throw error;
@@ -171,6 +196,8 @@ export async function submitSuggestion(suggestion) {
 }
 
 export async function getMySuggestions() {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) return [];
   const { data, error } = await supabase.from('pokedex_suggestions').select('*').order('created_at', { ascending: false });
   if (error) throw error;
   return data;
