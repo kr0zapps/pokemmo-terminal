@@ -22,7 +22,8 @@ export function renderBreedingView() {
     <div class="flex flex-wrap justify-between items-center mb-6 pb-4 border-b border-os-border gap-4">
         <div>
             <div class="flex items-center gap-2.5">
-                <span class="text-xl font-pokemon text-amber-400">Crianza Maestra</span>
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/egg.png" class="w-6 h-6 pokemon-sprite" alt="Crianza">
+                <span class="text-xl font-pokemon text-amber-400">Crianza y Genética</span>
                 <span class="text-[10px] font-mono uppercase bg-os-elevated border border-os-border text-os-blue px-2 py-0.5 rounded font-semibold">Simulador IVs</span>
             </div>
             <p class="text-xs text-os-muted mt-1">Generador de árboles genealógicos y presupuesto exacto de brazales para el GTL.</p>
@@ -38,7 +39,9 @@ export function renderBreedingView() {
                     <label class="block text-xs font-mono text-os-muted mb-2">Pokémon Objetivo (Opcional):</label>
                     <div class="flex gap-2">
                         <input type="text" id="breeding-target" list="pokedex-list-breeding" class="w-full bg-os-bg border border-os-border text-xs p-2.5 rounded-lg text-os-text focus:border-os-blue outline-none font-mono" placeholder="Ej. Garchomp">
-                        <button id="btn-fetch-pokemon" class="px-3 bg-os-elevated hover:bg-os-blue hover:text-black border border-os-border text-os-text rounded-lg transition cursor-pointer">🔍</button>
+                        <button id="btn-fetch-pokemon" class="px-3 bg-os-elevated hover:bg-os-blue hover:text-black border border-os-border text-os-text rounded-lg transition cursor-pointer flex items-center justify-center" title="Buscar especie">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </button>
                     </div>
                     <div id="target-info" class="text-xs text-os-muted mt-2.5 hidden flex-col gap-1.5 bg-os-bg p-2.5 rounded-lg border border-os-border">
                         <div class="flex items-center gap-1.5 flex-wrap">
@@ -102,8 +105,11 @@ export function renderBreedingView() {
             <div class="panel p-5 rounded-xl border border-os-border flex flex-col justify-between">
                 <div>
                     <h2 class="text-xs font-mono font-semibold text-os-blue mb-3 uppercase tracking-wider border-b border-os-border pb-2 flex items-center justify-between">
-                        <span>🛒 Compras GTL</span>
-                        <span class="text-[10px] text-os-muted font-normal">Insumos</span>
+                        <span class="flex items-center gap-1.5">
+                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/coin-case.png" class="w-4 h-4 pokemon-sprite" alt="GTL">
+                            <span>Insumos GTL</span>
+                        </span>
+                        <span class="text-[10px] text-os-muted font-normal">Precios de Mercado</span>
                     </h2>
                     <div id="shopping-list" class="space-y-2 font-mono text-xs text-os-text"></div>
                 </div>
@@ -139,10 +145,16 @@ export function renderEggGroupModal() {
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
         <div class="p-5 border-b border-os-border flex-shrink-0 bg-os-border/10 rounded-t-xl">
-            <h3 class="text-lg font-bold text-white flex items-center gap-2">🥚 Grupo Huevo: <span id="egg-group-modal-title" class="text-os-blue uppercase"></span></h3>
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/egg.png" class="w-5 h-5 pokemon-sprite" alt="Huevo">
+                <span>Grupo Huevo: <span id="egg-group-modal-title" class="text-os-blue uppercase"></span></span>
+            </h3>
             <p class="text-xs text-os-muted mt-1 mb-3">Toca cualquier Pokémon para seleccionarlo como objetivo de crianza.</p>
             <div class="relative">
-                <input type="text" id="egg-group-search-input" placeholder="🔍 Filtrar Pokémon de este grupo huevo..." class="w-full bg-os-bg border border-os-border text-xs p-2.5 rounded text-os-text focus:border-os-blue outline-none font-mono">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-os-muted">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+                <input type="text" id="egg-group-search-input" placeholder="Filtrar Pokémon de este grupo huevo..." class="w-full bg-os-bg border border-os-border text-xs pl-8 pr-3 py-2 rounded-lg text-os-text focus:border-os-blue outline-none font-mono">
             </div>
         </div>
         <div id="egg-group-modal-content" class="p-4 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-sm font-mono flex-1">

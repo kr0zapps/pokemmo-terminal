@@ -3,10 +3,10 @@ import { savePreferences } from './db.js';
 import { $, safeHTML } from './utils/dom.js';
 
 const TABS = [
-  { id: 'gyms', label: 'Gimnasios', icon: '🏆' },
-  { id: 'berries', label: 'Cultivos', icon: '🌱' },
-  { id: 'pokedex', label: 'Pokédex', icon: '📱' },
-  { id: 'breeding', label: 'Crianza', icon: '🥚' }
+  { id: 'gyms', label: 'Gimnasios', icon: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/vs-seeker.png' },
+  { id: 'berries', label: 'Bayas', icon: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/wailmer-pail.png' },
+  { id: 'pokedex', label: 'Pokédex', icon: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/town-map.png' },
+  { id: 'breeding', label: 'Crianza', icon: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/egg.png' }
 ];
 
 export async function switchTab(tabId) {
@@ -54,9 +54,9 @@ export function initRouter() {
 
 export function renderNav() {
   return TABS.map(t => `
-    <button id="nav-${t.id}" class="px-4 py-3 flex items-center gap-2 text-sm font-medium transition-colors text-[var(--os-muted)] hover:text-[var(--os-text)]">
-      <span>${t.icon}</span>
-      ${t.label}
+    <button id="nav-${t.id}" class="tab-pill flex items-center gap-2">
+      <img src="${t.icon}" alt="${t.label}" class="w-4 h-4 pokemon-sprite">
+      <span>${t.label}</span>
     </button>
   `).join('');
 }

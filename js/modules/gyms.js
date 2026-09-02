@@ -65,7 +65,7 @@ export function renderGymView() {
         <div class="flex flex-wrap justify-between items-center mb-6 pb-4 border-b border-os-border gap-4">
             <div>
                 <div class="flex items-center gap-2.5">
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/exp-share.png" class="w-7 h-7 pokemon-sprite">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/vs-seeker.png" class="w-7 h-7 pokemon-sprite">
                     <span class="text-xl font-pokemon text-amber-400">Gym Reruns</span>
                     <span class="text-[10px] font-mono uppercase bg-os-elevated border border-os-border text-os-blue px-2 py-0.5 rounded font-semibold">18h CD</span>
                 </div>
@@ -73,7 +73,8 @@ export function renderGymView() {
             </div>
             <div class="flex flex-wrap items-center gap-2">
                 <button id="btn-reset-gyms" class="text-xs font-mono uppercase text-os-red hover:text-white bg-os-red/10 border border-os-red/30 hover:bg-os-red px-3 py-1.5 transition rounded-lg flex items-center gap-1.5 cursor-pointer">
-                    <span>⚠️</span> Resetear Todos
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                    <span>Resetear Todos</span>
                 </button>
             </div>
         </div>
@@ -116,7 +117,10 @@ export function renderGymView() {
             <!-- Temporizador Moneda Amuleto (1 hora) & Compensación -->
             <div class="panel p-4 flex flex-col justify-between rounded-xl">
                 <div class="flex justify-between items-center mb-2">
-                    <span class="text-[10px] font-mono uppercase tracking-wider text-os-muted font-semibold">Temporizador Amuleto (1h)</span>
+                    <span class="text-[10px] font-mono uppercase tracking-wider text-os-muted font-semibold flex items-center gap-1.5">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/amulet-coin.png" class="w-4 h-4 pokemon-sprite -my-1" alt="Amuleto">
+                        Moneda Amuleto (1h)
+                    </span>
                     <div class="flex items-center gap-1">
                         <span class="text-[10px] font-mono text-os-muted">Compensar:</span>
                         <input type="number" id="gymCompHours" value="0" min="0" max="18" step="0.5" class="w-12 p-1 text-[11px] text-center bg-os-bg border border-os-border text-os-green font-mono rounded" title="Horas que ya pasaron desde que hiciste el rerun">
@@ -132,8 +136,8 @@ export function renderGymView() {
                         <button id="amuletBtnStart" class="px-3 py-1.5 text-xs font-mono uppercase bg-amber-500/20 text-amber-400 border border-amber-500/40 hover:bg-amber-500 hover:text-black transition rounded-lg font-semibold cursor-pointer">
                             Iniciar
                         </button>
-                        <button id="amuletBtnReset" class="px-2 py-1.5 text-xs font-mono text-os-muted hover:text-os-red transition rounded-lg border border-os-border hover:border-os-red/40 cursor-pointer">
-                            ↺
+                        <button id="amuletBtnReset" class="px-2.5 py-1.5 text-xs font-mono text-os-muted hover:text-os-red transition rounded-lg border border-os-border hover:border-os-red/40 cursor-pointer flex items-center justify-center" title="Reiniciar temporizador">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
                         </button>
                     </div>
                 </div>
@@ -382,7 +386,7 @@ export function updateAmuletUI() {
             timerEl.innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
             timerEl.className = 'text-2xl font-mono font-bold text-amber-400';
         }
-        if (statusEl) statusEl.innerText = '🪙 Bono +50% activo';
+        if (statusEl) statusEl.innerText = 'Bono +50% activo';
         if (btnEl) {
             btnEl.innerText = 'Activo';
             btnEl.className = 'px-3 py-1.5 text-xs font-mono uppercase bg-amber-500 text-black font-bold border border-amber-500 rounded-sm';

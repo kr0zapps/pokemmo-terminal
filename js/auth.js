@@ -155,8 +155,9 @@ export function renderAuthUI(onSuccess) {
             <div class="flex-grow border-t border-os-border"></div>
           </div>
 
-          <button type="button" id="btn-guest" class="w-full py-2.5 px-4 rounded-lg font-medium text-xs transition-all hover:bg-os-elevated border border-os-border hover:border-os-border-strong text-os-text flex items-center justify-center gap-2 cursor-pointer shadow-sm">
-            <span>🎮</span> Continuar como Invitado (Guardado Local)
+          <button type="button" id="btn-guest" class="w-full py-2.5 px-4 rounded-lg font-medium text-xs transition-all hover:bg-os-elevated border border-os-border hover:border-os-border-strong text-os-text flex items-center justify-center gap-2 cursor-pointer shadow-sm font-mono">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fame-checker.png" alt="Invitado" class="w-4 h-4 pokemon-sprite">
+            <span>Continuar como Invitado (Guardado Local)</span>
           </button>
         </form>
       </div>

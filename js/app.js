@@ -105,8 +105,9 @@ async function updateHeaderAuth() {
     } else if (isGuestMode()) {
         authArea.innerHTML = `
             <div class="flex items-center gap-2 sm:gap-3">
-                <span class="text-[11px] font-mono text-amber-400 bg-amber-400/10 border border-amber-400/30 px-2 py-0.5 rounded-sm">
-                    🎮 Invitado (Local)
+                <span class="text-[11px] font-mono text-amber-400 bg-amber-400/10 border border-amber-400/30 px-2.5 py-1 rounded-md flex items-center gap-1.5">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fame-checker.png" alt="" class="w-3.5 h-3.5 pokemon-sprite">
+                    <span>Invitado (Local)</span>
                 </span>
                 <button onclick="window.showAuthModal()" class="text-[11px] text-os-blue hover:text-white border border-os-blue/40 hover:bg-os-blue px-2 py-0.5 rounded transition font-mono uppercase font-semibold">
                     Iniciar Sesión
