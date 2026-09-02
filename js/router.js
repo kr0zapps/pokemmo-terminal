@@ -5,7 +5,7 @@ import { $, safeHTML } from './utils/dom.js';
 const TABS = [
   { id: 'gyms', label: 'Gimnasios', icon: 'ðŸ†' },
   { id: 'berries', label: 'Cultivos', icon: 'ðŸŒ±' },
-  { id: 'pokedex', label: 'PokÃ©dex', icon: 'ðŸ“±' },
+  { id: 'pokedex', label: 'Pokédex', icon: 'ðŸ“±' },
   { id: 'breeding', label: 'Crianza', icon: 'ðŸ¥š' }
 ];
 

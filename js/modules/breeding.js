@@ -101,12 +101,12 @@ export function renderBreedingView() {
             </div>
         </div>
 
-        <!-- Díagrama -->
+        <!-- Diagrama -->
         <div class="lg:col-span-3">
             <div class="panel p-5 border border-os-border rounded-md bg-[#1e1e1e] min-h-[600px] overflow-auto relative shadow-lg">
                 <div class="flex justify-between items-center mb-4 border-b border-os-border/50 pb-2">
-                    <h2 class="text-sm font-bold text-os-text uppercase tracking-wider">Díagrama Genético (Bottom-Up)</h2>
-                    <button id="btn-update-tree" class="px-3 py-1 bg-os-border hover:bg-os-blue text-xs font-mono rounded transition shadow">Actualizar Ãrbol</button>
+                    <h2 class="text-sm font-bold text-os-text uppercase tracking-wider">Diagrama Genético (Bottom-Up)</h2>
+                    <button id="btn-update-tree" class="px-3 py-1 bg-os-border hover:bg-os-blue text-xs font-mono rounded transition shadow">Actualizar Árbol</button>
                 </div>
                 <div id="mermaid-container" class="w-full flex justify-center mt-4">
                     <div class="text-os-muted text-sm mt-10">Selecciona entre 2 y 6 IVs para generar el árbol...</div>

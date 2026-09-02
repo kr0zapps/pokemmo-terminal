@@ -5,54 +5,54 @@ import { formatTime } from '../utils/format.js';
 
 export const GYM_DATA = {
     "Teselia / Unova": [
-        { name: "Ciudad Gres (Striaton): Millo/Zeo/MaÃƒÂ­z", reward: 9000 },
+        { name: "Ciudad Gres (Striaton): Millo/Zeo/Maíz", reward: 9000 },
         { name: "Ciudad Esmalte (Nacrene): Aloe", reward: 9000 },
         { name: "Ciudad Porcelana (Castelia): Camus", reward: 9000 },
-        { name: "Ciudad MayÃƒÂ³lica (Nimbasa): Camila", reward: 9000 },
-        { name: "Ciudad Fayenza (Driftveil): YakÃƒÂ³n", reward: 9000 },
+        { name: "Ciudad Mayólica (Nimbasa): Camila", reward: 9000 },
+        { name: "Ciudad Fayenza (Driftveil): Yakón", reward: 9000 },
         { name: "Ciudad Loza (Mistralton): Gerania", reward: 9000 },
         { name: "Ciudad Teja (Icirrus): Junco", reward: 9000 },
-        { name: "Ciudad CaolÃƒÂ­n (Opelucid): Lirio/Iris", reward: 9000 }
+        { name: "Ciudad Caolín (Opelucid): Lirio/Iris", reward: 9000 }
     ],
     "Kanto": [
         { name: "Ciudad Plateada (Pewter): Brock", reward: 9000 },
         { name: "Ciudad Celeste (Cerulean): Misty", reward: 9000 },
-        { name: "Ciudad CarmÃƒÂ­n (Vermilion): Lt. Surge", reward: 9000 },
+        { name: "Ciudad Carmín (Vermilion): Lt. Surge", reward: 9000 },
         { name: "Ciudad Azulona (Celadon): Erika", reward: 9000 },
         { name: "Ciudad Fucsia (Fuchsia): Koga/Sachiko", reward: 9000 },
-        { name: "Ciudad AzafrÃƒ¡n (Saffron): Sabrina", reward: 9000 },
+        { name: "Ciudad Azafrán (Saffron): Sabrina", reward: 9000 },
         { name: "Isla Canela (Cinnabar): Blaine", reward: 9000 },
         { name: "Ciudad Verde (Viridian): Giovanni/Azul", reward: 9000 }
     ],
     "Sinnoh": [
         { name: "Ciudad Pirita (Oreburgh): Roco", reward: 9000 },
         { name: "Ciudad Vetusta (Eterna): Gardenia", reward: 9000 },
-        { name: "Ciudad CorazÃƒÂ³n (Hearthome): Fantina", reward: 9000 },
+        { name: "Ciudad Corazón (Hearthome): Fantina", reward: 9000 },
         { name: "Ciudad Rocavelo (Veilstone): Brega", reward: 9000 },
         { name: "Ciudad Pradera (Pastoria): Mananti", reward: 9000 },
-        { name: "Ciudad Canal (Canalave): AcerÃƒÂ³n", reward: 9000 },
+        { name: "Ciudad Canal (Canalave): Acerón", reward: 9000 },
         { name: "Ciudad Puntaneva (Snowpoint): Inverna", reward: 9000 },
         { name: "Ciudad Marina (Sunyshore): Lectro", reward: 9000 }
     ],
     "Hoenn": [
-        { name: "Ciudad FÃƒÂ©rrica (Rustboro): Petra", reward: 9000 },
+        { name: "Ciudad Férrica (Rustboro): Petra", reward: 9000 },
         { name: "Pueblo Azuliza (Dewford): Marcial", reward: 9000 },
         { name: "Ciudad Malvalona (Mauville): Erico", reward: 9000 },
         { name: "Pueblo Lavacalda (Lavaridge): Candela", reward: 9000 },
         { name: "Ciudad Petalia (Petalburg): Norman", reward: 9000 },
         { name: "Ciudad Arborada (Fortree): Alana", reward: 9000 },
         { name: "Ciudad Algaria (Mossdeep): Vito y Leti", reward: 9000 },
-        { name: "ArrecÃƒÂ­polis (Sootopolis): Plubio/Galano", reward: 9000 }
+        { name: "Arrecípolis (Sootopolis): Plubio/Galano", reward: 9000 }
     ],
     "Johto": [
         { name: "Ciudad Malva (Violet): Pegaso", reward: 9000 },
-        { name: "Pueblo Azalea (Azalea): AntÃƒÂ³n", reward: 9000 },
+        { name: "Pueblo Azalea (Azalea): Antón", reward: 9000 },
         { name: "Ciudad Trigal (Goldenrod): Blanca", reward: 9000 },
         { name: "Ciudad Iris (Ecruteak): Morti", reward: 9000 },
-        { name: "Ciudad OrquÃƒÂ­dea (Cianwood): AnÃƒÂ­bal", reward: 9000 },
+        { name: "Ciudad Orquídea (Cianwood): Aníbal", reward: 9000 },
         { name: "Ciudad Olivo (Olivine): Yasmina", reward: 9000 },
         { name: "Pueblo Caoba (Mahogany): Fredo", reward: 9000 },
-        { name: "Ciudad Endrino (Blackthorn): DÃƒÂ©bora", reward: 9000 }
+        { name: "Ciudad Endrino (Blackthorn): Débora", reward: 9000 }
     ]
 };
 
@@ -72,7 +72,7 @@ export function renderGymView() {
             </div>
             <div class="flex flex-wrap items-center gap-2">
                 <button id="btn-reset-gyms" class="text-xs font-mono uppercase text-os-red hover:text-white border border-os-red/30 hover:border-os-red px-3 py-1.5 transition rounded-sm">
-                    Ã¢Å¡Â Ã¯Â¸Â Reiniciar Todo
+                    ⚠️
                 </button>
             </div>
         </div>
@@ -90,17 +90,17 @@ export function renderGymView() {
                 </div>
                 <div class="flex items-baseline gap-2">
                     <span id="gymEarningsTotal" class="text-2xl font-mono font-bold text-amber-400">$0</span>
-                    <span class="text-xs font-mono text-os-muted">/ $540,000 mÃƒ¡x</span>
+                    <span class="text-xs font-mono text-os-muted">/ $540,000 máx</span>
                 </div>
                 <div class="w-full bg-os-bg h-1.5 rounded-full overflow-hidden border border-os-border mt-3">
                     <div id="gymEarningsBar" class="bg-amber-400 h-full w-0 transition-all duration-500 shadow-[0_0_8px_rgba(251,191,36,0.5)]"></div>
                 </div>
             </div>
 
-            <!-- Progreso de LÃƒÂ­deres -->
+            <!-- Progreso de Líderes -->
             <div class="panel p-4 flex flex-col justify-between">
                 <div class="flex justify-between items-start mb-2">
-                    <span class="text-[10px] font-mono uppercase tracking-widest text-os-muted">LÃƒÂ­deres Vencidos</span>
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-os-muted">Líderes Vencidos</span>
                     <span id="gymsReadyCount" class="text-[10px] font-mono text-os-green font-bold">40 Listos</span>
                 </div>
                 <div class="flex items-baseline gap-2">
@@ -112,7 +112,7 @@ export function renderGymView() {
                 </div>
             </div>
 
-            <!-- Temporizador Moneda Amuleto (1 hora) & CompensaciÃƒÂ³n -->
+            <!-- Temporizador Moneda Amuleto (1 hora) & Compensación -->
             <div class="panel p-4 flex flex-col justify-between">
                 <div class="flex justify-between items-center mb-2">
                     <span class="text-[10px] font-mono uppercase tracking-widest text-os-muted">Temporizador Amuleto (1h)</span>
@@ -132,7 +132,7 @@ export function renderGymView() {
                             Iniciar
                         </button>
                         <button id="amuletBtnReset" class="px-2 py-1.5 text-xs font-mono text-os-muted hover:text-os-red transition">
-                            Ã¢â€ Âº
+                            ↺
                         </button>
                     </div>
                 </div>
@@ -234,7 +234,7 @@ export function toggleGymState(id, isChecked) {
 
     if (isChecked) {
         localStorage.setItem(id, 'true');
-        localStorage.setItem(`time-${id}`, Díate.now() - compMs);
+        localStorage.setItem(`time-${id}`, Date.now() - compMs);
         if (label) {
             label.classList.add('checked-label', 'text-os-muted', 'line-through');
             label.classList.remove('text-os-text');
@@ -264,7 +264,7 @@ export function toggleWholeRegion(region, checkAll) {
     const region = region.replace(/[^a-zA-Z]/g, '');
     const compHours = parseFloat(document.getElementById('gymCompHours')?.value) || 0;
     const compMs = compHours * 60 * 60 * 1000;
-    const targetTime = Díate.now() - compMs;
+    const targetTime = Date.now() - compMs;
 
     list.forEach((_, index) => {
         const id = `gym-${region}-${index}`;
@@ -322,7 +322,7 @@ export function updateGymStats() {
 }
 
 export function resetGyms() {
-    if (confirm('Ã‚¿¿Borrar TODO el progreso de gimnasios?')) {
+    if (confirm('¿Borrar TODO el progreso de gimnasios?')) {
         const keysToRemove = [];
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
@@ -337,7 +337,7 @@ export function resetGyms() {
 }
 
 export function startAmuletTimer() {
-    localStorage.setItem('pokemmo_amulet_start', Díate.now());
+    localStorage.setItem('pokemmo_amulet_start', Date.now());
     localStorage.setItem('pokemmo_amulet_duration', AMULET_DURATION_MS);
     updateAmuletUI();
 }
@@ -364,12 +364,12 @@ export function updateAmuletUI() {
         return;
     }
 
-    const elapsed = Díate.now() - start;
+    const elapsed = Date.now() - start;
     const remaining = AMULET_DURATION_MS - elapsed;
 
     if (remaining <= 0) {
         if (timerEl) {
-            timerEl.innerText = 'Ã‚¡AGOTADO!';
+            timerEl.innerText = '¡AGOTADO!';
             timerEl.className = 'text-2xl font-mono font-bold text-os-red animate-pulse';
         }
         if (statusEl) statusEl.innerText = 'Bono de dinero terminado';
@@ -381,7 +381,7 @@ export function updateAmuletUI() {
             timerEl.innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
             timerEl.className = 'text-2xl font-mono font-bold text-amber-400';
         }
-        if (statusEl) statusEl.innerText = 'Ã°Å¸Âªâ„¢ Bono +50% activo';
+        if (statusEl) statusEl.innerText = '🪙 Bono +50% activo';
         if (btnEl) {
             btnEl.innerText = 'Activo';
             btnEl.className = 'px-3 py-1.5 text-xs font-mono uppercase bg-amber-500 text-black font-bold border border-amber-500 rounded-sm';
@@ -398,7 +398,7 @@ export function _formatTimeStr(ms) {
 }
 
 export function updateTimers() {
-    const now = Díate.now();
+    const now = Date.now();
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         if (key && key.startsWith('time-gym-')) {

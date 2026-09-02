@@ -86,7 +86,7 @@ export const RECIPES = {
     sitrus: { name: 'Zidra (Sitrus)', reqs: [
         { id: 'v_dulce', qty: 1, name: 'Semilla Muy Dulce', color: 'bg-pink-500' },
         { id: 'v_amarga', qty: 1, name: 'Semilla Muy Amarga', color: 'bg-green-600' },
-        { id: 'v_acida', qty: 1, name: 'Semilla Muy Ãcida', color: 'bg-yellow-500' }
+        { id: 'v_acida', qty: 1, name: 'Semilla Muy Ácida', color: 'bg-yellow-500' }
     ]},
     pomeg: { name: 'Grana (Pomeg)', reqs: [
         { id: 'v_picante', qty: 1, name: 'Semilla Muy Picante', color: 'bg-red-500' },
@@ -96,7 +96,7 @@ export const RECIPES = {
     kelpsy: { name: 'Algama (Kelpsy)', reqs: [
         { id: 'v_seca', qty: 1, name: 'Semilla Muy Seca', color: 'bg-blue-500' },
         { id: 'seca', qty: 1, name: 'Semilla Seca', color: 'bg-blue-400' },
-        { id: 'acida', qty: 1, name: 'Semilla Ãcida', color: 'bg-yellow-400' }
+        { id: 'acida', qty: 1, name: 'Semilla Ácida', color: 'bg-yellow-400' }
     ]},
     qualot: { name: 'Ispero (Qualot)', reqs: [
         { id: 'v_dulce', qty: 1, name: 'Semilla Muy Dulce', color: 'bg-pink-500' },
@@ -109,8 +109,8 @@ export const RECIPES = {
         { id: 'seca', qty: 1, name: 'Semilla Seca', color: 'bg-blue-400' }
     ]},
     grepa: { name: 'Uva (Grepa)', reqs: [
-        { id: 'v_acida', qty: 1, name: 'Semilla Muy Ãcida', color: 'bg-yellow-500' },
-        { id: 'acida', qty: 1, name: 'Semilla Ãcida', color: 'bg-yellow-400' },
+        { id: 'v_acida', qty: 1, name: 'Semilla Muy Ácida', color: 'bg-yellow-500' },
+        { id: 'acida', qty: 1, name: 'Semilla Ácida', color: 'bg-yellow-400' },
         { id: 'dulce', qty: 1, name: 'Semilla Dulce', color: 'bg-pink-400' }
     ]},
     tamato: { name: 'Tamate (Tamato)', reqs: [
@@ -122,7 +122,7 @@ export const RECIPES = {
     cheri: { name: 'Zreza (Cheri)', reqs: [{ id: 'picante', qty: 1, name: 'Semilla Picante', color: 'bg-red-400' }]},
     chesto: { name: 'Atania (Chesto)', reqs: [{ id: 'seca', qty: 1, name: 'Semilla Seca', color: 'bg-blue-400' }]},
     rawst: { name: 'Safre (Rawst)', reqs: [{ id: 'amarga', qty: 1, name: 'Semilla Amarga', color: 'bg-green-500' }]},
-    aspear: { name: 'Perasi (Aspear)', reqs: [{ id: 'acida', qty: 1, name: 'Semilla Ãcida', color: 'bg-yellow-400' }]}
+    aspear: { name: 'Perasi (Aspear)', reqs: [{ id: 'acida', qty: 1, name: 'Semilla Ácida', color: 'bg-yellow-400' }]}
 };
 
 let harvestCounter = 0;
@@ -157,13 +157,13 @@ export function renderBerryView() {
                         <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Dulce</label><input type="number" id="inv_dulce" min="0" value="0" class="w-full p-2 text-sm text-center"></div>
                         <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Seca</label><input type="number" id="inv_seca" min="0" value="0" class="w-full p-2 text-sm text-center"></div>
                         <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Amarga</label><input type="number" id="inv_amarga" min="0" value="0" class="w-full p-2 text-sm text-center"></div>
-                        <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Ãcida</label><input type="number" id="inv_acida" min="0" value="0" class="w-full p-2 text-sm text-center"></div>
+                        <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Ácida</label><input type="number" id="inv_acida" min="0" value="0" class="w-full p-2 text-sm text-center"></div>
                         
                         <div><label class="block text-[10px] uppercase text-os-red mb-1 truncate font-bold">M. Picante</label><input type="number" id="inv_v_picante" min="0" value="0" class="w-full p-2 text-sm text-center border-os-red/30"></div>
                         <div><label class="block text-[10px] uppercase text-pink-500 mb-1 truncate font-bold">M. Dulce</label><input type="number" id="inv_v_dulce" min="0" value="0" class="w-full p-2 text-sm text-center border-pink-500/30"></div>
                         <div><label class="block text-[10px] uppercase text-blue-500 mb-1 truncate font-bold">M. Seca</label><input type="number" id="inv_v_seca" min="0" value="0" class="w-full p-2 text-sm text-center border-blue-500/30"></div>
                         <div><label class="block text-[10px] uppercase text-green-500 mb-1 truncate font-bold">M. Amarga</label><input type="number" id="inv_v_amarga" min="0" value="0" class="w-full p-2 text-sm text-center border-green-500/30"></div>
-                        <div><label class="block text-[10px] uppercase text-yellow-500 mb-1 truncate font-bold">M. Ãcida</label><input type="number" id="inv_v_acida" min="0" value="0" class="w-full p-2 text-sm text-center border-yellow-500/30"></div>
+                        <div><label class="block text-[10px] uppercase text-yellow-500 mb-1 truncate font-bold">M. Ácida</label><input type="number" id="inv_v_acida" min="0" value="0" class="w-full p-2 text-sm text-center border-yellow-500/30"></div>
                     </div>
                     
                     <button id="btnCalculateInventory" class="w-full btn-primary py-2 text-sm uppercase tracking-wide mb-6">
@@ -178,7 +178,7 @@ export function renderBerryView() {
                 <div class="flex flex-col gap-6">
                     <!-- RECIPE LOOKUP -->
                     <section class="panel p-6">
-                        <h2 class="text-sm font-mono text-os-muted uppercase tracking-widest mb-4">Base de Díatos Genética</h2>
+                        <h2 class="text-sm font-mono text-os-muted uppercase tracking-widest mb-4">Base de Datos Genética</h2>
                         <select id="recipeSelect" class="w-full p-2.5 text-sm mb-4 cursor-pointer">
                             <option value="" disabled selected>Consultar Baya...</option>
                             <optgroup label="Más Rentables">
@@ -262,7 +262,7 @@ export function renderWaterModal() {
                             <p class="text-[10px] font-mono text-os-muted" id="waterSimSubtitle">Análisis de hidratación del suelo</p>
                         </div>
                     </div>
-                    <button id="btnCloseWaterPreview1" class="text-os-muted hover:text-white font-mono text-xs">âœ•</button>
+                    <button id="btnCloseWaterPreview1" class="text-os-muted hover:text-white font-mono text-xs">✖</button>
                 </div>
 
                 <!-- Dynamic Content -->
@@ -451,10 +451,10 @@ export async function plantBerry() {
     const initialDryHours = (!isNaN(customInput) && customInput > 0) ? customInput : dbInfo.initialDryHours;
     
     const elapsedMs = elapsedHours * 60 * 60 * 1000;
-    const simulatedPlantTime = Díate.now() - elapsedMs;
+    const simulatedPlantTime = Date.now() - elapsedMs;
 
     const newCrop = { 
-        id: Díate.now().toString(), // Ensure string if DB expects uuid, or keep as number if preferred. Let's use Díate.now() 
+        id: Date.now().toString(), // Ensure string if DB expects uuid, or keep as number if preferred. Let's use Date.now() 
         type: type, 
         location: location, 
         initialDryHours: initialDryHours,
@@ -484,7 +484,7 @@ export function openWaterPreviewModal(id) {
     pendingWaterCropId = id;
 
     const dbInfo = BERRY_DB[crop.type] || BERRY_DB.zanama;
-    const now = Díate.now();
+    const now = Date.now();
     const totalMs = dbInfo.totalHours * 60 * 60 * 1000;
     const elapsedMs = now - crop.plantedAt;
     const remainingHarvestMs = Math.max(0, totalMs - elapsedMs);
@@ -522,7 +522,7 @@ export function openWaterPreviewModal(id) {
                 <div class="grid grid-cols-2 gap-2 text-center font-mono text-[11px] bg-os-bg p-2.5 border border-emerald-500/20 mb-2">
                     <div>
                         <span class="text-os-muted block text-[9px] uppercase">Gotas tras regar</span>
-                        <span class="text-emerald-400 font-bold">ðŸ’§ðŸ’§ðŸ’§ðŸ’§ðŸ’§ (5/5 Máx)</span>
+                        <span class="text-emerald-400 font-bold">💧💧💧💧💧 (5/5 Máx)</span>
                     </div>
                     <div>
                         <span class="text-os-muted block text-[9px] uppercase">Próximo riego requerido</span>
@@ -538,7 +538,7 @@ export function openWaterPreviewModal(id) {
         content.innerHTML = `
             <div class="bg-amber-950/30 border border-amber-500/40 p-4 rounded-sm">
                 <div class="flex items-center gap-2 mb-2 text-amber-400 font-bold text-sm">
-                    <span>âš ï¸ ATENCIÓN: NECESITARÃ OTRO RIEGO EN ~${nextWaterInHours} HORAS</span>
+                    <span>âš ï¸ ATENCIÓN: NECESITARÁ OTRO RIEGO EN ~${nextWaterInHours} HORAS</span>
                 </div>
                 <p class="text-os-text leading-relaxed mb-3">
                     En PokéMMO las 5 gotas duran <strong>${nextWaterInHours} horas</strong> (~${dbInfo.dropDurationHours}h por gota). Como aún faltan <strong>${formatTime(remainingHarvestMs)}</strong> para cosechar, el agua se agotará antes de la cosecha.
@@ -555,7 +555,7 @@ export function openWaterPreviewModal(id) {
                 </div>
                 <div class="bg-os-bg/80 border border-os-blue/30 p-2.5 rounded-sm">
                     <p class="text-[11px] text-os-blue leading-relaxed">
-                        ðŸ’¡ <strong>Gotas actuales:</strong> Tiene <strong>${currentDrops}/5 gotas</strong> (~${formatTime(timeToZeroDropsMs)} de humedad). Si riegas ahora, restaurarás a 5 gotas inmediatamente.
+                        💡 <strong>Gotas actuales:</strong> Tiene <strong>${currentDrops}/5 gotas</strong> (~${formatTime(timeToZeroDropsMs)} de humedad). Si riegas ahora, restaurarás a 5 gotas inmediatamente.
                     </p>
                 </div>
             </div>
@@ -585,7 +585,7 @@ export async function confirmExecuteWatering() {
             const crop = crops[index];
             crop.watered = true;
             crop.waterCount = (crop.waterCount || 0) + 1;
-            crop.wateredAt = Díate.now();
+            crop.wateredAt = Date.now();
             
             setState('crops', [...crops]);
             
@@ -604,7 +604,7 @@ export async function harvestCrop(id) {
     const crop = crops.find(c => c.id == id);
     if (crop) {
         const dbInfo = BERRY_DB[crop.type] || BERRY_DB.zanama;
-        if (Díate.now() - crop.plantedAt >= dbInfo.totalHours * 60 * 60 * 1000) {
+        if (Date.now() - crop.plantedAt >= dbInfo.totalHours * 60 * 60 * 1000) {
             harvestCounter++;
             const totalHarvestedEl = document.getElementById('totalHarvested');
             if (totalHarvestedEl) totalHarvestedEl.innerText = harvestCounter;
@@ -664,7 +664,7 @@ export function renderCrops() {
                 <div class="bg-os-bg border border-os-border p-2 mb-3 rounded-sm">
                     <div class="flex justify-between items-center text-[10px] font-mono mb-1">
                         <span class="text-os-muted uppercase">Humedad Suelo:</span>
-                        <span id="crop-drops-${crop.id}" class="text-os-blue font-bold">ðŸ’§ðŸ’§âšªâšªâšª (2/5)</span>
+                        <span id="crop-drops-${crop.id}" class="text-os-blue font-bold">💧💧⚪⚪⚪ (2/5)</span>
                     </div>
                     <p id="crop-advice-${crop.id}" class="text-[10px] text-os-muted leading-tight">Calculando estado de hidratación...</p>
                 </div>
@@ -700,7 +700,7 @@ export function renderCrops() {
 }
 
 export function updateTimers() {
-    const now = Díate.now();
+    const now = Date.now();
     const crops = state.crops || [];
     
     crops.forEach(crop => {
@@ -732,15 +732,15 @@ export function updateTimers() {
         // Calcular etapa actual de PokéMMO (1 a 4)
         if (stageText) {
             if (isHarvestReady) {
-                stageText.innerHTML = `<span class="text-os-green font-bold">ðŸŒ¾ ¡COSECHA LISTA!</span>`;
+                stageText.innerHTML = `<span class="text-os-green font-bold">🌾 ¡COSECHA LISTA!</span>`;
             } else if (progressPercent < 25) {
                 stageText.innerHTML = `<span class="text-os-muted">🌱 Fase 1/4: Semilla (${progressPercent.toFixed(0)}%)</span>`;
             } else if (progressPercent < 50) {
-                stageText.innerHTML = `<span class="text-emerald-400">ðŸŒ¿ Fase 2/4: Brote (${progressPercent.toFixed(0)}%)</span>`;
+                stageText.innerHTML = `<span class="text-emerald-400">🌿 Fase 2/4: Brote (${progressPercent.toFixed(0)}%)</span>`;
             } else if (progressPercent < 75) {
-                stageText.innerHTML = `<span class="text-blue-400">ðŸŒ³ Fase 3/4: Crecimiento (${progressPercent.toFixed(0)}%)</span>`;
+                stageText.innerHTML = `<span class="text-blue-400">🌳 Fase 3/4: Crecimiento (${progressPercent.toFixed(0)}%)</span>`;
             } else {
-                stageText.innerHTML = `<span class="text-pink-400">ðŸŒ¸ Fase 4/4: Floración (${progressPercent.toFixed(0)}%)</span>`;
+                stageText.innerHTML = `<span class="text-pink-400">🌸 Fase 4/4: Floración (${progressPercent.toFixed(0)}%)</span>`;
             }
         }
 
@@ -754,14 +754,14 @@ export function updateTimers() {
             }
 
             if (waterLabel) waterLabel.innerText = 'Tiempo Marchitar';
-            if (badge) badge.innerHTML = `<span class="text-[9px] font-mono text-os-green bg-os-green/10 border border-os-green/30 px-1.5 py-0.5 rounded animate-bounce">ðŸŒ¾ COSECHAR</span>`;
+            if (badge) badge.innerHTML = `<span class="text-[9px] font-mono text-os-green bg-os-green/10 border border-os-green/30 px-1.5 py-0.5 rounded animate-bounce">🌾 COSECHAR</span>`;
 
             if (remainingWiltMs <= 0) {
                 if (waterTimeText) {
                     waterTimeText.innerText = '¡PODRIDA!';
                     waterTimeText.className = 'font-mono text-xs font-bold text-os-red';
                 }
-                if (dropsText) dropsText.innerHTML = '<span class="text-os-red">ðŸ’€ Planta Muerta (Excedió 8h)</span>';
+                if (dropsText) dropsText.innerHTML = '<span class="text-os-red">💀 Planta Muerta (Excedió 8h)</span>';
                 if (adviceText) {
                     adviceText.innerText = 'âŒ Han pasado más de 8 horas desde la maduración. La planta se marchitó.';
                     adviceText.className = 'text-[10px] text-os-red font-bold';
@@ -771,16 +771,16 @@ export function updateTimers() {
                     waterTimeText.innerText = formatTime(remainingWiltMs);
                     waterTimeText.className = remainingWiltMs < (2 * 3600 * 1000) ? 'font-mono text-xs font-bold text-os-red animate-pulse' : 'font-mono text-xs font-bold text-amber-400';
                 }
-                if (dropsText) dropsText.innerHTML = '<span class="text-os-green font-bold">âœ¨ Frutos Listos (' + (dbInfo.yield || '5-7') + ')</span>';
+                if (dropsText) dropsText.innerHTML = '<span class="text-os-green font-bold">✨ Frutos Listos (' + (dbInfo.yield || '5-7') + ')</span>';
                 if (adviceText) {
-                    adviceText.innerText = `ðŸŒ¾ ¡Cosecha lista! Tienes ${formatTime(remainingWiltMs)} antes de que empiece a marchitarse.`;
+                    adviceText.innerText = `🌾 ¡Cosecha lista! Tienes ${formatTime(remainingWiltMs)} antes de que empiece a marchitarse.`;
                     adviceText.className = 'text-[10px] text-os-green font-medium';
                 }
             }
 
             if (btnWater) {
                 btnWater.className = 'flex-1 py-1.5 px-2 text-xs font-mono uppercase bg-os-green text-black font-bold border border-os-green animate-pulse';
-                btnWater.innerText = 'ðŸŒ¾ Cosechar';
+                btnWater.innerText = '🌾 Cosechar';
                 btnWater.disabled = false;
                 btnWater.onclick = () => harvestCrop(crop.id);
             }
@@ -814,9 +814,9 @@ export function updateTimers() {
         let dropsIcons = '';
         for (let i = 1; i <= 5; i++) {
             if (i <= currentDrops) {
-                dropsIcons += 'ðŸ’§';
+                dropsIcons += '💧';
             } else {
-                dropsIcons += 'âšª';
+                dropsIcons += '⚪';
             }
         }
 
@@ -827,7 +827,7 @@ export function updateTimers() {
             if (badge) badge.innerHTML = `<span class="text-[9px] font-mono text-os-red bg-os-red/10 border border-os-red/40 px-1.5 py-0.5 rounded animate-pulse">ðŸš¨ SECO (0/5)</span>`;
             if (dropsText) dropsText.innerHTML = `<span class="text-os-red font-bold animate-pulse">${dropsIcons} (0/5 ¡SECO!)</span>`;
             if (adviceText) {
-                adviceText.innerText = 'ðŸš¨ ¡EL SUELO ESTÃ SECO! Riega ahora para no perder rendimiento ni arriesgar la cosecha.';
+                adviceText.innerText = 'ðŸš¨ ¡EL SUELO ESTÁ SECO! Riega ahora para no perder rendimiento ni arriesgar la cosecha.';
                 adviceText.className = 'text-[10px] text-os-red font-bold animate-pulse';
             }
             if (waterTimeText) {
@@ -836,7 +836,7 @@ export function updateTimers() {
             }
             if (btnWater) {
                 btnWater.className = 'flex-1 py-1.5 px-2 text-xs font-mono uppercase bg-os-red text-white font-bold border border-os-red animate-bounce';
-                btnWater.innerText = 'ðŸ’§ Regar (5 Gotas)';
+                btnWater.innerText = '💧 Regar (5 Gotas)';
                 btnWater.disabled = false;
                 btnWater.onclick = () => openWaterPreviewModal(crop.id);
             }
@@ -867,7 +867,7 @@ export function updateTimers() {
                 if (!crop.watered) {
                     badge.innerHTML = `<span class="text-[9px] font-mono text-os-blue bg-os-blue/10 border border-os-blue/30 px-1.5 py-0.5 rounded">â³ 2 GOTAS BASE</span>`;
                 } else {
-                    badge.innerHTML = `<span class="text-[9px] font-mono ${isCritical ? 'text-amber-400 bg-amber-400/10 border border-amber-400/30' : 'text-os-blue bg-os-blue/10 border border-os-blue/30'} px-1.5 py-0.5 rounded">ðŸ’§ HIDRATADO (${currentDrops}/5)</span>`;
+                    badge.innerHTML = `<span class="text-[9px] font-mono ${isCritical ? 'text-amber-400 bg-amber-400/10 border border-amber-400/30' : 'text-os-blue bg-os-blue/10 border border-os-blue/30'} px-1.5 py-0.5 rounded">💧 HIDRATADO (${currentDrops}/5)</span>`;
                 }
             }
 
@@ -880,7 +880,7 @@ export function updateTimers() {
                 if (!crop.watered) {
                     adviceText.innerText = `â³ Consumiendo las 2 gotas base. Se agotarán en ${formatTime(timeToZeroDropsMs)} (1 gota se pierde cada ${dbInfo.dropDurationHours}h).`;
                 } else {
-                    adviceText.innerText = `ðŸ’§ Quedan ${currentDrops} gotas (~${formatTime(timeToZeroDropsMs)} de humedad). Como faltan ${formatTime(remainingHarvestMs)} para cosechar, requerirá otro riego en ${formatTime(timeToZeroDropsMs)}.`;
+                    adviceText.innerText = `💧 Quedan ${currentDrops} gotas (~${formatTime(timeToZeroDropsMs)} de humedad). Como faltan ${formatTime(remainingHarvestMs)} para cosechar, requerirá otro riego en ${formatTime(timeToZeroDropsMs)}.`;
                 }
                 adviceText.className = isCritical ? 'text-[10px] text-amber-400 font-bold' : 'text-[10px] text-os-muted';
             }

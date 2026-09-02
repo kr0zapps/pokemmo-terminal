@@ -58,11 +58,11 @@ export async function migrateLocalStorage() {
       const cropsList = JSON.parse(crops);
       for (const c of cropsList) {
         await addCrop({
-          berry_type: c.type || 'Unknown',
+          type: c.type || 'Unknown',
           location: c.location || 'Unknown',
-          planted_at: c.plantedAt ? new DÃ­ate(c.plantedAt).toISOString() : new Date().toISOString(),
-          water_count: c.waterCount || 0,
-          last_watered_at: c.lastWateredAt ? new DÃ­ate(c.lastWateredAt).toISOString() : null,
+          plantedAt: c.plantedAt ? new Date(c.plantedAt).toISOString() : new Date().toISOString(),
+          waterCount: c.waterCount || 0,
+          wateredAt: c.lastWateredAt ? new Date(c.lastWateredAt).toISOString() : null,
           harvested: c.harvested || false
         });
       }
@@ -92,22 +92,22 @@ export function renderAuthUI(onSuccess) {
     <div class="flex items-center justify-center min-h-screen" style="background-color: var(--os-bg, #090A0F); font-family: 'Inter', sans-serif;">
       <div class="w-full max-w-md p-8 rounded-xl shadow-2xl" style="background-color: var(--os-panel, #13151F); border: 1px solid var(--os-border, #262A3D);">
         <div class="text-center mb-8">
-          <h1 class="text-3xl font-bold mb-2" style="color: var(--os-blue, #3B82F6);">PokÃ©MMO Terminal</h1>
-          <p class="text-sm" style="color: var(--os-muted, #82889E);">Inicia sesiÃ³n para continuar</p>
+          <h1 class="text-3xl font-bold mb-2" style="color: var(--os-blue, #3B82F6);">PokéMMO Terminal</h1>
+          <p class="text-sm" style="color: var(--os-muted, #82889E);">Inicia sesión para continuar</p>
         </div>
         
         <form id="auth-form" class="space-y-6">
           <div id="auth-error" class="hidden p-3 text-sm rounded" style="background-color: rgba(249,56,34,0.1); color: var(--os-red, #F93822); border: 1px solid var(--os-red, #F93822);"></div>
           
           <div>
-            <label class="block text-sm font-medium mb-1" style="color: var(--os-text, #EDEDED);">Correo ElectrÃ³nico</label>
+            <label class="block text-sm font-medium mb-1" style="color: var(--os-text, #EDEDED);">Correo Electrónico</label>
             <input type="email" id="auth-email" required
               class="w-full px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               style="background-color: var(--os-bg, #090A0F); border: 1px solid var(--os-border, #262A3D); color: var(--os-text, #EDEDED);" />
           </div>
           
           <div>
-            <label class="block text-sm font-medium mb-1" style="color: var(--os-text, #EDEDED);">ContraseÃ±a</label>
+            <label class="block text-sm font-medium mb-1" style="color: var(--os-text, #EDEDED);">Contraseña</label>
             <input type="password" id="auth-password" required
               class="w-full px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               style="background-color: var(--os-bg, #090A0F); border: 1px solid var(--os-border, #262A3D); color: var(--os-text, #EDEDED);" />
@@ -115,12 +115,12 @@ export function renderAuthUI(onSuccess) {
 
           <div class="flex items-center">
             <input type="checkbox" id="auth-remember" class="w-4 h-4 rounded border-gray-600 bg-gray-700 text-blue-500 focus:ring-blue-500 focus:ring-offset-gray-900">
-            <label for="auth-remember" class="ml-2 text-sm" style="color: var(--os-muted, #82889E);">Recordar sesiÃ³n</label>
+            <label for="auth-remember" class="ml-2 text-sm" style="color: var(--os-muted, #82889E);">Recordar sesión</label>
           </div>
           
           <div class="flex gap-4 pt-2">
             <button type="submit" id="btn-login" class="flex-1 py-2 px-4 rounded font-medium transition-colors hover:opacity-90" style="background-color: var(--os-blue, #3B82F6); color: white;">
-              Iniciar SesiÃ³n
+              Iniciar Sesión
             </button>
             <button type="button" id="btn-register" class="flex-1 py-2 px-4 rounded font-medium transition-colors hover:opacity-90" style="background-color: transparent; border: 1px solid var(--os-blue, #3B82F6); color: var(--os-blue, #3B82F6);">
               Registrarse
@@ -150,19 +150,19 @@ export function renderAuthUI(onSuccess) {
       await login(emailInput.value, passwordInput.value);
       if (onSuccess) onSuccess();
     } catch (err) {
-      showError(err.message || 'Error al iniciar sesiÃ³n');
+      showError(err.message || 'Error al iniciar sesión');
     }
   });
 
   btnRegister.addEventListener('click', async () => {
     if (!emailInput.value || !passwordInput.value) {
-      showError('Por favor ingrese correo y contraseÃ±a para registrarse');
+      showError('Por favor ingrese correo y contraseña para registrarse');
       return;
     }
     errorDiv.classList.add('hidden');
     try {
       await register(emailInput.value, passwordInput.value);
-      showError('Registro exitoso. Puede iniciar sesiÃ³n.');
+      showError('Registro exitoso. Puede iniciar sesión.');
       errorDiv.style.color = 'var(--os-green, #10B981)';
       errorDiv.style.borderColor = 'var(--os-green, #10B981)';
       errorDiv.style.backgroundColor = 'rgba(16,185,129,0.1)';
