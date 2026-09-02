@@ -1925,7 +1925,25 @@
 
         function initPokedex() {
             autoLoadDB();
-            updateDexProgress();
+            
+            // Load preferences
+            try {
+                const prefs = JSON.parse(localStorage.getItem('pokemmo_dex_prefs'));
+                if (prefs) {
+                    if (prefs.hideUnassigned !== undefined) document.getElementById('hideUnassigned').checked = prefs.hideUnassigned;
+                    if (prefs.hideCaught !== undefined) document.getElementById('hideCaught').checked = prefs.hideCaught;
+                    if (prefs.hidePreEvos !== undefined) document.getElementById('hidePreEvos').checked = prefs.hidePreEvos;
+                    if (prefs.hidePostEvos !== undefined) document.getElementById('hidePostEvos').checked = prefs.hidePostEvos;
+                    if (prefs.dexSort) document.getElementById('dexSort').value = prefs.dexSort;
+                    if (prefs.dexTimeFilter) document.getElementById('dexTimeFilter').value = prefs.dexTimeFilter;
+                    if (prefs.region) {
+                        currentDexRegion = prefs.region;
+                    }
+                }
+            } catch(e) {}
+            
+            // Ensure UI tabs map to currentDexRegion, and trigger first render
+            setRegion(currentDexRegion); 
         }
 
 
@@ -1953,20 +1971,6 @@
         
         let currentDexRegion = 'Kanto';
 
-        function setRegion(region) {
-            currentDexRegion = region;
-            // Update tabs UI
-            ['Kanto', 'Johto', 'Hoenn', 'Sinnoh', 'Unova'].forEach(r => {
-                const btn = document.getElementById('reg-' + r);
-                if(r === region) {
-                    btn.className = "px-4 py-1.5 text-xs font-bold uppercase tracking-widest bg-os-blue text-white rounded shadow-[0_0_10px_rgba(59,130,246,0.3)] border border-os-blue transition";
-                } else {
-                    btn.className = "px-4 py-1.5 text-xs font-bold uppercase tracking-widest bg-os-panel text-os-muted border border-os-border hover:text-os-blue hover:border-os-blue transition rounded";
-                }
-            });
-            renderDexResults();
-            updateDexProgress();
-        }
 
         let dexCurrentPage = 1;
         const dexPageSize = 20;
@@ -2052,11 +2056,26 @@
             };
         }
 
+        function savePokedexPreferences() {
+            const prefs = {
+                region: currentDexRegion,
+                hideUnassigned: document.getElementById('hideUnassigned')?.checked,
+                hideCaught: document.getElementById('hideCaught')?.checked,
+                hidePreEvos: document.getElementById('hidePreEvos')?.checked,
+                hidePostEvos: document.getElementById('hidePostEvos')?.checked,
+                dexSort: document.getElementById('dexSort')?.value,
+                dexTimeFilter: document.getElementById('dexTimeFilter')?.value
+            };
+            localStorage.setItem('pokemmo_dex_prefs', JSON.stringify(prefs));
+        }
+
         function renderDexResults(resetPage = false) {
             if(resetPage) dexCurrentPage = 1;
             const region = currentDexRegion;
             const resultsDiv = document.getElementById('dexResults');
             if(!resultsDiv) return;
+
+            savePokedexPreferences();
 
             const hideUnassigned = document.getElementById('hideUnassigned')?.checked;
             const hideCaught = document.getElementById('hideCaught')?.checked;
