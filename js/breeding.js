@@ -140,43 +140,40 @@ async function generateBreedingTree() {
     
     if (targetIvs === 2) {
         if(useNature) {
-            mermaidGraph += 'A[Naturaleza<br/>(Piedraeterna)] --> C[2x31 + Nat]\n';
-            mermaidGraph += 'B[1x31 (Stat 1)<br/>(Brazal)] --> C\n';
+            mermaidGraph += 'A["Naturaleza<br/>(Piedraeterna)"] --> C["2x31 + Nat"]\n';
+            mermaidGraph += 'B["1x31 (Stat 1)<br/>(Brazal)"] --> C\n';
         } else {
-            mermaidGraph += 'A[1x31 (Stat 1)<br/>(Brazal)] --> C[2x31]\n';
-            mermaidGraph += 'B[1x31 (Stat 2)<br/>(Brazal)] --> C\n';
+            mermaidGraph += 'A["1x31 (Stat 1)<br/>(Brazal)"] --> C["2x31"]\n';
+            mermaidGraph += 'B["1x31 (Stat 2)<br/>(Brazal)"] --> C\n';
         }
     } else if (targetIvs === 3) {
         if(useNature) {
-            mermaidGraph += 'A[1x31 (Stat 1)<br/>+ Naturaleza] --> |Brazal + Piedra| D[2x31 + Nat]\n';
-            mermaidGraph += 'B[1x31 (Stat 2)] --> D\n';
-            mermaidGraph += 'C[2x31 (Stat 2, 3)] --> |2 Brazales| E[3x31]\n';
-            mermaidGraph += 'D --> |Brazal + Piedra| E\n';
+            mermaidGraph += 'A["1x31 (Stat 1)<br/>+ Naturaleza"] --> |"Brazal + Piedra"| D["2x31 + Nat"]\n';
+            mermaidGraph += 'B["1x31 (Stat 2)"] --> D\n';
+            mermaidGraph += 'C["2x31 (Stat 2, 3)"] --> |"2 Brazales"| E["3x31"]\n';
+            mermaidGraph += 'D --> |"Brazal + Piedra"| E\n';
         } else {
-            mermaidGraph += 'A[2x31 (Stat 1, 2)] --> |2 Brazales| C[3x31]\n';
-            mermaidGraph += 'B[2x31 (Stat 2, 3)] --> |2 Brazales| C\n';
+            mermaidGraph += 'A["2x31 (Stat 1, 2)"] --> |"2 Brazales"| C["3x31"]\n';
+            mermaidGraph += 'B["2x31 (Stat 2, 3)"] --> |"2 Brazales"| C\n';
         }
     } else if (targetIvs >= 4) {
         // En niveles altos simplificamos el gráfico para no colapsar la vista, mostrando el cruce maestro
         const label = useNature ? `${targetIvs}x31 + Naturaleza` : `${targetIvs}x31`;
-        mermaidGraph += `Master[Meta: ${label}]\n`;
-        mermaidGraph += `A[Padre: ${targetIvs-1}x31${useNature ? ' + Nat' : ''}] --> |${useNature ? 'Piedraeterna' : 'Brazal'}| Master\n`;
-        mermaidGraph += `B[Madre: ${targetIvs-1}x31] --> |Brazal| Master\n`;
-        mermaidGraph += `C[Abuelos: ${targetIvs-2}x31] -.-> A\n`;
-        mermaidGraph += `D[Abuelos: ${targetIvs-2}x31] -.-> B\n`;
+        mermaidGraph += `Master["Meta: ${label}"]\n`;
+        mermaidGraph += `A["Padre: ${targetIvs-1}x31${useNature ? ' + Nat' : ''}"] --> |"${useNature ? 'Piedraeterna' : 'Brazal'}"| Master\n`;
+        mermaidGraph += `B["Madre: ${targetIvs-1}x31"] --> |"Brazal"| Master\n`;
+        mermaidGraph += `C["Abuelos: ${targetIvs-2}x31"] -.-> A\n`;
+        mermaidGraph += `D["Abuelos: ${targetIvs-2}x31"] -.-> B\n`;
     }
 
     // Renderizar
     const container = document.getElementById('mermaid-container');
-    container.innerHTML = `<pre class="mermaid">${mermaidGraph}</pre>`;
-    
-    // Forzar el render de mermaid
     try {
-        await mermaid.run({
-            querySelector: '.mermaid'
-        });
+        const { svg } = await mermaid.render('breeding-mermaid-svg', mermaidGraph);
+        container.innerHTML = svg;
     } catch (e) {
         console.error('Mermaid render error:', e);
+        container.innerHTML = `<div class="text-red-400 p-4 bg-red-900/30 rounded border border-red-500">Error renderizando el diagrama. Asegúrate de tener conexión a internet para descargar Mermaid.</div>`;
     }
 }
 
