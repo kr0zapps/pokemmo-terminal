@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PokeMMO Terminal</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.4.0/dist/mermaid.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -115,6 +116,7 @@
                         <button id="tab-gyms" onclick="switchTab('gyms')" class="tab-btn tab-active">Gym Reruns</button>
                         <button id="tab-berries" onclick="switchTab('berries')" class="tab-btn">Cultivo de Bayas</button>
                         <button id="tab-pokedex" onclick="switchTab('pokedex')" class="tab-btn">Pokedex Optimizer</button>
+                        <button id="tab-breeding" onclick="switchTab('breeding')" class="tab-btn">Crianza (Breeding)</button>
                     </nav>
                     <div id="headerCloudBadge" onclick="openSyncModal()" class="flex items-center gap-2 px-3 py-1.5 rounded bg-os-bg border border-emerald-500/40 text-emerald-400 text-xs font-mono font-bold cursor-pointer hover:bg-emerald-950/40 transition shadow-[0_0_12px_rgba(16,185,129,0.2)]" title="Base de Datos Interconectada en Tiempo Real entre Celular y PC">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -884,9 +886,9 @@
         window.addEventListener('focus', () => fetchLatestCloudState(false));
 
         // ==========================================
-        // 1. SISTEMA DE NAVEGACIN (TABS)
+        // 1. SISTEMA DE NAVEGACIÓN (TABS)
         // ==========================================
-        const TABS = ['gyms', 'berries', 'pokedex'];
+        const TABS = ['gyms', 'berries', 'pokedex', 'breeding'];
         function switchTab(activeTab) {
             TABS.forEach(tab => {
                 const view = document.getElementById(`view-${tab}`);
@@ -2570,6 +2572,7 @@
         <span id="dexToastMsg">Acción completada</span>
     </div>
 
+    <script src="js/breeding.js"></script>
 </body>
 </html>
 
