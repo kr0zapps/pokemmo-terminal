@@ -2,17 +2,22 @@ const POKEAPI_BASE = 'https://pokeapi.co/api/v2';
 const cache = new Map();
 
 export async function fetchPokemonSpecies(nameOrId) {
-  const cacheKey = `species-${nameOrId}`;
+  if (!nameOrId) return null;
+  const cleanParam = typeof nameOrId === 'string'
+    ? nameOrId.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '')
+    : nameOrId;
+
+  const cacheKey = `species-${cleanParam}`;
   if (cache.has(cacheKey)) return cache.get(cacheKey);
 
   try {
-    const res = await fetch(`${POKEAPI_BASE}/pokemon-species/${nameOrId}`);
+    const res = await fetch(`${POKEAPI_BASE}/pokemon-species/${cleanParam}`);
     if (!res.ok) throw new Error(`PokeAPI error: ${res.status}`);
     const data = await res.json();
     cache.set(cacheKey, data);
     return data;
   } catch (err) {
-    console.error(`Error fetching species ${nameOrId}:`, err);
+    console.error(`Error fetching species ${cleanParam}:`, err);
     return null;
   }
 }

@@ -40,18 +40,19 @@ async function initApp() {
     if (pokedex.renderPokédexView) viewsHtml += pokedex.renderPokédexView();
     
     // Attempt dynamic breeding import
+    let breedingModule = null;
     try {
         const breeding = await import('./modules/breeding.js');
         if (breeding.renderBreedingView) {
             viewsHtml += breeding.renderBreedingView();
         }
         Object.assign(window, breeding);
-        if (breeding.initBreeding) breeding.initBreeding();
         if (breeding.renderEggGroupModal) {
             document.body.insertAdjacentHTML('beforeend', breeding.renderEggGroupModal());
         }
+        breedingModule = breeding;
     } catch(e) {
-        console.warn('Breeding module not yet available');
+        console.warn('Breeding module not yet available', e);
         viewsHtml += `<div id="view-breeding" class="hidden animate-fade-in"><div class="panel p-6 text-center text-os-muted">Módulo de Crianza en construcción...</div></div>`;
     }
 
@@ -65,6 +66,7 @@ async function initApp() {
     if (gyms.initGyms) gyms.initGyms();
     if (berries.initBerries) berries.initBerries();
     if (pokedex.initPokédex) pokedex.initPokédex();
+    if (breedingModule && breedingModule.initBreeding) breedingModule.initBreeding();
 
     initRouter();
     initRealtimeSync();

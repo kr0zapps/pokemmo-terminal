@@ -40,9 +40,12 @@ export function renderBreedingView() {
                         <input type="text" id="breeding-target" list="pokedex-list-breeding" class="w-full bg-os-bg border border-os-border text-xs p-2.5 rounded-lg text-os-text focus:border-os-blue outline-none font-mono" placeholder="Ej. Garchomp">
                         <button id="btn-fetch-pokemon" class="px-3 bg-os-elevated hover:bg-os-blue hover:text-black border border-os-border text-os-text rounded-lg transition cursor-pointer">🔍</button>
                     </div>
-                    <div id="target-info" class="text-xs text-os-muted mt-2.5 hidden flex flex-col gap-1.5 bg-os-bg p-2.5 rounded-lg border border-os-border">
-                        <div>Grupos Huevo: <span id="target-egg-group" class="text-white font-bold"></span></div>
-                        <div>Costo Género: <span id="target-gender-cost" class="text-amber-400 font-bold tabular-nums"></span> por cruce</div>
+                    <div id="target-info" class="text-xs text-os-muted mt-2.5 hidden flex-col gap-1.5 bg-os-bg p-2.5 rounded-lg border border-os-border">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <span class="text-os-muted font-mono">Grupos Huevo:</span>
+                            <span id="target-egg-group" class="text-white font-bold flex flex-wrap gap-1"></span>
+                        </div>
+                        <div class="font-mono">Costo Género: <span id="target-gender-cost" class="text-amber-400 font-bold tabular-nums"></span> por cruce</div>
                     </div>
                 </div>
                 <datalist id="pokedex-list-breeding"></datalist>
@@ -184,18 +187,15 @@ export function initBreeding() {
         btnCloseModal.addEventListener('click', closeEggGroupModal);
     }
 
-    fetch('data/pokemmo_db.json')
-        .then(res => res.json())
-        .then(db => {
-            if (Array.isArray(db)) {
-                const datalist = $('#pokedex-list-breeding');
-                if (datalist) {
-                    const uniqueNames = [...new Set(db.map(p => p.name))].sort();
-                    datalist.innerHTML = uniqueNames.map(n => `<option value="${n}">`).join('');
-                }
+    getPokedexDb().then(db => {
+        if (Array.isArray(db)) {
+            const datalist = $('#pokedex-list-breeding');
+            if (datalist) {
+                const uniqueNames = [...new Set(db.map(p => p.name))].sort();
+                datalist.innerHTML = uniqueNames.map(n => `<option value="${n}">`).join('');
             }
-        })
-        .catch(e => console.warn('Could not populate breeding datalist:', e));
+        }
+    });
 
     const eggSearch = $('#egg-group-search-input');
     if (eggSearch) {
@@ -206,7 +206,12 @@ export function initBreeding() {
     }
 
     const btnFetch = $('#btn-fetch-pokemon');
-    if (btnFetch) btnFetch.addEventListener('click', fetchPokemonData);
+    if (btnFetch) {
+        btnFetch.addEventListener('click', (e) => {
+            e.preventDefault();
+            fetchPokemonData();
+        });
+    }
     
     const targetInput = $('#breeding-target');
     if (targetInput) {
@@ -220,7 +225,7 @@ export function initBreeding() {
         targetInput.addEventListener('input', (e) => {
             const val = e.target.value.trim().toLowerCase();
             const datalist = $('#pokedex-list-breeding');
-            if (datalist && val.length >= 3) {
+            if (datalist && val.length >= 2) {
                 const isExactMatch = Array.from(datalist.options).some(o => o.value.toLowerCase() === val);
                 if (isExactMatch) fetchPokemonData();
             }
@@ -243,14 +248,31 @@ export function initBreeding() {
     setTimeout(generateBreedingTree, 800);
 }
 
+let POKEMMO_DB_CACHE = null;
+
+async function getPokedexDb() {
+    if (POKEMMO_DB_CACHE && POKEMMO_DB_CACHE.length > 0) return POKEMMO_DB_CACHE;
+    try {
+        const res = await fetch('data/pokemmo_db.json');
+        POKEMMO_DB_CACHE = await res.json();
+        return POKEMMO_DB_CACHE;
+    } catch(e) {
+        console.warn('Could not load pokemmo_db.json', e);
+        return [];
+    }
+}
+
 export async function fetchPokemonData() {
     const inputEl = $('#breeding-target');
-    const input = inputEl ? inputEl.value.trim().toLowerCase() : '';
-    if (!input) {
+    const rawVal = inputEl ? inputEl.value.trim() : '';
+    if (!rawVal) {
         currentEggGroup = "";
         currentGenderCost = 0;
         const targetInfo = $('#target-info');
-        if(targetInfo) targetInfo.classList.add('hidden');
+        if (targetInfo) {
+            targetInfo.classList.add('hidden');
+            targetInfo.classList.remove('flex');
+        }
         generateBreedingTree();
         return;
     }
@@ -259,27 +281,48 @@ export async function fetchPokemonData() {
     const eggGroupSpan = $('#target-egg-group');
     const genderCostSpan = $('#target-gender-cost');
 
-    if(eggGroupSpan) eggGroupSpan.innerText = 'Cargando...';
-    if(infoDiv) infoDiv.classList.remove('hidden');
+    if (eggGroupSpan) eggGroupSpan.innerHTML = '<span class="text-os-muted font-mono animate-pulse">Buscando...</span>';
+    if (infoDiv) {
+        infoDiv.classList.remove('hidden');
+        infoDiv.classList.add('flex');
+    }
 
     try {
-        const data = await fetchPokemonSpecies(input);
+        const db = await getPokedexDb();
+        let queryTarget = rawVal;
+
+        if (Array.isArray(db) && db.length > 0) {
+            const found = db.find(p => p.name.toLowerCase() === rawVal.toLowerCase() || p.id.toString() === rawVal);
+            if (found) {
+                queryTarget = found.id;
+                if (inputEl && inputEl.value !== found.name && isNaN(rawVal)) {
+                    inputEl.value = found.name;
+                }
+            }
+        }
+
+        const data = await fetchPokemonSpecies(queryTarget);
         if (!data) throw new Error('No encontrado');
-        
-        const eggGroupsStr = data.egg_groups.map(eg => eg.name).join(', ').toUpperCase();
-        
-        // Build buttons manually and bind events after innerHTML
-        if(eggGroupSpan) {
-            eggGroupSpan.innerHTML = data.egg_groups.map(eg => 
-                `<button data-egggroup="${eg.name}" class="egg-group-btn text-[10px] bg-blue-900/40 hover:bg-blue-500/60 border border-blue-500/30 text-blue-100 px-2 py-0.5 rounded transition uppercase mr-1 cursor-pointer shadow-sm">${eg.name}</button>`
-            ).join('');
-            
-            document.querySelectorAll('.egg-group-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const group = e.target.getAttribute('data-egggroup');
-                    if (group) showEggGroupModal(group);
+
+        const eggGroups = data.egg_groups || [];
+        const eggGroupsStr = eggGroups.map(eg => eg.name).join(', ').toUpperCase();
+
+        if (eggGroupSpan) {
+            if (eggGroups.length === 0) {
+                eggGroupSpan.innerHTML = '<span class="text-os-muted font-mono">Ninguno (No cría)</span>';
+            } else {
+                eggGroupSpan.innerHTML = eggGroups.map(eg => 
+                    `<button type="button" data-egggroup="${eg.name}" class="egg-group-btn text-xs bg-os-blue/15 hover:bg-os-blue hover:text-black border border-os-blue/40 text-os-blue font-semibold px-2 py-0.5 rounded transition uppercase mr-1.5 cursor-pointer shadow-sm font-mono">${eg.name}</button>`
+                ).join('');
+
+                eggGroupSpan.querySelectorAll('.egg-group-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const group = e.currentTarget.getAttribute('data-egggroup');
+                        if (group) showEggGroupModal(group);
+                    });
                 });
-            });
+            }
         }
 
         let cost = 0;
@@ -291,7 +334,7 @@ export async function fetchPokemonData() {
             costText = "Sin género (Requiere Ditto)";
         } else if (rate === 4) {
             cost = 5000;
-            costText = "5,000¥ (50% M/H)";
+            costText = "5,000¥ (50% M / 50% H)";
         } else if (rate === 2 || rate === 6) {
             cost = 9000;
             costText = "9,000¥ (25% / 75%)";
@@ -300,7 +343,7 @@ export async function fetchPokemonData() {
             costText = "21,000¥ (12.5% / 87.5%)";
         } else if (rate === 0 || rate === 8) {
             cost = 0;
-            costText = "100% un género";
+            costText = "100% un solo género";
         } else {
             cost = 5000;
             costText = "5,000¥";
@@ -308,13 +351,14 @@ export async function fetchPokemonData() {
 
         currentGenderCost = cost;
         currentEggGroup = eggGroupsStr;
-        
-        if(genderCostSpan) genderCostSpan.innerText = costText;
+
+        if (genderCostSpan) genderCostSpan.innerText = costText;
 
         generateBreedingTree();
     } catch (e) {
-        if(eggGroupSpan) eggGroupSpan.innerText = 'Error / Nombre no válido';
-        if(genderCostSpan) genderCostSpan.innerText = '-';
+        console.error('Error in fetchPokemonData:', e);
+        if (eggGroupSpan) eggGroupSpan.innerHTML = '<span class="text-os-red font-mono">No encontrado</span>';
+        if (genderCostSpan) genderCostSpan.innerText = '-';
         currentGenderCost = 0;
         currentEggGroup = "";
         generateBreedingTree();
