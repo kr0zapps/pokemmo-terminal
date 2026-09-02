@@ -143,7 +143,10 @@ async function fetchPokemonData() {
         if (!res.ok) throw new Error('No encontrado');
         const data = await res.json();
         
-        const eggGroups = data.egg_groups.map(eg => eg.name).join(', ').toUpperCase();
+        const eggGroupsStr = data.egg_groups.map(eg => eg.name).join(', ').toUpperCase();
+        const eggGroupsHTML = data.egg_groups.map(eg => 
+            `<button onclick="showEggGroupModal('${eg.name}')" class="text-[10px] bg-blue-900/40 hover:bg-blue-500/60 border border-blue-500/30 text-blue-100 px-2 py-0.5 rounded transition uppercase mr-1 cursor-pointer shadow-sm">${eg.name}</button>`
+        ).join('');
         let cost = 0;
         let rate = data.gender_rate;
         let costText = "";
@@ -169,9 +172,9 @@ async function fetchPokemonData() {
         }
 
         currentGenderCost = cost;
-        currentEggGroup = eggGroups;
+        currentEggGroup = eggGroupsStr;
         
-        eggGroupSpan.innerText = eggGroups;
+        eggGroupSpan.innerHTML = eggGroupsHTML;
         genderCostSpan.innerText = costText;
 
         generateBreedingTree();
@@ -353,3 +356,60 @@ async function generateBreedingTree() {
 }
 
 setTimeout(generateBreedingTree, 800);
+
+const eggGroupModalHTML = `
+<div id="egg-group-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
+    <div class="bg-os-bg border border-os-border rounded-lg shadow-2xl w-full max-w-2xl max-h-[80vh] flex flex-col relative" onclick="event.stopPropagation()">
+        <button onclick="closeEggGroupModal()" class="absolute top-4 right-4 text-os-muted hover:text-white transition cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div class="p-5 border-b border-os-border flex-shrink-0 bg-os-border/10 rounded-t-lg">
+            <h3 class="text-xl font-bold text-white flex items-center gap-2">🥚 Grupo Huevo: <span id="egg-group-modal-title" class="text-os-blue uppercase"></span></h3>
+            <p class="text-xs text-os-muted mt-1">Lista de Pokémon que pertenecen a este grupo huevo.</p>
+        </div>
+        <div id="egg-group-modal-content" class="p-5 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-sm font-mono flex-1">
+        </div>
+    </div>
+</div>
+`;
+
+if (!document.getElementById('egg-group-modal')) {
+    document.body.insertAdjacentHTML('beforeend', eggGroupModalHTML);
+    // Cerrar al hacer clic fuera
+    document.getElementById('egg-group-modal').addEventListener('click', closeEggGroupModal);
+}
+
+function closeEggGroupModal() {
+    document.getElementById('egg-group-modal').classList.add('hidden');
+}
+
+async function showEggGroupModal(groupName) {
+    const modal = document.getElementById('egg-group-modal');
+    const title = document.getElementById('egg-group-modal-title');
+    const content = document.getElementById('egg-group-modal-content');
+    
+    modal.classList.remove('hidden');
+    title.innerText = groupName;
+    content.innerHTML = '<div class="col-span-full text-center text-os-blue py-10 animate-pulse">Cargando Pokémon del grupo...</div>';
+    
+    try {
+        const res = await fetch(\`https://pokeapi.co/api/v2/egg-group/\${groupName}\`);
+        if (!res.ok) throw new Error('Error al cargar');
+        const data = await res.json();
+        
+        let species = data.pokemon_species.map(p => p.name);
+        species.sort();
+        
+        if (species.length === 0) {
+            content.innerHTML = '<div class="col-span-full text-center text-os-muted py-8">No hay Pokémon en este grupo.</div>';
+            return;
+        }
+
+        content.innerHTML = species.map(name => 
+            \`<div class="bg-os-border/20 hover:bg-os-border/60 border border-os-border/50 px-2 py-1.5 rounded text-os-text capitalize truncate text-center cursor-default transition-colors text-xs" title="\${name}">\${name.replace('-', ' ')}</div>\`
+        ).join('');
+        
+    } catch (e) {
+        content.innerHTML = '<div class="col-span-full text-center text-red-400 py-8">Error de red al obtener datos de PokeAPI.</div>';
+    }
+}
