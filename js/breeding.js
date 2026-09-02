@@ -55,10 +55,22 @@ const breedingViewHTML = `
                 </div>
 
                 <div class="border-t border-os-border/50 pt-4">
-                    <label class="flex items-center gap-2 p-2 border border-amber-500/30 bg-amber-500/10 rounded cursor-pointer transition">
+                    <label class="flex items-center gap-2 p-2 border border-amber-500/30 bg-amber-500/10 rounded cursor-pointer transition mb-4">
                         <input type="checkbox" id="breeding-nature" class="w-4 h-4 rounded border-os-border bg-os-bg accent-amber-500" onchange="generateBreedingTree()" checked>
                         <span class="text-sm font-mono text-amber-300">Heredar Naturaleza</span>
                     </label>
+                    
+                    <label class="block text-xs font-mono text-os-muted mb-2">Ahorro: Ya poseo en mi caja...</label>
+                    <select id="owned-breeder" class="w-full bg-os-bg border border-os-border text-sm p-2 rounded text-os-text focus:border-os-blue outline-none cursor-pointer font-mono" onchange="generateBreedingTree()">
+                        <option value="none">Ninguno (Desde cero)</option>
+                        <option value="2_false">Un 2x31</option>
+                        <option value="2_true">Un 2x31 + Naturaleza</option>
+                        <option value="3_false">Un 3x31</option>
+                        <option value="3_true">Un 3x31 + Naturaleza</option>
+                        <option value="4_false">Un 4x31</option>
+                        <option value="4_true">Un 4x31 + Naturaleza</option>
+                        <option value="5_false">Un 5x31</option>
+                    </select>
                 </div>
             </div>
 
@@ -222,10 +234,26 @@ async function generateBreedingTree() {
     let breeders = {};
     let everstones = 0;
     
+    const ownedBreeder = document.getElementById('owned-breeder').value;
+    let ownedUsed = false;
+    
     function addBracer(s) { bracers[s] = (bracers[s]||0) + 1; }
     function addBreeder(s) { breeders[s] = (breeders[s]||0) + 1; }
     
     function calculateNeeds(stats, hasNature) {
+         if (!ownedUsed && ownedBreeder !== 'none' && stats.length >= 2) {
+             const parts = ownedBreeder.split('_');
+             const ownN = parseInt(parts[0]);
+             const ownNat = parts[1] === 'true';
+             if (stats.length === ownN && hasNature === ownNat) {
+                 // Replace this entire branch with the owned breeder
+                 let label = `Propio: ${stats.length}x31${hasNature ? ' + Nat' : ''}`;
+                 addBreeder(label);
+                 ownedUsed = true;
+                 return;
+             }
+         }
+
          if (stats.length === 1 && !hasNature) {
              addBreeder(stats[0]);
              return;
@@ -312,20 +340,34 @@ async function generateBreedingTree() {
 
     let mGraph = 'graph BT\n';
     let nodeId = 0;
+    let ownedGraphUsed = false;
     
     function buildGraph(stats, hasNature) {
         let currentId = `N${nodeId++}`;
         let label = '';
         let isBase = false;
 
-        if (stats.length === 1 && !hasNature) {
-            label = `1x31 ${stats[0]}`;
-            isBase = true;
-        } else if (stats.length === 0 && hasNature) {
-            label = `Naturaleza`;
-            isBase = true;
-        } else {
-            label = `${stats.length}x31${hasNature ? '<br/>+ Nat' : ''}`;
+        if (!ownedGraphUsed && ownedBreeder !== 'none' && stats.length >= 2) {
+             const parts = ownedBreeder.split('_');
+             const ownN = parseInt(parts[0]);
+             const ownNat = parts[1] === 'true';
+             if (stats.length === ownN && hasNature === ownNat) {
+                 label = `(TU CAJA)<br/>${stats.length}x31${hasNature ? '<br/>+ Nat' : ''}`;
+                 isBase = true;
+                 ownedGraphUsed = true;
+             }
+        }
+
+        if (!isBase) {
+            if (stats.length === 1 && !hasNature) {
+                label = `1x31 ${stats[0]}`;
+                isBase = true;
+            } else if (stats.length === 0 && hasNature) {
+                label = `Naturaleza`;
+                isBase = true;
+            } else {
+                label = `${stats.length}x31${hasNature ? '<br/>+ Nat' : ''}`;
+            }
         }
 
         mGraph += `${currentId}["${label}"]\n`;
