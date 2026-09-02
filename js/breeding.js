@@ -258,7 +258,7 @@ async function generateBreedingTree() {
 
     const totalCost = costBracers + (everstones * 5000) + totalGenderCost;
     listContainer.innerHTML = htmlList;
-    document.getElementById('cost-total-pokeyen').innerText = '
+    document.getElementById('cost-total-pokeyen').innerText = '$' + totalCost.toLocaleString();
     // ==========================================
     // RENDERIZAR GRÁFICO MERMAID
     // ==========================================
