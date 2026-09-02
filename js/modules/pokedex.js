@@ -1,5 +1,5 @@
 ﻿import { state, updateState, saveAndBroadcastState } from '../state.js';
-import { updateSuggestion } from '../db.js';
+
 
 let POKEDEX_DB = [];
 let dexCaughtList = [];
