@@ -35,7 +35,7 @@ export async function migrateLocalStorage() {
     // Migrate preferences
     const prefs = {
       active_tab: localStorage.getItem('pokemmo_active_tab') || 'gyms',
-      dex_regiÃ³n: 'Kanto'
+      dex_region: 'Kanto'
     };
     const savedPrefs = localStorage.getItem('pokemmo_dex_prefs');
     if (savedPrefs) {
