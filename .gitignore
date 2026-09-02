@@ -1,8 +1,5 @@
-*.py
-*.txt
-*.png
-*.log
-.user_uploaded/
-scratch/
-node_modules/
 .vercel
+node_modules/
+.env
+.env.local
+.env.*.local

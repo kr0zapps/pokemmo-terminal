@@ -1,0 +1,63 @@
+        .font-pokemon { font-family: 'Pokemon Solid', sans-serif; font-weight: normal; letter-spacing: 2px; color: #FFCC00; -webkit-text-stroke: 1px #3B4CCA; text-shadow: 2px 2px 0 #3B4CCA; }
+        @keyframes spin-slow { 100% { transform: rotate(360deg); } }
+        .animate-spin-slow { animation: spin-slow 4s linear infinite; }
+        .pokemon-sprite, .pixelated { image-rendering: pixelated; }
+
+        body { background-color: #090A0F; color: #EDEDED; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #090A0F; }
+        ::-webkit-scrollbar-thumb { background: #262A3D; }
+        ::-webkit-scrollbar-thumb:hover { background: #82889E; }
+        
+        /* Hardware UI Accents */
+        .panel { background-color: #13151F; border: 1px solid #262A3D; }
+        .data-value { font-family: 'JetBrains Mono', monospace; }
+        
+        .tab-btn {
+            padding: 0.75rem 1.25rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #82889E;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .tab-btn:hover { color: #EDEDED; }
+        .tab-active {
+            color: #F93822;
+            border-bottom: 2px solid #F93822;
+        }
+        
+        /* Input overrides */
+        input, select { 
+            background: #090A0F !important; 
+            border: 1px solid #262A3D !important; 
+            color: #EDEDED !important;
+            border-radius: 2px !important;
+        }
+        input:focus, select:focus {
+            border-color: #F93822 !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        
+        /* Button overrides */
+        .btn-primary {
+            background-color: #F93822;
+            color: white;
+            border-radius: 2px;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+        .btn-primary:hover { opacity: 0.9; }
+        
+        /* Stop timeline rendering */
+        .timeline-line {
+            position: absolute;
+            left: 0.75rem;
+            top: 2rem;
+            bottom: -2rem;
+            width: 2px;
+            background: #262A3D;
+        }
