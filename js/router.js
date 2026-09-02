@@ -1,12 +1,12 @@
-import { state, setState } from './state.js';
+﻿import { state, setState } from './state.js';
 import { savePreferences } from './db.js';
 import { $, safeHTML } from './utils/dom.js';
 
 const TABS = [
-  { id: 'gyms', label: 'Gimnasios', icon: '🏆' },
-  { id: 'berries', label: 'Cultivos', icon: '🌱' },
-  { id: 'pokedex', label: 'Pokédex', icon: '📱' },
-  { id: 'breeding', label: 'Crianza', icon: '🥚' }
+  { id: 'gyms', label: 'Gimnasios', icon: 'ðŸ†' },
+  { id: 'berries', label: 'Cultivos', icon: 'ðŸŒ±' },
+  { id: 'pokedex', label: 'PokÃ©dex', icon: 'ðŸ“±' },
+  { id: 'breeding', label: 'Crianza', icon: 'ðŸ¥š' }
 ];
 
 export async function switchTab(tabId) {
@@ -56,3 +56,4 @@ export function renderNav() {
     </button>
   `).join('');
 }
+

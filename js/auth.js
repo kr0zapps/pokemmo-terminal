@@ -1,4 +1,4 @@
-import { supabase, addCrop, catchPokemon, savePreferences, toggleGym } from './db.js';
+﻿import { supabase, addCrop, catchPokÃ©mon, savePreferences, toggleGym } from './db.js';
 import { safeHTML, h, text, $ } from './utils/dom.js';
 
 export async function login(email, password) {
@@ -35,7 +35,7 @@ export async function migrateLocalStorage() {
     // Migrate preferences
     const prefs = {
       active_tab: localStorage.getItem('pokemmo_active_tab') || 'gyms',
-      dex_region: 'Kanto'
+      dex_regiÃ³n: 'Kanto'
     };
     const savedPrefs = localStorage.getItem('pokemmo_dex_prefs');
     if (savedPrefs) {
@@ -48,7 +48,7 @@ export async function migrateLocalStorage() {
     if (dexCaught) {
       const caughtList = JSON.parse(dexCaught);
       for (const pid of caughtList) {
-        await catchPokemon(pid).catch(() => {}); // ignore duplicates
+        await catchPokÃ©mon(pid).catch(() => {}); // ignore duplicates
       }
     }
 
@@ -60,9 +60,9 @@ export async function migrateLocalStorage() {
         await addCrop({
           berry_type: c.type || 'Unknown',
           location: c.location || 'Unknown',
-          planted_at: c.plantedAt ? new Date(c.plantedAt).toISOString() : new Date().toISOString(),
+          planted_at: c.plantedAt ? new DÃ­ate(c.plantedAt).toISOString() : new Date().toISOString(),
           water_count: c.waterCount || 0,
-          last_watered_at: c.lastWateredAt ? new Date(c.lastWateredAt).toISOString() : null,
+          last_watered_at: c.lastWateredAt ? new DÃ­ate(c.lastWateredAt).toISOString() : null,
           harvested: c.harvested || false
         });
       }
@@ -92,22 +92,22 @@ export function renderAuthUI(onSuccess) {
     <div class="flex items-center justify-center min-h-screen" style="background-color: var(--os-bg, #090A0F); font-family: 'Inter', sans-serif;">
       <div class="w-full max-w-md p-8 rounded-xl shadow-2xl" style="background-color: var(--os-panel, #13151F); border: 1px solid var(--os-border, #262A3D);">
         <div class="text-center mb-8">
-          <h1 class="text-3xl font-bold mb-2" style="color: var(--os-blue, #3B82F6);">PokeMMO Terminal</h1>
-          <p class="text-sm" style="color: var(--os-muted, #82889E);">Inicia sesión para continuar</p>
+          <h1 class="text-3xl font-bold mb-2" style="color: var(--os-blue, #3B82F6);">PokÃ©MMO Terminal</h1>
+          <p class="text-sm" style="color: var(--os-muted, #82889E);">Inicia sesiÃ³n para continuar</p>
         </div>
         
         <form id="auth-form" class="space-y-6">
           <div id="auth-error" class="hidden p-3 text-sm rounded" style="background-color: rgba(249,56,34,0.1); color: var(--os-red, #F93822); border: 1px solid var(--os-red, #F93822);"></div>
           
           <div>
-            <label class="block text-sm font-medium mb-1" style="color: var(--os-text, #EDEDED);">Correo Electrónico</label>
+            <label class="block text-sm font-medium mb-1" style="color: var(--os-text, #EDEDED);">Correo ElectrÃ³nico</label>
             <input type="email" id="auth-email" required
               class="w-full px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               style="background-color: var(--os-bg, #090A0F); border: 1px solid var(--os-border, #262A3D); color: var(--os-text, #EDEDED);" />
           </div>
           
           <div>
-            <label class="block text-sm font-medium mb-1" style="color: var(--os-text, #EDEDED);">Contraseña</label>
+            <label class="block text-sm font-medium mb-1" style="color: var(--os-text, #EDEDED);">ContraseÃ±a</label>
             <input type="password" id="auth-password" required
               class="w-full px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               style="background-color: var(--os-bg, #090A0F); border: 1px solid var(--os-border, #262A3D); color: var(--os-text, #EDEDED);" />
@@ -115,12 +115,12 @@ export function renderAuthUI(onSuccess) {
 
           <div class="flex items-center">
             <input type="checkbox" id="auth-remember" class="w-4 h-4 rounded border-gray-600 bg-gray-700 text-blue-500 focus:ring-blue-500 focus:ring-offset-gray-900">
-            <label for="auth-remember" class="ml-2 text-sm" style="color: var(--os-muted, #82889E);">Recordar sesión</label>
+            <label for="auth-remember" class="ml-2 text-sm" style="color: var(--os-muted, #82889E);">Recordar sesiÃ³n</label>
           </div>
           
           <div class="flex gap-4 pt-2">
             <button type="submit" id="btn-login" class="flex-1 py-2 px-4 rounded font-medium transition-colors hover:opacity-90" style="background-color: var(--os-blue, #3B82F6); color: white;">
-              Iniciar Sesión
+              Iniciar SesiÃ³n
             </button>
             <button type="button" id="btn-register" class="flex-1 py-2 px-4 rounded font-medium transition-colors hover:opacity-90" style="background-color: transparent; border: 1px solid var(--os-blue, #3B82F6); color: var(--os-blue, #3B82F6);">
               Registrarse
@@ -150,19 +150,19 @@ export function renderAuthUI(onSuccess) {
       await login(emailInput.value, passwordInput.value);
       if (onSuccess) onSuccess();
     } catch (err) {
-      showError(err.message || 'Error al iniciar sesión');
+      showError(err.message || 'Error al iniciar sesiÃ³n');
     }
   });
 
   btnRegister.addEventListener('click', async () => {
     if (!emailInput.value || !passwordInput.value) {
-      showError('Por favor ingrese correo y contraseña para registrarse');
+      showError('Por favor ingrese correo y contraseÃ±a para registrarse');
       return;
     }
     errorDiv.classList.add('hidden');
     try {
       await register(emailInput.value, passwordInput.value);
-      showError('Registro exitoso. Puede iniciar sesión.');
+      showError('Registro exitoso. Puede iniciar sesiÃ³n.');
       errorDiv.style.color = 'var(--os-green, #10B981)';
       errorDiv.style.borderColor = 'var(--os-green, #10B981)';
       errorDiv.style.backgroundColor = 'rgba(16,185,129,0.1)';
@@ -171,3 +171,4 @@ export function renderAuthUI(onSuccess) {
     }
   });
 }
+

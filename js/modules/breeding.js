@@ -1,4 +1,4 @@
-﻿import { fetchPokemonSpecies, fetchEggGroup } from '../utils/api.js';
+﻿import { fetchPokémonSpecies, fetchEggGroup } from '../utils/api.js';
 import { formatMoney } from '../utils/format.js';
 import { $ } from '../utils/dom.js';
 
@@ -19,7 +19,7 @@ export function renderBreedingView() {
 <div id="view-breeding" class="hidden animate-fade-in pb-20">
     <div class="flex justify-between items-end mb-8 pb-4 border-b border-os-border">
         <div>
-            <h1 class="text-2xl font-semibold text-os-text flex items-center gap-2">ðŸ¥š Calculadora de Crianza Maestra</h1>
+            <h1 class="text-2xl font-semibold text-os-text flex items-center gap-2">🥚 Calculadora de Crianza Maestra</h1>
             <p class="text-sm text-os-muted mt-1">Selecciona tus IVs deseados para generar la lista de compras exacta del GTL.</p>
         </div>
     </div>
@@ -30,19 +30,19 @@ export function renderBreedingView() {
             <div class="panel p-5 border border-os-border rounded-md bg-os-bg shadow-lg">
                 
                 <div class="mb-4 border-b border-os-border/50 pb-4">
-                    <label class="block text-xs font-mono text-os-muted mb-2">PokÃ©mon Objetivo (Opcional):</label>
+                    <label class="block text-xs font-mono text-os-muted mb-2">Pokémon Objetivo (Opcional):</label>
                     <div class="flex gap-2">
                         <input type="text" id="breeding-target" list="pokedex-list-breeding" class="w-full bg-os-bg border border-os-border text-sm p-2 rounded text-os-text focus:border-os-blue outline-none" placeholder="Ej. Garchomp">
-                        <button id="btn-fetch-pokemon" class="px-3 bg-os-border hover:bg-os-blue text-os-text rounded">ðŸ”</button>
+                        <button id="btn-fetch-pokemon" class="px-3 bg-os-border hover:bg-os-blue text-os-text rounded">🔍</button>
                     </div>
                     <div id="target-info" class="text-xs text-os-muted mt-2 hidden flex flex-col gap-1">
                         <div>Grupos Huevo: <span id="target-egg-group" class="text-white font-bold"></span></div>
-                        <div>Costo GÃ©nero: <span id="target-gender-cost" class="text-amber-400 font-bold"></span> por cruce</div>
+                        <div>Costo Género: <span id="target-gender-cost" class="text-amber-400 font-bold"></span> por cruce</div>
                     </div>
                 </div>
                 <datalist id="pokedex-list-breeding"></datalist>
 
-                <h2 class="text-sm font-bold text-os-text mb-4 uppercase tracking-wider border-b border-os-border/50 pb-2">SelecciÃ³n de IVs a 31</h2>
+                <h2 class="text-sm font-bold text-os-text mb-4 uppercase tracking-wider border-b border-os-border/50 pb-2">Selección de IVs a 31</h2>
                 
                 <div class="grid grid-cols-2 gap-3 mb-4">
                     <label class="flex items-center gap-2 p-2 border border-os-border rounded hover:bg-os-border/30 cursor-pointer transition">
@@ -101,15 +101,15 @@ export function renderBreedingView() {
             </div>
         </div>
 
-        <!-- Diagrama -->
+        <!-- Díagrama -->
         <div class="lg:col-span-3">
             <div class="panel p-5 border border-os-border rounded-md bg-[#1e1e1e] min-h-[600px] overflow-auto relative shadow-lg">
                 <div class="flex justify-between items-center mb-4 border-b border-os-border/50 pb-2">
-                    <h2 class="text-sm font-bold text-os-text uppercase tracking-wider">Diagrama GenÃ©tico (Bottom-Up)</h2>
+                    <h2 class="text-sm font-bold text-os-text uppercase tracking-wider">Díagrama Genético (Bottom-Up)</h2>
                     <button id="btn-update-tree" class="px-3 py-1 bg-os-border hover:bg-os-blue text-xs font-mono rounded transition shadow">Actualizar Ãrbol</button>
                 </div>
                 <div id="mermaid-container" class="w-full flex justify-center mt-4">
-                    <div class="text-os-muted text-sm mt-10">Selecciona entre 2 y 6 IVs para generar el Ã¡rbol...</div>
+                    <div class="text-os-muted text-sm mt-10">Selecciona entre 2 y 6 IVs para generar el árbol...</div>
                 </div>
             </div>
         </div>
@@ -126,8 +126,8 @@ export function renderEggGroupModal() {
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
         <div class="p-5 border-b border-os-border flex-shrink-0 bg-os-border/10 rounded-t-lg">
-            <h3 class="text-xl font-bold text-white flex items-center gap-2">ðŸ¥š Grupo Huevo: <span id="egg-group-modal-title" class="text-os-blue uppercase"></span></h3>
-            <p class="text-xs text-os-muted mt-1">Lista de PokÃ©mon que pertenecen a este grupo huevo.</p>
+            <h3 class="text-xl font-bold text-white flex items-center gap-2">🥚 Grupo Huevo: <span id="egg-group-modal-title" class="text-os-blue uppercase"></span></h3>
+            <p class="text-xs text-os-muted mt-1">Lista de Pokémon que pertenecen a este grupo huevo.</p>
         </div>
         <div id="egg-group-modal-content" class="p-5 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-sm font-mono flex-1">
         </div>
@@ -183,10 +183,10 @@ export function initBreeding() {
     } catch(e) {}
 
     const btnFetch = $('#btn-fetch-pokemon');
-    if (btnFetch) btnFetch.addEventListener('click', fetchPokemonData);
+    if (btnFetch) btnFetch.addEventListener('click', fetchPokémonDíata);
     
     const targetInput = $('#breeding-target');
-    if (targetInput) targetInput.addEventListener('change', fetchPokemonData);
+    if (targetInput) targetInput.addEventListener('change', fetchPokémonDíata);
 
     const btnUpdateTree = $('#btn-update-tree');
     if (btnUpdateTree) btnUpdateTree.addEventListener('click', generateBreedingTree);
@@ -204,7 +204,7 @@ export function initBreeding() {
     setTimeout(generateBreedingTree, 800);
 }
 
-export async function fetchPokemonData() {
+export async function fetchPokémonDíata() {
     const inputEl = $('#breeding-target');
     const input = inputEl ? inputEl.value.trim().toLowerCase() : '';
     if (!input) {
@@ -224,7 +224,7 @@ export async function fetchPokemonData() {
     if(infoDiv) infoDiv.classList.remove('hidden');
 
     try {
-        const data = await fetchPokemonSpecies(input);
+        const data = await fetchPokémonSpecies(input);
         if (!data) throw new Error('No encontrado');
         
         const eggGroupsStr = data.egg_groups.map(eg => eg.name).join(', ').toUpperCase();
@@ -249,7 +249,7 @@ export async function fetchPokemonData() {
 
         if (rate === -1) {
             cost = 0;
-            costText = "Sin gÃ©nero (Requiere Ditto)";
+            costText = "Sin género (Requiere Ditto)";
         } else if (rate === 4) {
             cost = 5000;
             costText = "5,000Â¥ (50% M/H)";
@@ -261,7 +261,7 @@ export async function fetchPokemonData() {
             costText = "21,000Â¥ (12.5% / 87.5%)";
         } else if (rate === 0 || rate === 8) {
             cost = 0;
-            costText = "100% un gÃ©nero";
+            costText = "100% un género";
         } else {
             cost = 5000;
             costText = "5,000Â¥";
@@ -274,7 +274,7 @@ export async function fetchPokemonData() {
 
         generateBreedingTree();
     } catch (e) {
-        if(eggGroupSpan) eggGroupSpan.innerText = 'Error / Nombre no vÃ¡lido';
+        if(eggGroupSpan) eggGroupSpan.innerText = 'Error / Nombre no válido';
         if(genderCostSpan) genderCostSpan.innerText = '-';
         currentGenderCost = 0;
         currentEggGroup = "";
@@ -302,7 +302,7 @@ export async function generateBreedingTree() {
     }
 
     if (targetStats.length > 6) {
-        container.innerHTML = '<div class="text-red-400 text-sm mt-10">No puedes seleccionar mÃ¡s de 6 IVs.</div>';
+        container.innerHTML = '<div class="text-red-400 text-sm mt-10">No puedes seleccionar más de 6 IVs.</div>';
         return;
     }
 
@@ -388,7 +388,7 @@ export async function generateBreedingTree() {
     for (const stat of Object.keys(breeders)) {
         let count = breeders[stat];
         let eggSuffix = currentEggGroup ? ` (${currentEggGroup})` : '';
-        let name = stat === 'Nature' ? `PokÃ©mon con Naturaleza${eggSuffix}` : `PokÃ©mon 1x31 en ${stat}${eggSuffix}`;
+        let name = stat === 'Nature' ? `Pokémon con Naturaleza${eggSuffix}` : `Pokémon 1x31 en ${stat}${eggSuffix}`;
         htmlList += `
             <div class="flex justify-between text-[11px] text-os-muted">
                 <span>- ${count}x ${name}</span>
@@ -404,7 +404,7 @@ export async function generateBreedingTree() {
     if (currentGenderCost > 0) {
         htmlList += `
             <div class="flex justify-between border-b border-amber-900/50 pb-2 mt-4">
-                <span class="text-amber-400">${genderSelections}x SelecciÃ³n de GÃ©nero (${(currentGenderCost/1000)}k)</span>
+                <span class="text-amber-400">${genderSelections}x Selección de Género (${(currentGenderCost/1000)}k)</span>
                 <span class="text-amber-300">~${(totalGenderCost/1000).toLocaleString()}k</span>
             </div>
         `;
@@ -519,7 +519,7 @@ export async function showEggGroupModal(groupName) {
     
     if(modal) modal.classList.remove('hidden');
     if(title) title.innerText = groupName;
-    if(content) content.innerHTML = '<div class="col-span-full text-center text-os-blue py-10 animate-pulse">Cargando PokÃ©mon del grupo...</div>';
+    if(content) content.innerHTML = '<div class="col-span-full text-center text-os-blue py-10 animate-pulse">Cargando Pokémon del grupo...</div>';
     
     try {
         const data = await fetchEggGroup(groupName);
@@ -529,7 +529,7 @@ export async function showEggGroupModal(groupName) {
         species.sort();
         
         if (species.length === 0) {
-            if(content) content.innerHTML = '<div class="col-span-full text-center text-os-muted py-8">No hay PokÃ©mon en este grupo.</div>';
+            if(content) content.innerHTML = '<div class="col-span-full text-center text-os-muted py-8">No hay Pokémon en este grupo.</div>';
             return;
         }
 
@@ -543,5 +543,6 @@ export async function showEggGroupModal(groupName) {
         if(content) content.innerHTML = '<div class="col-span-full text-center text-red-400 py-8">Error de red al obtener datos de PokeAPI.</div>';
     }
 }
+
 
 

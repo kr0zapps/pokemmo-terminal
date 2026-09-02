@@ -1,4 +1,4 @@
-export function $(selector) {
+﻿export function $(selector) {
   return document.querySelector(selector);
 }
 
@@ -53,3 +53,4 @@ export function safeHTML(strings, ...values) {
     return acc + str + val;
   }, '');
 }
+

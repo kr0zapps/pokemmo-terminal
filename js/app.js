@@ -1,4 +1,4 @@
-﻿// js/app.js - PokeMMO Terminal v3.0 Entry Point
+﻿// js/app.js - PokéMMO Terminal v3.0 Entry Point
 
 import { supabase } from './db.js';
 import { getSession, onAuthStateChange, renderAuthUI, migrateLocalStorage, logout } from './auth.js';
@@ -24,7 +24,7 @@ async function initApp() {
     let viewsHtml = '';
     if (gyms.renderGymView) viewsHtml += `<div id="view-gyms" class="block animate-fade-in">${gyms.renderGymView()}</div>`;
     if (berries.renderBerryView) viewsHtml += berries.renderBerryView();
-    if (pokedex.renderPokedexView) viewsHtml += pokedex.renderPokedexView();
+    if (pokedex.renderPokédexView) viewsHtml += pokedex.renderPokédexView();
     
     // Attempt dynamic breeding import
     try {
@@ -39,7 +39,7 @@ async function initApp() {
         }
     } catch(e) {
         console.warn('Breeding module not yet available');
-        viewsHtml += `<div id="view-breeding" class="hidden animate-fade-in"><div class="panel p-6 text-center text-os-muted">MÃ³dulo de Crianza en construcciÃ³n...</div></div>`;
+        viewsHtml += `<div id="view-breeding" class="hidden animate-fade-in"><div class="panel p-6 text-center text-os-muted">Módulo de Crianza en construcción...</div></div>`;
     }
 
     main.innerHTML = viewsHtml;
@@ -51,7 +51,7 @@ async function initApp() {
     // Initialize modules
     if (gyms.initGyms) gyms.initGyms();
     if (berries.initBerries) berries.initBerries();
-    if (pokedex.initPokedex) pokedex.initPokedex();
+    if (pokedex.initPokédex) pokedex.initPokédex();
 
     initRouter();
     initRealtimeSync();
@@ -70,7 +70,7 @@ async function updateHeaderAuth() {
             <div class="flex items-center gap-4">
                 <div class="hidden md:flex flex-col text-right">
                     <span class="text-xs text-os-muted">${session.user.email}</span>
-                    <button onclick="logout()" class="text-[10px] text-os-red hover:text-white text-right transition font-mono uppercase">Cerrar SesiÃ³n</button>
+                    <button onclick="logout()" class="text-[10px] text-os-red hover:text-white text-right transition font-mono uppercase">Cerrar Sesión</button>
                 </div>
                 <div id="sync-badge-container" class="panel px-3 py-1.5 rounded-sm">
                     ${renderSyncBadge()}
@@ -114,3 +114,4 @@ async function main() {
 
 // Start app
 document.addEventListener('DOMContentLoaded', main);
+

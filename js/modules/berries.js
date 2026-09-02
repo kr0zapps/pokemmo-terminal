@@ -16,7 +16,7 @@ export const BERRY_DB = {
         sprite: 'leppa-berry'
     },
     basicas: { 
-        name: 'BÃ¡sicas (Oran, Cheri, Pecha...)', 
+        name: 'Básicas (Oran, Cheri, Pecha...)', 
         totalHours: 16, 
         stageHours: 4.0,
         dropDurationHours: 1.8,    // 1 gota cada 1.8h
@@ -60,7 +60,7 @@ export const BERRY_DB = {
         sprite: 'yache-berry'
     },
     raras: { 
-        name: 'EstadÃ­sticas / Raras (Liechi, Salac...)', 
+        name: 'Estadísticas / Raras (Liechi, Salac...)', 
         totalHours: 67, 
         stageHours: 16.75,
         dropDurationHours: 4.0,
@@ -137,8 +137,8 @@ export function renderBerryView() {
         <div id="view-berries" class="hidden animate-fade-in">
             <div class="flex justify-between items-end mb-8 pb-4 border-b border-os-border">
                 <div>
-                    <h1 class="text-2xl font-semibold text-os-text">MÃ³dulo BotÃ¡nico</h1>
-                    <p class="text-sm text-os-muted mt-1">CÃ¡lculo de inventario y monitoreo de suelo.</p>
+                    <h1 class="text-2xl font-semibold text-os-text">Módulo Botánico</h1>
+                    <p class="text-sm text-os-muted mt-1">Cálculo de inventario y monitoreo de suelo.</p>
                 </div>
                 <div class="text-right">
                     <p class="text-[10px] text-os-muted uppercase tracking-widest">Rondas Completadas</p>
@@ -178,10 +178,10 @@ export function renderBerryView() {
                 <div class="flex flex-col gap-6">
                     <!-- RECIPE LOOKUP -->
                     <section class="panel p-6">
-                        <h2 class="text-sm font-mono text-os-muted uppercase tracking-widest mb-4">Base de Datos GenÃ©tica</h2>
+                        <h2 class="text-sm font-mono text-os-muted uppercase tracking-widest mb-4">Base de Díatos Genética</h2>
                         <select id="recipeSelect" class="w-full p-2.5 text-sm mb-4 cursor-pointer">
                             <option value="" disabled selected>Consultar Baya...</option>
-                            <optgroup label="MÃ¡s Rentables">
+                            <optgroup label="Más Rentables">
                                 <option value="leppa">Zanama (Leppa) - Restaura PP</option>
                                 <option value="lum">Ziuela (Lum) - Cura todo</option>
                                 <option value="sitrus">Zidra (Sitrus) - Cura PS</option>
@@ -194,16 +194,16 @@ export function renderBerryView() {
                                 <option value="grepa">Uva (Grepa) - Baja DefEsp</option>
                                 <option value="tamato">Tamate (Tamato) - Baja Vel</option>
                             </optgroup>
-                            <optgroup label="BÃ¡sicas (Estados)">
-                                <option value="cheri">Zreza (Cheri) - ParÃ¡lisis</option>
-                                <option value="chesto">Atania (Chesto) - SueÃ±o</option>
+                            <optgroup label="Básicas (Estados)">
+                                <option value="cheri">Zreza (Cheri) - Parálisis</option>
+                                <option value="chesto">Atania (Chesto) - Sueño</option>
                                 <option value="pecha">Meloc (Pecha) - Veneno</option>
                                 <option value="rawst">Safre (Rawst) - Quemadura</option>
-                                <option value="aspear">Perasi (Aspear) - CongelaciÃ³n</option>
+                                <option value="aspear">Perasi (Aspear) - Congelación</option>
                             </optgroup>
                         </select>
                         <div id="recipeResult" class="bg-os-bg border border-os-border p-3 text-sm text-os-muted min-h-[80px] flex items-center justify-center">
-                            Esperando selecciÃ³n...
+                            Esperando selección...
                         </div>
                     </section>
 
@@ -215,11 +215,11 @@ export function renderBerryView() {
                                 <label class="block text-[10px] uppercase text-os-muted mb-1 font-mono">Especie</label>
                                 <select id="berryType" class="w-full p-2 text-sm cursor-pointer">
                                     <option value="zanama" selected>Zanama (Leppa) / 20h (PP)</option>
-                                    <option value="basicas">BÃ¡sicas (Oran, Cheri...) / 16h</option>
+                                    <option value="basicas">Básicas (Oran, Cheri...) / 16h</option>
                                     <option value="curativas">Ziuela (Lum) / Zidra (Sitrus) / 44h</option>
                                     <option value="ev">Reductoras EVs (Grana, Algama...) / 44h</option>
                                     <option value="resistencias">Resistencias Tipo (Occa, Yache...) / 42h</option>
-                                    <option value="raras">EstadÃ­sticas / Raras (Liechi, Salac...) / 67h</option>
+                                    <option value="raras">Estadísticas / Raras (Liechi, Salac...) / 67h</option>
                                 </select>
                             </div>
                             <div>
@@ -227,12 +227,12 @@ export function renderBerryView() {
                                 <input type="text" id="berryLocation" placeholder="Ej. Ruta 104, Loza..." class="w-full p-2 text-sm">
                             </div>
                             <div>
-                                <label class="block text-[10px] uppercase text-os-green mb-1 font-mono font-bold">DuraciÃ³n 2 Gotas Base (Hrs)</label>
+                                <label class="block text-[10px] uppercase text-os-green mb-1 font-mono font-bold">Duración 2 Gotas Base (Hrs)</label>
                                 <input type="number" id="berryWaterHours" value="4.0" min="0.5" max="44" step="0.5" class="w-full p-2 text-sm text-center border-os-green/40 font-mono text-os-green" title="Horas antes de que las 2 gotas iniciales se consuman por completo">
                             </div>
                             <div>
                                 <label class="block text-[10px] uppercase text-os-muted mb-1 font-mono">Tiempo Ya Transcurrido (Hrs)</label>
-                                <input type="number" id="berryElapsed" placeholder="0 (reciÃ©n plantada)" min="0" step="0.5" class="w-full p-2 text-sm">
+                                <input type="number" id="berryElapsed" placeholder="0 (recién plantada)" min="0" step="0.5" class="w-full p-2 text-sm">
                             </div>
                         </div>
                         <button id="btnPlantBerry" class="w-full border border-os-green text-os-green hover:bg-os-green hover:text-white transition py-2 text-sm uppercase tracking-wide">
@@ -250,7 +250,7 @@ export function renderBerryView() {
 
 export function renderWaterModal() {
     return `
-        <!-- MODAL DE VISTA PREVIA Y SIMULACIÃ“N DE RIEGO -->
+        <!-- MODAL DE VISTA PREVIA Y SIMULACIÓN DE RIEGO -->
         <div id="waterPreviewModal" class="fixed inset-0 bg-[#090A0F]/90 hidden items-center justify-center z-50 p-4 backdrop-blur-sm">
             <div class="panel p-6 w-full max-w-lg border border-os-border shadow-2xl relative overflow-hidden">
                 <!-- Header -->
@@ -258,8 +258,8 @@ export function renderWaterModal() {
                     <div class="flex items-center gap-2.5">
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/wailmer-pail.png" class="w-7 h-7 pokemon-sprite">
                         <div>
-                            <h2 class="text-sm font-bold text-os-text" id="waterSimTitle">SimulaciÃ³n de Riego // Silph Corp</h2>
-                            <p class="text-[10px] font-mono text-os-muted" id="waterSimSubtitle">AnÃ¡lisis de hidrataciÃ³n del suelo</p>
+                            <h2 class="text-sm font-bold text-os-text" id="waterSimTitle">Simulación de Riego // Silph Corp</h2>
+                            <p class="text-[10px] font-mono text-os-muted" id="waterSimSubtitle">Análisis de hidratación del suelo</p>
                         </div>
                     </div>
                     <button id="btnCloseWaterPreview1" class="text-os-muted hover:text-white font-mono text-xs">âœ•</button>
@@ -427,7 +427,7 @@ export function calculateInventory() {
     });
 
     if (!hasResults) {
-        resultsDiv.innerHTML = '<div class="col-span-full text-center text-gray-400 py-4">No tienes suficientes semillas para plantar ninguna de las bayas listadas.</div>';
+        resultsDiv.innerHTML = '<div class="col-span-full text-center text-gray-400 py-4">No tienes suficientes semillas para plantar ningúna de las bayas listadas.</div>';
     }
 }
 
@@ -443,7 +443,7 @@ export async function plantBerry() {
     const typeEl = document.getElementById('berryType');
     if(!typeEl) return;
     const type = typeEl.value;
-    const location = (document.getElementById('berryLocation')?.value || '').trim() || 'Sin ubicaciÃ³n';
+    const location = (document.getElementById('berryLocation')?.value || '').trim() || 'Sin ubicación';
     const elapsedHours = parseFloat(document.getElementById('berryElapsed')?.value) || 0;
     const dbInfo = BERRY_DB[type] || BERRY_DB.zanama;
     
@@ -451,10 +451,10 @@ export async function plantBerry() {
     const initialDryHours = (!isNaN(customInput) && customInput > 0) ? customInput : dbInfo.initialDryHours;
     
     const elapsedMs = elapsedHours * 60 * 60 * 1000;
-    const simulatedPlantTime = Date.now() - elapsedMs;
+    const simulatedPlantTime = Díate.now() - elapsedMs;
 
     const newCrop = { 
-        id: Date.now().toString(), // Ensure string if DB expects uuid, or keep as number if preferred. Let's use Date.now() 
+        id: Díate.now().toString(), // Ensure string if DB expects uuid, or keep as number if preferred. Let's use Díate.now() 
         type: type, 
         location: location, 
         initialDryHours: initialDryHours,
@@ -484,7 +484,7 @@ export function openWaterPreviewModal(id) {
     pendingWaterCropId = id;
 
     const dbInfo = BERRY_DB[crop.type] || BERRY_DB.zanama;
-    const now = Date.now();
+    const now = Díate.now();
     const totalMs = dbInfo.totalHours * 60 * 60 * 1000;
     const elapsedMs = now - crop.plantedAt;
     const remainingHarvestMs = Math.max(0, totalMs - elapsedMs);
@@ -509,24 +509,24 @@ export function openWaterPreviewModal(id) {
 
     subTitle.innerText = `${dbInfo.name} | ${crop.location} | Cosecha en ${formatTime(remainingHarvestMs)}`;
 
-    // Â¿Regar ahora cubre completamente hasta la cosecha?
+    // ¿Regar ahora cubre completamente hasta la cosecha?
     if (remainingHarvestMs <= fullMoistureMs) {
         content.innerHTML = `
             <div class="bg-emerald-950/30 border border-emerald-500/40 p-4 rounded-sm">
                 <div class="flex items-center gap-2 mb-2 text-emerald-400 font-bold text-sm">
-                    <span>ðŸ›¡ï¸ Â¡PROTECCIÃ“N TOTAL HASTA LA COSECHA!</span>
+                    <span>ðŸ›¡ï¸ ¡PROTECCIÓN TOTAL HASTA LA COSECHA!</span>
                 </div>
                 <p class="text-os-text leading-relaxed mb-3">
-                    Como a tu planta le faltan <strong>${formatTime(remainingHarvestMs)}</strong> para cosechar y las 5 gotas duran <strong>${dbInfo.fullMoistureHours} horas</strong>, <strong>el agua cubrirÃ¡ el 100% del tiempo restante</strong>.
+                    Como a tu planta le faltan <strong>${formatTime(remainingHarvestMs)}</strong> para cosechar y las 5 gotas duran <strong>${dbInfo.fullMoistureHours} horas</strong>, <strong>el agua cubrirá el 100% del tiempo restante</strong>.
                 </p>
                 <div class="grid grid-cols-2 gap-2 text-center font-mono text-[11px] bg-os-bg p-2.5 border border-emerald-500/20 mb-2">
                     <div>
                         <span class="text-os-muted block text-[9px] uppercase">Gotas tras regar</span>
-                        <span class="text-emerald-400 font-bold">ðŸ’§ðŸ’§ðŸ’§ðŸ’§ðŸ’§ (5/5 MÃ¡x)</span>
+                        <span class="text-emerald-400 font-bold">ðŸ’§ðŸ’§ðŸ’§ðŸ’§ðŸ’§ (5/5 Máx)</span>
                     </div>
                     <div>
-                        <span class="text-os-muted block text-[9px] uppercase">PrÃ³ximo riego requerido</span>
-                        <span class="text-emerald-400 font-bold">Â¡NINGUNO! (100% Protegido)</span>
+                        <span class="text-os-muted block text-[9px] uppercase">Próximo riego requerido</span>
+                        <span class="text-emerald-400 font-bold">¡NINGUNO! (100% Protegido)</span>
                     </div>
                 </div>
             </div>
@@ -538,24 +538,24 @@ export function openWaterPreviewModal(id) {
         content.innerHTML = `
             <div class="bg-amber-950/30 border border-amber-500/40 p-4 rounded-sm">
                 <div class="flex items-center gap-2 mb-2 text-amber-400 font-bold text-sm">
-                    <span>âš ï¸ ATENCIÃ“N: NECESITARÃ OTRO RIEGO EN ~${nextWaterInHours} HORAS</span>
+                    <span>âš ï¸ ATENCIÓN: NECESITARÃ OTRO RIEGO EN ~${nextWaterInHours} HORAS</span>
                 </div>
                 <p class="text-os-text leading-relaxed mb-3">
-                    En PokeMMO las 5 gotas duran <strong>${nextWaterInHours} horas</strong> (~${dbInfo.dropDurationHours}h por gota). Como aÃºn faltan <strong>${formatTime(remainingHarvestMs)}</strong> para cosechar, el agua se agotarÃ¡ antes de la cosecha.
+                    En PokéMMO las 5 gotas duran <strong>${nextWaterInHours} horas</strong> (~${dbInfo.dropDurationHours}h por gota). Como aún faltan <strong>${formatTime(remainingHarvestMs)}</strong> para cosechar, el agua se agotará antes de la cosecha.
                 </p>
                 <div class="grid grid-cols-2 gap-2 text-center font-mono text-[11px] bg-os-bg p-2.5 border border-amber-500/20 mb-3">
                     <div>
-                        <span class="text-os-muted block text-[9px] uppercase">DuraciÃ³n de 5 Gotas</span>
+                        <span class="text-os-muted block text-[9px] uppercase">Duración de 5 Gotas</span>
                         <span class="text-amber-400 font-bold">~${nextWaterInHours} horas</span>
                     </div>
                     <div>
-                        <span class="text-os-muted block text-[9px] uppercase">Siguiente Riego</span>
+                        <span class="text-os-muted block text-[9px] uppercase">Siguiente ▶</span>
                         <span class="text-os-red font-bold">En ~${nextWaterInHours} horas</span>
                     </div>
                 </div>
                 <div class="bg-os-bg/80 border border-os-blue/30 p-2.5 rounded-sm">
                     <p class="text-[11px] text-os-blue leading-relaxed">
-                        ðŸ’¡ <strong>Gotas actuales:</strong> Tiene <strong>${currentDrops}/5 gotas</strong> (~${formatTime(timeToZeroDropsMs)} de humedad). Si riegas ahora, restaurarÃ¡s a 5 gotas inmediatamente.
+                        ðŸ’¡ <strong>Gotas actuales:</strong> Tiene <strong>${currentDrops}/5 gotas</strong> (~${formatTime(timeToZeroDropsMs)} de humedad). Si riegas ahora, restaurarás a 5 gotas inmediatamente.
                     </p>
                 </div>
             </div>
@@ -585,7 +585,7 @@ export async function confirmExecuteWatering() {
             const crop = crops[index];
             crop.watered = true;
             crop.waterCount = (crop.waterCount || 0) + 1;
-            crop.wateredAt = Date.now();
+            crop.wateredAt = Díate.now();
             
             setState('crops', [...crops]);
             
@@ -604,7 +604,7 @@ export async function harvestCrop(id) {
     const crop = crops.find(c => c.id == id);
     if (crop) {
         const dbInfo = BERRY_DB[crop.type] || BERRY_DB.zanama;
-        if (Date.now() - crop.plantedAt >= dbInfo.totalHours * 60 * 60 * 1000) {
+        if (Díate.now() - crop.plantedAt >= dbInfo.totalHours * 60 * 60 * 1000) {
             harvestCounter++;
             const totalHarvestedEl = document.getElementById('totalHarvested');
             if (totalHarvestedEl) totalHarvestedEl.innerText = harvestCounter;
@@ -623,7 +623,7 @@ export async function harvestCrop(id) {
 }
 
 export function resetHarvestCount() {
-    if(confirm('Â¿Reiniciar tu rÃ©cord de cosechas a cero?')) {
+    if(confirm('¿Reiniciar tu récord de cosechas a cero?')) {
         harvestCounter = 0;
         const totalHarvestedEl = document.getElementById('totalHarvested');
         if (totalHarvestedEl) totalHarvestedEl.innerText = harvestCounter;
@@ -666,7 +666,7 @@ export function renderCrops() {
                         <span class="text-os-muted uppercase">Humedad Suelo:</span>
                         <span id="crop-drops-${crop.id}" class="text-os-blue font-bold">ðŸ’§ðŸ’§âšªâšªâšª (2/5)</span>
                     </div>
-                    <p id="crop-advice-${crop.id}" class="text-[10px] text-os-muted leading-tight">Calculando estado de hidrataciÃ³n...</p>
+                    <p id="crop-advice-${crop.id}" class="text-[10px] text-os-muted leading-tight">Calculando estado de hidratación...</p>
                 </div>
 
                 <div class="grid grid-cols-2 gap-px bg-os-border mb-3 text-center border border-os-border">
@@ -700,7 +700,7 @@ export function renderCrops() {
 }
 
 export function updateTimers() {
-    const now = Date.now();
+    const now = Díate.now();
     const crops = state.crops || [];
     
     crops.forEach(crop => {
@@ -709,7 +709,7 @@ export function updateTimers() {
         const elapsedMs = now - crop.plantedAt;
         const remainingHarvestMs = totalMs - elapsedMs;
         const isHarvestReady = remainingHarvestMs <= 0;
-        const wiltingWindowMs = 8 * 60 * 60 * 1000; // 8 horas oficiales de PokeMMO
+        const wiltingWindowMs = 8 * 60 * 60 * 1000; // 8 horas oficiales de PokéMMO
 
         let progressPercent = Math.min(100, Math.max(0, (elapsedMs / totalMs) * 100));
 
@@ -729,18 +729,18 @@ export function updateTimers() {
 
         if (progressBar) progressBar.style.width = `${progressPercent}%`;
 
-        // Calcular etapa actual de PokeMMO (1 a 4)
+        // Calcular etapa actual de PokéMMO (1 a 4)
         if (stageText) {
             if (isHarvestReady) {
-                stageText.innerHTML = `<span class="text-os-green font-bold">ðŸŒ¾ Â¡COSECHA LISTA!</span>`;
+                stageText.innerHTML = `<span class="text-os-green font-bold">ðŸŒ¾ ¡COSECHA LISTA!</span>`;
             } else if (progressPercent < 25) {
-                stageText.innerHTML = `<span class="text-os-muted">ðŸŒ± Fase 1/4: Semilla (${progressPercent.toFixed(0)}%)</span>`;
+                stageText.innerHTML = `<span class="text-os-muted">🌱 Fase 1/4: Semilla (${progressPercent.toFixed(0)}%)</span>`;
             } else if (progressPercent < 50) {
                 stageText.innerHTML = `<span class="text-emerald-400">ðŸŒ¿ Fase 2/4: Brote (${progressPercent.toFixed(0)}%)</span>`;
             } else if (progressPercent < 75) {
                 stageText.innerHTML = `<span class="text-blue-400">ðŸŒ³ Fase 3/4: Crecimiento (${progressPercent.toFixed(0)}%)</span>`;
             } else {
-                stageText.innerHTML = `<span class="text-pink-400">ðŸŒ¸ Fase 4/4: FloraciÃ³n (${progressPercent.toFixed(0)}%)</span>`;
+                stageText.innerHTML = `<span class="text-pink-400">ðŸŒ¸ Fase 4/4: Floración (${progressPercent.toFixed(0)}%)</span>`;
             }
         }
 
@@ -749,7 +749,7 @@ export function updateTimers() {
             const remainingWiltMs = wiltingWindowMs - timeSinceReady;
 
             if (harvestTimeText) {
-                harvestTimeText.innerText = 'Â¡LISTO!';
+                harvestTimeText.innerText = '¡LISTO!';
                 harvestTimeText.className = 'font-mono text-xs font-bold text-os-green animate-pulse';
             }
 
@@ -758,12 +758,12 @@ export function updateTimers() {
 
             if (remainingWiltMs <= 0) {
                 if (waterTimeText) {
-                    waterTimeText.innerText = 'Â¡PODRIDA!';
+                    waterTimeText.innerText = '¡PODRIDA!';
                     waterTimeText.className = 'font-mono text-xs font-bold text-os-red';
                 }
-                if (dropsText) dropsText.innerHTML = '<span class="text-os-red">ðŸ’€ Planta Muerta (ExcediÃ³ 8h)</span>';
+                if (dropsText) dropsText.innerHTML = '<span class="text-os-red">ðŸ’€ Planta Muerta (Excedió 8h)</span>';
                 if (adviceText) {
-                    adviceText.innerText = 'âŒ Han pasado mÃ¡s de 8 horas desde la maduraciÃ³n. La planta se marchitÃ³.';
+                    adviceText.innerText = 'âŒ Han pasado más de 8 horas desde la maduración. La planta se marchitó.';
                     adviceText.className = 'text-[10px] text-os-red font-bold';
                 }
             } else {
@@ -773,7 +773,7 @@ export function updateTimers() {
                 }
                 if (dropsText) dropsText.innerHTML = '<span class="text-os-green font-bold">âœ¨ Frutos Listos (' + (dbInfo.yield || '5-7') + ')</span>';
                 if (adviceText) {
-                    adviceText.innerText = `ðŸŒ¾ Â¡Cosecha lista! Tienes ${formatTime(remainingWiltMs)} antes de que empiece a marchitarse.`;
+                    adviceText.innerText = `ðŸŒ¾ ¡Cosecha lista! Tienes ${formatTime(remainingWiltMs)} antes de que empiece a marchitarse.`;
                     adviceText.className = 'text-[10px] text-os-green font-medium';
                 }
             }
@@ -823,15 +823,15 @@ export function updateTimers() {
         const isMoistureCoveringHarvest = timeToZeroDropsMs >= remainingHarvestMs;
 
         if (currentDrops === 0) {
-            if (waterLabel) waterLabel.innerText = 'Â¡SUELO SECO!';
+            if (waterLabel) waterLabel.innerText = '¡SUELO SECO!';
             if (badge) badge.innerHTML = `<span class="text-[9px] font-mono text-os-red bg-os-red/10 border border-os-red/40 px-1.5 py-0.5 rounded animate-pulse">ðŸš¨ SECO (0/5)</span>`;
-            if (dropsText) dropsText.innerHTML = `<span class="text-os-red font-bold animate-pulse">${dropsIcons} (0/5 Â¡SECO!)</span>`;
+            if (dropsText) dropsText.innerHTML = `<span class="text-os-red font-bold animate-pulse">${dropsIcons} (0/5 ¡SECO!)</span>`;
             if (adviceText) {
-                adviceText.innerText = 'ðŸš¨ Â¡EL SUELO ESTÃ SECO! Riega ahora para no perder rendimiento ni arriesgar la cosecha.';
+                adviceText.innerText = 'ðŸš¨ ¡EL SUELO ESTÃ SECO! Riega ahora para no perder rendimiento ni arriesgar la cosecha.';
                 adviceText.className = 'text-[10px] text-os-red font-bold animate-pulse';
             }
             if (waterTimeText) {
-                waterTimeText.innerText = 'Â¡REGAR YA!';
+                waterTimeText.innerText = '¡REGAR YA!';
                 waterTimeText.className = 'font-mono text-xs font-bold text-os-red animate-pulse';
             }
             if (btnWater) {
@@ -846,7 +846,7 @@ export function updateTimers() {
             if (badge) badge.innerHTML = `<span class="text-[9px] font-mono text-os-green bg-os-green/10 border border-os-green/30 px-1.5 py-0.5 rounded">ðŸ›¡ï¸ PROTEGIDO</span>`;
             if (dropsText) dropsText.innerHTML = `<span class="text-os-green font-bold">${dropsIcons} (${currentDrops}/5 Gotas)</span>`;
             if (adviceText) {
-                adviceText.innerText = `ðŸ›¡ï¸ Â¡PROTEGIDO! Las ${currentDrops} gotas duran ${formatTime(timeToZeroDropsMs)} y cosechas en ${formatTime(remainingHarvestMs)}. Â¡No requerirÃ¡ mÃ¡s agua!`;
+                adviceText.innerText = `ðŸ›¡ï¸ ¡PROTEGIDO! Las ${currentDrops} gotas duran ${formatTime(timeToZeroDropsMs)} y cosechas en ${formatTime(remainingHarvestMs)}. ¡No requerirá más agua!`;
                 adviceText.className = 'text-[10px] text-os-green font-medium';
             }
             if (waterTimeText) {
@@ -861,7 +861,7 @@ export function updateTimers() {
         }
         else {
             const isCritical = currentDrops === 1;
-            if (waterLabel) waterLabel.innerText = isCritical ? 'Â¡Riego Urgente en!' : 'Humedad Restante';
+            if (waterLabel) waterLabel.innerText = isCritical ? '¡Riego Urgente en!' : 'Humedad Restante';
             
             if (badge) {
                 if (!crop.watered) {
@@ -878,9 +878,9 @@ export function updateTimers() {
 
             if (adviceText) {
                 if (!crop.watered) {
-                    adviceText.innerText = `â³ Consumiendo las 2 gotas base. Se agotarÃ¡n en ${formatTime(timeToZeroDropsMs)} (1 gota se pierde cada ${dbInfo.dropDurationHours}h).`;
+                    adviceText.innerText = `â³ Consumiendo las 2 gotas base. Se agotarán en ${formatTime(timeToZeroDropsMs)} (1 gota se pierde cada ${dbInfo.dropDurationHours}h).`;
                 } else {
-                    adviceText.innerText = `ðŸ’§ Quedan ${currentDrops} gotas (~${formatTime(timeToZeroDropsMs)} de humedad). Como faltan ${formatTime(remainingHarvestMs)} para cosechar, requerirÃ¡ otro riego en ${formatTime(timeToZeroDropsMs)}.`;
+                    adviceText.innerText = `ðŸ’§ Quedan ${currentDrops} gotas (~${formatTime(timeToZeroDropsMs)} de humedad). Como faltan ${formatTime(remainingHarvestMs)} para cosechar, requerirá otro riego en ${formatTime(timeToZeroDropsMs)}.`;
                 }
                 adviceText.className = isCritical ? 'text-[10px] text-amber-400 font-bold' : 'text-[10px] text-os-muted';
             }
@@ -905,4 +905,6 @@ export function updateTimers() {
         }
     });
 }
+
+
 

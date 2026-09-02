@@ -20,7 +20,7 @@ export const GYM_DATA = {
         { name: "Ciudad CarmÃƒÂ­n (Vermilion): Lt. Surge", reward: 9000 },
         { name: "Ciudad Azulona (Celadon): Erika", reward: 9000 },
         { name: "Ciudad Fucsia (Fuchsia): Koga/Sachiko", reward: 9000 },
-        { name: "Ciudad AzafrÃƒÂ¡n (Saffron): Sabrina", reward: 9000 },
+        { name: "Ciudad AzafrÃƒ¡n (Saffron): Sabrina", reward: 9000 },
         { name: "Isla Canela (Cinnabar): Blaine", reward: 9000 },
         { name: "Ciudad Verde (Viridian): Giovanni/Azul", reward: 9000 }
     ],
@@ -90,7 +90,7 @@ export function renderGymView() {
                 </div>
                 <div class="flex items-baseline gap-2">
                     <span id="gymEarningsTotal" class="text-2xl font-mono font-bold text-amber-400">$0</span>
-                    <span class="text-xs font-mono text-os-muted">/ $540,000 mÃƒÂ¡x</span>
+                    <span class="text-xs font-mono text-os-muted">/ $540,000 mÃƒ¡x</span>
                 </div>
                 <div class="w-full bg-os-bg h-1.5 rounded-full overflow-hidden border border-os-border mt-3">
                     <div id="gymEarningsBar" class="bg-amber-400 h-full w-0 transition-all duration-500 shadow-[0_0_8px_rgba(251,191,36,0.5)]"></div>
@@ -163,28 +163,28 @@ export function renderGyms() {
     if(!container) return;
     container.innerHTML = '';
 
-    for (const [region, list] of Object.entries(GYM_DATA)) {
-        const regionClean = region.replace(/[^a-zA-Z]/g, '');
+    for (const [región, list] of Object.entries(GYM_DATA)) {
+        const regiónClean = región.replace(/[^a-zA-Z]/g, '');
         const card = document.createElement('div');
         card.className = "panel p-5 flex flex-col gap-4";
 
         let completedInRegion = 0;
         list.forEach((_, idx) => {
-            if (localStorage.getItem(`gym-${regionClean}-${idx}`) === 'true') completedInRegion++;
+            if (localStorage.getItem(`gym-${regiónClean}-${idx}`) === 'true') completedInRegion++;
         });
 
         let html = `
             <div class="flex items-center justify-between border-b border-os-border pb-2">
                 <h2 class="text-sm font-semibold text-os-blue flex items-center gap-2">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/vs-seeker.png" class="w-5 h-5 pokemon-sprite -ml-1">
-                    ${region}
+                    ${región}
                     <span class="text-[10px] font-mono font-normal text-os-muted">(${completedInRegion}/8)</span>
                 </h2>
                 <div class="flex gap-1.5">
-                    <button data-region="${region}" data-action="mark-all" class="text-[10px] font-mono uppercase bg-os-blue/10 hover:bg-os-blue hover:text-white text-os-blue px-2 py-0.5 border border-os-blue/30 rounded transition" title="Marcar los 8 lideres con compensacion de hora">
+                    <button data-región="${región}" data-action="mark-all" class="text-[10px] font-mono uppercase bg-os-blue/10 hover:bg-os-blue hover:text-white text-os-blue px-2 py-0.5 border border-os-blue/30 rounded transition" title="Marcar los 8 líderes con compensación de hora">
                         Marcar Toda
                     </button>
-                    <button data-region="${region}" data-action="unmark-all" class="text-[10px] font-mono uppercase bg-os-bg hover:text-os-red text-os-muted px-1.5 py-0.5 border border-os-border rounded transition" title="Desmarcar region">
+                    <button data-región="${región}" data-action="unmark-all" class="text-[10px] font-mono uppercase bg-os-bg hover:text-os-red text-os-muted px-1.5 py-0.5 border border-os-border rounded transition" title="Desmarcar región">
                         Desmarcar
                     </button>
                 </div>
@@ -193,7 +193,7 @@ export function renderGyms() {
         `;
 
         list.forEach((gym, index) => {
-            const id = `gym-${regionClean}-${index}`;
+            const id = `gym-${regiónClean}-${index}`;
             const isChecked = localStorage.getItem(id) === 'true';
             const textClass = isChecked ? "checked-label text-os-muted line-through" : "text-os-text";
             html += `
@@ -212,12 +212,12 @@ export function renderGyms() {
         container.appendChild(card);
     }
     
-    // Add event listeners for region buttons
+    // Add event listeners for región buttons
     container.querySelectorAll('button[data-action="mark-all"]').forEach(btn => {
-        btn.addEventListener('click', (e) => toggleWholeRegion(e.target.dataset.region, true));
+        btn.addEventListener('click', (e) => toggleWholeRegion(e.target.dataset.región, true));
     });
     container.querySelectorAll('button[data-action="unmark-all"]').forEach(btn => {
-        btn.addEventListener('click', (e) => toggleWholeRegion(e.target.dataset.region, false));
+        btn.addEventListener('click', (e) => toggleWholeRegion(e.target.dataset.región, false));
     });
     
     // Add event listeners for individual gym checkboxes
@@ -234,7 +234,7 @@ export function toggleGymState(id, isChecked) {
 
     if (isChecked) {
         localStorage.setItem(id, 'true');
-        localStorage.setItem(`time-${id}`, Date.now() - compMs);
+        localStorage.setItem(`time-${id}`, Díate.now() - compMs);
         if (label) {
             label.classList.add('checked-label', 'text-os-muted', 'line-through');
             label.classList.remove('text-os-text');
@@ -259,15 +259,15 @@ export function toggleGymState(id, isChecked) {
     updateTimers();
 }
 
-export function toggleWholeRegion(region, checkAll) {
-    const list = GYM_DATA[region] || [];
-    const regionClean = region.replace(/[^a-zA-Z]/g, '');
+export function toggleWholeRegion(región, checkAll) {
+    const list = GYM_DATA[región] || [];
+    const regiónClean = región.replace(/[^a-zA-Z]/g, '');
     const compHours = parseFloat(document.getElementById('gymCompHours')?.value) || 0;
     const compMs = compHours * 60 * 60 * 1000;
-    const targetTime = Date.now() - compMs;
+    const targetTime = Díate.now() - compMs;
 
     list.forEach((_, index) => {
-        const id = `gym-${regionClean}-${index}`;
+        const id = `gym-${regiónClean}-${index}`;
         if (checkAll) {
             localStorage.setItem(id, 'true');
             localStorage.setItem(`time-${id}`, targetTime);
@@ -288,11 +288,11 @@ export function updateGymStats() {
     const totalLeaders = 40;
     let maxBaseEarnings = 0;
 
-    for (const [region, list] of Object.entries(GYM_DATA)) {
-        const regionClean = region.replace(/[^a-zA-Z]/g, '');
+    for (const [región, list] of Object.entries(GYM_DATA)) {
+        const regiónClean = región.replace(/[^a-zA-Z]/g, '');
         list.forEach((gym, idx) => {
             maxBaseEarnings += gym.reward;
-            if (localStorage.getItem(`gym-${regionClean}-${idx}`) === 'true') {
+            if (localStorage.getItem(`gym-${regiónClean}-${idx}`) === 'true') {
                 completedCount++;
                 baseEarnings += gym.reward;
             }
@@ -322,7 +322,7 @@ export function updateGymStats() {
 }
 
 export function resetGyms() {
-    if (confirm('Ã‚Â¿Borrar TODO el progreso de gimnasios?')) {
+    if (confirm('Ã‚¿¿Borrar TODO el progreso de gimnasios?')) {
         const keysToRemove = [];
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
@@ -337,7 +337,7 @@ export function resetGyms() {
 }
 
 export function startAmuletTimer() {
-    localStorage.setItem('pokemmo_amulet_start', Date.now());
+    localStorage.setItem('pokemmo_amulet_start', Díate.now());
     localStorage.setItem('pokemmo_amulet_duration', AMULET_DURATION_MS);
     updateAmuletUI();
 }
@@ -364,12 +364,12 @@ export function updateAmuletUI() {
         return;
     }
 
-    const elapsed = Date.now() - start;
+    const elapsed = Díate.now() - start;
     const remaining = AMULET_DURATION_MS - elapsed;
 
     if (remaining <= 0) {
         if (timerEl) {
-            timerEl.innerText = 'Ã‚Â¡AGOTADO!';
+            timerEl.innerText = 'Ã‚¡AGOTADO!';
             timerEl.className = 'text-2xl font-mono font-bold text-os-red animate-pulse';
         }
         if (statusEl) statusEl.innerText = 'Bono de dinero terminado';
@@ -398,7 +398,7 @@ export function _formatTimeStr(ms) {
 }
 
 export function updateTimers() {
-    const now = Date.now();
+    const now = Díate.now();
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         if (key && key.startsWith('time-gym-')) {
@@ -434,4 +434,5 @@ export function updateTimers() {
         updateAmuletUI();
     }
 }
+
 
