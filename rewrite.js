@@ -1,4 +1,6 @@
-const breedingViewHTML = `
+const fs = require('fs');
+
+const cleanCode = `const breedingViewHTML = \`
 <div id="view-breeding" class="hidden animate-fade-in pb-20">
     <div class="flex justify-between items-end mb-8 pb-4 border-b border-os-border">
         <div>
@@ -86,7 +88,7 @@ const breedingViewHTML = `
         </div>
     </div>
 </div>
-`;
+\`;
 
 if (!document.getElementById('view-breeding')) {
     document.querySelector('main').insertAdjacentHTML('beforeend', breedingViewHTML);
@@ -139,14 +141,11 @@ async function fetchPokemonData() {
     infoDiv.classList.remove('hidden');
 
     try {
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${input}`);
+        const res = await fetch(\`https://pokeapi.co/api/v2/pokemon-species/\${input}\`);
         if (!res.ok) throw new Error('No encontrado');
         const data = await res.json();
         
-        const eggGroupsStr = data.egg_groups.map(eg => eg.name).join(', ').toUpperCase();
-        const eggGroupsHTML = data.egg_groups.map(eg => 
-            `<button onclick="showEggGroupModal('${eg.name}')" class="text-[10px] bg-blue-900/40 hover:bg-blue-500/60 border border-blue-500/30 text-blue-100 px-2 py-0.5 rounded transition uppercase mr-1 cursor-pointer shadow-sm">${eg.name}</button>`
-        ).join('');
+        const eggGroups = data.egg_groups.map(eg => eg.name).join(', ').toUpperCase();
         let cost = 0;
         let rate = data.gender_rate;
         let costText = "";
@@ -172,9 +171,9 @@ async function fetchPokemonData() {
         }
 
         currentGenderCost = cost;
-        currentEggGroup = eggGroupsStr;
+        currentEggGroup = eggGroups;
         
-        eggGroupSpan.innerHTML = eggGroupsHTML;
+        eggGroupSpan.innerText = eggGroups;
         genderCostSpan.innerText = costText;
 
         generateBreedingTree();
@@ -193,7 +192,7 @@ setTimeout(() => {
         if(db.length > 0) {
             const datalist = document.getElementById('pokedex-list-breeding');
             let uniqueNames = [...new Set(db.map(p => p.name))];
-            datalist.innerHTML = uniqueNames.map(n => `<option value="${n}">`).join('');
+            datalist.innerHTML = uniqueNames.map(n => \`<option value="\${n}">\`).join('');
         }
     } catch(e) {}
 }, 2000);
@@ -263,33 +262,33 @@ async function generateBreedingTree() {
     for (const stat of Object.keys(bracers)) {
         let count = bracers[stat];
         costBracers += (count * 10000);
-        htmlList += `
+        htmlList += \`
             <div class="flex justify-between border-b border-os-border/50 pb-2">
-                <span>${count}x ${BRACER_NAMES[stat]} (${stat})</span>
-                <span class="text-blue-300">${(count*10).toLocaleString()}k</span>
+                <span>\${count}x \${BRACER_NAMES[stat]} (\${stat})</span>
+                <span class="text-blue-300">\${(count*10).toLocaleString()}k</span>
             </div>
-        `;
+        \`;
     }
     
     if (everstones > 0) {
-        htmlList += `
+        htmlList += \`
             <div class="flex justify-between border-b border-os-border/50 pb-2">
-                <span>${everstones}x Piedraeterna</span>
-                <span class="text-amber-300">~${(everstones*5).toLocaleString()}k</span>
+                <span>\${everstones}x Piedraeterna</span>
+                <span class="text-amber-300">~\${(everstones*5).toLocaleString()}k</span>
             </div>
-        `;
+        \`;
     }
 
-    htmlList += `<div class="mt-4 pt-2 mb-2 font-bold text-white uppercase">Criadores Base (1x31):</div>`;
+    htmlList += \`<div class="mt-4 pt-2 mb-2 font-bold text-white uppercase">Criadores Base (1x31):</div>\`;
     for (const stat of Object.keys(breeders)) {
         let count = breeders[stat];
-        let eggSuffix = currentEggGroup ? ` (${currentEggGroup})` : '';
-        let name = stat === 'Nature' ? `Pokémon con Naturaleza${eggSuffix}` : `Pokémon 1x31 en ${stat}${eggSuffix}`;
-        htmlList += `
+        let eggSuffix = currentEggGroup ? \` (\${currentEggGroup})\` : '';
+        let name = stat === 'Nature' ? \`Pokémon con Naturaleza\${eggSuffix}\` : \`Pokémon 1x31 en \${stat}\${eggSuffix}\`;
+        htmlList += \`
             <div class="flex justify-between text-[11px] text-os-muted">
-                <span>- ${count}x ${name}</span>
+                <span>- \${count}x \${name}</span>
             </div>
-        `;
+        \`;
     }
 
     let totalBaseBreeders = Object.values(breeders).reduce((a,b)=>a+b, 0);
@@ -298,133 +297,63 @@ async function generateBreedingTree() {
     let totalGenderCost = currentGenderCost * genderSelections;
     
     if (currentGenderCost > 0) {
-        htmlList += `
+        htmlList += \`
             <div class="flex justify-between border-b border-amber-900/50 pb-2 mt-4">
-                <span class="text-amber-400">${genderSelections}x Selección de Género (${(currentGenderCost/1000)}k)</span>
-                <span class="text-amber-300">~${(totalGenderCost/1000).toLocaleString()}k</span>
+                <span class="text-amber-400">\${genderSelections}x Selección de Género (\${(currentGenderCost/1000)}k)</span>
+                <span class="text-amber-300">~\${(totalGenderCost/1000).toLocaleString()}k</span>
             </div>
-        `;
+        \`;
     }
 
     const totalCost = costBracers + (everstones * 5000) + totalGenderCost;
     listContainer.innerHTML = htmlList;
     document.getElementById('cost-total-pokeyen').innerText = '$' + totalCost.toLocaleString();
 
-    let mGraph = 'graph BT\n';
-    let nodeId = 0;
+    let mGraph = 'graph TD\\n';
+    const label = useNature ? \`\${targetStats.length}x31 + Nat\` : \`\${targetStats.length}x31\`;
     
-    function buildGraph(stats, hasNature) {
-        let currentId = `N${nodeId++}`;
-        let label = '';
-        let isBase = false;
-
-        if (stats.length === 1 && !hasNature) {
-            label = `1x31 ${stats[0]}`;
-            isBase = true;
-        } else if (stats.length === 0 && hasNature) {
-            label = `Naturaleza`;
-            isBase = true;
+    if (targetStats.length <= 3) {
+        if (targetStats.length === 2) {
+            if(useNature) {
+                mGraph += \`A["Naturaleza<br/>(Piedraeterna)"] --> C["2x31 + Nat"]\\n\`;
+                mGraph += \`B["1x31 \${targetStats[0]}<br/>(\${BRACER_NAMES[targetStats[0]]})"] --> C\\n\`;
+            } else {
+                mGraph += \`A["1x31 \${targetStats[0]}<br/>(\${BRACER_NAMES[targetStats[0]]})"] --> C["2x31"]\\n\`;
+                mGraph += \`B["1x31 \${targetStats[1]}<br/>(\${BRACER_NAMES[targetStats[1]]})"] --> C\\n\`;
+            }
         } else {
-            label = `${stats.length}x31${hasNature ? '<br/>+ Nat' : ''}`;
+            if(useNature) {
+                mGraph += \`A["1x31 \${targetStats[0]}<br/>+ Naturaleza"] --> |"\${BRACER_NAMES[targetStats[0]]} + Piedra"| D["2x31 + Nat"]\\n\`;
+                mGraph += \`B["1x31 \${targetStats[1]}"] --> D\\n\`;
+                mGraph += \`C["2x31 (\${targetStats[1]}, \${targetStats[2]})"] --> |"2 Brazales"| E["3x31"]\\n\`;
+                mGraph += \`D --> |"\${BRACER_NAMES[targetStats[1]]} + Piedra"| E\\n\`;
+            } else {
+                mGraph += \`A["2x31 (\${targetStats[0]}, \${targetStats[1]})"] --> |"Brazales \${targetStats[0]}+\${targetStats[1]}"| C["3x31"]\\n\`;
+                mGraph += \`B["2x31 (\${targetStats[1]}, \${targetStats[2]})"] --> |"Brazales \${targetStats[1]}+\${targetStats[2]}"| C\\n\`;
+            }
         }
+    } else {
+        mGraph += \`Master["Meta:<br/>\${label}"]\\nstyle Master fill:#1e3a8a,stroke:#3b82f6,stroke-width:4px\\n\`;
+        let p1Label = \`Padre:<br/>\${targetStats.length-1}x31\${useNature ? ' + Nat' : ''}\`;
+        let p2Label = \`Madre:<br/>\${targetStats.length-1}x31\`;
+        let item1 = useNature ? 'Piedraeterna' : BRACER_NAMES[targetStats[targetStats.length-2]];
+        let item2 = BRACER_NAMES[targetStats[targetStats.length-1]];
 
-        mGraph += `${currentId}["${label}"]\n`;
-
-        if (isBase) {
-            return currentId;
-        }
-
-        if (hasNature) {
-            let overlap = stats.slice(0, stats.length - 1);
-            let forcedStat = stats[stats.length - 1];
-            
-            let child1 = buildGraph(stats, false);
-            let child2 = buildGraph(overlap, true);
-            
-            mGraph += `${child1} -->|"${BRACER_NAMES[forcedStat]}"| ${currentId}\n`;
-            mGraph += `${child2} -->|"Piedraeterna"| ${currentId}\n`;
-        } else {
-            let overlap = stats.slice(0, stats.length - 2);
-            let f1 = stats[stats.length - 2];
-            let f2 = stats[stats.length - 1];
-            
-            let child1 = buildGraph(overlap.concat([f1]), false);
-            let child2 = buildGraph(overlap.concat([f2]), false);
-            
-            mGraph += `${child1} -->|"${BRACER_NAMES[f1]}"| ${currentId}\n`;
-            mGraph += `${child2} -->|"${BRACER_NAMES[f2]}"| ${currentId}\n`;
-        }
-        
-        return currentId;
+        mGraph += \`P1["\${p1Label}"] --> |"\${item1}"| Master\\n\`;
+        mGraph += \`P2["\${p2Label}"] --> |"\${item2}"| Master\\n\`;
+        mGraph += \`GP1["Rama:<br/>\${targetStats.length-2}x31"] -.-> P1\\n\`;
+        mGraph += \`GP2["Rama:<br/>\${targetStats.length-2}x31"] -.-> P2\\n\`;
     }
-
-    buildGraph(targetStats, useNature);
-    mGraph += `style N0 fill:#1e3a8a,stroke:#3b82f6,stroke-width:3px,color:#fff\n`;
 
     try {
         const { svg } = await mermaid.render('breeding-mermaid-svg', mGraph);
         container.innerHTML = svg;
     } catch (e) {
         console.error('Mermaid render error:', e);
-        container.innerHTML = `<div class="text-red-400 p-4 bg-red-900/30 rounded border border-red-500">Error renderizando el diagrama.</div>`;
+        container.innerHTML = \`<div class="text-red-400 p-4 bg-red-900/30 rounded border border-red-500">Error renderizando el diagrama.</div>\`;
     }
 }
 
 setTimeout(generateBreedingTree, 800);
-
-const eggGroupModalHTML = `
-<div id="egg-group-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
-    <div class="bg-os-bg border border-os-border rounded-lg shadow-2xl w-full max-w-2xl max-h-[80vh] flex flex-col relative" onclick="event.stopPropagation()">
-        <button onclick="closeEggGroupModal()" class="absolute top-4 right-4 text-os-muted hover:text-white transition cursor-pointer">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
-        <div class="p-5 border-b border-os-border flex-shrink-0 bg-os-border/10 rounded-t-lg">
-            <h3 class="text-xl font-bold text-white flex items-center gap-2">🥚 Grupo Huevo: <span id="egg-group-modal-title" class="text-os-blue uppercase"></span></h3>
-            <p class="text-xs text-os-muted mt-1">Lista de Pokémon que pertenecen a este grupo huevo.</p>
-        </div>
-        <div id="egg-group-modal-content" class="p-5 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-sm font-mono flex-1">
-        </div>
-    </div>
-</div>
 `;
-
-if (!document.getElementById('egg-group-modal')) {
-    document.body.insertAdjacentHTML('beforeend', eggGroupModalHTML);
-    // Cerrar al hacer clic fuera
-    document.getElementById('egg-group-modal').addEventListener('click', closeEggGroupModal);
-}
-
-function closeEggGroupModal() {
-    document.getElementById('egg-group-modal').classList.add('hidden');
-}
-
-async function showEggGroupModal(groupName) {
-    const modal = document.getElementById('egg-group-modal');
-    const title = document.getElementById('egg-group-modal-title');
-    const content = document.getElementById('egg-group-modal-content');
-    
-    modal.classList.remove('hidden');
-    title.innerText = groupName;
-    content.innerHTML = '<div class="col-span-full text-center text-os-blue py-10 animate-pulse">Cargando Pokémon del grupo...</div>';
-    
-    try {
-        const res = await fetch(`https://pokeapi.co/api/v2/egg-group/${groupName}`);
-        if (!res.ok) throw new Error('Error al cargar');
-        const data = await res.json();
-        
-        let species = data.pokemon_species.map(p => p.name);
-        species.sort();
-        
-        if (species.length === 0) {
-            content.innerHTML = '<div class="col-span-full text-center text-os-muted py-8">No hay Pokémon en este grupo.</div>';
-            return;
-        }
-
-        content.innerHTML = species.map(name => 
-            `<div class="bg-os-border/20 hover:bg-os-border/60 border border-os-border/50 px-2 py-2 rounded text-os-text capitalize text-center cursor-default transition-colors text-xs flex items-center justify-center min-h-[36px] break-words" title="${name}">${name.replace('-', ' ')}</div>`
-        ).join('');
-        
-    } catch (e) {
-        content.innerHTML = '<div class="col-span-full text-center text-red-400 py-8">Error de red al obtener datos de PokeAPI.</div>';
-    }
-}
+fs.writeFileSync('js/breeding.js', cleanCode);

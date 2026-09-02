@@ -890,6 +890,7 @@
         // ==========================================
         const TABS = ['gyms', 'berries', 'pokedex', 'breeding'];
         function switchTab(activeTab) {
+            localStorage.setItem('pokemmo_active_tab', activeTab);
             TABS.forEach(tab => {
                 const view = document.getElementById(`view-${tab}`);
                 const btn = document.getElementById(`tab-${tab}`);
@@ -2547,6 +2548,10 @@
 
         // Inicialización de interfaz
         document.addEventListener('DOMContentLoaded', () => {
+            const savedTab = localStorage.getItem('pokemmo_active_tab');
+            if (savedTab && TABS.includes(savedTab)) {
+                switchTab(savedTab);
+            }
             updateDexProgress();
         });
         setTimeout(updateDexProgress, 100);
