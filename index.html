@@ -552,84 +552,33 @@
                 <div class="flex items-center gap-3">
                     <span class="text-2xl">☁️</span>
                     <div>
-                        <h2 class="text-base font-bold text-os-text">Sincronización Móvil ↔ PC (Cloud Sync)</h2>
-                        <p class="text-xs font-mono text-os-muted">Comparte tus bayas, gimnasios y capturas entre tu celular y tu PC</p>
+                        <h2 class="text-base font-bold text-os-text">Sincronización (Cloud Sync)</h2>
+                        <p class="text-xs font-mono text-os-muted">Estado de la nube en tiempo real y opciones de respaldo</p>
                     </div>
                 </div>
                 <button onclick="closeSyncModal()" class="text-os-muted hover:text-white font-mono text-lg px-2">✕</button>
             </div>
 
-            <!-- Tabs de Sincronización -->
-            <div class="flex gap-2 border-b border-os-border pb-3 mb-4 text-xs font-mono">
-                <button onclick="switchSyncTab('cloud')" id="sync-tab-cloud" class="px-3 py-1.5 bg-os-blue text-white font-bold rounded-sm border border-os-blue">☁️ Nube Directa</button>
-                <button onclick="switchSyncTab('qr')" id="sync-tab-qr" class="px-3 py-1.5 bg-os-bg text-os-muted rounded-sm border border-os-border hover:text-os-blue">📲 Escanear QR</button>
-                <button onclick="switchSyncTab('backup')" id="sync-tab-backup" class="px-3 py-1.5 bg-os-bg text-os-muted rounded-sm border border-os-border hover:text-os-blue">💾 Archivo .JSON</button>
-            </div>
-
-            <!-- Panel 1: Nube Directa -->
-            <div id="sync-view-cloud" class="space-y-4">
-                <div class="bg-os-bg border border-os-border p-4 rounded-sm">
-                    <label class="block text-xs font-mono uppercase text-os-muted mb-1">Tu PIN / Identificador de Nube:</label>
-                    <div class="flex gap-2">
-                        <input type="text" id="syncPinInput" value="kr0z-pokemmo" class="flex-1 p-2 text-sm font-mono text-os-green font-bold">
-                        <button onclick="saveSyncPin()" class="px-3 py-2 text-xs font-mono uppercase bg-os-border text-os-text hover:bg-os-blue hover:text-white transition rounded-sm">Guardar PIN</button>
-                    </div>
-                    <p class="text-[11px] text-os-muted mt-2">
-                        💡 Pon el mismo PIN en tu móvil y en tu PC para que ambos compartan la misma partida en la nube.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <button onclick="pushCloudSync(true)" id="btnPushCloud" class="p-4 bg-emerald-950/30 border border-emerald-500/40 hover:bg-emerald-900/40 text-left transition rounded-sm flex flex-col justify-between shadow-lg">
-                        <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm mb-1">
-                            <span>⬆️ SUBIR A LA NUBE</span>
-                        </div>
-                        <p class="text-[11px] text-os-muted leading-relaxed">
-                            Guarda el estado actual (tus bayas de las 8:00, gimnasios y dex) en la nube para que esté disponible en tu otro dispositivo.
-                        </p>
-                    </button>
-
-                    <button onclick="pullCloudSync(true)" id="btnPullCloud" class="p-4 bg-blue-950/30 border border-blue-500/40 hover:bg-blue-900/40 text-left transition rounded-sm flex flex-col justify-between shadow-lg">
-                        <div class="flex items-center gap-2 text-blue-400 font-bold text-sm mb-1">
-                            <span>⬇️ DESCARGAR DE LA NUBE</span>
-                        </div>
-                        <p class="text-[11px] text-os-muted leading-relaxed">
-                            Carga el progreso guardado desde tu celular o PC (reemplaza los datos locales con lo último de la nube).
-                        </p>
-                    </button>
-                </div>
-
+            <!-- Panel: Estado de Nube -->
+            <div class="space-y-4 mb-6">
                 <div class="p-3 bg-os-bg border border-os-border rounded-sm flex items-center justify-between text-xs font-mono">
                     <span id="cloudSyncStatusText" class="text-os-green">● Estado Nube: Listo</span>
                     <span id="cloudLastSyncTime" class="text-[11px] text-os-muted">--</span>
                 </div>
             </div>
 
-            <!-- Panel 2: Escanear QR -->
-            <div id="sync-view-qr" class="hidden space-y-4 text-center">
+            <!-- Panel: Archivo de Respaldo Completo -->
+            <div class="space-y-4">
+                <h3 class="text-sm font-bold text-os-text border-b border-os-border pb-2">Respaldo Manual (Modo Offline)</h3>
                 <p class="text-xs text-os-muted">
-                    Apunta la cámara de tu celular a este código QR para abrir la app móvil con todas tus bayas y datos transferidos al instante:
-                </p>
-                <div class="p-4 bg-white inline-block rounded shadow-lg mx-auto">
-                    <img id="syncQrImg" src="" alt="Código QR de sincronización" class="w-48 h-48 mx-auto">
-                </div>
-                <div class="flex gap-2 max-w-md mx-auto">
-                    <input type="text" id="syncLinkInput" readonly class="flex-1 p-2 text-xs font-mono bg-os-bg text-os-muted">
-                    <button onclick="copySyncLink()" class="px-3 py-2 text-xs font-mono uppercase bg-os-blue text-white rounded-sm hover:opacity-90">📋 Copiar Link</button>
-                </div>
-            </div>
-
-            <!-- Panel 3: Archivo de Respaldo Completo -->
-            <div id="sync-view-backup" class="hidden space-y-4">
-                <p class="text-xs text-os-muted">
-                    Exporta o importa un archivo único con toda tu información (Bayas + Reruns de Gimnasios + Progreso de Pokédex):
+                    Si la conexión a la nube falla, puedes exportar e importar tu progreso usando un archivo .json:
                 </p>
                 <div class="grid grid-cols-2 gap-3">
                     <button onclick="exportFullBackupJSON()" class="p-3 border border-os-border hover:border-os-blue text-os-text hover:text-os-blue text-xs font-mono uppercase transition rounded-sm text-center">
-                        💾 Descargar Respaldo Total (.json)
+                        💾 Descargar Respaldo (.json)
                     </button>
                     <button onclick="document.getElementById('fullBackupInput').click()" class="p-3 border border-os-border hover:border-os-green text-os-text hover:text-os-green text-xs font-mono uppercase transition rounded-sm text-center">
-                        📥 Cargar Respaldo Total (.json)
+                        📥 Cargar Respaldo (.json)
                     </button>
                     <input type="file" id="fullBackupInput" accept=".json" onchange="importFullBackupJSON(event)" class="hidden">
                 </div>
@@ -809,28 +758,12 @@
             const lastSync = localStorage.getItem('pokemmo_last_cloud_sync') || '--';
             const timeEl = document.getElementById('cloudLastSyncTime');
             if (timeEl) timeEl.innerText = `Última sincronización: ${lastSync}`;
-            generateSyncQR();
             if (modal) { modal.classList.remove('hidden'); modal.classList.add('flex'); }
         }
 
         function closeSyncModal() {
             const modal = document.getElementById('syncModal');
             if (modal) { modal.classList.add('hidden'); modal.classList.remove('flex'); }
-        }
-
-        function switchSyncTab(tab) {
-            ['cloud', 'qr', 'backup'].forEach(t => {
-                const v = document.getElementById(`sync-view-${t}`);
-                const b = document.getElementById(`sync-tab-${t}`);
-                if (t === tab) {
-                    if (v) v.classList.remove('hidden');
-                    if (b) b.className = "px-3 py-1.5 bg-os-blue text-white font-bold rounded-sm border border-os-blue";
-                } else {
-                    if (v) v.classList.add('hidden');
-                    if (b) b.className = "px-3 py-1.5 bg-os-bg text-os-muted rounded-sm border border-os-border hover:text-os-blue";
-                }
-            });
-            if (tab === 'qr') generateSyncQR();
         }
 
         // exportFullAppState incluye customDB para respaldo local completo
@@ -887,39 +820,6 @@
             if (typeof updateAmuletUI === 'function') updateAmuletUI();
             if (typeof updateTimers === 'function') updateTimers();
             return true;
-        }
-
-        async function pushCloudSync(manual = false) {
-            saveAndBroadcastState();
-            if (manual) alert('☁️ ¡Progreso enviado a todos los dispositivos!');
-        }
-
-        async function pullCloudSync(manual = false) {
-            const loaded = await fetchLatestCloudState();
-            if (manual) alert(loaded ? '🎉 ¡Datos sincronizados!' : '⚠️ No se encontraron datos nuevos en la nube.');
-        }
-
-        function generateSyncQR() {
-            try {
-                const state = exportSyncPayload();
-                const jsonStr = JSON.stringify(state);
-                const base64 = btoa(unescape(encodeURIComponent(jsonStr)));
-                const currentUrl = window.location.origin + window.location.pathname;
-                const syncUrl = `${currentUrl}#sync=${base64}`;
-                const qrImg = document.getElementById('syncQrImg');
-                const linkInput = document.getElementById('syncLinkInput');
-                if (linkInput) linkInput.value = syncUrl;
-                if (qrImg) qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(syncUrl)}`;
-            } catch (e) { console.error('QR error:', e); }
-        }
-
-        function copySyncLink() {
-            const linkInput = document.getElementById('syncLinkInput');
-            if (linkInput && linkInput.value) {
-                navigator.clipboard.writeText(linkInput.value).then(() => {
-                    alert('📋 ¡Enlace copiado!');
-                });
-            }
         }
 
         function exportFullBackupJSON() {
