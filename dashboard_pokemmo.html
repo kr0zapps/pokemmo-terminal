@@ -893,6 +893,8 @@
             TABS.forEach(tab => {
                 const view = document.getElementById(`view-${tab}`);
                 const btn = document.getElementById(`tab-${tab}`);
+                if (!view || !btn) return;
+                
                 if (tab === activeTab) {
                     view.classList.remove('hidden');
                     btn.className = "tab-btn tab-active";
