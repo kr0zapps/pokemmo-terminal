@@ -5,54 +5,54 @@ import { el } from '../utils/dom.js';
 
 export const GYM_DATA = {
     "Teselia / Unova": [
-        { name: "Ciudad Gres (Striaton): Millo/Zeo/Maíz", reward: 9000 },
+        { name: "Ciudad Gres (Striaton): Millo/Zeo/MaÃ­z", reward: 9000 },
         { name: "Ciudad Esmalte (Nacrene): Aloe", reward: 9000 },
         { name: "Ciudad Porcelana (Castelia): Camus", reward: 9000 },
-        { name: "Ciudad Mayólica (Nimbasa): Camila", reward: 9000 },
-        { name: "Ciudad Fayenza (Driftveil): Yakón", reward: 9000 },
+        { name: "Ciudad MayÃ³lica (Nimbasa): Camila", reward: 9000 },
+        { name: "Ciudad Fayenza (Driftveil): YakÃ³n", reward: 9000 },
         { name: "Ciudad Loza (Mistralton): Gerania", reward: 9000 },
         { name: "Ciudad Teja (Icirrus): Junco", reward: 9000 },
-        { name: "Ciudad Caolín (Opelucid): Lirio/Iris", reward: 9000 }
+        { name: "Ciudad CaolÃ­n (Opelucid): Lirio/Iris", reward: 9000 }
     ],
     "Kanto": [
         { name: "Ciudad Plateada (Pewter): Brock", reward: 9000 },
         { name: "Ciudad Celeste (Cerulean): Misty", reward: 9000 },
-        { name: "Ciudad Carmín (Vermilion): Lt. Surge", reward: 9000 },
+        { name: "Ciudad CarmÃ­n (Vermilion): Lt. Surge", reward: 9000 },
         { name: "Ciudad Azulona (Celadon): Erika", reward: 9000 },
         { name: "Ciudad Fucsia (Fuchsia): Koga/Sachiko", reward: 9000 },
-        { name: "Ciudad Azafrán (Saffron): Sabrina", reward: 9000 },
+        { name: "Ciudad AzafrÃ¡n (Saffron): Sabrina", reward: 9000 },
         { name: "Isla Canela (Cinnabar): Blaine", reward: 9000 },
         { name: "Ciudad Verde (Viridian): Giovanni/Azul", reward: 9000 }
     ],
     "Sinnoh": [
         { name: "Ciudad Pirita (Oreburgh): Roco", reward: 9000 },
         { name: "Ciudad Vetusta (Eterna): Gardenia", reward: 9000 },
-        { name: "Ciudad Corazón (Hearthome): Fantina", reward: 9000 },
+        { name: "Ciudad CorazÃ³n (Hearthome): Fantina", reward: 9000 },
         { name: "Ciudad Rocavelo (Veilstone): Brega", reward: 9000 },
         { name: "Ciudad Pradera (Pastoria): Mananti", reward: 9000 },
-        { name: "Ciudad Canal (Canalave): Acerón", reward: 9000 },
+        { name: "Ciudad Canal (Canalave): AcerÃ³n", reward: 9000 },
         { name: "Ciudad Puntaneva (Snowpoint): Inverna", reward: 9000 },
         { name: "Ciudad Marina (Sunyshore): Lectro", reward: 9000 }
     ],
     "Hoenn": [
-        { name: "Ciudad Férrica (Rustboro): Petra", reward: 9000 },
+        { name: "Ciudad FÃ©rrica (Rustboro): Petra", reward: 9000 },
         { name: "Pueblo Azuliza (Dewford): Marcial", reward: 9000 },
         { name: "Ciudad Malvalona (Mauville): Erico", reward: 9000 },
         { name: "Pueblo Lavacalda (Lavaridge): Candela", reward: 9000 },
         { name: "Ciudad Petalia (Petalburg): Norman", reward: 9000 },
         { name: "Ciudad Arborada (Fortree): Alana", reward: 9000 },
         { name: "Ciudad Algaria (Mossdeep): Vito y Leti", reward: 9000 },
-        { name: "Arrecípolis (Sootopolis): Plubio/Galano", reward: 9000 }
+        { name: "ArrecÃ­polis (Sootopolis): Plubio/Galano", reward: 9000 }
     ],
     "Johto": [
         { name: "Ciudad Malva (Violet): Pegaso", reward: 9000 },
-        { name: "Pueblo Azalea (Azalea): Antón", reward: 9000 },
+        { name: "Pueblo Azalea (Azalea): AntÃ³n", reward: 9000 },
         { name: "Ciudad Trigal (Goldenrod): Blanca", reward: 9000 },
         { name: "Ciudad Iris (Ecruteak): Morti", reward: 9000 },
-        { name: "Ciudad Orquídea (Cianwood): Aníbal", reward: 9000 },
+        { name: "Ciudad OrquÃ­dea (Cianwood): AnÃ­bal", reward: 9000 },
         { name: "Ciudad Olivo (Olivine): Yasmina", reward: 9000 },
         { name: "Pueblo Caoba (Mahogany): Fredo", reward: 9000 },
-        { name: "Ciudad Endrino (Blackthorn): Débora", reward: 9000 }
+        { name: "Ciudad Endrino (Blackthorn): DÃ©bora", reward: 9000 }
     ]
 };
 
@@ -72,7 +72,7 @@ export function renderGymView() {
             </div>
             <div class="flex flex-wrap items-center gap-2">
                 <button id="btn-reset-gyms" class="text-xs font-mono uppercase text-os-red hover:text-white border border-os-red/30 hover:border-os-red px-3 py-1.5 transition rounded-sm">
-                    ⚠️ Reiniciar Todo
+                    âš ï¸ Reiniciar Todo
                 </button>
             </div>
         </div>
@@ -90,17 +90,17 @@ export function renderGymView() {
                 </div>
                 <div class="flex items-baseline gap-2">
                     <span id="gymEarningsTotal" class="text-2xl font-mono font-bold text-amber-400">$0</span>
-                    <span class="text-xs font-mono text-os-muted">/ $540,000 máx</span>
+                    <span class="text-xs font-mono text-os-muted">/ $540,000 mÃ¡x</span>
                 </div>
                 <div class="w-full bg-os-bg h-1.5 rounded-full overflow-hidden border border-os-border mt-3">
                     <div id="gymEarningsBar" class="bg-amber-400 h-full w-0 transition-all duration-500 shadow-[0_0_8px_rgba(251,191,36,0.5)]"></div>
                 </div>
             </div>
 
-            <!-- Progreso de Líderes -->
+            <!-- Progreso de LÃ­deres -->
             <div class="panel p-4 flex flex-col justify-between">
                 <div class="flex justify-between items-start mb-2">
-                    <span class="text-[10px] font-mono uppercase tracking-widest text-os-muted">Líderes Vencidos</span>
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-os-muted">LÃ­deres Vencidos</span>
                     <span id="gymsReadyCount" class="text-[10px] font-mono text-os-green font-bold">40 Listos</span>
                 </div>
                 <div class="flex items-baseline gap-2">
@@ -112,7 +112,7 @@ export function renderGymView() {
                 </div>
             </div>
 
-            <!-- Temporizador Moneda Amuleto (1 hora) & Compensación -->
+            <!-- Temporizador Moneda Amuleto (1 hora) & CompensaciÃ³n -->
             <div class="panel p-4 flex flex-col justify-between">
                 <div class="flex justify-between items-center mb-2">
                     <span class="text-[10px] font-mono uppercase tracking-widest text-os-muted">Temporizador Amuleto (1h)</span>
@@ -132,7 +132,7 @@ export function renderGymView() {
                             Iniciar
                         </button>
                         <button id="amuletBtnReset" class="px-2 py-1.5 text-xs font-mono text-os-muted hover:text-os-red transition">
-                            ↺
+                            â†º
                         </button>
                     </div>
                 </div>
@@ -177,20 +177,20 @@ export function renderGyms() {
             <div class="flex items-center justify-between border-b border-os-border pb-2">
                 <h2 class="text-sm font-semibold text-os-blue flex items-center gap-2">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/vs-seeker.png" class="w-5 h-5 pokemon-sprite -ml-1">
-                    \${region}
-                    <span class="text-[10px] font-mono font-normal text-os-muted">(\${completedInRegion}/8)</span>
+                    ${region}
+                    <span class="text-[10px] font-mono font-normal text-os-muted">(${completedInRegion}/8)</span>
                 </h2>
                 <div class="flex gap-1.5">
-                    <button data-region="\${region}" data-action="mark-all" class="text-[10px] font-mono uppercase bg-os-blue/10 hover:bg-os-blue hover:text-white text-os-blue px-2 py-0.5 border border-os-blue/30 rounded transition" title="Marcar los 8 líderes con compensación de hora">
-                        ⚡ Marcar Toda
+                    <button data-region="${region}" data-action="mark-all" class="text-[10px] font-mono uppercase bg-os-blue/10 hover:bg-os-blue hover:text-white text-os-blue px-2 py-0.5 border border-os-blue/30 rounded transition" title="Marcar los 8 lideres con compensacion de hora">
+                        Marcar Toda
                     </button>
-                    <button data-region="\${region}" data-action="unmark-all" class="text-[10px] font-mono uppercase bg-os-bg hover:text-os-red text-os-muted px-1.5 py-0.5 border border-os-border rounded transition" title="Desmarcar región">
-                        ↺
+                    <button data-region="${region}" data-action="unmark-all" class="text-[10px] font-mono uppercase bg-os-bg hover:text-os-red text-os-muted px-1.5 py-0.5 border border-os-border rounded transition" title="Desmarcar region">
+                        Desmarcar
                     </button>
                 </div>
             </div>
             <div class="space-y-3">
-        \`;
+        `;
 
         list.forEach((gym, index) => {
             const id = \`gym-\${regionClean}-\${index}\`;
@@ -322,7 +322,7 @@ export function updateGymStats() {
 }
 
 export function resetGyms() {
-    if (confirm('¿Borrar TODO el progreso de gimnasios?')) {
+    if (confirm('Â¿Borrar TODO el progreso de gimnasios?')) {
         const keysToRemove = [];
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
@@ -369,7 +369,7 @@ export function updateAmuletUI() {
 
     if (remaining <= 0) {
         if (timerEl) {
-            timerEl.innerText = '¡AGOTADO!';
+            timerEl.innerText = 'Â¡AGOTADO!';
             timerEl.className = 'text-2xl font-mono font-bold text-os-red animate-pulse';
         }
         if (statusEl) statusEl.innerText = 'Bono de dinero terminado';
@@ -381,7 +381,7 @@ export function updateAmuletUI() {
             timerEl.innerText = \`\${m.toString().padStart(2, '0')}:\${s.toString().padStart(2, '0')}\`;
             timerEl.className = 'text-2xl font-mono font-bold text-amber-400';
         }
-        if (statusEl) statusEl.innerText = '🪙 Bono +50% activo';
+        if (statusEl) statusEl.innerText = 'ðŸª™ Bono +50% activo';
         if (btnEl) {
             btnEl.innerText = 'Activo';
             btnEl.className = 'px-3 py-1.5 text-xs font-mono uppercase bg-amber-500 text-black font-bold border border-amber-500 rounded-sm';
