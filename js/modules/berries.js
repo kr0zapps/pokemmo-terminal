@@ -520,7 +520,7 @@ export function openWaterPreviewModal(id) {
         content.innerHTML = `
             <div class="bg-emerald-950/30 border border-emerald-500/40 p-4 rounded-sm">
                 <div class="flex items-center gap-2 mb-2 text-emerald-400 font-bold text-sm">
-                    <span>ðŸ›¡ï¸ ¡PROTECCIÓN TOTAL HASTA LA COSECHA!</span>
+                    <span>🛡️ ¡PROTECCIÓN TOTAL HASTA LA COSECHA!</span>
                 </div>
                 <p class="text-os-text leading-relaxed mb-3">
                     Como a tu planta le faltan <strong>${formatTime(remainingHarvestMs)}</strong> para cosechar y las 5 gotas duran <strong>${dbInfo.fullMoistureHours} horas</strong>, <strong>el agua cubrirá el 100% del tiempo restante</strong>.
@@ -544,7 +544,7 @@ export function openWaterPreviewModal(id) {
         content.innerHTML = `
             <div class="bg-amber-950/30 border border-amber-500/40 p-4 rounded-sm">
                 <div class="flex items-center gap-2 mb-2 text-amber-400 font-bold text-sm">
-                    <span>âš ï¸ ATENCIÓN: NECESITARÁ OTRO RIEGO EN ~${nextWaterInHours} HORAS</span>
+                    <span>⚠️ ATENCIÓN: NECESITARÁ OTRO RIEGO EN ~${nextWaterInHours} HORAS</span>
                 </div>
                 <p class="text-os-text leading-relaxed mb-3">
                     En PokéMMO las 5 gotas duran <strong>${nextWaterInHours} horas</strong> (~${dbInfo.dropDurationHours}h por gota). Como aún faltan <strong>${formatTime(remainingHarvestMs)}</strong> para cosechar, el agua se agotará antes de la cosecha.
@@ -657,7 +657,7 @@ export function renderCrops() {
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${dbInfo.sprite}.png" class="w-8 h-8 pokemon-sprite -ml-1" onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'">
                         <div>
                             <h3 class="text-sm font-semibold text-os-text">${dbInfo.name}</h3>
-                            <p class="text-[10px] text-os-muted font-mono">ðŸ“ ${crop.location} <span class="text-os-green">(${dbInfo.yield || '5-7'})</span></p>
+                            <p class="text-[10px] text-os-muted font-mono">📍 ${crop.location} <span class="text-os-green">(${dbInfo.yield || '5-7'})</span></p>
                         </div>
                     </div>
                     <div id="crop-badge-${crop.id}"></div>
@@ -769,7 +769,7 @@ export function updateTimers() {
                 }
                 if (dropsText) dropsText.innerHTML = '<span class="text-os-red">💀 Planta Muerta (Excedió 8h)</span>';
                 if (adviceText) {
-                    adviceText.innerText = 'âŒ Han pasado más de 8 horas desde la maduración. La planta se marchitó.';
+                    adviceText.innerText = '❌ Han pasado más de 8 horas desde la maduración. La planta se marchitó.';
                     adviceText.className = 'text-[10px] text-os-red font-bold';
                 }
             } else {
@@ -830,10 +830,10 @@ export function updateTimers() {
 
         if (currentDrops === 0) {
             if (waterLabel) waterLabel.innerText = '¡SUELO SECO!';
-            if (badge) badge.innerHTML = `<span class="text-[9px] font-mono text-os-red bg-os-red/10 border border-os-red/40 px-1.5 py-0.5 rounded animate-pulse">ðŸš¨ SECO (0/5)</span>`;
+            if (badge) badge.innerHTML = `<span class="text-[9px] font-mono text-os-red bg-os-red/10 border border-os-red/40 px-1.5 py-0.5 rounded animate-pulse">🚨 SECO (0/5)</span>`;
             if (dropsText) dropsText.innerHTML = `<span class="text-os-red font-bold animate-pulse">${dropsIcons} (0/5 ¡SECO!)</span>`;
             if (adviceText) {
-                adviceText.innerText = 'ðŸš¨ ¡EL SUELO ESTÁ SECO! Riega ahora para no perder rendimiento ni arriesgar la cosecha.';
+                adviceText.innerText = '🚨 ¡EL SUELO ESTÁ SECO! Riega ahora para no perder rendimiento ni arriesgar la cosecha.';
                 adviceText.className = 'text-[10px] text-os-red font-bold animate-pulse';
             }
             if (waterTimeText) {
@@ -849,10 +849,10 @@ export function updateTimers() {
         }
         else if (isMoistureCoveringHarvest) {
             if (waterLabel) waterLabel.innerText = 'Estado Riego';
-            if (badge) badge.innerHTML = `<span class="text-[9px] font-mono text-os-green bg-os-green/10 border border-os-green/30 px-1.5 py-0.5 rounded">ðŸ›¡ï¸ PROTEGIDO</span>`;
+            if (badge) badge.innerHTML = `<span class="text-[9px] font-mono text-os-green bg-os-green/10 border border-os-green/30 px-1.5 py-0.5 rounded">🛡️ PROTEGIDO</span>`;
             if (dropsText) dropsText.innerHTML = `<span class="text-os-green font-bold">${dropsIcons} (${currentDrops}/5 Gotas)</span>`;
             if (adviceText) {
-                adviceText.innerText = `ðŸ›¡ï¸ ¡PROTEGIDO! Las ${currentDrops} gotas duran ${formatTime(timeToZeroDropsMs)} y cosechas en ${formatTime(remainingHarvestMs)}. ¡No requerirá más agua!`;
+                adviceText.innerText = `🛡️ ¡PROTEGIDO! Las ${currentDrops} gotas duran ${formatTime(timeToZeroDropsMs)} y cosechas en ${formatTime(remainingHarvestMs)}. ¡No requerirá más agua!`;
                 adviceText.className = 'text-[10px] text-os-green font-medium';
             }
             if (waterTimeText) {
@@ -871,7 +871,7 @@ export function updateTimers() {
             
             if (badge) {
                 if (!crop.watered) {
-                    badge.innerHTML = `<span class="text-[9px] font-mono text-os-blue bg-os-blue/10 border border-os-blue/30 px-1.5 py-0.5 rounded">â³ 2 GOTAS BASE</span>`;
+                    badge.innerHTML = `<span class="text-[9px] font-mono text-os-blue bg-os-blue/10 border border-os-blue/30 px-1.5 py-0.5 rounded">⏳ 2 GOTAS BASE</span>`;
                 } else {
                     badge.innerHTML = `<span class="text-[9px] font-mono ${isCritical ? 'text-amber-400 bg-amber-400/10 border border-amber-400/30' : 'text-os-blue bg-os-blue/10 border border-os-blue/30'} px-1.5 py-0.5 rounded">💧 HIDRATADO (${currentDrops}/5)</span>`;
                 }
@@ -884,7 +884,7 @@ export function updateTimers() {
 
             if (adviceText) {
                 if (!crop.watered) {
-                    adviceText.innerText = `â³ Consumiendo las 2 gotas base. Se agotarán en ${formatTime(timeToZeroDropsMs)} (1 gota se pierde cada ${dbInfo.dropDurationHours}h).`;
+                    adviceText.innerText = `⏳ Consumiendo las 2 gotas base. Se agotarán en ${formatTime(timeToZeroDropsMs)} (1 gota se pierde cada ${dbInfo.dropDurationHours}h).`;
                 } else {
                     adviceText.innerText = `💧 Quedan ${currentDrops} gotas (~${formatTime(timeToZeroDropsMs)} de humedad). Como faltan ${formatTime(remainingHarvestMs)} para cosechar, requerirá otro riego en ${formatTime(timeToZeroDropsMs)}.`;
                 }

@@ -92,7 +92,7 @@ export function renderBreedingView() {
             </div>
 
             <div class="panel p-5 border border-os-border rounded-md bg-[#0a192f] border-blue-900/50 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-                <h2 class="text-sm font-bold text-blue-400 mb-4 uppercase tracking-wider border-b border-blue-900 pb-2">ðŸ›’ Lista de Compras GTL</h2>
+                <h2 class="text-sm font-bold text-blue-400 mb-4 uppercase tracking-wider border-b border-blue-900 pb-2">🛒 Lista de Compras GTL</h2>
                 <div id="shopping-list" class="space-y-3 font-mono text-xs text-os-text"></div>
                 <div class="mt-6 pt-4 border-t border-os-border/50 text-right">
                     <div class="text-os-muted mb-1 text-[10px]">Presupuesto Estimado</div>
@@ -252,19 +252,19 @@ export async function fetchPokemonData() {
             costText = "Sin género (Requiere Ditto)";
         } else if (rate === 4) {
             cost = 5000;
-            costText = "5,000Â¥ (50% M/H)";
+            costText = "5,000¥ (50% M/H)";
         } else if (rate === 2 || rate === 6) {
             cost = 9000;
-            costText = "9,000Â¥ (25% / 75%)";
+            costText = "9,000¥ (25% / 75%)";
         } else if (rate === 1 || rate === 7) {
             cost = 21000;
-            costText = "21,000Â¥ (12.5% / 87.5%)";
+            costText = "21,000¥ (12.5% / 87.5%)";
         } else if (rate === 0 || rate === 8) {
             cost = 0;
             costText = "100% un género";
         } else {
             cost = 5000;
-            costText = "5,000Â¥";
+            costText = "5,000¥";
         }
 
         currentGenderCost = cost;

@@ -78,12 +78,12 @@ async function updateHeaderAuth() {
     const session = await getSession();
     if (session) {
         authArea.innerHTML = `
-            <div class="flex items-center gap-4">
-                <div class="hidden md:flex flex-col text-right">
-                    <span class="text-xs text-os-muted">${session.user.email}</span>
-                    <button onclick="logout()" class="text-[10px] text-os-red hover:text-white text-right transition font-mono uppercase">Cerrar Sesión</button>
+            <div class="flex items-center gap-2 sm:gap-4">
+                <div class="flex flex-col items-end text-right">
+                    <span class="hidden md:inline text-xs text-os-muted">${session.user.email}</span>
+                    <button onclick="logout()" class="text-[11px] text-os-red hover:text-white border border-os-red/30 hover:border-os-red px-2 py-0.5 rounded transition font-mono uppercase font-semibold">Cerrar Sesión</button>
                 </div>
-                <div id="sync-badge-container" class="panel px-3 py-1.5 rounded-sm">
+                <div id="sync-badge-container" class="hidden sm:block panel px-3 py-1.5 rounded-sm">
                     ${renderSyncBadge()}
                 </div>
             </div>

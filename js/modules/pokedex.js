@@ -69,7 +69,7 @@ export function renderPokédexView() {
                 <!-- TOOLBAR: Buscador, Ordenador y Filtro de Horario estilo PokéMMO -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-3 bg-os-panel border border-os-border p-3 rounded-sm">
                     <div class="md:col-span-2">
-                        <input type="text" id="dexSearch" placeholder="ðŸ” Buscar Pokémon, Ruta (ej. Ruta 7) o Método..." oninput="window.pokedex.renderDexResults(true)" class="w-full p-2 text-sm bg-os-bg border border-os-border text-os-text rounded-sm focus:border-os-blue outline-none font-mono">
+                        <input type="text" id="dexSearch" placeholder="🔍 Buscar Pokémon, Ruta (ej. Ruta 7) o Método..." oninput="window.pokedex.renderDexResults(true)" class="w-full p-2 text-sm bg-os-bg border border-os-border text-os-text rounded-sm focus:border-os-blue outline-none font-mono">
                     </div>
                     <div>
                         <select id="dexSort" onchange="window.pokedex.renderDexResults(true)" class="w-full p-2 text-sm bg-os-bg border border-os-border text-os-text rounded-sm cursor-pointer font-mono">
@@ -82,7 +82,7 @@ export function renderPokédexView() {
                         <select id="dexTimeFilter" onchange="window.pokedex.renderDexResults(true)" class="w-full p-2 text-sm bg-os-bg border border-os-border text-os-text rounded-sm cursor-pointer font-mono">
                             <option value="all" selected>🕑 Horario: Todos</option>
                             <option value="morning">🌅 Mañana</option>
-                            <option value="day">â˜€ï¸ Día</option>
+                            <option value="day">☀️ Día</option>
                             <option value="night">🌙 Noche</option>
                             <option value="lure">🎣 Con Señuelo (Lure)</option>
                         </select>
@@ -129,7 +129,7 @@ export function renderCaughtModal() {
 
             <!-- Toolbar de Filtro dentro del modal -->
             <div class="mb-4">
-                <input type="text" id="caughtSearchInput" placeholder="ðŸ” Filtrar tus capturas por nombre, número o region..." oninput="window.pokedex.renderCaughtGrid()" class="w-full p-2.5 text-xs bg-os-bg border border-os-border text-os-text rounded-sm focus:border-os-blue outline-none font-mono">
+                <input type="text" id="caughtSearchInput" placeholder="🔍 Filtrar tus capturas por nombre, número o region..." oninput="window.pokedex.renderCaughtGrid()" class="w-full p-2.5 text-xs bg-os-bg border border-os-border text-os-text rounded-sm focus:border-os-blue outline-none font-mono">
             </div>
 
             <!-- Grid de Pokémon Capturados con Scroll -->
@@ -337,7 +337,7 @@ export function copyCaughtListText() {
         return;
     }
     navigator.clipboard.writeText(caughtMons.join('\\n')).then(() => {
-        alert(`📋 Â¡Â¡Copiados ${caughtMons.length} Pokémon capturados al portapapeles!`);
+        alert(`📋 ¡¡Copiados ${caughtMons.length} Pokémon capturados al portapapeles!`);
     });
 }
 
@@ -557,7 +557,7 @@ export function renderDexResults(resetPage = false) {
                             <th class="py-2.5 px-3">Niveles</th>
                             <th class="py-2.5 px-3">Ruta / Parada</th>
                             <th class="py-2.5 px-2 text-center">🌅 Mañana</th>
-                            <th class="py-2.5 px-2 text-center">â˜€ï¸ Día</th>
+                            <th class="py-2.5 px-2 text-center">☀️ Día</th>
                             <th class="py-2.5 px-2 text-center">🌙 Noche</th>
                             <th class="py-2.5 px-3 text-center">Estado</th>
                         </tr>
@@ -670,14 +670,14 @@ export async function submitSuggestion(pokemonId, field, currentValue, suggested
     if (typeof updateSuggestion === 'function') {
         try {
             await updateSuggestion(pokemonId, field, currentValue, suggestedValue, reason);
-            alert("Â¡Â¡Sugerencia enviada! Gracias por ayudar a mejorar la Pokédex.");
+            alert("¡¡Sugerencia enviada! Gracias por ayudar a mejorar la Pokédex.");
         } catch (e) {
             console.error(e);
             alert("Hubo un error enviando la sugerencia.");
         }
     } else {
         console.warn("updateSuggestion not found in db.js");
-        alert("Â¡Â¡Sugerencia enviada! Gracias por ayudar a mejorar la Pokédex.");
+        alert("¡¡Sugerencia enviada! Gracias por ayudar a mejorar la Pokédex.");
     }
 }
 
