@@ -1,10 +1,10 @@
-// js/app.js - PokeMMO Terminal v3.0 Entry Point
+﻿// js/app.js - PokeMMO Terminal v3.0 Entry Point
 
 import { supabase } from './db.js';
 import { getSession, onAuthStateChange, renderAuthUI, migrateLocalStorage, logout } from './auth.js';
 import { loadInitialState, state } from './state.js';
 import { initRealtimeSync, renderSyncBadge } from './sync.js';
-import { switchTab, initRouter, TABS } from './router.js';
+import { switchTab, initRouter } from './router.js';
 import * as gyms from './modules/gyms.js';
 import * as berries from './modules/berries.js';
 import * as pokedex from './modules/pokedex.js';
@@ -39,7 +39,7 @@ async function initApp() {
         }
     } catch(e) {
         console.warn('Breeding module not yet available');
-        viewsHtml += `<div id="view-breeding" class="hidden animate-fade-in"><div class="panel p-6 text-center text-os-muted">Módulo de Crianza en construcción...</div></div>`;
+        viewsHtml += `<div id="view-breeding" class="hidden animate-fade-in"><div class="panel p-6 text-center text-os-muted">MÃ³dulo de Crianza en construcciÃ³n...</div></div>`;
     }
 
     main.innerHTML = viewsHtml;
@@ -70,7 +70,7 @@ async function updateHeaderAuth() {
             <div class="flex items-center gap-4">
                 <div class="hidden md:flex flex-col text-right">
                     <span class="text-xs text-os-muted">${session.user.email}</span>
-                    <button onclick="logout()" class="text-[10px] text-os-red hover:text-white text-right transition font-mono uppercase">Cerrar Sesión</button>
+                    <button onclick="logout()" class="text-[10px] text-os-red hover:text-white text-right transition font-mono uppercase">Cerrar SesiÃ³n</button>
                 </div>
                 <div id="sync-badge-container" class="panel px-3 py-1.5 rounded-sm">
                     ${renderSyncBadge()}

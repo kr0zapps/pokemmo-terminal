@@ -1,7 +1,7 @@
 ﻿import { state } from '../state.js';
 
 import { formatTime } from '../utils/format.js';
-import { el } from '../utils/dom.js';
+
 
 export const GYM_DATA = {
     "Teselia / Unova": [

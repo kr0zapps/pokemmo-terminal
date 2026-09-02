@@ -97,3 +97,4 @@ export async function getMySuggestions() {
   if (error) throw error;
   return data;
 }
+

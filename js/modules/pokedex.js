@@ -1,4 +1,4 @@
-﻿import { state, updateState, saveAndBroadcastState } from '../state.js';
+﻿import { state, setState } from '../state.js';
 
 
 let POKEDEX_DB = [];
@@ -650,8 +650,8 @@ export function catchPokemon(id) {
     }
 
     localStorage.setItem('pokemmo_dex_caught', JSON.stringify(dexCaughtList));
-    updateState({ dexCaughtList: dexCaughtList });
-    saveAndBroadcastState();
+    setState('caught', dexCaughtList);
+    
     updateDexProgress();
     renderDexResults(false);
     if (document.getElementById('caughtModal') && !document.getElementById('caughtModal').classList.contains('hidden')) {
