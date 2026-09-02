@@ -228,7 +228,8 @@ async function generateBreedingTree() {
     htmlList += `<div class="mt-4 pt-2 mb-2 font-bold text-white uppercase">Criadores Base (1x31):</div>`;
     for (const stat of Object.keys(breeders)) {
         let count = breeders[stat];
-        let name = stat === 'Nature' ? 'Pokémon con Naturaleza' : `Pokémon 1x31 en ${stat}`;
+        let eggSuffix = currentEggGroup ? ` (${currentEggGroup})` : '';
+        let name = stat === 'Nature' ? `Pokémon con Naturaleza${eggSuffix}` : `Pokémon 1x31 en ${stat}${eggSuffix}`;
         htmlList += `
             <div class="flex justify-between text-[11px] text-os-muted">
                 <span>- ${count}x ${name}</span>
@@ -322,6 +323,7 @@ setTimeout(generateBreedingTree, 800);
 // LÓGICA DE POKEMON Y GÉNERO
 // ==========================================
 let currentGenderCost = 0;
+let currentEggGroup = "";
 let estimatedGenderSelections = 0;
 
 async function fetchPokemonData() {
@@ -370,6 +372,7 @@ async function fetchPokemonData() {
         }
 
         currentGenderCost = cost;
+        currentEggGroup = eggGroups.toUpperCase();
         
         eggGroupSpan.innerText = eggGroups.toUpperCase();
         genderCostSpan.innerText = costText;
@@ -380,6 +383,7 @@ async function fetchPokemonData() {
         eggGroupSpan.innerText = 'Error / Nombre no válido';
         genderCostSpan.innerText = '-';
         currentGenderCost = 0;
+        currentEggGroup = "";
     }
 }
 
