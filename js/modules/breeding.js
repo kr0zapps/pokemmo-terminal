@@ -11,6 +11,15 @@ const BRACER_NAMES = {
     'Spe': 'Franja Recia'
 };
 
+const POWER_SPRITES = {
+    'HP': 'power-weight',
+    'Atk': 'power-bracer',
+    'Def': 'power-belt',
+    'SpA': 'power-lens',
+    'SpD': 'power-band',
+    'Spe': 'power-anklet'
+};
+
 let currentGenderCost = 0;
 let currentEggGroup = "";
 let panZoomInstance = null;
@@ -55,30 +64,30 @@ export function renderBreedingView() {
 
                 <h2 class="text-xs font-mono font-semibold text-os-text mb-3 uppercase tracking-wider border-b border-os-border pb-2">Selección de IVs a 31</h2>
                 
-                <div class="grid grid-cols-2 gap-2.5 mb-4">
-                    <label class="flex items-center gap-2 p-2 border border-os-border rounded-lg hover:bg-os-elevated cursor-pointer transition select-none">
-                        <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-os-blue" value="HP" checked>
-                        <span class="text-xs font-mono">Salud (HP)</span>
+                <div class="grid grid-cols-2 gap-2 mb-4">
+                    <label class="stat-chip border-emerald-500/30 hover:border-emerald-500/60">
+                        <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-emerald-500" value="HP" checked>
+                        <span class="text-xs font-mono text-emerald-400">HP (Salud)</span>
                     </label>
-                    <label class="flex items-center gap-2 p-2 border border-os-border rounded-lg hover:bg-os-elevated cursor-pointer transition select-none">
-                        <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-os-blue" value="Atk" checked>
-                        <span class="text-xs font-mono">Ataque</span>
+                    <label class="stat-chip border-orange-500/30 hover:border-orange-500/60">
+                        <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-orange-500" value="Atk" checked>
+                        <span class="text-xs font-mono text-orange-400">Ataque</span>
                     </label>
-                    <label class="flex items-center gap-2 p-2 border border-os-border rounded-lg hover:bg-os-elevated cursor-pointer transition select-none">
-                        <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-os-blue" value="Def" checked>
-                        <span class="text-xs font-mono">Defensa</span>
+                    <label class="stat-chip border-sky-500/30 hover:border-sky-500/60">
+                        <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-sky-500" value="Def" checked>
+                        <span class="text-xs font-mono text-sky-400">Defensa</span>
                     </label>
-                    <label class="flex items-center gap-2 p-2 border border-os-border rounded-lg hover:bg-os-elevated cursor-pointer transition select-none">
-                        <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-os-blue" value="SpA">
-                        <span class="text-xs font-mono">Atq. Esp</span>
+                    <label class="stat-chip border-purple-500/30 hover:border-purple-500/60">
+                        <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-purple-500" value="SpA">
+                        <span class="text-xs font-mono text-purple-400">Atq. Esp</span>
                     </label>
-                    <label class="flex items-center gap-2 p-2 border border-os-border rounded-lg hover:bg-os-elevated cursor-pointer transition select-none">
-                        <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-os-blue" value="SpD" checked>
-                        <span class="text-xs font-mono">Def. Esp</span>
+                    <label class="stat-chip border-amber-500/30 hover:border-amber-500/60">
+                        <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-amber-500" value="SpD" checked>
+                        <span class="text-xs font-mono text-amber-400">Def. Esp</span>
                     </label>
-                    <label class="flex items-center gap-2 p-2 border border-os-border rounded-lg hover:bg-os-elevated cursor-pointer transition select-none">
-                        <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-os-blue" value="Spe" checked>
-                        <span class="text-xs font-mono">Velocidad</span>
+                    <label class="stat-chip border-pink-500/30 hover:border-pink-500/60">
+                        <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-pink-500" value="Spe" checked>
+                        <span class="text-xs font-mono text-pink-400">Velocidad</span>
                     </label>
                 </div>
 
@@ -462,31 +471,38 @@ export async function generateBreedingTree() {
     for (const stat of Object.keys(bracers)) {
         let count = bracers[stat];
         costBracers += (count * 10000);
+        const sprite = POWER_SPRITES[stat] || 'poke-ball';
         htmlList += `
-            <div class="flex justify-between border-b border-os-border/50 pb-2">
-                <span>${count}x ${BRACER_NAMES[stat]} (${stat})</span>
-                <span class="text-blue-300">${(count*10).toLocaleString()}k</span>
+            <div class="flex items-center justify-between border-b border-os-border/50 pb-2">
+                <span class="flex items-center gap-2">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${sprite}.png" class="w-4 h-4 pokemon-sprite" alt="${stat}">
+                    <span>${count}x ${BRACER_NAMES[stat]} (${stat})</span>
+                </span>
+                <span class="text-os-blue font-bold tabular-nums">${(count*10).toLocaleString()}k</span>
             </div>
         `;
     }
     
     if (everstones > 0) {
         htmlList += `
-            <div class="flex justify-between border-b border-os-border/50 pb-2">
-                <span>${everstones}x Piedraeterna</span>
-                <span class="text-amber-300">~${(everstones*5).toLocaleString()}k</span>
+            <div class="flex items-center justify-between border-b border-os-border/50 pb-2">
+                <span class="flex items-center gap-2">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/everstone.png" class="w-4 h-4 pokemon-sprite" alt="Piedraeterna">
+                    <span>${everstones}x Piedraeterna</span>
+                </span>
+                <span class="text-amber-300 font-bold tabular-nums">~${(everstones*5).toLocaleString()}k</span>
             </div>
         `;
     }
 
-    htmlList += `<div class="mt-4 pt-2 mb-2 font-bold text-white uppercase">Criadores Base (1x31):</div>`;
+    htmlList += `<div class="mt-4 pt-2 mb-2 font-bold text-white uppercase text-xs">Criadores Base (1x31):</div>`;
     for (const stat of Object.keys(breeders)) {
         let count = breeders[stat];
         let eggSuffix = currentEggGroup ? ` (${currentEggGroup})` : '';
         let name = stat === 'Nature' ? `Pokémon con Naturaleza${eggSuffix}` : `Pokémon 1x31 en ${stat}${eggSuffix}`;
         htmlList += `
-            <div class="flex justify-between text-[11px] text-os-muted">
-                <span>- ${count}x ${name}</span>
+            <div class="flex justify-between text-[11px] text-os-muted py-0.5">
+                <span>&bull; ${count}x ${name}</span>
             </div>
         `;
     }
@@ -499,8 +515,8 @@ export async function generateBreedingTree() {
     if (currentGenderCost > 0) {
         htmlList += `
             <div class="flex justify-between border-b border-amber-900/50 pb-2 mt-4">
-                <span class="text-amber-400">${genderSelections}x Selección de Género (${(currentGenderCost/1000)}k)</span>
-                <span class="text-amber-300">~${(totalGenderCost/1000).toLocaleString()}k</span>
+                <span class="text-amber-400 font-semibold">${genderSelections}x Selección de Género (${(currentGenderCost/1000)}k)</span>
+                <span class="text-amber-300 font-bold tabular-nums">~${(totalGenderCost/1000).toLocaleString()}k</span>
             </div>
         `;
     }

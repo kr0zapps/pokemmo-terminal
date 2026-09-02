@@ -599,37 +599,39 @@ export function renderDexResults(resetPage = false) {
         };
 
         htmlStr += `
-            <tr class="hover:bg-os-blue/5 transition group ${isCaught ? 'opacity-50 hover:opacity-100' : ''}">
-                <td class="py-2 px-3">
+            <tr class="hover:bg-os-blue/5 transition-colors group ${isCaught ? 'opacity-60 hover:opacity-100' : ''}">
+                <td class="py-2.5 px-3">
                     <div class="flex flex-col gap-1">
-                        <div class="flex items-center gap-2">
+                        <div class="flex items-center gap-2.5">
                             ${pokeballIcon}
-                            <img src="${spriteUrl}" class="w-9 h-9 pixelated object-contain group-hover:scale-110 transition-transform" onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'">
+                            <div class="w-9 h-9 rounded-lg bg-os-elevated border border-os-border flex items-center justify-center flex-shrink-0">
+                                <img src="${spriteUrl}" class="w-8 h-8 pixelated object-contain group-hover:scale-110 transition-transform" onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'" alt="${p.name}">
+                            </div>
                             <div>
-                                <span class="font-sans font-bold text-sm text-os-text block">${p.name}</span>
-                                <span class="text-[10px] text-os-muted">#${p.id.toString().padStart(3, '0')}</span>
+                                <span class="font-sans font-bold text-sm text-os-text block leading-tight">${p.name}</span>
+                                <span class="text-[10px] font-mono text-os-muted">#${p.id.toString().padStart(3, '0')}</span>
                             </div>
                         </div>
                     </div>
                 </td>
-                <td class="py-2 px-3">
-                    <span class="px-2 py-1 bg-os-bg border border-os-border text-os-muted text-[10px] uppercase rounded-sm inline-block">
+                <td class="py-2.5 px-3">
+                    <span class="px-2 py-0.5 bg-[#07090E] border border-os-border text-os-muted text-[10px] uppercase rounded-md inline-block font-mono font-semibold">
                         ${p.method}
                     </span>
-                    ${p.isLure ? '<span class="ml-1 text-[9px] text-amber-400 bg-amber-400/10 px-1.5 py-0.5 border border-amber-400/30 rounded font-semibold uppercase">Lure</span>' : ''}
+                    ${p.isLure ? '<span class="ml-1 text-[9px] text-amber-400 bg-amber-400/10 px-1.5 py-0.5 border border-amber-400/30 rounded font-semibold uppercase font-mono">Lure</span>' : ''}
                 </td>
-                <td class="py-2 px-3 text-os-muted">
+                <td class="py-2.5 px-3 text-os-muted font-mono text-xs">
                     ${p.level}
                 </td>
-                <td class="py-2 px-3 font-sans">
+                <td class="py-2.5 px-3 font-sans">
                     <span class="text-os-blue font-semibold text-xs">${p.locationClean || 'Sin Ruta'}</span>
-                    <button onclick="window.pokedex.promptSuggestion(${p.id}, '${p.name}')" class="ml-2 text-[9px] text-os-muted hover:text-os-blue border-b border-transparent hover:border-os-blue transition-colors">Sugerir corrección</button>
+                    <button onclick="window.pokedex.promptSuggestion(${p.id}, '${p.name}')" class="ml-2 text-[9px] text-os-muted hover:text-os-blue border-b border-transparent hover:border-os-blue transition-colors font-mono">Sugerir</button>
                 </td>
-                <td class="py-2 px-2 text-center">${formatRateSlot(p.morning)}</td>
-                <td class="py-2 px-2 text-center">${formatRateSlot(p.day)}</td>
-                <td class="py-2 px-2 text-center">${formatRateSlot(p.night)}</td>
-                <td class="py-2 px-3 text-center">
-                    <button onclick="window.pokedex.catchPokemon(${p.id})" class="px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-md transition cursor-pointer ${isCaught ? 'bg-os-border/40 text-os-muted hover:border-os-red/40 hover:text-os-red' : 'bg-os-blue text-white hover:bg-blue-600 shadow-sm'}">
+                <td class="py-2.5 px-2 text-center font-mono">${formatRateSlot(p.morning)}</td>
+                <td class="py-2.5 px-2 text-center font-mono">${formatRateSlot(p.day)}</td>
+                <td class="py-2.5 px-2 text-center font-mono">${formatRateSlot(p.night)}</td>
+                <td class="py-2.5 px-3 text-center">
+                    <button onclick="window.pokedex.catchPokemon(${p.id})" class="px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-lg transition font-semibold cursor-pointer ${isCaught ? 'bg-os-elevated border border-os-border text-os-muted hover:border-os-red/40 hover:text-os-red' : 'bg-os-blue text-black hover:bg-sky-300 shadow-sm'}">
                         ${isCaught ? 'Liberar' : 'Capturar'}
                     </button>
                 </td>

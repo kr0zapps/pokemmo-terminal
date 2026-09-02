@@ -653,13 +653,13 @@ export function renderMoistureGauge(currentDrops, maxDrops = 5) {
     let pips = '';
     for (let i = 1; i <= maxDrops; i++) {
         if (i <= currentDrops) {
-            pips += `<span class="inline-block w-2.5 h-3 rounded-sm bg-sky-400 mx-0.5 shadow-sm"></span>`;
+            pips += `<span class="inline-block w-3 h-3.5 rounded-sm bg-sky-400 mx-0.5 shadow-[0_0_6px_rgba(56,189,248,0.5)]"></span>`;
         } else {
-            pips += `<span class="inline-block w-2.5 h-3 rounded-sm bg-os-elevated border border-os-border mx-0.5"></span>`;
+            pips += `<span class="inline-block w-3 h-3.5 rounded-sm bg-[#07090E] border border-os-border mx-0.5 opacity-60"></span>`;
         }
     }
     const colorClass = currentDrops === 0 ? 'text-os-red' : (currentDrops === 1 ? 'text-amber-400' : 'text-sky-400');
-    return `<div class="flex items-center gap-1">${pips}<span class="text-xs font-mono font-bold ${colorClass} ml-1.5 tabular-nums">${currentDrops}/${maxDrops}</span></div>`;
+    return `<div class="flex items-center gap-1">${pips}<span class="text-xs font-mono font-bold ${colorClass} ml-2 tabular-nums">${currentDrops}/${maxDrops}</span></div>`;
 }
 
 export function renderCrops() {
@@ -677,12 +677,14 @@ export function renderCrops() {
         
         card.innerHTML = `
             <div class="z-10 relative">
-                <div class="flex justify-between items-start mb-2">
-                    <div class="flex items-center gap-2.5">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${dbInfo.sprite}.png" class="w-8 h-8 pokemon-sprite -ml-1" onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'">
+                <div class="flex justify-between items-start mb-3">
+                    <div class="flex items-center gap-3">
+                        <div class="berry-pedestal flex-shrink-0">
+                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${dbInfo.sprite}.png" class="w-8 h-8 pokemon-sprite" onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'" alt="${dbInfo.name}">
+                        </div>
                         <div>
                             <h3 class="text-sm font-bold text-os-text">${dbInfo.name}</h3>
-                            <p class="text-[10px] text-os-muted font-mono"><span class="text-os-blue font-semibold">${crop.location}</span> <span class="text-os-green font-semibold">(${dbInfo.yield || '5-7'} u.)</span></p>
+                            <p class="text-[10px] text-os-muted font-mono"><span class="text-os-blue font-semibold">${crop.location}</span> &bull; <span class="text-os-green font-semibold">${dbInfo.yield || '5-7'} u.</span></p>
                         </div>
                     </div>
                     <div id="crop-badge-${crop.id}"></div>
@@ -692,9 +694,9 @@ export function renderCrops() {
                 <div id="crop-stage-${crop.id}" class="text-[10px] font-mono mb-2"></div>
 
                 <!-- Moisture status -->
-                <div class="bg-os-bg border border-os-border p-2.5 mb-3 rounded-lg">
-                    <div class="flex justify-between items-center text-[10px] font-mono mb-1">
-                        <span class="text-os-muted uppercase font-semibold">Humedad del Suelo:</span>
+                <div class="bg-[#07090E] border border-os-border p-3 mb-3 rounded-xl">
+                    <div class="flex justify-between items-center text-[10px] font-mono mb-1.5">
+                        <span class="text-os-muted uppercase font-bold tracking-wider">Humedad de Suelo</span>
                         <div id="crop-drops-${crop.id}"></div>
                     </div>
                     <p id="crop-advice-${crop.id}" class="text-[10px] text-os-muted leading-tight font-mono">Calculando estado de hidratación...</p>

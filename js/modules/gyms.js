@@ -82,58 +82,58 @@ export function renderGymView() {
         <!-- DASHBOARD DE RERUNS: Ganancias, Progreso y Moneda Amuleto -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <!-- Ganancias Estimadas -->
-            <div class="panel p-4 flex flex-col justify-between rounded-xl">
+            <div class="hud-stat-box p-5 flex flex-col justify-between">
                 <div class="flex justify-between items-start mb-2">
-                    <span class="text-[10px] font-mono uppercase tracking-wider text-os-muted font-semibold">Ganancias Estimadas</span>
-                    <label class="flex items-center gap-1.5 text-[11px] font-mono text-amber-400 cursor-pointer select-none">
+                    <span class="text-[10px] font-mono uppercase tracking-wider text-os-muted font-bold">Ganancias Estimadas</span>
+                    <label class="flex items-center gap-1.5 text-xs font-mono text-amber-400 cursor-pointer select-none">
                         <input type="checkbox" id="amuletCoinToggle" checked class="w-3.5 h-3.5 accent-amber-400 rounded">
-                        Amuleto (+50%)
+                        <span>Amuleto (+50%)</span>
                     </label>
                 </div>
-                <div class="flex items-baseline gap-2">
-                    <span id="gymEarningsTotal" class="text-2xl font-mono font-bold text-amber-400 tabular-nums">$0</span>
+                <div class="flex items-baseline gap-2 my-1">
+                    <span id="gymEarningsTotal" class="text-2xl sm:text-3xl font-mono font-bold text-amber-400 tabular-nums">$0</span>
                     <span class="text-xs font-mono text-os-muted">/ $540,000 máx</span>
                 </div>
-                <div class="w-full bg-os-bg h-2 rounded-full overflow-hidden border border-os-border mt-3">
-                    <div id="gymEarningsBar" class="bg-amber-400 h-full w-0 transition-all duration-500 rounded-full"></div>
+                <div class="w-full bg-[#07090E] h-2 rounded-full overflow-hidden border border-os-border mt-3">
+                    <div id="gymEarningsBar" class="bg-amber-400 h-full w-0 transition-all duration-500 rounded-full shadow-[0_0_8px_rgba(245,158,11,0.5)]"></div>
                 </div>
             </div>
 
             <!-- Progreso de Líderes -->
-            <div class="panel p-4 flex flex-col justify-between rounded-xl">
+            <div class="hud-stat-box p-5 flex flex-col justify-between">
                 <div class="flex justify-between items-start mb-2">
-                    <span class="text-[10px] font-mono uppercase tracking-wider text-os-muted font-semibold">Líderes Derrotados</span>
-                    <span id="gymsReadyCount" class="text-[10px] font-mono text-os-green font-bold bg-os-green/10 border border-os-green/30 px-1.5 py-0.5 rounded">40 Listos</span>
+                    <span class="text-[10px] font-mono uppercase tracking-wider text-os-muted font-bold">Líderes Derrotados</span>
+                    <span id="gymsReadyCount" class="text-[10px] font-mono text-os-green font-bold bg-os-green/10 border border-os-green/30 px-2 py-0.5 rounded-full">40 Listos</span>
                 </div>
-                <div class="flex items-baseline gap-2">
-                    <span id="gymCountText" class="text-2xl font-mono font-bold text-os-blue tabular-nums">0 / 40</span>
+                <div class="flex items-baseline gap-2 my-1">
+                    <span id="gymCountText" class="text-2xl sm:text-3xl font-mono font-bold text-os-blue tabular-nums">0 / 40</span>
                     <span class="text-xs font-mono text-os-muted">completados</span>
                 </div>
-                <div class="w-full bg-os-bg h-2 rounded-full overflow-hidden border border-os-border mt-3">
-                    <div id="gymCountBar" class="bg-os-blue h-full w-0 transition-all duration-500 rounded-full"></div>
+                <div class="w-full bg-[#07090E] h-2 rounded-full overflow-hidden border border-os-border mt-3">
+                    <div id="gymCountBar" class="bg-os-blue h-full w-0 transition-all duration-500 rounded-full shadow-[0_0_8px_rgba(56,189,248,0.5)]"></div>
                 </div>
             </div>
 
             <!-- Temporizador Moneda Amuleto (1 hora) & Compensación -->
-            <div class="panel p-4 flex flex-col justify-between rounded-xl">
+            <div class="hud-stat-box p-5 flex flex-col justify-between">
                 <div class="flex justify-between items-center mb-2">
-                    <span class="text-[10px] font-mono uppercase tracking-wider text-os-muted font-semibold flex items-center gap-1.5">
+                    <span class="text-[10px] font-mono uppercase tracking-wider text-os-muted font-bold flex items-center gap-1.5">
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/amulet-coin.png" class="w-4 h-4 pokemon-sprite -my-1" alt="Amuleto">
                         Moneda Amuleto (1h)
                     </span>
                     <div class="flex items-center gap-1">
                         <span class="text-[10px] font-mono text-os-muted">Compensar:</span>
-                        <input type="number" id="gymCompHours" value="0" min="0" max="18" step="0.5" class="w-12 p-1 text-[11px] text-center bg-os-bg border border-os-border text-os-green font-mono rounded" title="Horas que ya pasaron desde que hiciste el rerun">
+                        <input type="number" id="gymCompHours" value="0" min="0" max="18" step="0.5" class="w-12 p-1 text-xs text-center bg-[#07090E] border border-os-border text-os-green font-mono rounded-md" title="Horas que ya pasaron desde que hiciste el rerun">
                         <span class="text-[10px] font-mono text-os-muted">h</span>
                     </div>
                 </div>
-                <div class="flex items-center justify-between mt-1">
+                <div class="flex items-center justify-between my-1">
                     <div>
-                        <span id="amuletTimerText" class="text-2xl font-mono font-bold text-amber-400 tabular-nums">60:00</span>
-                        <p id="amuletStatusText" class="text-[10px] font-mono text-os-muted">Inactivo</p>
+                        <span id="amuletTimerText" class="text-2xl sm:text-3xl font-mono font-bold text-amber-400 tabular-nums">60:00</span>
+                        <p id="amuletStatusText" class="text-[10px] font-mono text-os-muted mt-0.5">Inactivo</p>
                     </div>
                     <div class="flex gap-2">
-                        <button id="amuletBtnStart" class="px-3 py-1.5 text-xs font-mono uppercase bg-amber-500/20 text-amber-400 border border-amber-500/40 hover:bg-amber-500 hover:text-black transition rounded-lg font-semibold cursor-pointer">
+                        <button id="amuletBtnStart" class="px-3.5 py-1.5 text-xs font-mono uppercase bg-amber-500/20 text-amber-400 border border-amber-500/40 hover:bg-amber-500 hover:text-black transition rounded-lg font-bold cursor-pointer shadow-sm">
                             Iniciar
                         </button>
                         <button id="amuletBtnReset" class="px-2.5 py-1.5 text-xs font-mono text-os-muted hover:text-os-red transition rounded-lg border border-os-border hover:border-os-red/40 cursor-pointer flex items-center justify-center" title="Reiniciar temporizador">

@@ -1,29 +1,38 @@
-/* css/styles.css - PokéMMO Terminal v3.0 Design System */
+/* css/styles.css - PokéMMO Terminal v3.0 Stitch & Pokémon HUD Design System */
 
 :root {
-    --os-bg: #0C0E14;
-    --os-panel: #151921;
-    --os-surface: #151921;
-    --os-elevated: #1C222E;
-    --os-border: #232A38;
-    --os-border-subtle: #1A202C;
-    --os-border-strong: #323D4E;
+    --os-bg: #090C12;
+    --os-panel: #101522;
+    --os-surface: #101522;
+    --os-elevated: #171E2E;
+    --os-border: #1F293D;
+    --os-border-subtle: #161D2B;
+    --os-border-strong: #2F3C54;
     --os-text: #F1F5F9;
-    --os-muted: #8592A6;
-    --os-red: #E04848;
+    --os-muted: #8493A8;
+    --os-red: #EF4444;
     --os-green: #10B981;
     --os-blue: #38BDF8;
     --os-gold: #F59E0B;
+    --os-indigo: #6366F1;
+
+    /* Pokémon Official Stat Palette */
+    --stat-hp: #10B981;
+    --stat-atk: #F97316;
+    --stat-def: #38BDF8;
+    --stat-spa: #A855F7;
+    --stat-spd: #F59E0B;
+    --stat-spe: #EC4899;
 }
 
-/* Pokemon Solid Font Brand Accent */
+/* Pokemon Brand Font Accent */
 .font-pokemon {
     font-family: 'Pokemon Solid', sans-serif;
     font-weight: normal;
     letter-spacing: 1.5px;
     color: #FFCC00;
     -webkit-text-stroke: 1px #253375;
-    text-shadow: 1px 1px 0 #182252;
+    text-shadow: 2px 2px 0 #182252;
 }
 
 .pokemon-sprite, .pixelated {
@@ -33,9 +42,11 @@
 body {
     background-color: var(--os-bg);
     color: var(--os-text);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Technical Scrollbar */
+/* Technical Precision Scrollbars */
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -44,19 +55,40 @@ body {
     background: var(--os-bg);
 }
 ::-webkit-scrollbar-thumb {
-    background: #232A38;
+    background: var(--os-border);
     border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #354054;
+    background: var(--os-border-strong);
 }
 
-/* Cards & Surfaces */
+/* Stitch Tonal Surfaces & HUD Panels */
 .panel, .card-cockpit {
     background-color: var(--os-panel);
     border: 1px solid var(--os-border);
-    border-radius: 10px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.45);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.panel:hover {
+    border-color: rgba(56, 189, 248, 0.25);
+}
+
+.hud-stat-box {
+    background: linear-gradient(180deg, rgba(23, 30, 46, 0.6) 0%, rgba(16, 21, 34, 0.9) 100%);
+    border: 1px solid var(--os-border);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+.hud-stat-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent);
 }
 
 .data-value {
@@ -64,38 +96,71 @@ body {
     font-variant-numeric: tabular-nums;
 }
 
-/* Nav Tab Pills */
+/* Nav Tab Pills (Poké-Terminal Navigation) */
 .tab-pill {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.45rem 0.9rem;
+    padding: 0.5rem 0.95rem;
     font-size: 0.8125rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--os-muted);
-    border-radius: 6px;
-    transition: all 0.15s ease;
+    border-radius: 8px;
+    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
     white-space: nowrap;
     cursor: pointer;
     border: 1px solid transparent;
 }
 .tab-pill:hover {
     color: var(--os-text);
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.05);
 }
 .tab-pill.tab-active {
     color: #FFFFFF;
     background-color: var(--os-elevated);
-    border-color: #354054;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    border-color: var(--os-border-strong);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Berry Garden Pedestal Slot */
+.berry-pedestal {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: radial-gradient(circle at center, rgba(56, 189, 248, 0.12) 0%, rgba(16, 21, 34, 0.6) 80%);
+    border: 1px solid var(--os-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* IV Stat Selection Chips */
+.stat-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.65rem;
+    border: 1px solid var(--os-border);
+    border-radius: 8px;
+    background: var(--os-bg);
+    transition: all 0.15s ease;
+    cursor: pointer;
+    user-select: none;
+}
+.stat-chip:hover {
+    background: var(--os-elevated);
+    border-color: var(--os-border-strong);
+}
+.stat-chip input[type="checkbox"]:checked + span {
+    font-weight: 700;
 }
 
 /* Input & Select Controls */
 input, select, textarea {
-    background-color: #0C0E14 !important;
+    background-color: #07090E !important;
     border: 1px solid var(--os-border) !important;
     color: var(--os-text) !important;
-    border-radius: 6px !important;
+    border-radius: 8px !important;
     transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
 }
 input:focus, select:focus, textarea:focus {
@@ -104,27 +169,29 @@ input:focus, select:focus, textarea:focus {
     box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25) !important;
 }
 
-/* Buttons */
+/* Action Buttons */
 .btn-primary {
-    background-color: #2563EB;
+    background: linear-gradient(180deg, #2563EB 0%, #1D4ED8 100%);
     color: white;
-    border-radius: 6px;
+    border-radius: 8px;
     font-weight: 600;
-    padding: 0.5rem 1rem;
-    transition: background-color 0.15s ease, transform 0.05s ease;
+    padding: 0.55rem 1.1rem;
+    transition: all 0.15s ease;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
 }
 .btn-primary:hover {
-    background-color: #1D4ED8;
+    background: linear-gradient(180deg, #3B82F6 0%, #2563EB 100%);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.45);
 }
 .btn-primary:active {
     transform: scale(0.98);
 }
 
-/* Animation */
+/* Subtle Fade In Animation */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(4px); }
+    from { opacity: 0; transform: translateY(5px); }
     to { opacity: 1; transform: translateY(0); }
 }
 .animate-fade-in {
-    animation: fadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
