@@ -192,34 +192,34 @@ async function generateBreedingTree() {
     for (const stat of Object.keys(bracers)) {
         let count = bracers[stat];
         costBracers += (count * 10000);
-        htmlList += \`
+        htmlList += `
             <div class="flex justify-between border-b border-os-border/50 pb-2">
-                <span>\${count}x \${BRACER_NAMES[stat]} (\${stat})</span>
-                <span class="text-blue-300">\${(count*10).toLocaleString()}k</span>
+                <span>${count}x ${BRACER_NAMES[stat]} (${stat})</span>
+                <span class="text-blue-300">${(count*10).toLocaleString()}k</span>
             </div>
-        \`;
+        `;
     }
     
     // Piedraeternas
     if (everstones > 0) {
-        htmlList += \`
+        htmlList += `
             <div class="flex justify-between border-b border-os-border/50 pb-2">
-                <span>\${everstones}x Piedraeterna</span>
-                <span class="text-amber-300">~\${(everstones*5).toLocaleString()}k</span>
+                <span>${everstones}x Piedraeterna</span>
+                <span class="text-amber-300">~${(everstones*5).toLocaleString()}k</span>
             </div>
-        \`;
+        `;
     }
 
     // Criadores (Solo informativo)
-    htmlList += \`<div class="mt-4 pt-2 mb-2 font-bold text-white uppercase">Criadores Base (1x31):</div>\`;
+    htmlList += `<div class="mt-4 pt-2 mb-2 font-bold text-white uppercase">Criadores Base (1x31):</div>`;
     for (const stat of Object.keys(breeders)) {
         let count = breeders[stat];
-        let name = stat === 'Nature' ? 'Pokémon con Naturaleza' : \`Pokémon 1x31 en \${stat}\`;
-        htmlList += \`
+        let name = stat === 'Nature' ? 'Pokémon con Naturaleza' : `Pokémon 1x31 en ${stat}`;
+        htmlList += `
             <div class="flex justify-between text-[11px] text-os-muted">
-                <span>- \${count}x \${name}</span>
+                <span>- ${count}x ${name}</span>
             </div>
-        \`;
+        `;
     }
 
     const totalCost = costBracers + (everstones * 5000);
@@ -233,45 +233,45 @@ async function generateBreedingTree() {
     
     // Para simplificar la visualización y no colgar el navegador con 64 nodos, 
     // mostraremos un gráfico resumen de los cruces maestros si es mayor a 3 IVs
-    const label = useNature ? \`\${targetStats.length}x31 + Nat\` : \`\${targetStats.length}x31\`;
+    const label = useNature ? `${targetStats.length}x31 + Nat` : `${targetStats.length}x31`;
     
     if (targetStats.length <= 3) {
         // Árbol completo para 2x y 3x
         if (targetStats.length === 2) {
             if(useNature) {
-                mGraph += \`A["Naturaleza\\n(Piedraeterna)"] --> C["2x31 + Nat"]\\n\`;
-                mGraph += \`B["1x31 \${targetStats[0]}\\n(\${BRACER_NAMES[targetStats[0]]})"] --> C\\n\`;
+                mGraph += `A["Naturaleza\\n(Piedraeterna)"] --> C["2x31 + Nat"]\\n`;
+                mGraph += `B["1x31 ${targetStats[0]}\\n(${BRACER_NAMES[targetStats[0]]})"] --> C\\n`;
             } else {
-                mGraph += \`A["1x31 \${targetStats[0]}\\n(\${BRACER_NAMES[targetStats[0]]})"] --> C["2x31"]\\n\`;
-                mGraph += \`B["1x31 \${targetStats[1]}\\n(\${BRACER_NAMES[targetStats[1]]})"] --> C\\n\`;
+                mGraph += `A["1x31 ${targetStats[0]}\\n(${BRACER_NAMES[targetStats[0]]})"] --> C["2x31"]\\n`;
+                mGraph += `B["1x31 ${targetStats[1]}\\n(${BRACER_NAMES[targetStats[1]]})"] --> C\\n`;
             }
         } else {
             // 3x31
             if(useNature) {
-                mGraph += \`A["1x31 \${targetStats[0]}\\n+ Naturaleza"] --> |"\${BRACER_NAMES[targetStats[0]]} + Piedra"| D["2x31 + Nat"]\\n\`;
-                mGraph += \`B["1x31 \${targetStats[1]}"] --> D\\n\`;
-                mGraph += \`C["2x31 (\${targetStats[1]}, \${targetStats[2]})"] --> |"2 Brazales"| E["3x31"]\\n\`;
-                mGraph += \`D --> |"\${BRACER_NAMES[targetStats[1]]} + Piedra"| E\\n\`;
+                mGraph += `A["1x31 ${targetStats[0]}\\n+ Naturaleza"] --> |"${BRACER_NAMES[targetStats[0]]} + Piedra"| D["2x31 + Nat"]\\n`;
+                mGraph += `B["1x31 ${targetStats[1]}"] --> D\\n`;
+                mGraph += `C["2x31 (${targetStats[1]}, ${targetStats[2]})"] --> |"2 Brazales"| E["3x31"]\\n`;
+                mGraph += `D --> |"${BRACER_NAMES[targetStats[1]]} + Piedra"| E\\n`;
             } else {
-                mGraph += \`A["2x31 (\${targetStats[0]}, \${targetStats[1]})"] --> |"Brazales \${targetStats[0]}+\${targetStats[1]}"| C["3x31"]\\n\`;
-                mGraph += \`B["2x31 (\${targetStats[1]}, \${targetStats[2]})"] --> |"Brazales \${targetStats[1]}+\${targetStats[2]}"| C\\n\`;
+                mGraph += `A["2x31 (${targetStats[0]}, ${targetStats[1]})"] --> |"Brazales ${targetStats[0]}+${targetStats[1]}"| C["3x31"]\\n`;
+                mGraph += `B["2x31 (${targetStats[1]}, ${targetStats[2]})"] --> |"Brazales ${targetStats[1]}+${targetStats[2]}"| C\\n`;
             }
         }
     } else {
         // Resumen para árboles gigantes (4x31, 5x31, 6x31)
-        mGraph += \`Master["Meta:\\n\${label}"]\\nstyle Master fill:#1e3a8a,stroke:#3b82f6,stroke-width:4px\\n\`;
+        mGraph += `Master["Meta:\\n${label}"]\\nstyle Master fill:#1e3a8a,stroke:#3b82f6,stroke-width:4px\\n`;
         
-        let p1Label = \`Padre:\\n\${targetStats.length-1}x31\${useNature ? ' + Nat' : ''}\`;
-        let p2Label = \`Madre:\\n\${targetStats.length-1}x31\`;
+        let p1Label = `Padre:\\n${targetStats.length-1}x31${useNature ? ' + Nat' : ''}`;
+        let p2Label = `Madre:\\n${targetStats.length-1}x31`;
         
         let item1 = useNature ? 'Piedraeterna' : BRACER_NAMES[targetStats[targetStats.length-2]];
         let item2 = BRACER_NAMES[targetStats[targetStats.length-1]];
 
-        mGraph += \`P1["\${p1Label}"] --> |"\${item1}"| Master\\n\`;
-        mGraph += \`P2["\${p2Label}"] --> |"\${item2}"| Master\\n\`;
+        mGraph += `P1["${p1Label}"] --> |"${item1}"| Master\\n`;
+        mGraph += `P2["${p2Label}"] --> |"${item2}"| Master\\n`;
         
-        mGraph += \`GP1["Rama:\\n\${targetStats.length-2}x31"] -.-> P1\\n\`;
-        mGraph += \`GP2["Rama:\\n\${targetStats.length-2}x31"] -.-> P2\\n\`;
+        mGraph += `GP1["Rama:\\n${targetStats.length-2}x31"] -.-> P1\\n`;
+        mGraph += `GP2["Rama:\\n${targetStats.length-2}x31"] -.-> P2\\n`;
     }
 
     try {
@@ -279,7 +279,7 @@ async function generateBreedingTree() {
         container.innerHTML = svg;
     } catch (e) {
         console.error('Mermaid render error:', e);
-        container.innerHTML = \`<div class="text-red-400 p-4 bg-red-900/30 rounded border border-red-500">Error renderizando el diagrama.</div>\`;
+        container.innerHTML = `<div class="text-red-400 p-4 bg-red-900/30 rounded border border-red-500">Error renderizando el diagrama.</div>`;
     }
 }
 
