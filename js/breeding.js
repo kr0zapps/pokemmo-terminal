@@ -393,7 +393,7 @@ async function showEggGroupModal(groupName) {
     content.innerHTML = '<div class="col-span-full text-center text-os-blue py-10 animate-pulse">Cargando Pokémon del grupo...</div>';
     
     try {
-        const res = await fetch(\`https://pokeapi.co/api/v2/egg-group/\${groupName}\`);
+        const res = await fetch(`https://pokeapi.co/api/v2/egg-group/${groupName}`);
         if (!res.ok) throw new Error('Error al cargar');
         const data = await res.json();
         
@@ -406,7 +406,7 @@ async function showEggGroupModal(groupName) {
         }
 
         content.innerHTML = species.map(name => 
-            \`<div class="bg-os-border/20 hover:bg-os-border/60 border border-os-border/50 px-2 py-1.5 rounded text-os-text capitalize truncate text-center cursor-default transition-colors text-xs" title="\${name}">\${name.replace('-', ' ')}</div>\`
+            `<div class="bg-os-border/20 hover:bg-os-border/60 border border-os-border/50 px-2 py-1.5 rounded text-os-text capitalize truncate text-center cursor-default transition-colors text-xs" title="${name}">${name.replace('-', ' ')}</div>`
         ).join('');
         
     } catch (e) {
