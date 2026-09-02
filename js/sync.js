@@ -1,4 +1,4 @@
-import { supabase } from './db.js';
+﻿import { supabase } from './db.js';
 
 let currentStatus = 'disconnected';
 
@@ -6,6 +6,7 @@ export function initRealtimeSync() {
   currentStatus = 'connecting';
   document.dispatchEvent(new CustomEvent('syncStatusChanged', { detail: currentStatus }));
 
+  supabase.removeAllChannels();
   const channel = supabase.channel('schema-db-changes')
     .on('postgres_changes', { event: '*', schema: 'public', table: 'gym_progress' }, payload => {
       document.dispatchEvent(new CustomEvent('gymUpdated', { detail: payload }));
@@ -55,3 +56,4 @@ export function renderSyncBadge() {
     </div>
   `;
 }
+

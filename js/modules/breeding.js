@@ -414,7 +414,7 @@ export async function generateBreedingTree() {
     listContainer.innerHTML = htmlList;
     if(costTotalEl) costTotalEl.innerText = formatMoney(totalCost);
 
-    let mGraph = 'graph BT\\n';
+    let mGraph = 'graph BT\n';
     let nodeId = 0;
     let ownedGraphUsed = false;
     
@@ -446,7 +446,7 @@ export async function generateBreedingTree() {
             }
         }
 
-        mGraph += `${currentId}["${label}"]\\n`;
+        mGraph += `${currentId}["${label}"]\n`;
 
         if (isBase) {
             return currentId;
@@ -459,8 +459,8 @@ export async function generateBreedingTree() {
             let child1 = buildGraph(stats, false);
             let child2 = buildGraph(overlap, true);
             
-            mGraph += `${child1} -->|"${BRACER_NAMES[forcedStat]}"| ${currentId}\\n`;
-            mGraph += `${child2} -->|"Piedraeterna"| ${currentId}\\n`;
+            mGraph += `${child1} -->|"${BRACER_NAMES[forcedStat]}"| ${currentId}\n`;
+            mGraph += `${child2} -->|"Piedraeterna"| ${currentId}\n`;
         } else {
             let overlap = stats.slice(0, stats.length - 2);
             let f1 = stats[stats.length - 2];
@@ -469,15 +469,15 @@ export async function generateBreedingTree() {
             let child1 = buildGraph(overlap.concat([f1]), false);
             let child2 = buildGraph(overlap.concat([f2]), false);
             
-            mGraph += `${child1} -->|"${BRACER_NAMES[f1]}"| ${currentId}\\n`;
-            mGraph += `${child2} -->|"${BRACER_NAMES[f2]}"| ${currentId}\\n`;
+            mGraph += `${child1} -->|"${BRACER_NAMES[f1]}"| ${currentId}\n`;
+            mGraph += `${child2} -->|"${BRACER_NAMES[f2]}"| ${currentId}\n`;
         }
         
         return currentId;
     }
 
     buildGraph(targetStats, useNature);
-    mGraph += `style N0 fill:#1e3a8a,stroke:#3b82f6,stroke-width:3px,color:#fff\\n`;
+    mGraph += `style N0 fill:#1e3a8a,stroke:#3b82f6,stroke-width:3px,color:#fff\n`;
 
     try {
         if(window.mermaid) {
@@ -543,4 +543,5 @@ export async function showEggGroupModal(groupName) {
         if(content) content.innerHTML = '<div class="col-span-full text-center text-red-400 py-8">Error de red al obtener datos de PokeAPI.</div>';
     }
 }
+
 
