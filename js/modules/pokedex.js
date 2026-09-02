@@ -383,8 +383,8 @@ function parsePokemonData(p) {
     const method = p.method || 'Hierba';
     const location = (p.location || '').replace('Parada: ', '').trim();
     
-    const rateMatch = hint.match(/(\\d+)%/);
-    let rate = rateMatch ? parseInt(rateMatch[1]) : 0;
+    const rateMatch = hint.match(/(\d+)%/);
+    let rate = rateMatch ? parseInt(rateMatch[1]) : (p.rate ? parseInt(p.rate) : 0);
     
     const starterIds = [1,2,3,4,5,6,7,8,9,152,153,154,155,156,157,158,159,160,252,253,254,255,256,257,258,259,260,387,388,389,390,391,392,393,394,395,495,496,497,498,499,500,501,502,503];
     const isLure = hint.toLowerCase().includes('lure') || 
@@ -394,7 +394,7 @@ function parsePokemonData(p) {
 
     if (isLure && rate === 0) rate = 5;
 
-    const lvlMatch = hint.match(/Nv\\.\\s*([\\d\\s\\-]+)/);
+    const lvlMatch = hint.match(/Nv\.\s*([\d\s\-]+)/i);
     const level = lvlMatch ? lvlMatch[1].trim() : (p.level || '--');
 
     let morning = '--';

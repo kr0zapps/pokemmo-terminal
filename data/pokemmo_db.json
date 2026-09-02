@@ -4,72 +4,72 @@
     "name": "Bulbasaur",
     "region": "Kanto",
     "location": "Parada: Bosque Verde",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 50 - 52)"
   },
   {
     "id": 2,
     "name": "Ivysaur",
     "region": "Kanto",
     "location": "Parada: Ruta 5",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 14 - 15)"
   },
   {
     "id": 3,
     "name": "Venusaur",
     "region": "Kanto",
     "location": "Parada: Bosque Baya",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 42 - 44)"
   },
   {
     "id": 4,
     "name": "Charmander",
     "region": "Kanto",
     "location": "Parada: Ruta 3",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 7 - 8)"
   },
   {
     "id": 5,
     "name": "Charmeleon",
     "region": "Kanto",
     "location": "Parada: Túnel Roca (Sótano 1)",
-    "method": "Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Cave",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 23)"
   },
   {
     "id": 6,
     "name": "Charizard",
     "region": "Kanto",
     "location": "Parada: Cañón Siete",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 31 - 33)"
   },
   {
     "id": 7,
     "name": "Squirtle",
     "region": "Kanto",
     "location": "Parada: Ruta 24",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 51 - 53)"
   },
   {
     "id": 8,
     "name": "Wartortle",
     "region": "Kanto",
     "location": "Parada: Islas Espuma (Piso 1)",
-    "method": "Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Cave",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 36 - 38)"
   },
   {
     "id": 9,
     "name": "Blastoise",
     "region": "Kanto",
     "location": "Parada: Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
-    "method": "Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Cave",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 53 - 55)"
   },
   {
     "id": 10,
@@ -204,8 +204,8 @@
     "name": "Raichu",
     "region": "Kanto",
     "location": "Parada: Zona Safari (South Area) | Zona Safari (Northeast Area)",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 31 - 33)"
   },
   {
     "id": 27,
@@ -244,8 +244,8 @@
     "name": "Nidoqueen",
     "region": "Kanto",
     "location": "Parada: Ruta 14",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 54 - 56)"
   },
   {
     "id": 32,
@@ -268,8 +268,8 @@
     "name": "Nidoking",
     "region": "Kanto",
     "location": "Parada: Ruta 15",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 51 - 53)"
   },
   {
     "id": 35,
@@ -277,15 +277,15 @@
     "region": "Kanto",
     "location": "Parada: Monte Moon (Piso 1) | Monte Moon (Sótano 1)",
     "method": "Cave / CaveX3",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 8 - 10)"
   },
   {
     "id": 36,
     "name": "Clefable",
     "region": "Kanto",
     "location": "Parada: Monte Moon (Piso 1) | Monte Moon (Sótano 1)",
-    "method": "Cave / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Cave / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 8 - 10)"
   },
   {
     "id": 37,
@@ -293,15 +293,15 @@
     "region": "Kanto",
     "location": "Parada: Mansión Pokémon (Piso 2) | Mansión Pokémon (Piso 3)",
     "method": "Inside / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 35 - 37)"
   },
   {
     "id": 38,
     "name": "Ninetales",
     "region": "Kanto",
     "location": "Parada: Ruta 7 | Scorched Slab",
-    "method": "Grass / Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass / Cave",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 11 - 12)"
   },
   {
     "id": 39,
@@ -316,8 +316,8 @@
     "name": "Wigglytuff",
     "region": "Kanto",
     "location": "Parada: Ruta 14",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 54 - 56)"
   },
   {
     "id": 41,
@@ -341,7 +341,7 @@
     "region": "Kanto",
     "location": "Parada: Bosque Baya | Puente Villa",
     "method": "Grass / GrassX3",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 42 - 44)"
   },
   {
     "id": 44,
@@ -349,15 +349,15 @@
     "region": "Kanto",
     "location": "Parada: Bosque Baya | Puente Villa",
     "method": "Grass / GrassX5",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 42 - 44)"
   },
   {
     "id": 45,
     "name": "Vileplume",
     "region": "Kanto",
     "location": "Parada: Ruta 13",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 63 - 65)"
   },
   {
     "id": 46,
@@ -389,7 +389,7 @@
     "region": "Kanto",
     "location": "Parada: Bosque Baya | Cueva Celeste (Piso 1)",
     "method": "Grass / Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 42 - 44)"
   },
   {
     "id": 50,
@@ -421,7 +421,7 @@
     "region": "Kanto",
     "location": "Parada: Puente Villa | Entrada al Cañón",
     "method": "Grass / Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 42 - 44)"
   },
   {
     "id": 54,
@@ -468,8 +468,8 @@
     "name": "Arcanine",
     "region": "Kanto",
     "location": "Parada: Ruta 8",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 63 - 65)"
   },
   {
     "id": 60,
@@ -492,8 +492,8 @@
     "name": "Poliwrath",
     "region": "Kanto",
     "location": "Parada: Cinnabar Isla | Pallet Pueblo",
-    "method": "Water / Fishing",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Water / Fishing",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 42 - 44)"
   },
   {
     "id": 63,
@@ -540,8 +540,8 @@
     "name": "Machamp",
     "region": "Kanto",
     "location": "Parada: Ruta 226",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 69,
@@ -564,8 +564,8 @@
     "name": "Victreebel",
     "region": "Kanto",
     "location": "Parada: Ruta 12",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 72,
@@ -724,8 +724,8 @@
     "name": "Cloyster",
     "region": "Kanto",
     "location": "Parada: Ruta 11 | S.S. Anne",
-    "method": "Water / Fishing",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Water / Fishing",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 24 - 25)"
   },
   {
     "id": 92,
@@ -748,8 +748,8 @@
     "name": "Gengar",
     "region": "Kanto",
     "location": "Parada: Pokémon Torre (Piso 7)",
-    "method": "Inside",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Inside",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 51 - 52)"
   },
   {
     "id": 95,
@@ -765,7 +765,7 @@
     "region": "Kanto",
     "location": "Parada: Bosque Baya | Ruta 6",
     "method": "Grass / GrassX3",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 42 - 44)"
   },
   {
     "id": 97,
@@ -773,7 +773,7 @@
     "region": "Kanto",
     "location": "Parada: Bosque Baya | Zona Safari",
     "method": "Grass / GrassX5",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 42 - 44)"
   },
   {
     "id": 98,
@@ -820,8 +820,8 @@
     "name": "Exeggutor",
     "region": "Kanto",
     "location": "Parada: Ruta 23",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 43 - 44)"
   },
   {
     "id": 104,
@@ -957,15 +957,15 @@
     "region": "Kanto",
     "location": "Parada: Cerulean Ciudad | Cinnabar Isla",
     "method": "Good Rod / Super Rod",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 42 - 44)"
   },
   {
     "id": 121,
     "name": "Starmie",
     "region": "Kanto",
     "location": "Parada: Cerulean Ciudad | Ruta 24",
-    "method": "Water / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Water / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 42 - 44)"
   },
   {
     "id": 122,
@@ -1068,24 +1068,24 @@
     "name": "Vaporeon",
     "region": "Kanto",
     "location": "Parada: Cabo Extremo",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 40 - 42)"
   },
   {
     "id": 135,
     "name": "Jolteon",
     "region": "Kanto",
     "location": "Parada: Ruin Valle",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 49 - 52)"
   },
   {
     "id": 136,
     "name": "Flareon",
     "region": "Kanto",
     "location": "Parada: Camino Candente",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 40 - 42)"
   },
   {
     "id": 137,
@@ -1188,8 +1188,8 @@
     "name": "Dragonite",
     "region": "Kanto",
     "location": "Parada: Outcast Isla | Challenger's Cueva (Sótano 2)",
-    "method": "Water / Fishing",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Water / Fishing",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 54 - 56)"
   },
   {
     "id": 150,
@@ -1212,72 +1212,72 @@
     "name": "Chikorita",
     "region": "Johto",
     "location": "Parada: National Parque",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 153,
     "name": "Bayleef",
     "region": "Johto",
     "location": "Parada: Ruta 48",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 154,
     "name": "Meganium",
     "region": "Johto",
     "location": "Parada: Ruta 28",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 155,
     "name": "Cyndaquil",
     "region": "Johto",
     "location": "Parada: Ruta 35",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 156,
     "name": "Quilava",
     "region": "Johto",
     "location": "Parada: Ruta 45",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 157,
     "name": "Typhlosion",
     "region": "Johto",
     "location": "Parada: Ruta 26",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 63 - 65)"
   },
   {
     "id": 158,
     "name": "Totodile",
     "region": "Johto",
     "location": "Parada: Ruta 32",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 49 - 51)"
   },
   {
     "id": 159,
     "name": "Croconaw",
     "region": "Johto",
     "location": "Parada: Ruta 44",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 160,
     "name": "Feraligatr",
     "region": "Johto",
     "location": "Parada: Mt. Silver (Outside)",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 63 - 65)"
   },
   {
     "id": 161,
@@ -1348,8 +1348,8 @@
     "name": "Crobat",
     "region": "Johto",
     "location": "Parada: Scorched Slab | Marfloor Cuevarn",
-    "method": "Water / Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Water / Cave",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 170,
@@ -1381,7 +1381,7 @@
     "region": "Johto",
     "location": "Parada: Ruta 29",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 2 - 4)"
   },
   {
     "id": 174,
@@ -1389,7 +1389,7 @@
     "region": "Johto",
     "location": "Parada: Ruta 4",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 7 - 8)"
   },
   {
     "id": 175,
@@ -1397,7 +1397,7 @@
     "region": "Johto",
     "location": "Parada: Ruta 34",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
     "id": 176,
@@ -1405,7 +1405,7 @@
     "region": "Johto",
     "location": "Parada: Five Isle Meadow",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 50 - 53)"
   },
   {
     "id": 177,
@@ -1444,16 +1444,16 @@
     "name": "Ampharos",
     "region": "Johto",
     "location": "Parada: Ruta 43",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 182,
     "name": "Bellossom",
     "region": "Johto",
     "location": "Parada: Water Camino",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 183,
@@ -1484,8 +1484,8 @@
     "name": "Politoed",
     "region": "Johto",
     "location": "Parada: Four Isla | Fuchsia Ciudad",
-    "method": "Water / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Water / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 49 - 52)"
   },
   {
     "id": 187,
@@ -1508,8 +1508,8 @@
     "name": "Jumpluff",
     "region": "Johto",
     "location": "Parada: Memorial Pillar",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 190,
@@ -1533,7 +1533,7 @@
     "region": "Johto",
     "location": "Parada: Ruta 12",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 22 - 24)"
   },
   {
     "id": 193,
@@ -1549,7 +1549,7 @@
     "region": "Johto",
     "location": "Parada: Four Isla | Ruin Valle",
     "method": "Water / Inside",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 49 - 52)"
   },
   {
     "id": 195,
@@ -1557,23 +1557,23 @@
     "region": "Johto",
     "location": "Parada: Four Isla | Icefall Cueva",
     "method": "Water / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 49 - 52)"
   },
   {
     "id": 196,
     "name": "Espeon",
     "region": "Johto",
     "location": "Parada: Ruinas Of Alph (Outside)",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 197,
     "name": "Umbreon",
     "region": "Johto",
     "location": "Parada: Ruta 36",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 198,
@@ -1589,7 +1589,7 @@
     "region": "Johto",
     "location": "Parada: Cabo Extremo | Cueva Celeste (Piso 1)",
     "method": "Water / Dark Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 40 - 42)"
   },
   {
     "id": 200,
@@ -1597,7 +1597,7 @@
     "region": "Johto",
     "location": "Parada: Lost Cueva (???) | Abundant Shrine",
     "method": "Cave / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 51 - 52)"
   },
   {
     "id": 201,
@@ -1653,7 +1653,7 @@
     "region": "Johto",
     "location": "Parada: Zona Safari (Southeast Area) | Ruta 11",
     "method": "Grass / GrassX5",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 49 - 51)"
   },
   {
     "id": 208,
@@ -1677,7 +1677,7 @@
     "region": "Johto",
     "location": "Parada: Ruta 38",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 32 - 33)"
   },
   {
     "id": 211,
@@ -1692,8 +1692,8 @@
     "name": "Scizor",
     "region": "Johto",
     "location": "Parada: Ruta 210 (North)",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 213,
@@ -1821,7 +1821,7 @@
     "region": "Johto",
     "location": "Parada: Ruta 7 | Ruta 113",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 11 - 12)"
   },
   {
     "id": 229,
@@ -1829,15 +1829,15 @@
     "region": "Johto",
     "location": "Parada: Valor Lagofront",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
     "id": 230,
     "name": "Kingdra",
     "region": "Johto",
     "location": "Parada: Ruta 4 | Ruta 12",
-    "method": "Water / Fishing",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Water / Fishing",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 7 - 8)"
   },
   {
     "id": 231,
@@ -1885,15 +1885,15 @@
     "region": "Johto",
     "location": "Parada: Union Cueva (Piso 1) | Union Cueva (Sótano 1)",
     "method": "Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
     "id": 237,
     "name": "Hitmontop",
     "region": "Johto",
     "location": "Parada: Calle Victoria (Piso 1) | Calle Victoria (Piso 3)",
-    "method": "Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Cave",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 43 - 44)"
   },
   {
     "id": 238,
@@ -1901,7 +1901,7 @@
     "region": "Johto",
     "location": "Parada: Ice Camino (Piso 1) | Ice Camino (Sótano 3)",
     "method": "Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
     "id": 239,
@@ -1909,7 +1909,7 @@
     "region": "Johto",
     "location": "Parada: Ruta 10 | Valle Windworks",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 21 - 22)"
   },
   {
     "id": 240,
@@ -1932,8 +1932,8 @@
     "name": "Blissey",
     "region": "Johto",
     "location": "Parada: Zona Safari (Center Area)",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 34 - 35)"
   },
   {
     "id": 243,
@@ -1980,8 +1980,8 @@
     "name": "Tyranitar",
     "region": "Johto",
     "location": "Parada: Ruta 15 | Mt. Silver Cueva (Piso 1)",
-    "method": "Dark Grass / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Dark Grass / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 51 - 53)"
   },
   {
     "id": 249,
@@ -2012,72 +2012,72 @@
     "name": "Treecko",
     "region": "Hoenn",
     "location": "Parada: Petalburg Bosque",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 6 - 8)"
   },
   {
     "id": 253,
     "name": "Grovyle",
     "region": "Hoenn",
     "location": "Parada: Ruta 119",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 27 - 28)"
   },
   {
     "id": 254,
     "name": "Sceptile",
     "region": "Hoenn",
     "location": "Parada: Ruta 123",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 27 - 28)"
   },
   {
     "id": 255,
     "name": "Torchic",
     "region": "Hoenn",
     "location": "Parada: Ruta 112",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 256,
     "name": "Combusken",
     "region": "Hoenn",
     "location": "Parada: Ruta 114",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 3 - 4)"
   },
   {
     "id": 257,
     "name": "Blaziken",
     "region": "Hoenn",
     "location": "Parada: Magma Hideout",
-    "method": "Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Cave",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 20 - 21)"
   },
   {
     "id": 258,
     "name": "Mudkip",
     "region": "Hoenn",
     "location": "Parada: Ruta 104",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 6 - 8)"
   },
   {
     "id": 259,
     "name": "Marshtomp",
     "region": "Hoenn",
     "location": "Parada: Ruta 120",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 28 - 31)"
   },
   {
     "id": 260,
     "name": "Swampert",
     "region": "Hoenn",
     "location": "Parada: Calle Victoria (Piso 1) | Calle Victoria (Sótano 1)",
-    "method": "Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Cave",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 43 - 44)"
   },
   {
     "id": 261,
@@ -2148,8 +2148,8 @@
     "name": "Dustox",
     "region": "Hoenn",
     "location": "Parada: Ruta 224 | Ruta 229",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 55 - 56)"
   },
   {
     "id": 270,
@@ -2165,15 +2165,15 @@
     "region": "Hoenn",
     "location": "Parada: Petalburg Ciudad | Ruta 102",
     "method": "Water / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 27 - 28)"
   },
   {
     "id": 272,
     "name": "Ludicolo",
     "region": "Hoenn",
     "location": "Parada: Ruta 117 | Ruta 123",
-    "method": "Water",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Water",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 4)"
   },
   {
     "id": 273,
@@ -2252,8 +2252,8 @@
     "name": "Gardevoir",
     "region": "Hoenn",
     "location": "Parada: Ruta 224",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 55 - 56)"
   },
   {
     "id": 283,
@@ -2261,7 +2261,7 @@
     "region": "Hoenn",
     "location": "Parada: Petalburg Ciudad | Ruta 102",
     "method": "Water / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 27 - 28)"
   },
   {
     "id": 284,
@@ -2269,7 +2269,7 @@
     "region": "Hoenn",
     "location": "Parada: Petalburg Ciudad | Ruta 102",
     "method": "Water / WaterX5",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 27 - 28)"
   },
   {
     "id": 285,
@@ -2285,7 +2285,7 @@
     "region": "Hoenn",
     "location": "Parada: Ruta 210 (South)",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 32 - 33)"
   },
   {
     "id": 287,
@@ -2325,7 +2325,7 @@
     "region": "Hoenn",
     "location": "Parada: Ruta 118",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 27 - 28)"
   },
   {
     "id": 292,
@@ -2357,7 +2357,7 @@
     "region": "Hoenn",
     "location": "Parada: Desierto Underpass",
     "method": "Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 50 - 52)"
   },
   {
     "id": 296,
@@ -2381,7 +2381,7 @@
     "region": "Hoenn",
     "location": "Parada: Ruta 102 | Complejo Area",
     "method": "Water",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 27 - 28)"
   },
   {
     "id": 299,
@@ -2404,8 +2404,8 @@
     "name": "Delcatty",
     "region": "Hoenn",
     "location": "Parada: Ruta 116 | Rustboro Ciudad",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 6 - 8)"
   },
   {
     "id": 302,
@@ -2444,8 +2444,8 @@
     "name": "Aggron",
     "region": "Hoenn",
     "location": "Parada: Giant Chasm (Entrance)",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 27 - 28)"
   },
   {
     "id": 307,
@@ -2501,7 +2501,7 @@
     "region": "Hoenn",
     "location": "Parada: Ruta 117 | Ruta 229",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 4)"
   },
   {
     "id": 314,
@@ -2509,7 +2509,7 @@
     "region": "Hoenn",
     "location": "Parada: Ruta 117 | Ruta 229",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 4)"
   },
   {
     "id": 315,
@@ -2533,7 +2533,7 @@
     "region": "Hoenn",
     "location": "Parada: Ruta 212 (South)",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 13 - 15)"
   },
   {
     "id": 318,
@@ -2629,15 +2629,15 @@
     "region": "Hoenn",
     "location": "Parada: Dragonspiral Torre (Entryway) | Dragonspiral Torre (Piso 7)",
     "method": "Shadow",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 35)"
   },
   {
     "id": 330,
     "name": "Flygon",
     "region": "Hoenn",
     "location": "Parada: Sky Pillar (Piso 1)",
-    "method": "Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Cave",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 51 - 53)"
   },
   {
     "id": 331,
@@ -2693,7 +2693,7 @@
     "region": "Hoenn",
     "location": "Parada: Meteor Falls (Entrance) | Meteor Falls (Upper Interior)",
     "method": "Cave / CaveX5",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 22 - 23)"
   },
   {
     "id": 338,
@@ -2789,7 +2789,7 @@
     "region": "Hoenn",
     "location": "Parada: Ruta 119 | Mt. Coronet (Sótano 1)",
     "method": "Super Rod",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 27 - 28)"
   },
   {
     "id": 350,
@@ -2877,7 +2877,7 @@
     "region": "Hoenn",
     "location": "Parada: Three Isle Port",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 49 - 52)"
   },
   {
     "id": 361,
@@ -2916,8 +2916,8 @@
     "name": "Walrein",
     "region": "Hoenn",
     "location": "Parada: Giant Chasm (Cueva) | Ruta 230",
-    "method": "Water",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Water",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 366,
@@ -2933,15 +2933,15 @@
     "region": "Hoenn",
     "location": "Parada: Underwater (Ruta 124) | Ruta 4",
     "method": "Water / Fishing",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 36 - 37)"
   },
   {
     "id": 368,
     "name": "Gorebyss",
     "region": "Hoenn",
     "location": "Parada: Underwater (Ruta 126) | Ruta 4",
-    "method": "Water / Fishing",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Water / Fishing",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 36 - 37)"
   },
   {
     "id": 369,
@@ -2973,7 +2973,7 @@
     "region": "Hoenn",
     "location": "Parada: Meteor Falls (Upper Interior) | Meteor Falls (Northwest Room)",
     "method": "Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 22 - 23)"
   },
   {
     "id": 373,
@@ -3004,8 +3004,8 @@
     "name": "Metagross",
     "region": "Hoenn",
     "location": "Parada: Giant Chasm (Entrance) | Giant Chasm (Bosque)",
-    "method": "Dark Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Dark Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 27 - 28)"
   },
   {
     "id": 377,
@@ -3092,72 +3092,72 @@
     "name": "Turtwig",
     "region": "Sinnoh",
     "location": "Parada: Eterna Bosque",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 7 - 8)"
   },
   {
     "id": 388,
     "name": "Grotle",
     "region": "Sinnoh",
     "location": "Parada: Ruta 212 (North)",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 28 - 30)"
   },
   {
     "id": 389,
     "name": "Torterra",
     "region": "Sinnoh",
     "location": "Parada: Ruta 229",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 55 - 56)"
   },
   {
     "id": 390,
     "name": "Chimchar",
     "region": "Sinnoh",
     "location": "Parada: Ruta 214",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 391,
     "name": "Monferno",
     "region": "Sinnoh",
     "location": "Parada: Ruta 221",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 14 - 15)"
   },
   {
     "id": 392,
     "name": "Infernape",
     "region": "Sinnoh",
     "location": "Parada: Ruta 227",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 55 - 56)"
   },
   {
     "id": 393,
     "name": "Piplup",
     "region": "Sinnoh",
     "location": "Parada: Ruta 213",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 27 - 28)"
   },
   {
     "id": 394,
     "name": "Prinplup",
     "region": "Sinnoh",
     "location": "Parada: Lago Acuity",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 36 - 37)"
   },
   {
     "id": 395,
     "name": "Empoleon",
     "region": "Sinnoh",
     "location": "Parada: Ruta 222",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 36 - 38)"
   },
   {
     "id": 396,
@@ -3180,8 +3180,8 @@
     "name": "Staraptor",
     "region": "Sinnoh",
     "location": "Parada: Sendoff Spring",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 399,
@@ -3205,7 +3205,7 @@
     "region": "Sinnoh",
     "location": "Parada: Eterna Bosque | Lago Verity",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 7 - 8)"
   },
   {
     "id": 402,
@@ -3213,7 +3213,7 @@
     "region": "Sinnoh",
     "location": "Parada: Dreamyard | Dreamyard (Sótano 1)",
     "method": "Dark Grass / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 51 - 53)"
   },
   {
     "id": 403,
@@ -3236,8 +3236,8 @@
     "name": "Luxray",
     "region": "Sinnoh",
     "location": "Parada: Fuego Ironworks",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 31 - 32)"
   },
   {
     "id": 406,
@@ -3252,8 +3252,8 @@
     "name": "Roserade",
     "region": "Sinnoh",
     "location": "Parada: Ruta 117 | Ruta 12",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 4)"
   },
   {
     "id": 408,
@@ -3324,8 +3324,8 @@
     "name": "Vespiquen",
     "region": "Sinnoh",
     "location": "Parada: Ruta 12",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 417,
@@ -3397,15 +3397,15 @@
     "region": "Sinnoh",
     "location": "Parada: Celestial Torre (Rooftop) | Ruta 5",
     "method": "Shadow / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 29 - 31)"
   },
   {
     "id": 426,
     "name": "Drifblim",
     "region": "Sinnoh",
     "location": "Parada: Celestial Torre (Rooftop) | Giant Chasm (Entrance)",
-    "method": "Shadow / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Shadow / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 29 - 31)"
   },
   {
     "id": 427,
@@ -3421,15 +3421,15 @@
     "region": "Sinnoh",
     "location": "Parada: Trophy Garden",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 26 - 28)"
   },
   {
     "id": 429,
     "name": "Mismagius",
     "region": "Sinnoh",
     "location": "Parada: Lost Cueva (???) | Abundant Shrine",
-    "method": "Cave / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Cave / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 51 - 52)"
   },
   {
     "id": 430,
@@ -3461,7 +3461,7 @@
     "region": "Sinnoh",
     "location": "Parada: Mt. Pyre (Piso 1) | Mt. Pyre (Montañaside)",
     "method": "Inside / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 31 - 33)"
   },
   {
     "id": 434,
@@ -3469,15 +3469,15 @@
     "region": "Sinnoh",
     "location": "Parada: Ruta 206 | Ruta 208",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
     "id": 435,
     "name": "Skuntank",
     "region": "Sinnoh",
     "location": "Parada: Ruta 221 | Ruta 225",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 14 - 15)"
   },
   {
     "id": 436,
@@ -3501,7 +3501,7 @@
     "region": "Sinnoh",
     "location": "Parada: Ilex Bosque",
     "method": "Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
     "id": 439,
@@ -3517,7 +3517,7 @@
     "region": "Sinnoh",
     "location": "Parada: Ruta 209",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 31 - 33)"
   },
   {
     "id": 441,
@@ -3556,8 +3556,8 @@
     "name": "Garchomp",
     "region": "Sinnoh",
     "location": "Parada: Calle Victoria (Piso 1) | Calle Victoria (Piso 2)",
-    "method": "Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Cave",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 43 - 44)"
   },
   {
     "id": 446,
@@ -3580,8 +3580,8 @@
     "name": "Lucario",
     "region": "Sinnoh",
     "location": "Parada: Challenger's Cueva (Sótano 2) | Challenger's Cueva (Sótano 1)",
-    "method": "Dust Cloud / Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Dust Cloud / Cave",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 54 - 56)"
   },
   {
     "id": 449,
@@ -3612,8 +3612,8 @@
     "name": "Drapion",
     "region": "Sinnoh",
     "location": "Parada: Ruta 228",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 54 - 55)"
   },
   {
     "id": 453,
@@ -3628,8 +3628,8 @@
     "name": "Toxicroak",
     "region": "Sinnoh",
     "location": "Parada: Moor Of Icirrus | Lago Valor",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 50 - 52)"
   },
   {
     "id": 455,
@@ -3661,7 +3661,7 @@
     "region": "Sinnoh",
     "location": "Parada: Trainer Torre | Battle Frontier",
     "method": "Water",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 56 - 57)"
   },
   {
     "id": 459,
@@ -3692,8 +3692,8 @@
     "name": "Magnezone",
     "region": "Sinnoh",
     "location": "Parada: New Mauville (Interior)",
-    "method": "Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Cave",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 463,
@@ -3701,15 +3701,15 @@
     "region": "Sinnoh",
     "location": "Parada: Ruta 215",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
     "id": 464,
     "name": "Rhyperior",
     "region": "Sinnoh",
     "location": "Parada: Stark Montaña (Entrance) | Stark Montaña (Outside)",
-    "method": "Cave / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Cave / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 55 - 56)"
   },
   {
     "id": 465,
@@ -3717,39 +3717,39 @@
     "region": "Sinnoh",
     "location": "Parada: Treasure Playa | Giant Chasm (Entrance)",
     "method": "Grass / Dark Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 27 - 28)"
   },
   {
     "id": 466,
     "name": "Electivire",
     "region": "Sinnoh",
     "location": "Parada: Central Energía | Ruta 27",
-    "method": "Inside / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Inside / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 35 - 37)"
   },
   {
     "id": 467,
     "name": "Magmortar",
     "region": "Sinnoh",
     "location": "Parada: Mt. Ember (Outside) | Mt. Ember (Piso 3)",
-    "method": "Grass / Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass / Cave",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 39 - 41)"
   },
   {
     "id": 468,
     "name": "Togekiss",
     "region": "Sinnoh",
     "location": "Parada: Ruta 230",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 469,
     "name": "Yanmega",
     "region": "Sinnoh",
     "location": "Parada: Great Marsh (Area 2)",
-    "method": "Inside",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Inside",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 13 - 14)"
   },
   {
     "id": 470,
@@ -3757,31 +3757,31 @@
     "region": "Sinnoh",
     "location": "Parada: Puente Villa",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 42 - 44)"
   },
   {
     "id": 471,
     "name": "Glaceon",
     "region": "Sinnoh",
     "location": "Parada: Ruta 217",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 472,
     "name": "Gliscor",
     "region": "Sinnoh",
     "location": "Parada: Ruta 10 (Gate) | Ruta 11",
-    "method": "Dark Grass / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Dark Grass / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 11 - 12)"
   },
   {
     "id": 473,
     "name": "Mamoswine",
     "region": "Sinnoh",
     "location": "Parada: Dragonspiral Torre (Entryway) | Giant Chasm (Entrance)",
-    "method": "Grass / Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass / Cave",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 35)"
   },
   {
     "id": 474,
@@ -3796,8 +3796,8 @@
     "name": "Gallade",
     "region": "Sinnoh",
     "location": "Parada: Snowpoint Temple (Piso 1) | Snowpoint Temple (Sótano 3)",
-    "method": "Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Cave",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 28 - 30)"
   },
   {
     "id": 476,
@@ -3812,16 +3812,16 @@
     "name": "Dusknoir",
     "region": "Sinnoh",
     "location": "Parada: Turnback Cueva (???)",
-    "method": "Inside",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Inside",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 56 - 57)"
   },
   {
     "id": 478,
     "name": "Froslass",
     "region": "Sinnoh",
     "location": "Parada: Shoal Cueva (Sótano 1) | Shoal Cueva (Sótano 2)",
-    "method": "Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Cave",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 35 - 36)"
   },
   {
     "id": 479,
@@ -3829,7 +3829,7 @@
     "region": "Sinnoh",
     "location": "Parada: Old Chateau (Piso 2)",
     "method": "Inside",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
     "id": 480,
@@ -3956,72 +3956,72 @@
     "name": "Snivy",
     "region": "Unova",
     "location": "Parada: Bosque Azulejo (Interior)",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 52 - 53)"
   },
   {
     "id": 496,
     "name": "Servine",
     "region": "Unova",
     "location": "Parada: Lostlorn Bosque",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 497,
     "name": "Serperior",
     "region": "Unova",
     "location": "Parada: Abundant Shrine",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 50 - 52)"
   },
   {
     "id": 498,
     "name": "Tepig",
     "region": "Unova",
     "location": "Parada: Ruta 3",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 7 - 8)"
   },
   {
     "id": 499,
     "name": "Pignite",
     "region": "Unova",
     "location": "Parada: Ruta 7",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 11 - 12)"
   },
   {
     "id": 500,
     "name": "Emboar",
     "region": "Unova",
     "location": "Parada: Ruta 15",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 51 - 53)"
   },
   {
     "id": 501,
     "name": "Oshawott",
     "region": "Unova",
     "location": "Parada: Ruta 6",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 14 - 15)"
   },
   {
     "id": 502,
     "name": "Dewott",
     "region": "Unova",
     "location": "Parada: Ruta 18",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 31)"
   },
   {
     "id": 503,
     "name": "Samurott",
     "region": "Unova",
     "location": "Parada: Village Puente",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 504,
@@ -4060,8 +4060,8 @@
     "name": "Stoutland",
     "region": "Unova",
     "location": "Parada: Ruta 1 | Ruta 10 (Gate)",
-    "method": "Dark Grass / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Dark Grass / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 35 - 37)"
   },
   {
     "id": 509,
@@ -4076,8 +4076,8 @@
     "name": "Liepard",
     "region": "Unova",
     "location": "Parada: Dreamyard | Dreamyard (Sótano 1)",
-    "method": "Dark Grass / Dark GrassX5",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Dark Grass / Dark GrassX5",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 51 - 53)"
   },
   {
     "id": 511,
@@ -4092,8 +4092,8 @@
     "name": "Simisage",
     "region": "Unova",
     "location": "Parada: Lostlorn Bosque | Bosque Azulejo (Interior)",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 513,
@@ -4108,8 +4108,8 @@
     "name": "Simisear",
     "region": "Unova",
     "location": "Parada: Lostlorn Bosque | Bosque Azulejo (Interior)",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 515,
@@ -4124,8 +4124,8 @@
     "name": "Simipour",
     "region": "Unova",
     "location": "Parada: Lostlorn Bosque | Bosque Azulejo (Interior)",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 517,
@@ -4141,7 +4141,7 @@
     "region": "Unova",
     "location": "Parada: Dreamyard",
     "method": "Grass / Dark Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 51 - 53)"
   },
   {
     "id": 519,
@@ -4164,8 +4164,8 @@
     "name": "Unfezant",
     "region": "Unova",
     "location": "Parada: Lostlorn Bosque | Ruta 7",
-    "method": "Shadow / Dark Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Shadow / Dark Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 522,
@@ -4221,7 +4221,7 @@
     "region": "Unova",
     "location": "Parada: Wellspring Cueva (Piso 1) | Wellspring Cueva (Sótano 1)",
     "method": "Cave / Dust Cloud",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
     "id": 529,
@@ -4229,15 +4229,15 @@
     "region": "Unova",
     "location": "Parada: Chargestone Cueva (Piso 1) | Chargestone Cueva (Sótano 2)",
     "method": "Dust Cloud",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 22 - 23)"
   },
   {
     "id": 530,
     "name": "Excadrill",
     "region": "Unova",
     "location": "Parada: Challenger's Cueva (Sótano 2) | Challenger's Cueva (Sótano 1)",
-    "method": "Dust Cloud",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Dust Cloud",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 54 - 56)"
   },
   {
     "id": 531,
@@ -4245,7 +4245,7 @@
     "region": "Unova",
     "location": "Parada: Cold Storage | Dreamyard",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 50 - 52)"
   },
   {
     "id": 532,
@@ -4268,8 +4268,8 @@
     "name": "Conkeldurr",
     "region": "Unova",
     "location": "Parada: Twist Montaña (Túnel)",
-    "method": "Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Cave",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 31 - 33)"
   },
   {
     "id": 535,
@@ -4292,8 +4292,8 @@
     "name": "Seismitoad",
     "region": "Unova",
     "location": "Parada: Icirrus Ciudad | Moor Of Icirrus",
-    "method": "Water",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Water",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 32 - 34)"
   },
   {
     "id": 538,
@@ -4332,8 +4332,8 @@
     "name": "Leavanny",
     "region": "Unova",
     "location": "Parada: Lostlorn Bosque | Ruta 6",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 543,
@@ -4356,8 +4356,8 @@
     "name": "Scolipede",
     "region": "Unova",
     "location": "Parada: Lostlorn Bosque",
-    "method": "Dark Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Dark Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 546,
@@ -4372,8 +4372,8 @@
     "name": "Whimsicott",
     "region": "Unova",
     "location": "Parada: Abundant Shrine | Lostlorn Bosque",
-    "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 50 - 52)"
   },
   {
     "id": 548,
@@ -4388,8 +4388,8 @@
     "name": "Lilligant",
     "region": "Unova",
     "location": "Parada: Abundant Shrine | Lostlorn Bosque",
-    "method": "Grass / Dark Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass / Dark Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 50 - 52)"
   },
   {
     "id": 550,
@@ -4557,7 +4557,7 @@
     "region": "Unova",
     "location": "Parada: Lostlorn Bosque",
     "method": "GrassX3",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 22 - 24)"
   },
   {
     "id": 571,
@@ -4580,8 +4580,8 @@
     "name": "Cinccino",
     "region": "Unova",
     "location": "Parada: Cold Storage | Ruta 5",
-    "method": "Grass / Dark Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass / Dark Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 50 - 52)"
   },
   {
     "id": 574,
@@ -4604,8 +4604,8 @@
     "name": "Gothitelle",
     "region": "Unova",
     "location": "Parada: Ruta 9",
-    "method": "Dark Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Dark Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 43 - 44)"
   },
   {
     "id": 577,
@@ -4628,8 +4628,8 @@
     "name": "Reuniclus",
     "region": "Unova",
     "location": "Parada: Ruta 9 | Ruta 14",
-    "method": "Grass / Dark Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass / Dark Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 43 - 44)"
   },
   {
     "id": 580,
@@ -4637,15 +4637,15 @@
     "region": "Unova",
     "location": "Parada: Chargestone Cueva | Cold Storage",
     "method": "Shadow",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 50 - 52)"
   },
   {
     "id": 581,
     "name": "Swanna",
     "region": "Unova",
     "location": "Parada: Abundant Shrine | Marvelous Puente",
-    "method": "Shadow / Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Shadow / Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 50 - 52)"
   },
   {
     "id": 582,
@@ -4693,7 +4693,7 @@
     "region": "Unova",
     "location": "Parada: Abundant Shrine | Dragonspiral Torre (Entryway)",
     "method": "Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 50 - 52)"
   },
   {
     "id": 588,
@@ -4708,8 +4708,8 @@
     "name": "Escavalier",
     "region": "Unova",
     "location": "Parada: Ruta 6 | Ruta 11",
-    "method": "Grass / Dark Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Grass / Dark Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 14 - 15)"
   },
   {
     "id": 590,
@@ -4749,7 +4749,7 @@
     "region": "Unova",
     "location": "Parada: Driftveil Ciudad | P2 Laboratory",
     "method": "Water",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 30 - 40)"
   },
   {
     "id": 595,
@@ -4780,8 +4780,8 @@
     "name": "Ferrothorn",
     "region": "Unova",
     "location": "Parada: Challenger's Cueva (Sótano 2)",
-    "method": "Cave",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Cave",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 54 - 56)"
   },
   {
     "id": 599,
@@ -4821,15 +4821,15 @@
     "region": "Unova",
     "location": "Parada: Undella Pueblo",
     "method": "Water",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
     "id": 604,
     "name": "Eelektross",
     "region": "Unova",
     "location": "Parada: Ruta 13 | Undella Bay",
-    "method": "Water",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Water",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 63 - 65)"
   },
   {
     "id": 605,
@@ -4845,7 +4845,7 @@
     "region": "Unova",
     "location": "Parada: Ruta 14",
     "method": "Grass / Dark Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "hint": "Tasa de Aparición: 10% (Nv. 54 - 56)"
   },
   {
     "id": 607,
@@ -4932,8 +4932,8 @@
     "name": "Accelgor",
     "region": "Unova",
     "location": "Parada: Ruta 6",
-    "method": "Dark Grass",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Dark Grass",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 14 - 15)"
   },
   {
     "id": 618,
@@ -5076,8 +5076,8 @@
     "name": "Hydreigon",
     "region": "Unova",
     "location": "Parada: Ruta 15",
-    "method": "Shadow",
-    "hint": "Extraído de PokeMMOHub"
+    "method": "Lure / Shadow",
+    "hint": "Tasa de Aparición: 5% Señuelo (Nv. 51 - 53)"
   },
   {
     "id": 636,
