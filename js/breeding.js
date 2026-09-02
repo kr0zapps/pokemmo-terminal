@@ -406,7 +406,7 @@ async function showEggGroupModal(groupName) {
         }
 
         content.innerHTML = species.map(name => 
-            `<div class="bg-os-border/20 hover:bg-os-border/60 border border-os-border/50 px-2 py-1.5 rounded text-os-text capitalize truncate text-center cursor-default transition-colors text-xs" title="${name}">${name.replace('-', ' ')}</div>`
+            `<div class="bg-os-border/20 hover:bg-os-border/60 border border-os-border/50 px-2 py-2 rounded text-os-text capitalize text-center cursor-default transition-colors text-xs flex items-center justify-center min-h-[36px] break-words" title="${name}">${name.replace('-', ' ')}</div>`
         ).join('');
         
     } catch (e) {
