@@ -6,6 +6,7 @@
     <title>PokeMMO Terminal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10.4.0/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -898,10 +899,12 @@
                 
                 if (tab === activeTab) {
                     view.classList.remove('hidden');
+                    view.classList.add('block');
                     btn.className = "tab-btn tab-active";
                 } else {
                     view.classList.add('hidden');
-                    btn.className = "tab-btn tab-inactive";
+                    view.classList.remove('block');
+                    btn.className = "tab-btn";
                 }
             });
         }
@@ -2579,7 +2582,7 @@
         <span id="dexToastMsg">Acción completada</span>
     </div>
 
-    <script src="js/breeding.js?v=2.2"></script>
+    <script src="js/breeding.js?v=2.3"></script>
 </body>
 </html>
 

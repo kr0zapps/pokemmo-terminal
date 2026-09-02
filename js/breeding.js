@@ -364,6 +364,23 @@ async function generateBreedingTree() {
     try {
         const { svg } = await mermaid.render('breeding-mermaid-svg', mGraph);
         container.innerHTML = svg;
+        
+        const svgElement = container.querySelector('svg');
+        if (svgElement && typeof svgPanZoom !== 'undefined') {
+            svgElement.style.width = '100%';
+            svgElement.style.height = '600px'; // Give it a fixed height for zoom
+            svgElement.style.maxWidth = 'none'; // Prevent tailwind/browser constraints
+            
+            svgPanZoom(svgElement, {
+                zoomEnabled: true,
+                controlIconsEnabled: true,
+                fit: true,
+                center: true,
+                minZoom: 0.1,
+                maxZoom: 10,
+                zoomScaleSensitivity: 0.2
+            });
+        }
     } catch (e) {
         console.error('Mermaid render error:', e);
         container.innerHTML = `<div class="text-red-400 p-4 bg-red-900/30 rounded border border-red-500">Error renderizando el diagrama.</div>`;
