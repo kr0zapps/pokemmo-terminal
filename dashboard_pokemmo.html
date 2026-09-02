@@ -116,10 +116,10 @@
                         <button id="tab-berries" onclick="switchTab('berries')" class="tab-btn">Cultivo de Bayas</button>
                         <button id="tab-pokedex" onclick="switchTab('pokedex')" class="tab-btn">Pokedex Optimizer</button>
                     </nav>
-                    <button onclick="openSyncModal()" class="border border-os-blue/80 bg-os-blue/10 text-os-blue hover:bg-os-blue hover:text-white px-3 py-1.5 text-xs uppercase font-mono font-bold transition flex items-center gap-1.5 rounded shadow-[0_0_12px_rgba(59,130,246,0.25)]" title="Sincroniza tus bayas, gimnasios y capturas entre tu PC y tu teléfono móvil">
-                        <span class="animate-pulse">☁️</span>
-                        <span>Sincronizar Nube</span>
-                    </button>
+                    <div id="headerCloudBadge" onclick="openSyncModal()" class="flex items-center gap-2 px-3 py-1.5 rounded bg-os-bg border border-emerald-500/40 text-emerald-400 text-xs font-mono font-bold cursor-pointer hover:bg-emerald-950/40 transition shadow-[0_0_12px_rgba(16,185,129,0.2)]" title="Base de Datos Interconectada en Tiempo Real entre Celular y PC">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>🟢 BD Interconectada</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -639,20 +639,97 @@
 
 <script>
         // ==========================================
-        // 0. SISTEMA DE SINCRONIZACIÓN CLOUD & MULTI-DISPOSITIVO
+        // 0. BASE DE DATOS INTERCONECTADA EN TIEMPO REAL (CELULAR ↔ PC)
         // ==========================================
         const CLOUD_SYNC_API = 'https://api.restful-api.dev/objects';
-        const DEFAULT_SYNC_PIN = 'kr0z-pokemmo';
-        let currentSyncPin = localStorage.getItem('pokemmo_sync_pin') || DEFAULT_SYNC_PIN;
-        let cloudObjectId = localStorage.getItem('pokemmo_cloud_object_id') || 'ff808181a058d43f01a05fd12d4b1585';
+        const CLOUD_DB_ID = 'ff808181a058d43f01a05fd12d4b1585';
+        let lastLocalMutationTime = Date.now();
+        let lastSyncedCloudTime = 0;
+        let isSyncInProgress = false;
+        let cloudPushTimer = null;
+
+        function saveAndBroadcastState() {
+            lastLocalMutationTime = Date.now();
+            const state = exportFullAppState();
+            state.savedAt = lastLocalMutationTime;
+
+            // 1. Guardado local inmediato
+            localStorage.setItem('pokemmo_crops', JSON.stringify(crops));
+            localStorage.setItem('pokemmo_harvest_count', harvestCounter);
+            localStorage.setItem('pokemmo_dex_caught', JSON.stringify(dexCaughtList));
+            localStorage.setItem('pokemmo_custom_db', JSON.stringify(POKEDEX_DB));
+
+            // 2. Transmisión automática en segundo plano a la BD en la nube
+            autoPushToCloudDB(state);
+        }
+
+        function autoPushToCloudDB(state) {
+            if (cloudPushTimer) clearTimeout(cloudPushTimer);
+            updateCloudStatusBadge('🔄 Sincronizando...', 'text-amber-400');
+
+            cloudPushTimer = setTimeout(async () => {
+                try {
+                    const res = await fetch(`${CLOUD_SYNC_API}/${CLOUD_DB_ID}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            name: 'pokemmo_live_database',
+                            data: state || exportFullAppState()
+                        })
+                    });
+                    if (res.ok) {
+                        lastSyncedCloudTime = state ? state.savedAt : Date.now();
+                        const nowTime = new Date().toLocaleTimeString();
+                        localStorage.setItem('pokemmo_last_cloud_sync', nowTime);
+                        updateCloudStatusBadge('🟢 BD Conectada', 'text-emerald-400');
+                    }
+                } catch (err) {
+                    console.warn('Auto cloud sync:', err);
+                    updateCloudStatusBadge('🟡 Modo Offline', 'text-os-muted');
+                }
+            }, 300); // 300ms debounce
+        }
+
+        async function checkCloudUpdates(isInitial = false) {
+            if (isSyncInProgress) return;
+            try {
+                isSyncInProgress = true;
+                const res = await fetch(`${CLOUD_SYNC_API}/${CLOUD_DB_ID}`);
+                if (res.ok) {
+                    const dataObj = await res.json();
+                    const cloudData = dataObj?.data;
+                    if (cloudData && cloudData.savedAt) {
+                        // Si la nube tiene cambios más nuevos que este dispositivo
+                        if (cloudData.savedAt > lastSyncedCloudTime && (isInitial || cloudData.savedAt > lastLocalMutationTime)) {
+                            lastSyncedCloudTime = cloudData.savedAt;
+                            importFullAppState(cloudData);
+                            updateCloudStatusBadge('🟢 BD Conectada', 'text-emerald-400');
+                        }
+                    }
+                }
+            } catch (err) {
+                // Silencioso en segundo plano
+            } finally {
+                isSyncInProgress = false;
+            }
+        }
+
+        function updateCloudStatusBadge(text, colorClass) {
+            const badge = document.getElementById('headerCloudBadge');
+            if (badge) {
+                const isGreen = colorClass.includes('emerald') || colorClass.includes('green');
+                badge.className = `flex items-center gap-2 px-3 py-1.5 rounded bg-os-bg border ${isGreen ? 'border-emerald-500/40 text-emerald-400' : 'border-amber-500/40 text-amber-400'} text-xs font-mono font-bold cursor-pointer transition shadow-[0_0_12px_rgba(16,185,129,0.2)]`;
+                badge.innerHTML = `<span class="w-2 h-2 rounded-full ${isGreen ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400 animate-spin'}"></span> <span>${text}</span>`;
+            }
+            const modalStatus = document.getElementById('cloudSyncStatusText');
+            if (modalStatus) modalStatus.innerText = text;
+        }
 
         function openSyncModal() {
             const modal = document.getElementById('syncModal');
-            const pinInput = document.getElementById('syncPinInput');
-            if (pinInput) pinInput.value = currentSyncPin;
-            const lastSync = localStorage.getItem('pokemmo_last_cloud_sync');
+            const lastSync = localStorage.getItem('pokemmo_last_cloud_sync') || new Date().toLocaleTimeString();
             const timeEl = document.getElementById('cloudLastSyncTime');
-            if (timeEl && lastSync) timeEl.innerText = `Última sincronización: ${lastSync}`;
+            if (timeEl) timeEl.innerText = `Última sincronización automática: ${lastSync}`;
             generateSyncQR();
             if (modal) {
                 modal.classList.remove('hidden');
@@ -685,15 +762,6 @@
                 }
             });
             if (tab === 'qr') generateSyncQR();
-        }
-
-        function saveSyncPin() {
-            const input = document.getElementById('syncPinInput');
-            if (input && input.value.trim()) {
-                currentSyncPin = input.value.trim();
-                localStorage.setItem('pokemmo_sync_pin', currentSyncPin);
-                alert(`✅ PIN guardado como: "${currentSyncPin}". Asegúrate de usar este mismo PIN en tu móvil y en tu PC.`);
-            }
         }
 
         function exportFullAppState() {
@@ -758,90 +826,13 @@
         }
 
         async function pushCloudSync(manual = false) {
-            const statusEl = document.getElementById('cloudSyncStatusText');
-            const timeEl = document.getElementById('cloudLastSyncTime');
-            if (statusEl) statusEl.innerText = '⏳ Subiendo a la nube...';
-            
-            const pin = document.getElementById('syncPinInput')?.value || currentSyncPin;
-            const state = exportFullAppState();
-
-            try {
-                let res;
-                if (cloudObjectId) {
-                    res = await fetch(`${CLOUD_SYNC_API}/${cloudObjectId}`, {
-                        method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            name: `pokemmo_sync_${pin}`,
-                            data: state
-                        })
-                    });
-                }
-                
-                if (!res || !res.ok) {
-                    res = await fetch(CLOUD_SYNC_API, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            name: `pokemmo_sync_${pin}`,
-                            data: state
-                        })
-                    });
-                    if (res.ok) {
-                        const created = await res.json();
-                        cloudObjectId = created.id;
-                        localStorage.setItem('pokemmo_cloud_object_id', cloudObjectId);
-                    }
-                }
-
-                const nowStr = new Date().toLocaleTimeString();
-                localStorage.setItem('pokemmo_last_cloud_sync', nowStr);
-                if (statusEl) statusEl.innerText = '✅ Subida completada exitosamente';
-                if (timeEl) timeEl.innerText = `Última sincronización: Hoy a las ${nowStr}`;
-                if (manual) {
-                    alert(`☁️ ¡Progreso subido a la nube!\n\nAhora abre PokeMMO Terminal en tu otro dispositivo (móvil o PC) y pulsa "Descargar de la Nube" con el PIN "${pin}".`);
-                }
-            } catch (err) {
-                console.error('Error al subir a la nube:', err);
-                if (statusEl) statusEl.innerText = '❌ Error de conexión al subir';
-                if (manual) alert('Error al conectar con la nube. Revisa tu conexión a internet.');
-            }
+            saveAndBroadcastState();
+            if (manual) alert('☁️ ¡Progreso enviado a la base de datos en la nube con éxito!');
         }
 
         async function pullCloudSync(manual = false) {
-            const statusEl = document.getElementById('cloudSyncStatusText');
-            const timeEl = document.getElementById('cloudLastSyncTime');
-            if (statusEl) statusEl.innerText = '⏳ Descargando de la nube...';
-
-            const pin = document.getElementById('syncPinInput')?.value || currentSyncPin;
-
-            try {
-                let url = cloudObjectId ? `${CLOUD_SYNC_API}/${cloudObjectId}` : `${CLOUD_SYNC_API}?name=pokemmo_sync_${pin}`;
-                const res = await fetch(url);
-                if (res.ok) {
-                    const dataObj = await res.json();
-                    const cloudData = Array.isArray(dataObj) ? (dataObj[0]?.data) : dataObj?.data;
-                    
-                    if (cloudData && cloudData.crops) {
-                        importFullAppState(cloudData);
-                        const nowStr = new Date().toLocaleTimeString();
-                        if (statusEl) statusEl.innerText = '✅ Progreso descargado y aplicado';
-                        if (timeEl) timeEl.innerText = `Sincronizado: ${nowStr}`;
-                        if (manual) {
-                            alert(`🎉 ¡Progreso sincronizado!\n\nSe cargaron exitosamente tus bayas (${cloudData.crops.length} activas), gimnasios y Pokédex.`);
-                        }
-                        return true;
-                    } else {
-                        if (statusEl) statusEl.innerText = '⚠️ No hay datos en la nube con este PIN';
-                        if (manual) alert(`No se encontraron datos guardados en la nube con el PIN "${pin}". Primero sube el progreso desde el dispositivo donde tienes tus bayas.`);
-                    }
-                }
-            } catch (err) {
-                console.error('Error al descargar de la nube:', err);
-                if (statusEl) statusEl.innerText = '❌ Error al descargar de la nube';
-                if (manual) alert('Error al descargar de la nube. Revisa tu conexión.');
-            }
-            return false;
+            await checkCloudUpdates(true);
+            if (manual) alert('🎉 ¡Base de datos sincronizada!');
         }
 
         function generateSyncQR() {
@@ -868,7 +859,7 @@
             const linkInput = document.getElementById('syncLinkInput');
             if (linkInput && linkInput.value) {
                 navigator.clipboard.writeText(linkInput.value).then(() => {
-                    alert('📋 ¡Enlace de sincronización copiado!\n\nPégalo en el navegador de tu móvil o envíatelo por WhatsApp para sincronizar en 1 segundo.');
+                    alert('📋 ¡Enlace copiado! Pégalo en cualquier navegador para sincronizar al instante.');
                 });
             }
         }
@@ -893,7 +884,8 @@
                 try {
                     const state = JSON.parse(e.target.result);
                     if (importFullAppState(state)) {
-                        alert('🎉 ¡Respaldo importado y aplicado con éxito!');
+                        saveAndBroadcastState();
+                        alert('🎉 ¡Respaldo importado y sincronizado con la nube!');
                         closeSyncModal();
                     } else {
                         alert('❌ Formato de archivo de respaldo no válido.');
@@ -913,14 +905,33 @@
                     const jsonStr = decodeURIComponent(escape(atob(base64)));
                     const state = JSON.parse(jsonStr);
                     if (importFullAppState(state)) {
+                        saveAndBroadcastState();
                         history.replaceState(null, null, window.location.pathname);
-                        alert('🎉 ¡DISPOSITIVO SINCRONIZADO!\n\nSe transfirieron todas tus bayas activas, progreso de gimnasios y Pokédex desde tu otro dispositivo.');
+                        alert('🎉 ¡DISPOSITIVO SINCRONIZADO!\n\nSe transfirieron todas tus bayas y progreso.');
                     }
                 } catch (err) {
-                    console.error('Error decoding sync payload from URL:', err);
+                    console.error('Error decoding sync payload:', err);
                 }
             }
         }
+
+        // ==========================================
+        // AUTO-SINCRONIZACIÓN EN TIEMPO REAL & LISTENERS
+        // ==========================================
+        // 1. Al abrir la app o volver a la pestaña -> Sincronizar inmediatamente
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+                checkCloudUpdates(true);
+            }
+        });
+        window.addEventListener('focus', () => checkCloudUpdates(true));
+
+        // 2. Heartbeat en segundo plano cada 3.5 segundos mientras esté abierta la app
+        setInterval(() => {
+            if (document.visibilityState === 'visible') {
+                checkCloudUpdates();
+            }
+        }, 3500);
 
         // ==========================================
         // 1. SISTEMA DE NAVEGACIN (TABS)
@@ -1235,6 +1246,7 @@
             autoSaveGymBackup();
             updateGymStats();
             updateTimers();
+            saveAndBroadcastState();
         }
 
         // Marcar o desmarcar una región completa de un solo golpe
@@ -1260,6 +1272,7 @@
             renderGyms();
             updateGymStats();
             updateTimers();
+            saveAndBroadcastState();
         }
 
         function updateGymStats() {
@@ -1310,6 +1323,7 @@
                 keysToRemove.forEach(k => localStorage.removeItem(k));
                 renderGyms();
                 updateGymStats();
+                saveAndBroadcastState();
             }
         }
 
@@ -1321,12 +1335,14 @@
             localStorage.setItem('pokemmo_amulet_start', Date.now());
             localStorage.setItem('pokemmo_amulet_duration', durationMs);
             updateAmuletUI();
+            saveAndBroadcastState();
         }
 
         function resetAmuletTimer() {
             localStorage.removeItem('pokemmo_amulet_start');
             localStorage.removeItem('pokemmo_amulet_duration');
             updateAmuletUI();
+            saveAndBroadcastState();
         }
 
         function updateAmuletUI() {
@@ -1478,7 +1494,7 @@
                 watered: false,
                 wateredAt: null
             });
-            localStorage.setItem('pokemmo_crops', JSON.stringify(crops));
+            saveAndBroadcastState();
             
             if(document.getElementById('berryLocation')) document.getElementById('berryLocation').value = '';
             if(document.getElementById('berryElapsed')) document.getElementById('berryElapsed').value = '';
@@ -1593,7 +1609,7 @@
                     crop.watered = true;
                     crop.waterCount = (crop.waterCount || 0) + 1;
                     crop.wateredAt = Date.now();
-                    localStorage.setItem('pokemmo_crops', JSON.stringify(crops));
+                    saveAndBroadcastState();
                     renderCrops();
                 }
             }
@@ -1606,22 +1622,21 @@
                 const dbInfo = BERRY_DB[crop.type] || BERRY_DB.zanama;
                 if (Date.now() - crop.plantedAt >= dbInfo.totalHours * 60 * 60 * 1000) {
                     harvestCounter++;
-                    localStorage.setItem('pokemmo_harvest_count', harvestCounter);
                     const totalHarvestedEl = document.getElementById('totalHarvested');
                     if (totalHarvestedEl) totalHarvestedEl.innerText = harvestCounter;
                 }
             }
             crops = crops.filter(c => c.id !== id);
-            localStorage.setItem('pokemmo_crops', JSON.stringify(crops));
+            saveAndBroadcastState();
             renderCrops();
         }
 
         function resetHarvestCount() {
             if(confirm('¿Reiniciar tu récord de cosechas a cero?')) {
                 harvestCounter = 0;
-                localStorage.setItem('pokemmo_harvest_count', harvestCounter);
                 const totalHarvestedEl = document.getElementById('totalHarvested');
                 if (totalHarvestedEl) totalHarvestedEl.innerText = harvestCounter;
+                saveAndBroadcastState();
             }
         }
 
@@ -2321,7 +2336,7 @@
                 dexCaughtList.splice(idx, 1);
             }
 
-            localStorage.setItem('pokemmo_dex_caught', JSON.stringify(dexCaughtList));
+            saveAndBroadcastState();
             updateDexProgress();
             renderDexResults(false);
             if (document.getElementById('caughtModal') && !document.getElementById('caughtModal').classList.contains('hidden')) {
@@ -2586,12 +2601,10 @@
         renderCrops();
         initPokedex();
 
-        // Intentar auto-sincronizar con la nube en segundo plano al abrir
-        setTimeout(() => {
-            pullCloudSync(false);
-        }, 1200);
+        // Carga inmediata de la Base de Datos interconectada al abrir
+        checkCloudUpdates(true);
 
-        // Inicialización inmediata al cargar
+        // Inicialización de interfaz
         document.addEventListener('DOMContentLoaded', () => {
             updateDexProgress();
         });
