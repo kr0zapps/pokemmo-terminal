@@ -163,28 +163,28 @@ export function renderGyms() {
     if(!container) return;
     container.innerHTML = '';
 
-    for (const [region, list] of Object.entries(GYM_DATA)) {
-        const region = region.replace(/[^a-zA-Z]/g, '');
+    for (const [regionName, list] of Object.entries(GYM_DATA)) {
+        const cleanRegion = regionName.replace(/[^a-zA-Z]/g, '');
         const card = document.createElement('div');
         card.className = "panel p-5 flex flex-col gap-4";
 
         let completedInRegion = 0;
         list.forEach((_, idx) => {
-            if (localStorage.getItem(`gym-${region}-${idx}`) === 'true') completedInRegion++;
+            if (localStorage.getItem(`gym-${cleanRegion}-${idx}`) === 'true') completedInRegion++;
         });
 
         let html = `
             <div class="flex items-center justify-between border-b border-os-border pb-2">
                 <h2 class="text-sm font-semibold text-os-blue flex items-center gap-2">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/vs-seeker.png" class="w-5 h-5 pokemon-sprite -ml-1">
-                    ${region}
+                    ${regionName}
                     <span class="text-[10px] font-mono font-normal text-os-muted">(${completedInRegion}/8)</span>
                 </h2>
                 <div class="flex gap-1.5">
-                    <button data-region="${region}" data-action="mark-all" class="text-[10px] font-mono uppercase bg-os-blue/10 hover:bg-os-blue hover:text-white text-os-blue px-2 py-0.5 border border-os-blue/30 rounded transition" title="Marcar los 8 líderes con compensación de hora">
+                    <button data-region="${regionName}" data-action="mark-all" class="text-[10px] font-mono uppercase bg-os-blue/10 hover:bg-os-blue hover:text-white text-os-blue px-2 py-0.5 border border-os-blue/30 rounded transition" title="Marcar los 8 líderes con compensación de hora">
                         Marcar Toda
                     </button>
-                    <button data-region="${region}" data-action="unmark-all" class="text-[10px] font-mono uppercase bg-os-bg hover:text-os-red text-os-muted px-1.5 py-0.5 border border-os-border rounded transition" title="Desmarcar region">
+                    <button data-region="${regionName}" data-action="unmark-all" class="text-[10px] font-mono uppercase bg-os-bg hover:text-os-red text-os-muted px-1.5 py-0.5 border border-os-border rounded transition" title="Desmarcar region">
                         Desmarcar
                     </button>
                 </div>
@@ -193,7 +193,7 @@ export function renderGyms() {
         `;
 
         list.forEach((gym, index) => {
-            const id = `gym-${region}-${index}`;
+            const id = `gym-${cleanRegion}-${index}`;
             const isChecked = localStorage.getItem(id) === 'true';
             const textClass = isChecked ? "checked-label text-os-muted line-through" : "text-os-text";
             html += `
@@ -259,15 +259,15 @@ export function toggleGymState(id, isChecked) {
     updateTimers();
 }
 
-export function toggleWholeRegion(region, checkAll) {
-    const list = GYM_DATA[region] || [];
-    const region = region.replace(/[^a-zA-Z]/g, '');
+export function toggleWholeRegion(regionName, checkAll) {
+    const list = GYM_DATA[regionName] || [];
+    const cleanRegion = regionName.replace(/[^a-zA-Z]/g, '');
     const compHours = parseFloat(document.getElementById('gymCompHours')?.value) || 0;
     const compMs = compHours * 60 * 60 * 1000;
     const targetTime = Date.now() - compMs;
 
     list.forEach((_, index) => {
-        const id = `gym-${region}-${index}`;
+        const id = `gym-${cleanRegion}-${index}`;
         if (checkAll) {
             localStorage.setItem(id, 'true');
             localStorage.setItem(`time-${id}`, targetTime);
@@ -288,11 +288,11 @@ export function updateGymStats() {
     const totalLeaders = 40;
     let maxBaseEarnings = 0;
 
-    for (const [region, list] of Object.entries(GYM_DATA)) {
-        const region = region.replace(/[^a-zA-Z]/g, '');
+    for (const [regionName, list] of Object.entries(GYM_DATA)) {
+        const cleanRegion = regionName.replace(/[^a-zA-Z]/g, '');
         list.forEach((gym, idx) => {
             maxBaseEarnings += gym.reward;
-            if (localStorage.getItem(`gym-${region}-${idx}`) === 'true') {
+            if (localStorage.getItem(`gym-${cleanRegion}-${idx}`) === 'true') {
                 completedCount++;
                 baseEarnings += gym.reward;
             }
