@@ -1,4 +1,4 @@
-import { state, updateState, saveAndBroadcastState } from '../state.js';
+﻿import { state, updateState, saveAndBroadcastState } from '../state.js';
 import { updateSuggestion } from '../db.js';
 
 let POKEDEX_DB = [];
@@ -16,7 +16,7 @@ export function renderPokedexView() {
             <div class="flex justify-between items-end mb-8 pb-4 border-b border-os-border">
                 <div>
                     <h1 class="text-2xl font-semibold text-os-text flex items-center gap-2"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/town-map.png" class="w-8 h-8 pokemon-sprite">Itinerario de Captura</h1>
-                    <p class="text-sm text-os-muted mt-1">Ruteo geográfico secuencial.</p>
+                    <p class="text-sm text-os-muted mt-1">Ruteo geogrÃ¡fico secuencial.</p>
                 </div>
                 <div class="flex flex-wrap items-center gap-2">
                     <button onclick="window.pokedex.openCaughtModal()" class="border border-os-green/60 text-os-green hover:bg-os-green hover:text-white px-3 py-1.5 text-xs uppercase font-mono transition flex items-center gap-1.5 shadow-[0_0_10px_rgba(16,185,129,0.2)] rounded-sm">
@@ -43,11 +43,11 @@ export function renderPokedexView() {
                             <input type="checkbox" id="hideCaught" onchange="window.pokedex.renderDexResults(true)" class="w-4 h-4 accent-os-blue">
                             Ocultar Capturados
                         </label>
-                        <label class="flex items-center gap-1.5 text-xs text-os-muted cursor-pointer select-none" title="Si ya capturaste una evolución superior, oculta sus formas previas">
+                        <label class="flex items-center gap-1.5 text-xs text-os-muted cursor-pointer select-none" title="Si ya capturaste una evoluciÃ³n superior, oculta sus formas previas">
                             <input type="checkbox" id="hidePreEvos" onchange="window.pokedex.renderDexResults(true)" class="w-4 h-4 accent-os-blue">
                             Ocultar Pre-evoluciones
                         </label>
-                        <label class="flex items-center gap-1.5 text-xs text-os-muted cursor-pointer select-none" title="Si ya capturaste la pre-evolución, oculta sus evoluciones para enfocarte en capturables fáciles">
+                        <label class="flex items-center gap-1.5 text-xs text-os-muted cursor-pointer select-none" title="Si ya capturaste la pre-evoluciÃ³n, oculta sus evoluciones para enfocarte en capturables fÃ¡ciles">
                             <input type="checkbox" id="hidePostEvos" onchange="window.pokedex.renderDexResults(true)" class="w-4 h-4 accent-os-blue">
                             Ocultar Post-evoluciones
                         </label>
@@ -60,7 +60,7 @@ export function renderPokedexView() {
 
                 <!-- Progress Bar -->
                 <div class="panel p-3 flex items-center gap-4">
-                    <div class="text-[10px] font-mono text-os-muted w-36 uppercase tracking-widest">Progreso Región: <span id="dexProgressText" class="text-os-green font-bold text-xs ml-1">0 / 0</span></div>
+                    <div class="text-[10px] font-mono text-os-muted w-36 uppercase tracking-widest">Progreso RegiÃ³n: <span id="dexProgressText" class="text-os-green font-bold text-xs ml-1">0 / 0</span></div>
                     <div class="flex-grow bg-os-bg h-1.5 rounded-full overflow-hidden border border-os-border">
                         <div id="dexProgressBar" class="bg-os-green h-full w-0 transition-all duration-500 shadow-[0_0_8px_#10B981]"></div>
                     </div>
@@ -69,22 +69,22 @@ export function renderPokedexView() {
                 <!-- TOOLBAR: Buscador, Ordenador y Filtro de Horario estilo PokeMMO -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-3 bg-os-panel border border-os-border p-3 rounded-sm">
                     <div class="md:col-span-2">
-                        <input type="text" id="dexSearch" placeholder="🔍 Buscar Pokémon, Ruta (ej. Ruta 7) o Método..." oninput="window.pokedex.renderDexResults(true)" class="w-full p-2 text-sm bg-os-bg border border-os-border text-os-text rounded-sm focus:border-os-blue outline-none font-mono">
+                        <input type="text" id="dexSearch" placeholder="ðŸ” Buscar PokÃ©mon, Ruta (ej. Ruta 7) o MÃ©todo..." oninput="window.pokedex.renderDexResults(true)" class="w-full p-2 text-sm bg-os-bg border border-os-border text-os-text rounded-sm focus:border-os-blue outline-none font-mono">
                     </div>
                     <div>
                         <select id="dexSort" onchange="window.pokedex.renderDexResults(true)" class="w-full p-2 text-sm bg-os-bg border border-os-border text-os-text rounded-sm cursor-pointer font-mono">
-                            <option value="rate_desc" selected>🔥 Mayor Probabilidad (%)</option>
-                            <option value="id_asc">🔢 N° Pokédex (#1 - #649)</option>
-                            <option value="name_asc">🔤 Nombre (A - Z)</option>
+                            <option value="rate_desc" selected>ðŸ”¥ Mayor Probabilidad (%)</option>
+                            <option value="id_asc">ðŸ”¢ NÂ° PokÃ©dex (#1 - #649)</option>
+                            <option value="name_asc">ðŸ”¤ Nombre (A - Z)</option>
                         </select>
                     </div>
                     <div>
                         <select id="dexTimeFilter" onchange="window.pokedex.renderDexResults(true)" class="w-full p-2 text-sm bg-os-bg border border-os-border text-os-text rounded-sm cursor-pointer font-mono">
-                            <option value="all" selected>⏰ Horario: Todos</option>
-                            <option value="morning">🌅 Mañana</option>
-                            <option value="day">☀️ Día</option>
-                            <option value="night">🌙 Noche</option>
-                            <option value="lure">🪤 Con Señuelo (Lure)</option>
+                            <option value="all" selected>â° Horario: Todos</option>
+                            <option value="morning">ðŸŒ… MaÃ±ana</option>
+                            <option value="day">â˜€ï¸ DÃ­a</option>
+                            <option value="night">ðŸŒ™ Noche</option>
+                            <option value="lure">ðŸª¤ Con SeÃ±uelo (Lure)</option>
                         </select>
                     </div>
                 </div>
@@ -100,7 +100,7 @@ export function renderPokedexView() {
 
 export function renderCaughtModal() {
     return `
-    <!-- MODAL: VENTANA DE POKÉMON CAPTURADOS -->
+    <!-- MODAL: VENTANA DE POKÃ‰MON CAPTURADOS -->
     <div id="caughtModal" class="fixed inset-0 bg-[#090A0F]/95 hidden items-center justify-center z-50 p-4 backdrop-blur-md">
         <div class="panel p-6 w-full max-w-4xl max-h-[90vh] flex flex-col border border-os-border shadow-2xl relative overflow-hidden">
             <!-- Header -->
@@ -109,37 +109,37 @@ export function renderCaughtModal() {
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" class="w-8 h-8 pixelated animate-bounce">
                     <div>
                         <h2 class="text-base font-bold text-os-text flex items-center gap-2">
-                            Pokédex // Registro de Capturas Oficiales
+                            PokÃ©dex // Registro de Capturas Oficiales
                         </h2>
                         <p class="text-xs font-mono text-os-muted">
-                            <span id="caughtSummaryText" class="text-os-green font-bold">0</span> de <span id="caughtTotalText">649</span> registrados (<span id="caughtPercentText" class="text-os-blue font-bold">0%</span> de la Pokédex Nacional)
+                            <span id="caughtSummaryText" class="text-os-green font-bold">0</span> de <span id="caughtTotalText">649</span> registrados (<span id="caughtPercentText" class="text-os-blue font-bold">0%</span> de la PokÃ©dex Nacional)
                         </p>
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="window.pokedex.exportCaughtOnly()" class="border border-os-blue/60 text-os-blue hover:bg-os-blue hover:text-white px-3 py-1.5 text-xs font-mono uppercase transition rounded-sm" title="Descargar solo el JSON de tus capturas">
-                        📥 Exportar Capturas (JSON)
+                        ðŸ“¥ Exportar Capturas (JSON)
                     </button>
                     <button onclick="window.pokedex.copyCaughtListText()" class="border border-os-border hover:border-os-muted text-os-muted hover:text-white px-3 py-1.5 text-xs font-mono uppercase transition rounded-sm" title="Copiar nombres al portapapeles">
-                        📋 Copiar Lista
+                        ðŸ“‹ Copiar Lista
                     </button>
-                    <button onclick="window.pokedex.closeCaughtModal()" class="text-os-muted hover:text-white font-mono text-lg px-2">✕</button>
+                    <button onclick="window.pokedex.closeCaughtModal()" class="text-os-muted hover:text-white font-mono text-lg px-2">âœ•</button>
                 </div>
             </div>
 
             <!-- Toolbar de Filtro dentro del modal -->
             <div class="mb-4">
-                <input type="text" id="caughtSearchInput" placeholder="🔍 Filtrar tus capturas por nombre, número o región..." oninput="window.pokedex.renderCaughtGrid()" class="w-full p-2.5 text-xs bg-os-bg border border-os-border text-os-text rounded-sm focus:border-os-blue outline-none font-mono">
+                <input type="text" id="caughtSearchInput" placeholder="ðŸ” Filtrar tus capturas por nombre, nÃºmero o regiÃ³n..." oninput="window.pokedex.renderCaughtGrid()" class="w-full p-2.5 text-xs bg-os-bg border border-os-border text-os-text rounded-sm focus:border-os-blue outline-none font-mono">
             </div>
 
-            <!-- Grid de Pokémon Capturados con Scroll -->
+            <!-- Grid de PokÃ©mon Capturados con Scroll -->
             <div id="caughtGridContainer" class="flex-grow overflow-y-auto pr-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
                 <!-- Injected via JS -->
             </div>
 
-            <!-- Footer con Botón Cerrar -->
+            <!-- Footer con BotÃ³n Cerrar -->
             <div class="flex justify-between items-center mt-4 pt-3 border-t border-os-border">
-                <span class="text-[10px] font-mono text-os-muted">Toca "Liberar" en cualquier Pokémon para devolverlo a tu lista de búsqueda.</span>
+                <span class="text-[10px] font-mono text-os-muted">Toca "Liberar" en cualquier PokÃ©mon para devolverlo a tu lista de bÃºsqueda.</span>
                 <button onclick="window.pokedex.closeCaughtModal()" class="px-5 py-2 text-xs font-mono uppercase bg-os-panel border border-os-border hover:border-os-blue text-os-text hover:text-os-blue transition rounded-sm">
                     Cerrar
                 </button>
@@ -183,7 +183,7 @@ async function autoLoadDB() {
             }
         }
     } catch (err) {
-        console.log("Aún no existe el JSON del bot o hubo un error de red.", err);
+        console.log("AÃºn no existe el JSON del bot o hubo un error de red.", err);
     }
     
     try {
@@ -227,8 +227,8 @@ export function updateDexProgress() {
     const pBar = document.getElementById('dexProgressBar');
     const btnCount = document.getElementById('btnCaughtCount');
     
-    if (pText) pText.innerText = \`\${caught}/\${total}\`;
-    if (pBar) pBar.style.width = \`\${pct}%\`;
+    if (pText) pText.innerText = `${caught}/${total}`;
+    if (pBar) pBar.style.width = `${pct}%`;
     if (btnCount) btnCount.innerText = dexCaughtList.length;
 }
 
@@ -263,7 +263,7 @@ export function renderCaughtGrid() {
 
     if (summaryText) summaryText.innerText = caughtCount;
     if (totalText) totalText.innerText = total;
-    if (percentText) percentText.innerText = \`\${pct}%\`;
+    if (percentText) percentText.innerText = `${pct}%`;
 
     let caughtMons = POKEDEX_DB.filter(p => dexCaughtList.includes(p.id));
 
@@ -277,12 +277,12 @@ export function renderCaughtGrid() {
     }
 
     if (caughtMons.length === 0) {
-        container.innerHTML = \`
+        container.innerHTML = `
             <div class="col-span-full py-12 text-center text-os-muted font-mono text-xs">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" class="w-10 h-10 pixelated mx-auto mb-2 opacity-20">
-                \${dexCaughtList.length === 0 ? 'Aún no has marcado ningún Pokémon como capturado.' : 'No se encontraron capturas con ese filtro.'}
+                ${dexCaughtList.length === 0 ? 'AÃºn no has marcado ningÃºn PokÃ©mon como capturado.' : 'No se encontraron capturas con ese filtro.'}
             </div>
-        \`;
+        `;
         return;
     }
 
@@ -290,20 +290,20 @@ export function renderCaughtGrid() {
 
     let html = '';
     caughtMons.forEach(p => {
-        const spriteUrl = \`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\${p.id}.png\`;
-        html += \`
+        const spriteUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`;
+        html += `
             <div class="bg-os-bg border border-os-border/70 hover:border-os-green/50 p-2.5 rounded-sm flex flex-col items-center justify-between text-center transition group">
                 <div class="w-full flex justify-between items-center text-[9px] font-mono text-os-muted">
-                    <span>#\${p.id.toString().padStart(3, '0')}</span>
-                    <span class="text-os-blue">\${p.region}</span>
+                    <span>#${p.id.toString().padStart(3, '0')}</span>
+                    <span class="text-os-blue">${p.region}</span>
                 </div>
-                <img src="\${spriteUrl}" class="w-14 h-14 pixelated object-contain group-hover:scale-110 transition-transform my-1" onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'">
-                <span class="font-bold text-xs text-os-text truncate w-full mb-1">\${p.name}</span>
-                <button onclick="window.pokedex.uncatchFromModal(\${p.id})" class="w-full text-[10px] font-mono py-1 px-1.5 bg-os-panel border border-os-border text-os-muted hover:text-os-red hover:border-os-red transition rounded-sm" title="Desmarcar y volver a buscar">
-                    ✕ Liberar
+                <img src="${spriteUrl}" class="w-14 h-14 pixelated object-contain group-hover:scale-110 transition-transform my-1" onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'">
+                <span class="font-bold text-xs text-os-text truncate w-full mb-1">${p.name}</span>
+                <button onclick="window.pokedex.uncatchFromModal(${p.id})" class="w-full text-[10px] font-mono py-1 px-1.5 bg-os-panel border border-os-border text-os-muted hover:text-os-red hover:border-os-red transition rounded-sm" title="Desmarcar y volver a buscar">
+                    âœ• Liberar
                 </button>
             </div>
-        \`;
+        `;
     });
     container.innerHTML = html;
 }
@@ -324,20 +324,20 @@ export function exportCaughtOnly() {
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj, null, 2));
     const downloadAnchor = document.createElement('a');
     downloadAnchor.setAttribute("href", dataStr);
-    downloadAnchor.setAttribute("download", \`mis_capturas_pokemmo_\${new Date().toISOString().slice(0,10)}.json\`);
+    downloadAnchor.setAttribute("download", `mis_capturas_pokemmo_${new Date().toISOString().slice(0,10)}.json`);
     document.body.appendChild(downloadAnchor);
     downloadAnchor.click();
     downloadAnchor.remove();
 }
 
 export function copyCaughtListText() {
-    const caughtMons = POKEDEX_DB.filter(p => dexCaughtList.includes(p.id)).map(p => \`#\${p.id} \${p.name}\`);
+    const caughtMons = POKEDEX_DB.filter(p => dexCaughtList.includes(p.id)).map(p => `#${p.id} ${p.name}`);
     if (caughtMons.length === 0) {
         alert('No tienes capturas para copiar.');
         return;
     }
     navigator.clipboard.writeText(caughtMons.join('\\n')).then(() => {
-        alert(\`📋 ¡Copiados \${caughtMons.length} Pokémon capturados al portapapeles!\`);
+        alert(`ðŸ“‹ Â¡Copiados ${caughtMons.length} PokÃ©mon capturados al portapapeles!`);
     });
 }
 
@@ -373,7 +373,7 @@ function parsePokemonData(p) {
     
     const starterIds = [1,2,3,4,5,6,7,8,9,152,153,154,155,156,157,158,159,160,252,253,254,255,256,257,258,259,260,387,388,389,390,391,392,393,394,395,495,496,497,498,499,500,501,502,503];
     const isLure = hint.toLowerCase().includes('lure') || 
-                   hint.toLowerCase().includes('señuelo') || 
+                   hint.toLowerCase().includes('seÃ±uelo') || 
                    method.toLowerCase().includes('lure') ||
                    starterIds.includes(p.id);
 
@@ -387,26 +387,26 @@ function parsePokemonData(p) {
     let night = '--';
 
     if (isLure) {
-        morning = 'Señuelo';
-        day = 'Señuelo';
-        night = 'Señuelo';
+        morning = 'SeÃ±uelo';
+        day = 'SeÃ±uelo';
+        night = 'SeÃ±uelo';
     } else if (rate > 0) {
         const name = p.name.toLowerCase();
         const isNight = ['gastly', 'haunter', 'gengar', 'zubat', 'golbat', 'crobat', 'duskull', 'dusclops', 'misdreavus', 'murkrow', 'houndour', 'houndoom', 'clefairy', 'jigglypuff', 'oddish', 'gloom', 'venonat', 'hoothoot', 'noctowl', 'spinarak', 'ariados', 'wooper', 'quagsire', 'sneasel'].some(n => name.includes(n));
         const isMorning = ['pidgey', 'pidgeotto', 'spearow', 'fearow', 'caterpie', 'metapod', 'weedle', 'kakuna', 'ledyba', 'ledian'].some(n => name.includes(n));
         
         if (isNight) {
-            night = \`\${rate}%\`;
-            morning = \`\${Math.max(1, Math.floor(rate * 0.4))}%\`;
+            night = `${rate}%`;
+            morning = `${Math.max(1, Math.floor(rate * 0.4))}%`;
             day = '--';
         } else if (isMorning) {
-            morning = \`\${rate}%\`;
-            day = \`\${Math.max(1, Math.floor(rate * 0.7))}%\`;
+            morning = `${rate}%`;
+            day = `${Math.max(1, Math.floor(rate * 0.7))}%`;
             night = '--';
         } else {
-            morning = \`\${rate}%\`;
-            day = \`\${rate}%\`;
-            night = \`\${rate}%\`;
+            morning = `${rate}%`;
+            day = `${rate}%`;
+            night = `${rate}%`;
         }
     }
 
@@ -516,12 +516,12 @@ export function renderDexResults(resetPage = false) {
     }
 
     if (parsedList.length === 0) {
-        resultsDiv.innerHTML = \`
+        resultsDiv.innerHTML = `
             <div class="panel p-8 border-os-green/50 text-center relative overflow-hidden">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/town-map.png" class="absolute opacity-10 w-32 h-32 -top-10 -right-10 pixelated">
                 <h3 class="text-lg font-mono text-os-green mb-1">[ SIN OBJETIVOS ]</h3>
-                <p class="text-sm text-os-muted">No se encontraron Pokémon con los filtros y búsqueda seleccionados.</p>
-            </div>\`;
+                <p class="text-sm text-os-muted">No se encontraron PokÃ©mon con los filtros y bÃºsqueda seleccionados.</p>
+            </div>`;
         return;
     }
 
@@ -533,17 +533,17 @@ export function renderDexResults(resetPage = false) {
     const startIndex = (dexCurrentPage - 1) * dexPageSize;
     const pageItems = parsedList.slice(startIndex, startIndex + dexPageSize);
 
-    let htmlStr = \`
+    let htmlStr = `
         <div class="panel border-os-border overflow-hidden rounded-sm shadow-xl">
-            <!-- Barra de Paginación Superior -->
+            <!-- Barra de PaginaciÃ³n Superior -->
             <div class="bg-os-bg/90 border-b border-os-border px-4 py-3 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
                 <span class="text-os-muted">
-                    Mostrando <strong class="text-os-text">\${startIndex + 1} - \${Math.min(startIndex + dexPageSize, totalItems)}</strong> de <strong class="text-os-blue">\${totalItems} Pokémon</strong>
+                    Mostrando <strong class="text-os-text">${startIndex + 1} - ${Math.min(startIndex + dexPageSize, totalItems)}</strong> de <strong class="text-os-blue">${totalItems} PokÃ©mon</strong>
                 </span>
                 <div class="flex items-center gap-1.5">
-                    <button onclick="window.pokedex.changeDexPage(-1)" \${dexCurrentPage === 1 ? 'disabled class="px-3 py-1 bg-os-panel text-os-muted/40 border border-os-border cursor-not-allowed rounded-sm"' : 'class="px-3 py-1 bg-os-panel text-os-text border border-os-border hover:border-os-blue hover:text-os-blue transition rounded-sm"'}>◀ Anterior</button>
-                    <span class="px-2 text-os-muted">Pág. <strong class="text-os-text">\${dexCurrentPage}</strong> / \${totalPages}</span>
-                    <button onclick="window.pokedex.changeDexPage(1)" \${dexCurrentPage >= totalPages ? 'disabled class="px-3 py-1 bg-os-panel text-os-muted/40 border border-os-border cursor-not-allowed rounded-sm"' : 'class="px-3 py-1 bg-os-panel text-os-text border border-os-border hover:border-os-blue hover:text-os-blue transition rounded-sm"'}>Siguiente ▶</button>
+                    <button onclick="window.pokedex.changeDexPage(-1)" ${dexCurrentPage === 1 ? 'disabled class="px-3 py-1 bg-os-panel text-os-muted/40 border border-os-border cursor-not-allowed rounded-sm"' : 'class="px-3 py-1 bg-os-panel text-os-text border border-os-border hover:border-os-blue hover:text-os-blue transition rounded-sm"'}>â—€ Anterior</button>
+                    <span class="px-2 text-os-muted">PÃ¡g. <strong class="text-os-text">${dexCurrentPage}</strong> / ${totalPages}</span>
+                    <button onclick="window.pokedex.changeDexPage(1)" ${dexCurrentPage >= totalPages ? 'disabled class="px-3 py-1 bg-os-panel text-os-muted/40 border border-os-border cursor-not-allowed rounded-sm"' : 'class="px-3 py-1 bg-os-panel text-os-text border border-os-border hover:border-os-blue hover:text-os-blue transition rounded-sm"'}>Siguiente â–¶</button>
                 </div>
             </div>
 
@@ -553,90 +553,90 @@ export function renderDexResults(resetPage = false) {
                     <thead>
                         <tr class="bg-os-bg/80 border-b border-os-border text-[10px] font-mono text-os-muted uppercase tracking-wider">
                             <th class="py-2.5 px-3">Especie</th>
-                            <th class="py-2.5 px-3">Tipo / Método</th>
+                            <th class="py-2.5 px-3">Tipo / MÃ©todo</th>
                             <th class="py-2.5 px-3">Niveles</th>
                             <th class="py-2.5 px-3">Ruta / Parada</th>
-                            <th class="py-2.5 px-2 text-center">🌅 Mañana</th>
-                            <th class="py-2.5 px-2 text-center">☀️ Día</th>
-                            <th class="py-2.5 px-2 text-center">🌙 Noche</th>
+                            <th class="py-2.5 px-2 text-center">ðŸŒ… MaÃ±ana</th>
+                            <th class="py-2.5 px-2 text-center">â˜€ï¸ DÃ­a</th>
+                            <th class="py-2.5 px-2 text-center">ðŸŒ™ Noche</th>
                             <th class="py-2.5 px-3 text-center">Estado</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-os-border/40 font-mono">
-    \`;
+    `;
 
     pageItems.forEach(p => {
         const isCaught = dexCaughtList.includes(p.id);
-        const spriteUrl = \`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\${p.id}.png\`;
+        const spriteUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`;
         const pokeballIcon = isCaught 
-            ? \`<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" class="w-4 h-4 pixelated inline-block" title="Capturado">\`
-            : \`<span class="w-4 h-4 rounded-full border border-os-border inline-block opacity-30" title="Pendiente"></span>\`;
+            ? `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" class="w-4 h-4 pixelated inline-block" title="Capturado">`
+            : `<span class="w-4 h-4 rounded-full border border-os-border inline-block opacity-30" title="Pendiente"></span>`;
 
         const formatRateSlot = (val) => {
-            if (val === 'Señuelo') {
-                return \`<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30">Señuelo</span>\`;
+            if (val === 'SeÃ±uelo') {
+                return `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30">SeÃ±uelo</span>`;
             } else if (val !== '--') {
                 const num = parseInt(val);
                 const color = num >= 50 ? 'text-emerald-400 font-bold' : (num >= 20 ? 'text-green-400' : 'text-blue-300');
-                return \`<span class="\${color}">\${val}</span>\`;
+                return `<span class="${color}">${val}</span>`;
             }
-            return \`<span class="text-os-muted/40">--</span>\`;
+            return `<span class="text-os-muted/40">--</span>`;
         };
 
-        htmlStr += \`
-            <tr class="hover:bg-os-blue/5 transition group \${isCaught ? 'opacity-50 hover:opacity-100' : ''}">
+        htmlStr += `
+            <tr class="hover:bg-os-blue/5 transition group ${isCaught ? 'opacity-50 hover:opacity-100' : ''}">
                 <td class="py-2 px-3">
                     <div class="flex flex-col gap-1">
                         <div class="flex items-center gap-2">
-                            \${pokeballIcon}
-                            <img src="\${spriteUrl}" class="w-9 h-9 pixelated object-contain group-hover:scale-110 transition-transform" onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'">
+                            ${pokeballIcon}
+                            <img src="${spriteUrl}" class="w-9 h-9 pixelated object-contain group-hover:scale-110 transition-transform" onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'">
                             <div>
-                                <span class="font-sans font-bold text-sm text-os-text block">\${p.name}</span>
-                                <span class="text-[10px] text-os-muted">#\${p.id.toString().padStart(3, '0')}</span>
+                                <span class="font-sans font-bold text-sm text-os-text block">${p.name}</span>
+                                <span class="text-[10px] text-os-muted">#${p.id.toString().padStart(3, '0')}</span>
                             </div>
                         </div>
                     </div>
                 </td>
                 <td class="py-2 px-3">
                     <span class="px-2 py-1 bg-os-bg border border-os-border text-os-muted text-[10px] uppercase rounded-sm inline-block">
-                        \${p.method}
+                        ${p.method}
                     </span>
-                    \${p.isLure ? '<span class="ml-1 text-[9px] text-amber-400 bg-amber-400/10 px-1 py-0.5 border border-amber-400/30 rounded-sm">🪤 Lure</span>' : ''}
+                    ${p.isLure ? '<span class="ml-1 text-[9px] text-amber-400 bg-amber-400/10 px-1 py-0.5 border border-amber-400/30 rounded-sm">ðŸª¤ Lure</span>' : ''}
                 </td>
                 <td class="py-2 px-3 text-os-muted">
-                    \${p.level}
+                    ${p.level}
                 </td>
                 <td class="py-2 px-3 font-sans">
-                    <span class="text-os-blue font-semibold text-xs">\${p.locationClean || 'Sin Ruta'}</span>
-                    <button onclick="window.pokedex.promptSuggestion(\${p.id}, '\${p.name}')" class="ml-2 text-[9px] text-os-muted hover:text-os-blue border-b border-transparent hover:border-os-blue transition-colors">Sugerir corrección</button>
+                    <span class="text-os-blue font-semibold text-xs">${p.locationClean || 'Sin Ruta'}</span>
+                    <button onclick="window.pokedex.promptSuggestion(${p.id}, '${p.name}')" class="ml-2 text-[9px] text-os-muted hover:text-os-blue border-b border-transparent hover:border-os-blue transition-colors">Sugerir correcciÃ³n</button>
                 </td>
-                <td class="py-2 px-2 text-center">\${formatRateSlot(p.morning)}</td>
-                <td class="py-2 px-2 text-center">\${formatRateSlot(p.day)}</td>
-                <td class="py-2 px-2 text-center">\${formatRateSlot(p.night)}</td>
+                <td class="py-2 px-2 text-center">${formatRateSlot(p.morning)}</td>
+                <td class="py-2 px-2 text-center">${formatRateSlot(p.day)}</td>
+                <td class="py-2 px-2 text-center">${formatRateSlot(p.night)}</td>
                 <td class="py-2 px-3 text-center">
-                    <button onclick="window.pokedex.catchPokemon(\${p.id})" class="px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-sm transition \${isCaught ? 'bg-os-border/40 text-os-muted hover:border-os-red hover:text-os-red' : 'bg-os-blue text-white hover:bg-blue-600 shadow-[0_0_8px_rgba(59,130,246,0.4)]'}">
-                        \${isCaught ? 'Liberar' : 'Capturar'}
+                    <button onclick="window.pokedex.catchPokemon(${p.id})" class="px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-sm transition ${isCaught ? 'bg-os-border/40 text-os-muted hover:border-os-red hover:text-os-red' : 'bg-os-blue text-white hover:bg-blue-600 shadow-[0_0_8px_rgba(59,130,246,0.4)]'}">
+                        ${isCaught ? 'Liberar' : 'Capturar'}
                     </button>
                 </td>
             </tr>
-        \`;
+        `;
     });
 
-    htmlStr += \`
+    htmlStr += `
                     </tbody>
                 </table>
             </div>
 
-            <!-- Barra de Paginación Inferior -->
+            <!-- Barra de PaginaciÃ³n Inferior -->
             <div class="bg-os-bg/90 border-t border-os-border px-4 py-3 flex items-center justify-between text-xs font-mono">
-                <span class="text-os-muted">Página <strong>\${dexCurrentPage}</strong> de <strong>\${totalPages}</strong></span>
+                <span class="text-os-muted">PÃ¡gina <strong>${dexCurrentPage}</strong> de <strong>${totalPages}</strong></span>
                 <div class="flex items-center gap-2">
-                    <button onclick="window.pokedex.changeDexPage(-1)" \${dexCurrentPage === 1 ? 'disabled class="px-3 py-1 bg-os-panel text-os-muted/40 border border-os-border cursor-not-allowed rounded-sm"' : 'class="px-3 py-1 bg-os-panel text-os-text border border-os-border hover:border-os-blue hover:text-os-blue transition rounded-sm"'}>◀ Anterior</button>
-                    <button onclick="window.pokedex.changeDexPage(1)" \${dexCurrentPage >= totalPages ? 'disabled class="px-3 py-1 bg-os-panel text-os-muted/40 border border-os-border cursor-not-allowed rounded-sm"' : 'class="px-3 py-1 bg-os-panel text-os-text border border-os-border hover:border-os-blue hover:text-os-blue transition rounded-sm"'}>Siguiente ▶</button>
+                    <button onclick="window.pokedex.changeDexPage(-1)" ${dexCurrentPage === 1 ? 'disabled class="px-3 py-1 bg-os-panel text-os-muted/40 border border-os-border cursor-not-allowed rounded-sm"' : 'class="px-3 py-1 bg-os-panel text-os-text border border-os-border hover:border-os-blue hover:text-os-blue transition rounded-sm"'}>â—€ Anterior</button>
+                    <button onclick="window.pokedex.changeDexPage(1)" ${dexCurrentPage >= totalPages ? 'disabled class="px-3 py-1 bg-os-panel text-os-muted/40 border border-os-border cursor-not-allowed rounded-sm"' : 'class="px-3 py-1 bg-os-panel text-os-text border border-os-border hover:border-os-blue hover:text-os-blue transition rounded-sm"'}>Siguiente â–¶</button>
                 </div>
             </div>
         </div>
-    \`;
+    `;
 
     resultsDiv.innerHTML = htmlStr;
 }
@@ -660,7 +660,7 @@ export function catchPokemon(id) {
 }
 
 export function promptSuggestion(pokemonId, pokemonName) {
-    const reason = prompt(\`Sugerir corrección para \${pokemonName}\\n\\nExplica brevemente qué está mal (ej. 'La ruta es la 5, no la 6' o 'Aparece haciendo Surf'):\`);
+    const reason = prompt(`Sugerir correcciÃ³n para ${pokemonName}\\n\\nExplica brevemente quÃ© estÃ¡ mal (ej. 'La ruta es la 5, no la 6' o 'Aparece haciendo Surf'):`);
     if (reason && reason.trim()) {
         submitSuggestion(pokemonId, 'location', 'current', 'suggested', reason.trim());
     }
@@ -670,14 +670,14 @@ export async function submitSuggestion(pokemonId, field, currentValue, suggested
     if (typeof updateSuggestion === 'function') {
         try {
             await updateSuggestion(pokemonId, field, currentValue, suggestedValue, reason);
-            alert("¡Sugerencia enviada! Gracias por ayudar a mejorar la Pokédex.");
+            alert("Â¡Sugerencia enviada! Gracias por ayudar a mejorar la PokÃ©dex.");
         } catch (e) {
             console.error(e);
             alert("Hubo un error enviando la sugerencia.");
         }
     } else {
         console.warn("updateSuggestion not found in db.js");
-        alert("¡Sugerencia enviada! Gracias por ayudar a mejorar la Pokédex.");
+        alert("Â¡Sugerencia enviada! Gracias por ayudar a mejorar la PokÃ©dex.");
     }
 }
 
@@ -694,3 +694,4 @@ window.pokedex = {
     copyCaughtListText,
     promptSuggestion
 };
+
