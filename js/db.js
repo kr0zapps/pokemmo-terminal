@@ -42,8 +42,7 @@ export async function getCrops() {
     waterCount: row.water_count,
     watered: row.water_count > 0,
     wateredAt: row.last_watered_at ? new Date(row.last_watered_at).getTime() : null,
-    // Add fake initialDryHours since it's cached in frontend, frontend will just rely on dbInfo later if missing
-    initialDryHours: 2 // placeholder, berries.js uses dbInfo to override if needed
+    initialDryHours: 2
   }));
 }
 
@@ -82,27 +81,6 @@ export async function updateCrop(id, updateData) {
   if (updateData.wateredAt !== undefined) dbData.last_watered_at = updateData.wateredAt ? new Date(updateData.wateredAt).toISOString() : null;
 
   const { data, error } = await supabase.from('berry_crops').update(dbData).eq('id', id).select();
-  if (error) throw error;
-  return data[0];
-}
-
-export async function getCrops() {
-  const { data, error } = await supabase.from('berry_crops').select('*');
-  if (error) throw error;
-  return data;
-}
-
-export async function addCrop(crop) {
-  const { data: { session } } = await supabase.auth.getSession();
-  if (!session) throw new Error('No session');
-  crop.user_id = session.user.id;
-  const { data, error } = await supabase.from('berry_crops').insert([crop]).select();
-  if (error) throw error;
-  return data[0];
-}
-
-export async function updateCrop(id, updateData) {
-  const { data, error } = await supabase.from('berry_crops').update(updateData).eq('id', id).select();
   if (error) throw error;
   return data[0];
 }
@@ -146,8 +124,14 @@ export async function getPreferences() {
 export async function savePreferences(prefs) {
   const { data: { session } } = await supabase.auth.getSession();
   if (!session) throw new Error('No session');
-  prefs.user_id = session.user.id;
-  const { data, error } = await supabase.from('user_preferences').upsert(prefs).select();
+  
+  const cleanPrefs = { user_id: session.user.id };
+  const allowed = ['active_tab', 'dex_region', 'dex_filters', 'amulet_coin_enabled', 'breeding_config'];
+  for (const k of allowed) {
+    if (prefs[k] !== undefined) cleanPrefs[k] = prefs[k];
+  }
+  
+  const { data, error } = await supabase.from('user_preferences').upsert(cleanPrefs).select();
   if (error) throw error;
   return data[0];
 }
@@ -167,9 +151,3 @@ export async function getMySuggestions() {
   if (error) throw error;
   return data;
 }
-
-
-
-
-
-
