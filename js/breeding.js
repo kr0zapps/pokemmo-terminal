@@ -12,6 +12,20 @@ const breedingViewHTML = `
         <!-- Controles -->
         <div class="lg:col-span-1 space-y-6">
             <div class="panel p-5 border border-os-border rounded-md bg-os-bg shadow-lg">
+                
+                <div class="mb-4 border-b border-os-border/50 pb-4">
+                    <label class="block text-xs font-mono text-os-muted mb-2">Pokémon Objetivo (Opcional):</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="breeding-target" list="pokedex-list-breeding" class="w-full bg-os-bg border border-os-border text-sm p-2 rounded text-os-text focus:border-os-blue outline-none" placeholder="Ej. Garchomp" onchange="fetchPokemonData()">
+                        <button onclick="fetchPokemonData()" class="px-3 bg-os-border hover:bg-os-blue text-os-text rounded">🔍</button>
+                    </div>
+                    <div id="target-info" class="text-xs text-os-muted mt-2 hidden flex flex-col gap-1">
+                        <div>Grupos Huevo: <span id="target-egg-group" class="text-white font-bold"></span></div>
+                        <div>Costo Género: <span id="target-gender-cost" class="text-amber-400 font-bold"></span> por cruce</div>
+                    </div>
+                </div>
+                <datalist id="pokedex-list-breeding"></datalist>
+
                 <h2 class="text-sm font-bold text-os-text mb-4 uppercase tracking-wider border-b border-os-border/50 pb-2">Selección de IVs a 31</h2>
                 
                 <div class="grid grid-cols-2 gap-3 mb-4">
@@ -222,9 +236,165 @@ async function generateBreedingTree() {
         `;
     }
 
-    const totalCost = costBracers + (everstones * 5000);
+    // Calcular costo de género estimado. 
+    // En PokeMMO, normalmente pagas género en casi todos los cruces excepto en el final (si no te importa el género final).
+    // Una estimación segura es pagar género por cada criador base menos 1, o más o menos la cantidad total de cruces menos 1.
+    // Número total de nodos de cruce = cantidad de bracers / 2 (aprox) o simplemente (breeders - 1).
+    let totalBaseBreeders = Object.values(breeders).reduce((a,b)=>a+b, 0);
+    let totalBreedingSteps = totalBaseBreeders - 1;
+    let genderSelections = Math.max(0, totalBreedingSteps - 1); 
+    
+    let totalGenderCost = currentGenderCost * genderSelections;
+    
+    if (currentGenderCost > 0) {
+        htmlList += `
+            <div class="flex justify-between border-b border-amber-900/50 pb-2 mt-4">
+                <span class="text-amber-400">${genderSelections}x Selección de Género (${(currentGenderCost/1000)}k)</span>
+                <span class="text-amber-300">~${(totalGenderCost/1000).toLocaleString()}k</span>
+            </div>
+        `;
+    }
+
+    const totalCost = costBracers + (everstones * 5000) + totalGenderCost;
     listContainer.innerHTML = htmlList;
-    document.getElementById('cost-total-pokeyen').innerText = '$' + totalCost.toLocaleString();
+    document.getElementById('cost-total-pokeyen').innerText = '
+    // ==========================================
+    // RENDERIZAR GRÁFICO MERMAID
+    // ==========================================
+    let mGraph = 'graph TD\n';
+    
+    // Para simplificar la visualización y no colgar el navegador con 64 nodos, 
+    // mostraremos un gráfico resumen de los cruces maestros si es mayor a 3 IVs
+    const label = useNature ? `${targetStats.length}x31 + Nat` : `${targetStats.length}x31`;
+    
+    if (targetStats.length <= 3) {
+        // Árbol completo para 2x y 3x
+        if (targetStats.length === 2) {
+            if(useNature) {
+                mGraph += `A["Naturaleza\n(Piedraeterna)"] --> C["2x31 + Nat"]\n`;
+                mGraph += `B["1x31 ${targetStats[0]}\n(${BRACER_NAMES[targetStats[0]]})"] --> C\n`;
+            } else {
+                mGraph += `A["1x31 ${targetStats[0]}\n(${BRACER_NAMES[targetStats[0]]})"] --> C["2x31"]\n`;
+                mGraph += `B["1x31 ${targetStats[1]}\n(${BRACER_NAMES[targetStats[1]]})"] --> C\n`;
+            }
+        } else {
+            // 3x31
+            if(useNature) {
+                mGraph += `A["1x31 ${targetStats[0]}<br/>+ Naturaleza"] --> |"${BRACER_NAMES[targetStats[0]]} + Piedra"| D["2x31 + Nat"]\n`;
+                mGraph += `B["1x31 ${targetStats[1]}"] --> D\n`;
+                mGraph += `C["2x31 (${targetStats[1]}, ${targetStats[2]})"] --> |"2 Brazales"| E["3x31"]\n`;
+                mGraph += `D --> |"${BRACER_NAMES[targetStats[1]]} + Piedra"| E\n`;
+            } else {
+                mGraph += `A["2x31 (${targetStats[0]}, ${targetStats[1]})"] --> |"Brazales ${targetStats[0]}+${targetStats[1]}"| C["3x31"]\n`;
+                mGraph += `B["2x31 (${targetStats[1]}, ${targetStats[2]})"] --> |"Brazales ${targetStats[1]}+${targetStats[2]}"| C\n`;
+            }
+        }
+    } else {
+        // Resumen para árboles gigantes (4x31, 5x31, 6x31)
+        mGraph += `Master["Meta:<br/>${label}"]\nstyle Master fill:#1e3a8a,stroke:#3b82f6,stroke-width:4px\n`;
+        
+        let p1Label = `Padre:<br/>${targetStats.length-1}x31${useNature ? ' + Nat' : ''}`;
+        let p2Label = `Madre:<br/>${targetStats.length-1}x31`;
+        
+        let item1 = useNature ? 'Piedraeterna' : BRACER_NAMES[targetStats[targetStats.length-2]];
+        let item2 = BRACER_NAMES[targetStats[targetStats.length-1]];
+
+        mGraph += `P1["${p1Label}"] --> |"${item1}"| Master\n`;
+        mGraph += `P2["${p2Label}"] --> |"${item2}"| Master\n`;
+        
+        mGraph += `GP1["Rama:<br/>${targetStats.length-2}x31"] -.-> P1\n`;
+        mGraph += `GP2["Rama:<br/>${targetStats.length-2}x31"] -.-> P2\n`;
+    }
+
+    try {
+        const { svg } = await mermaid.render('breeding-mermaid-svg', mGraph);
+        container.innerHTML = svg;
+    } catch (e) {
+        console.error('Mermaid render error:', e);
+        container.innerHTML = `<div class="text-red-400 p-4 bg-red-900/30 rounded border border-red-500">Error renderizando el diagrama.</div>`;
+    }
+}
+
+// Ejecutar una vez al cargar si la pestaña está activa o después de un delay
+setTimeout(generateBreedingTree, 800);
+
+// ==========================================
+// LÓGICA DE POKEMON Y GÉNERO
+// ==========================================
+let currentGenderCost = 0;
+let estimatedGenderSelections = 0;
+
+async function fetchPokemonData() {
+    const input = document.getElementById('breeding-target').value.trim().toLowerCase();
+    if (!input) return;
+
+    const infoDiv = document.getElementById('target-info');
+    const eggGroupSpan = document.getElementById('target-egg-group');
+    const genderCostSpan = document.getElementById('target-gender-cost');
+
+    eggGroupSpan.innerText = 'Cargando...';
+    infoDiv.classList.remove('hidden');
+
+    try {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${input}`);
+        if (!res.ok) throw new Error('No encontrado');
+        const data = await res.json();
+        
+        // Extraer grupos huevo
+        const eggGroups = data.egg_groups.map(eg => eg.name).join(', ');
+        
+        // Extraer costo de género
+        // gender_rate en PokeAPI es la probabilidad de ser hembra en octavos (0 a 8). -1 es sin género.
+        let cost = 0;
+        let rate = data.gender_rate;
+        let costText = "";
+
+        if (rate === -1) {
+            cost = 0;
+            costText = "Sin género (Requiere Ditto)";
+        } else if (rate === 4) {
+            cost = 5000;
+            costText = "5,000¥ (50% M/H)";
+        } else if (rate === 2 || rate === 6) {
+            cost = 9000;
+            costText = "9,000¥ (25% / 75%)";
+        } else if (rate === 1 || rate === 7) {
+            cost = 21000;
+            costText = "21,000¥ (12.5% / 87.5%)";
+        } else if (rate === 0 || rate === 8) {
+            cost = 0;
+            costText = "100% un género (Usa el otro género del grupo huevo)";
+        } else {
+            cost = 5000;
+            costText = "5,000¥";
+        }
+
+        currentGenderCost = cost;
+        
+        eggGroupSpan.innerText = eggGroups.toUpperCase();
+        genderCostSpan.innerText = costText;
+
+        // Actualizar el árbol para reflejar el nuevo costo total
+        generateBreedingTree();
+    } catch (e) {
+        eggGroupSpan.innerText = 'Error / Nombre no válido';
+        genderCostSpan.innerText = '-';
+        currentGenderCost = 0;
+    }
+}
+
+// Cargar datalist de Pokémon al iniciar
+setTimeout(() => {
+    try {
+        let db = JSON.parse(localStorage.getItem('pokemmo_custom_db')) || [];
+        if(db.length > 0) {
+            const datalist = document.getElementById('pokedex-list-breeding');
+            let uniqueNames = [...new Set(db.map(p => p.name))];
+            datalist.innerHTML = uniqueNames.map(n => `<option value="${n}">`).join('');
+        }
+    } catch(e) {}
+}, 2000);
+ + totalCost.toLocaleString();
 
     // ==========================================
     // RENDERIZAR GRÁFICO MERMAID
@@ -285,3 +455,80 @@ async function generateBreedingTree() {
 
 // Ejecutar una vez al cargar si la pestaña está activa o después de un delay
 setTimeout(generateBreedingTree, 800);
+
+// ==========================================
+// LÓGICA DE POKEMON Y GÉNERO
+// ==========================================
+let currentGenderCost = 0;
+let estimatedGenderSelections = 0;
+
+async function fetchPokemonData() {
+    const input = document.getElementById('breeding-target').value.trim().toLowerCase();
+    if (!input) return;
+
+    const infoDiv = document.getElementById('target-info');
+    const eggGroupSpan = document.getElementById('target-egg-group');
+    const genderCostSpan = document.getElementById('target-gender-cost');
+
+    eggGroupSpan.innerText = 'Cargando...';
+    infoDiv.classList.remove('hidden');
+
+    try {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${input}`);
+        if (!res.ok) throw new Error('No encontrado');
+        const data = await res.json();
+        
+        // Extraer grupos huevo
+        const eggGroups = data.egg_groups.map(eg => eg.name).join(', ');
+        
+        // Extraer costo de género
+        // gender_rate en PokeAPI es la probabilidad de ser hembra en octavos (0 a 8). -1 es sin género.
+        let cost = 0;
+        let rate = data.gender_rate;
+        let costText = "";
+
+        if (rate === -1) {
+            cost = 0;
+            costText = "Sin género (Requiere Ditto)";
+        } else if (rate === 4) {
+            cost = 5000;
+            costText = "5,000¥ (50% M/H)";
+        } else if (rate === 2 || rate === 6) {
+            cost = 9000;
+            costText = "9,000¥ (25% / 75%)";
+        } else if (rate === 1 || rate === 7) {
+            cost = 21000;
+            costText = "21,000¥ (12.5% / 87.5%)";
+        } else if (rate === 0 || rate === 8) {
+            cost = 0;
+            costText = "100% un género (Usa el otro género del grupo huevo)";
+        } else {
+            cost = 5000;
+            costText = "5,000¥";
+        }
+
+        currentGenderCost = cost;
+        
+        eggGroupSpan.innerText = eggGroups.toUpperCase();
+        genderCostSpan.innerText = costText;
+
+        // Actualizar el árbol para reflejar el nuevo costo total
+        generateBreedingTree();
+    } catch (e) {
+        eggGroupSpan.innerText = 'Error / Nombre no válido';
+        genderCostSpan.innerText = '-';
+        currentGenderCost = 0;
+    }
+}
+
+// Cargar datalist de Pokémon al iniciar
+setTimeout(() => {
+    try {
+        let db = JSON.parse(localStorage.getItem('pokemmo_custom_db')) || [];
+        if(db.length > 0) {
+            const datalist = document.getElementById('pokedex-list-breeding');
+            let uniqueNames = [...new Set(db.map(p => p.name))];
+            datalist.innerHTML = uniqueNames.map(n => `<option value="${n}">`).join('');
+        }
+    } catch(e) {}
+}, 2000);
