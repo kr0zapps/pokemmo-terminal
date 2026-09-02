@@ -32,9 +32,33 @@ export async function resetAllGyms() {
 
 // --- Berry ---
 export async function getCrops() {
-  const { data, error } = await supabase.from('berry_crops').select('*');
+  const { data, error } = await supabase.from('berry_crops').select('*').order('created_at', { ascending: true });
   if (error) throw error;
-  return data.map(row => ({
+
+  // Deduplicate duplicate ghost crops created by repeated migration loops
+  const seen = new Set();
+  const uniqueRows = [];
+  const duplicateIds = [];
+
+  for (const row of (data || [])) {
+    const plantMinute = Math.floor(new Date(row.planted_at).getTime() / 60000);
+    const key = `${row.berry_type}_${row.location || ''}_${plantMinute}`;
+    if (!seen.has(key)) {
+      seen.add(key);
+      uniqueRows.push(row);
+    } else {
+      duplicateIds.push(row.id);
+    }
+  }
+
+  // Purge duplicate rows from Supabase in the background
+  if (duplicateIds.length > 0) {
+    supabase.from('berry_crops').delete().in('id', duplicateIds).then(() => {
+      console.log(`Cleaned up ${duplicateIds.length} duplicate crops from Supabase`);
+    }).catch(e => console.warn('Could not purge duplicates:', e));
+  }
+
+  return uniqueRows.map(row => ({
     id: row.id,
     type: row.berry_type,
     location: row.location,

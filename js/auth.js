@@ -31,54 +31,72 @@ export async function migrateLocalStorage() {
   const migrated = localStorage.getItem('pokemmo_migrated');
   if (migrated === 'true') return;
 
+  // Mark as true immediately to prevent parallel execution or loops on page refresh
+  localStorage.setItem('pokemmo_migrated', 'true');
+
   try {
-    // Migrate preferences
-    const prefs = {
-      active_tab: localStorage.getItem('pokemmo_active_tab') || 'gyms',
-      dex_region: 'Kanto'
-    };
-    const savedPrefs = localStorage.getItem('pokemmo_dex_prefs');
-    if (savedPrefs) {
-      try { Object.assign(prefs, JSON.parse(savedPrefs)); } catch(e) {}
-    }
-    await savePreferences(prefs);
-
-    // Migrate caught pokemon
-    const dexCaught = localStorage.getItem('pokemmo_dex_caught');
-    if (dexCaught) {
-      const caughtList = JSON.parse(dexCaught);
-      for (const pid of caughtList) {
-        await catchPokemon(pid).catch(() => {}); // ignore duplicates
+    // 1. Migrate preferences
+    try {
+      const prefs = {
+        active_tab: localStorage.getItem('pokemmo_active_tab') || 'gyms',
+        dex_region: 'Kanto'
+      };
+      const savedPrefs = localStorage.getItem('pokemmo_dex_prefs');
+      if (savedPrefs) {
+        try { Object.assign(prefs, JSON.parse(savedPrefs)); } catch(e) {}
       }
+      await savePreferences(prefs);
+    } catch(e) {
+      console.warn('Preferences migration error:', e);
     }
 
-    // Migrate crops
-    const crops = localStorage.getItem('pokemmo_crops');
-    if (crops) {
-      const cropsList = JSON.parse(crops);
-      for (const c of cropsList) {
-        await addCrop({
-          type: c.type || 'Unknown',
-          location: c.location || 'Unknown',
-          plantedAt: c.plantedAt ? new Date(c.plantedAt).toISOString() : new Date().toISOString(),
-          waterCount: c.waterCount || 0,
-          wateredAt: c.lastWateredAt ? new Date(c.lastWateredAt).toISOString() : null,
-          harvested: c.harvested || false
-        });
+    // 2. Migrate caught pokemon
+    try {
+      const dexCaught = localStorage.getItem('pokemmo_dex_caught');
+      if (dexCaught) {
+        const caughtList = JSON.parse(dexCaught);
+        for (const pid of caughtList) {
+          await catchPokemon(pid).catch(() => {});
+        }
       }
+    } catch(e) {
+      console.warn('Caught pokemon migration error:', e);
     }
 
-    // Migrate gyms
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key && key.startsWith('gym-')) {
-        const gymId = key.substring(4);
-        const completed = localStorage.getItem(key) === 'true';
-        await toggleGym(gymId, completed);
+    // 3. Migrate crops - clear local cache immediately to prevent duplicates
+    try {
+      const crops = localStorage.getItem('pokemmo_crops');
+      localStorage.removeItem('pokemmo_crops');
+      if (crops) {
+        const cropsList = JSON.parse(crops);
+        for (const c of cropsList) {
+          await addCrop({
+            type: c.type || 'Unknown',
+            location: c.location || 'Unknown',
+            plantedAt: c.plantedAt ? new Date(c.plantedAt).toISOString() : new Date().toISOString(),
+            waterCount: c.waterCount || 0,
+            wateredAt: c.lastWateredAt ? new Date(c.lastWateredAt).toISOString() : null,
+            harvested: c.harvested || false
+          }).catch(() => {});
+        }
       }
+    } catch(e) {
+      console.warn('Crops migration error:', e);
     }
 
-    localStorage.setItem('pokemmo_migrated', 'true');
+    // 4. Migrate gyms
+    try {
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && key.startsWith('gym-')) {
+          const gymId = key.substring(4);
+          const completed = localStorage.getItem(key) === 'true';
+          await toggleGym(gymId, completed).catch(() => {});
+        }
+      }
+    } catch(e) {
+      console.warn('Gyms migration error:', e);
+    }
   } catch (err) {
     console.error('Error during migration:', err);
   }

@@ -453,8 +453,10 @@ export async function plantBerry() {
     const elapsedMs = elapsedHours * 60 * 60 * 1000;
     const simulatedPlantTime = Date.now() - elapsedMs;
 
+    const cropId = (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : Date.now().toString();
+
     const newCrop = { 
-        id: Date.now().toString(), // Ensure string if DB expects uuid, or keep as number if preferred. Let's use Date.now() 
+        id: cropId, 
         type: type, 
         location: location, 
         initialDryHours: initialDryHours,
@@ -465,10 +467,14 @@ export async function plantBerry() {
 
     const currentCrops = state.crops || [];
     currentCrops.push(newCrop);
-    setState('crops', currentCrops); // This will trigger UI update
+    setState('crops', [...currentCrops]);
     
     try {
-        await addCrop(newCrop);
+        const saved = await addCrop(newCrop);
+        if (saved && saved.id) {
+            newCrop.id = saved.id;
+            saveCropsToLocal();
+        }
     } catch (e) {
         console.error("Failed to sync crop with DB", e);
     }

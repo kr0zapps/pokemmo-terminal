@@ -14,9 +14,16 @@ window.switchTab = switchTab;
 window.logout = logout;
 Object.assign(window, gyms, berries, pokedex);
 
+let isAppInitialized = false;
+let isAppInitializing = false;
+
 async function initApp() {
-    await migrateLocalStorage();
-    await loadInitialState();
+    if (isAppInitializing || isAppInitialized) return;
+    isAppInitializing = true;
+
+    try {
+        await migrateLocalStorage();
+        await loadInitialState();
 
     const main = document.getElementById('app-main');
     
@@ -58,6 +65,10 @@ async function initApp() {
 
     // Update Header
     updateHeaderAuth();
+    isAppInitialized = true;
+  } finally {
+    isAppInitializing = false;
+  }
 }
 
 async function updateHeaderAuth() {
@@ -98,7 +109,7 @@ async function main() {
 
     onAuthStateChange((event, session) => {
         if (event === 'SIGNED_IN') {
-            initApp();
+            if (!isAppInitialized) initApp();
         } else if (event === 'SIGNED_OUT') {
             const main = document.getElementById('app-main');
             if (main) main.innerHTML = '';
