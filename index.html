@@ -19,13 +19,15 @@
     <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
+            darkMode: "class",
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Rubik"', '"Space Grotesk"', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', '"Space Mono"', 'monospace'],
-                        grotesk: ['"Space Grotesk"', 'sans-serif'],
-                        spacemono: ['"Space Mono"', 'monospace'],
+                        sans: ['"IBM Plex Sans"', 'sans-serif'],
+                        tech: ['"Space Grotesk"', 'sans-serif'],
+                        mono: ['"Space Mono"', 'monospace'],
+                        lcd: ['"VT323"', 'monospace'],
+                        pixel: ['"Press Start 2P"', 'monospace'],
                         pokemon: ['"Pokemon Solid"', 'sans-serif'],
                     },
                     colors: {
@@ -36,25 +38,25 @@
                             amber: '#755B00',
                             lcdbg: '#9BBC0F',
                             lcdfg: '#0F380F',
-                            green: '#526600',
+                            green: '#1B5E20',
                             red: '#E63946',
-                            muted: '#81765F',
+                            muted: '#5F5A4D',
                             text: '#1C1C17'
                         },
                         os: {
-                            bg: '#0C0E14',
-                            panel: '#151921',
-                            surface: '#151921',
-                            elevated: '#1C222E',
-                            border: '#232A38',
-                            'border-subtle': '#1A202C',
-                            'border-strong': '#323D4E',
-                            red: '#E04848',
-                            green: '#10B981',
-                            blue: '#38BDF8',
-                            gold: '#F59E0B',
-                            text: '#F1F5F9',
-                            muted: '#8592A6'
+                            bg: '#F4F1E8',
+                            panel: '#FAF8F2',
+                            surface: '#EDE8DC',
+                            elevated: '#E4DFD0',
+                            border: '#2B2B2B',
+                            'border-subtle': '#D8D4C7',
+                            'border-strong': '#181816',
+                            red: '#E63946',
+                            green: '#1B5E20',
+                            blue: '#2563EB',
+                            gold: '#755B00',
+                            text: '#1C1C17',
+                            muted: '#5F5A4D'
                         }
                     }
                 }
@@ -65,21 +67,21 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-[#242422] font-sans text-[#1C1C17] antialiased min-h-screen p-2 sm:p-4 md:p-6 lg:p-8 flex justify-center selection:bg-[#FFC800] selection:text-black">
+<body class="bg-[#242422] dark:bg-[#0F0F0D] font-sans text-[#1C1C17] dark:text-[#F4F1E8] antialiased min-h-screen p-2 sm:p-4 md:p-6 lg:p-8 flex justify-center selection:bg-[#FFC800] selection:text-black transition-colors">
 
     <!-- OVERALL ROTOM PHONE CONSOLE UNIT (Molded Outer Chassis) -->
     <div class="w-full max-w-[1420px] flex flex-col items-center">
 
-        <!-- 1. PHYSICAL PLASTIC FOLDER/ORGANIZER TABS -->
+        <!-- 1. PESTAÑAS FÍSICAS DE CARPETA (100% ESPAÑOL) -->
         <div class="w-full flex items-end justify-between px-3 md:px-8 gap-1.5 md:gap-3 z-30 select-none overflow-x-auto no-scrollbar">
             <div class="flex items-end gap-1.5 md:gap-2.5">
                 <button id="nav-gyms" onclick="switchTab('gyms')" class="tab-notch">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/vs-seeker.png" alt="" class="w-4 h-4 pokemon-sprite">
-                    <span>TERMINAL // GYMS</span>
+                    <span>TERMINAL // GIMNASIOS</span>
                 </button>
                 <button id="nav-berries" onclick="switchTab('berries')" class="tab-notch">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/wailmer-pail.png" alt="" class="w-4 h-4 pokemon-sprite">
-                    <span>HYDRO-POD // BAYAS</span>
+                    <span>HIDRO-POD // BAYAS</span>
                 </button>
                 <button id="nav-pokedex" onclick="switchTab('pokedex')" class="tab-notch">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/town-map.png" alt="" class="w-4 h-4 pokemon-sprite">
@@ -90,23 +92,23 @@
                     <span>GENÉTICA // CRIANZA</span>
                 </button>
             </div>
-            <!-- Telemetry Indicator in Chassis Bezel -->
-            <div class="hidden sm:flex items-center gap-2 font-mono text-[10px] text-[#A8A495] pb-2 font-bold tracking-wider">
-                <div class="flex items-center gap-1.5 bg-[#181816] px-2.5 py-1 rounded border border-[#333]">
-                    <span class="w-2 h-2 rounded-full bg-[#526600] animate-ping"></span>
-                    <span>ROTOM-COMM · NDS-LINK</span>
+            <!-- Indicador de Telemetría en el Bisel -->
+            <div class="hidden sm:flex items-center gap-2 font-mono text-[10px] text-[#81765F] dark:text-[#A8A495] pb-2 font-bold tracking-wider">
+                <div class="flex items-center gap-1.5 bg-[#181816] dark:bg-[#0A0A08] px-2.5 py-1 rounded border border-[#333] dark:border-[#222]">
+                    <span class="w-2 h-2 rounded-full bg-[#1B5E20] dark:bg-[#C3F400] animate-ping"></span>
+                    <span class="text-[#FAF8F2]">COM-ROTOM · ENLACE-NDS</span>
                 </div>
             </div>
         </div>
 
-        <!-- MAIN ROTOM HARDWARE BODY -->
-        <div class="w-full bg-[#F4F1E8] border-[4px] md:border-[5px] border-[#2B2B2B] rounded-t-[28px] rounded-b-[20px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.85),inset_0_3px_0_rgba(255,255,255,0.9)] relative overflow-hidden flex flex-col">
+        <!-- CHASIS DE HARDWARE ROTOM -->
+        <div class="w-full bg-[#F4F1E8] dark:bg-[#1A1A16] border-[4px] md:border-[5px] border-[#2B2B2B] dark:border-[#3A3A34] rounded-t-[28px] rounded-b-[20px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.85),inset_0_3px_0_rgba(255,255,255,0.9)] relative overflow-hidden flex flex-col transition-colors">
             
-            <!-- 2. TOP CURVED BEZEL WITH ROTOM OCULAR EYE BADGE -->
-            <header class="relative w-full bg-[#E5E0D0] border-b-[3px] border-[#2B2B2B] px-4 md:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
+            <!-- 2. BISEL CURVADO SUPERIOR CON OJO OCULAR ROTOM -->
+            <header class="relative w-full bg-[#E5E0D0] dark:bg-[#22221D] border-b-[3px] border-[#2B2B2B] dark:border-[#3A3A34] px-4 md:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4 transition-colors">
                 <div class="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-black/10 pointer-events-none"></div>
                 
-                <!-- LEFT: ROTOM EYE BADGE & BRAND TITLE -->
+                <!-- IZQUIERDA: BADGE DE OJO ROTOM & TÍTULO -->
                 <div class="flex items-center gap-3 sm:gap-4 z-10">
                     <div class="relative rotom-polygon bg-[#FFC800] border-2 border-[#2B2B2B] px-4 sm:px-5 py-2 flex items-center gap-2.5 shadow-[2px_3px_0px_#2B2B2B]">
                         <div class="relative w-6 h-6 rounded-full bg-white border-2 border-[#2B2B2B] flex items-center justify-center overflow-hidden">
@@ -117,66 +119,75 @@
                         <div class="flex flex-col">
                             <div class="flex items-baseline gap-1.5">
                                 <span class="font-pokemon text-lg sm:text-xl tracking-wider text-[#FFCC00]">PokéMMO</span>
-                                <span class="font-['Space_Grotesk'] font-black text-sm tracking-wider text-[#241A00]">ROTOM COMM</span>
+                                <span class="font-['Space_Grotesk'] font-black text-sm tracking-wider text-[#241A00]">COM-ROTOM</span>
                             </div>
-                            <span class="font-mono text-[9px] text-[#594400] font-bold tracking-normal">Tactical cockpit v4.9</span>
+                            <span class="font-mono text-[9px] text-[#594400] font-bold tracking-normal">Cabina táctica v4.9</span>
                         </div>
                     </div>
                     
-                    <!-- Trainer Callsign & Silph Link Container (auth-area) -->
+                    <!-- Contenedor ID Entrenador & Enlace Silph (auth-area) -->
                     <div id="auth-area" class="flex items-center gap-2">
-                        <!-- Injected by app.js: user display or guest sync button -->
+                        <!-- Inyectado por app.js -->
                     </div>
                 </div>
 
-                <!-- RIGHT: ONLINE TELEMETRY & SYSTEM HARDWARE STATUS -->
+                <!-- DERECHA: TELEMETRÍA EN TIEMPO REAL & MODO OSCURO -->
                 <div class="flex items-center gap-2.5 sm:gap-4 z-10">
+                    <!-- Selector de Modo Claro / Oscuro -->
+                    <button id="themeToggleBtn" onclick="toggleTheme()" class="flex items-center gap-1.5 bg-[#D8D3C3] dark:bg-[#33332D] border border-[#2B2B2B] dark:border-[#4A4A42] px-2.5 py-1.5 rounded cursor-pointer hover:border-[#FFC800] transition" title="Alternar modo claro / oscuro" type="button">
+                        <svg id="themeIconSun" class="w-3.5 h-3.5 text-[#FFC800] hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                        <svg id="themeIconMoon" class="w-3.5 h-3.5 text-[#5F5A4D] dark:text-[#F4F1E8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                        <span id="themeToggleText" class="font-mono text-[10px] font-bold text-[#1C1C17] dark:text-[#F4F1E8]">Modo</span>
+                    </button>
+
+                    <!-- Estado de Conexión -->
                     <div class="flex items-center gap-2 bg-[#2B2B2B] text-white px-3 py-1.5 rounded-sm shadow-inner">
                         <span class="w-2.5 h-2.5 rounded-full bg-[#9BBC0F] animate-pulse"></span>
-                        <span class="font-mono text-xs font-bold tracking-wider text-[#9BBC0F]">ONLINE // 24ms PING</span>
+                        <span class="font-mono text-xs font-bold tracking-wider text-[#9BBC0F]">EN LÍNEA // PING 24ms</span>
                     </div>
-                    <!-- Battery Gauge -->
-                    <div class="hidden sm:flex items-center gap-1.5 bg-[#D8D3C3] border border-[#2B2B2B] px-2.5 py-1.5 rounded">
-                        <svg class="w-4 h-4 text-[#2B2B2B]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+
+                    <!-- Batería de Hardware -->
+                    <div class="hidden sm:flex items-center gap-1.5 bg-[#D8D3C3] dark:bg-[#33332D] border border-[#2B2B2B] dark:border-[#4A4A42] px-2.5 py-1.5 rounded">
+                        <svg class="w-4 h-4 text-[#2B2B2B] dark:text-[#F4F1E8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                         <div class="flex gap-0.5">
-                            <div class="w-2 h-3.5 bg-[#526600] rounded-[1px]"></div>
-                            <div class="w-2 h-3.5 bg-[#526600] rounded-[1px]"></div>
-                            <div class="w-2 h-3.5 bg-[#526600] rounded-[1px]"></div>
-                            <div class="w-2 h-3.5 bg-[#526600] rounded-[1px]"></div>
+                            <div class="w-2 h-3.5 bg-[#1B5E20] dark:bg-[#C3F400] rounded-[1px]"></div>
+                            <div class="w-2 h-3.5 bg-[#1B5E20] dark:bg-[#C3F400] rounded-[1px]"></div>
+                            <div class="w-2 h-3.5 bg-[#1B5E20] dark:bg-[#C3F400] rounded-[1px]"></div>
+                            <div class="w-2 h-3.5 bg-[#1B5E20] dark:bg-[#C3F400] rounded-[1px]"></div>
                             <div class="w-2 h-3.5 bg-[#A8A495] rounded-[1px]"></div>
                         </div>
-                        <span class="font-mono text-[11px] font-bold text-[#2B2B2B] ml-1">94%</span>
+                        <span class="font-mono text-[11px] font-bold text-[#2B2B2B] dark:text-[#F4F1E8] ml-1">94%</span>
                     </div>
                 </div>
             </header>
 
-            <!-- 3. INTERNAL COCKPIT BOARD (MAIN APP INJECTION) -->
+            <!-- 3. TABLERO DE CABINA INTERNO -->
             <main id="app-main" class="w-full p-3 sm:p-5 md:p-6 lg:p-7 flex flex-col gap-6 relative min-h-[600px]">
-                <!-- Views are injected here by app.js -->
+                <!-- Vistas inyectadas por app.js -->
             </main>
 
-            <!-- 4. HARDWARE BOTTOM CHASSIS BASE STRIP -->
-            <footer class="w-full bg-[#D8D4C7] border-t-[3px] border-[#2B2B2B] px-4 md:px-8 py-3 flex flex-wrap items-center justify-between gap-3 text-[#5F5A4D]">
+            <!-- 4. TIRA DE BASE INFERIOR DEL CHASIS -->
+            <footer class="w-full bg-[#D8D4C7] dark:bg-[#20201B] border-t-[3px] border-[#2B2B2B] dark:border-[#3A3A34] px-4 md:px-8 py-3 flex flex-wrap items-center justify-between gap-3 text-[#5F5A4D] dark:text-[#B5B1A4] transition-colors">
                 <div class="flex items-center gap-3">
                     <div class="flex gap-1">
-                        <div class="w-1.5 h-4 bg-[#2B2B2B]/40 rounded-full"></div>
-                        <div class="w-1.5 h-4 bg-[#2B2B2B]/40 rounded-full"></div>
-                        <div class="w-1.5 h-4 bg-[#2B2B2B]/40 rounded-full"></div>
+                        <div class="w-1.5 h-4 bg-[#2B2B2B]/40 dark:bg-white/20 rounded-full"></div>
+                        <div class="w-1.5 h-4 bg-[#2B2B2B]/40 dark:bg-white/20 rounded-full"></div>
+                        <div class="w-1.5 h-4 bg-[#2B2B2B]/40 dark:bg-white/20 rounded-full"></div>
                     </div>
-                    <span class="font-mono text-[10px] font-bold tracking-wider">DEVON-OS REV: 4.9.2 // SILPH DIAGNOSTIC TERMINAL</span>
+                    <span class="font-mono text-[10px] font-bold tracking-wider">OS DEVON REV: 4.9.2 // TERMINAL DIAGNÓSTICO SILPH</span>
                 </div>
                 <div class="flex items-center gap-4 text-[10px] font-mono font-bold">
-                    <span>POKÉMMO TIME: <span id="clock-server-footer">--:--:-- UTC</span></span>
-                    <span class="text-[#526600] flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-[#526600] inline-block"></span> REALTIME-SYNC</span>
+                    <span>HORA POKÉMMO: <span id="clock-server-footer">--:--:-- UTC</span></span>
+                    <span class="text-[#1B5E20] dark:text-[#C3F400] flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-[#1B5E20] dark:bg-[#C3F400] inline-block"></span> SINCRONÍA ACTIVA</span>
                 </div>
             </footer>
         </div>
     </div>
 
-    <!-- GLOBAL TOAST NOTIFICATIONS -->
+    <!-- NOTIFICACIONES TOAST GLOBALES -->
     <div id="app-toast" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2"></div>
 
-    <!-- ENTRY POINT -->
+    <!-- PUNTO DE ENTRADA -->
     <script type="module" src="js/app.js"></script>
 </body>
 </html>

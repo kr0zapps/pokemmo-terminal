@@ -59,59 +59,59 @@ const AMULET_DURATION_MS = 60 * 60 * 1000;
 
 export function renderGymView() {
     return `
-        <!-- TOP SECTION: PAYOUT FLOATING TELEMETRY & AMULET LCD COOLDOWN -->
+        <!-- SECCIÓN SUPERIOR: TELEMETRÍA DE INGRESOS & CRONÓMETRO LCD AMULETO -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch mb-4">
-            <!-- (A) PAYOUT: ULTRA DOMINANT (>72px), FLOATING DIRECTLY ON CHASSIS -->
+            <!-- (A) INGRESOS: ULTRA DOMINANTE, FLOTANDO EN EL CHASIS -->
             <div class="lg:col-span-7 relative flex flex-col justify-between py-2 px-1">
-                <!-- Technical Inset Line with Sentence Case & Dash -->
-                <div class="w-full h-1 bg-[#D8D4C7] border-b border-white mb-3 flex items-center justify-between">
-                    <div class="w-16 h-1 bg-[#2B2B2B]"></div>
-                    <span class="font-['Space_Mono'] text-[10px] text-[#81765F] font-bold tracking-wide bg-[#F4F1E8] px-2">Gross arbitrage protocol — yield</span>
+                <!-- Línea Técnica con Título en Español -->
+                <div class="w-full h-1 bg-[#D8D4C7] dark:bg-[#3A3A34] border-b border-white/20 mb-3 flex items-center justify-between">
+                    <div class="w-16 h-1 bg-[#2B2B2B] dark:bg-[#FFC800]"></div>
+                    <span class="font-mono text-[10px] text-[#5F5A4D] dark:text-[#B5B1A4] font-bold tracking-wide bg-[#F4F1E8] dark:bg-[#1A1A16] px-2">Protocolo de arbitraje — rendimiento</span>
                     <div class="w-28 h-1 bg-[#FFC800]"></div>
                 </div>
-                <!-- Header Row with Toggle Switch -->
+                <!-- Fila de Encabezado con Interruptor Deslizante -->
                 <div class="flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-2">
-                        <span class="font-['Space_Grotesk'] font-bold text-xs tracking-wide text-[#5F5A4D]">Session revenue estimate</span>
-                        <span class="w-2 h-2 rounded-full bg-[#526600]"></span>
+                        <span class="font-tech font-bold text-xs tracking-wide text-[#5F5A4D] dark:text-[#B5B1A4]">Estimado de ingresos</span>
+                        <span class="w-2 h-2 rounded-full bg-[#1B5E20] dark:bg-[#C3F400]"></span>
                     </div>
-                    <!-- Tactile Mechanical Slide Toggle: Amulet coin +50% active -->
-                    <label class="flex items-center gap-2 bg-[#E2DDCF] border-2 border-[#2B2B2B] px-3 py-1.5 rounded-lg shadow-sm cursor-pointer select-none">
-                        <span class="font-['Space_Grotesk'] font-extrabold text-[11px] tracking-wide text-[#2B2B2B]">Amulet coin +50% active</span>
+                    <!-- Interruptor Deslizante Mecánico: Moneda Amuleto +50% activa -->
+                    <label class="flex items-center gap-2 bg-[#E2DDCF] dark:bg-[#282824] border-2 border-[#2B2B2B] dark:border-[#4A4A42] px-3 py-1.5 rounded-lg shadow-sm cursor-pointer select-none">
+                        <span class="font-tech font-extrabold text-[11px] tracking-wide text-[#2B2B2B] dark:text-[#F4F1E8]">Moneda Amuleto +50% activa</span>
                         <input type="checkbox" id="amuletCoinToggle" checked class="sr-only">
-                        <div id="amuletToggleKnob" class="w-11 h-6 bg-[#2B2B2B] rounded-full p-0.5 flex items-center transition-all shadow-inner">
+                        <div id="amuletToggleKnob" class="w-11 h-6 bg-[#2B2B2B] dark:bg-[#161614] rounded-full p-0.5 flex items-center transition-all shadow-inner">
                             <div class="w-5 h-5 rounded-full bg-[#FFC800] border border-[#2B2B2B] transform translate-x-5 transition-transform shadow-md flex items-center justify-center">
                                 <div class="w-1.5 h-1.5 rounded-full bg-[#2B2B2B]"></div>
                             </div>
                         </div>
                     </label>
                 </div>
-                <!-- ULTRA DOMINANT PAYOUT NUMBER -->
+                <!-- CIFRA ULTRA DOMINANTE DE GANANCIAS -->
                 <div class="my-2 relative flex flex-col">
                     <div class="flex items-baseline gap-2 flex-wrap">
-                        <span class="font-['Space_Grotesk'] font-black text-6xl sm:text-7xl lg:text-[84px] leading-none text-[#1C1C17] tracking-tight drop-shadow-[2px_2px_0px_rgba(255,255,255,0.8)]" id="gymEarningsTotal">
+                        <span class="font-tech font-black text-6xl sm:text-7xl lg:text-[84px] leading-none text-[#1C1C17] dark:text-[#F4F1E8] tracking-tight drop-shadow-[2px_2px_0px_rgba(255,255,255,0.8)] dark:drop-shadow-none" id="gymEarningsTotal">
                             $0
                         </span>
-                        <span class="font-['Space_Mono'] font-black text-2xl lg:text-3xl text-[#755B00] tracking-wider">
+                        <span class="font-mono font-black text-2xl lg:text-3xl text-[#755B00] dark:text-[#FFC800] tracking-wider">
                             Poké$
                         </span>
                     </div>
-                    <div class="flex items-center gap-2 text-xs font-['Space_Mono'] font-bold text-[#5F5A4D] mt-1 flex-wrap">
-                        <span class="bg-[#E4DFD0] px-2 py-0.5 rounded border border-[#81765F]/30" id="payoutBaseText">Base: $0</span>
-                        <span class="text-[#2B2B2B] font-black">+</span>
-                        <span class="bg-[#FFDF92] text-[#6E5500] px-2 py-0.5 rounded border border-[#755B00]/40 font-black" id="payoutBonusText">Bonus: +$0</span>
-                        <span class="text-[#526600] font-black tracking-wide ml-auto">● Realtime auto-ledger</span>
+                    <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#5F5A4D] dark:text-[#B5B1A4] mt-1 flex-wrap">
+                        <span class="bg-[#E4DFD0] dark:bg-[#282824] px-2 py-0.5 rounded border border-[#81765F]/30 dark:border-[#4A4A42] text-[#1C1C17] dark:text-[#F4F1E8]" id="payoutBaseText">Base: $0</span>
+                        <span class="text-[#2B2B2B] dark:text-[#F4F1E8] font-black">+</span>
+                        <span class="bg-[#FFDF92] dark:bg-[#473200] text-[#5C3800] dark:text-[#FFDF92] px-2 py-0.5 rounded border border-[#755B00]/40 font-black" id="payoutBonusText">Bono: +$0</span>
+                        <span class="text-[#1B5E20] dark:text-[#C3F400] font-black tracking-wide ml-auto">● Registro automático en tiempo real</span>
                     </div>
                 </div>
-                <!-- Recessed Gauge Bar -->
-                <div class="w-full bg-[#E5E0D0] h-2.5 rounded-full overflow-hidden border border-[#2B2B2B] shadow-inner mt-2">
+                <!-- Barra Recesiva de Progreso -->
+                <div class="w-full bg-[#E5E0D0] dark:bg-[#22221D] h-2.5 rounded-full overflow-hidden border border-[#2B2B2B] dark:border-[#3A3A34] shadow-inner mt-2">
                     <div id="gymEarningsBar" class="h-full bg-[#FFC800] w-0 border-r border-[#2B2B2B] transition-all duration-500"></div>
                 </div>
             </div>
 
-            <!-- (B) AMULET COOLDOWN: INCUBATED BEVELED LCD WITH OLIVE/DARK PIXELS (#9BBC0F / #0F380F) -->
-            <div class="lg:col-span-5 bg-[#2B2B2B] p-3 md:p-4 rounded-xl shadow-[inset_0_4px_12px_rgba(0,0,0,0.9),0_6px_0px_#1A1A18] relative flex flex-col justify-between border-2 border-[#1A1A18]">
-                <!-- Screws -->
+            <!-- (B) CRONÓMETRO AMULETO: PANTALLA LCD GAME BOY VERDE OLIVA (#9BBC0F / #0F380F) -->
+            <div class="lg:col-span-5 bg-[#2B2B2B] dark:bg-[#1E1E1A] p-3 md:p-4 rounded-xl shadow-[inset_0_4px_12px_rgba(0,0,0,0.9),0_6px_0px_#1A1A18] relative flex flex-col justify-between border-2 border-[#1A1A18] dark:border-[#33332D]">
+                <!-- Tornillos Esquineros -->
                 <div class="absolute top-2 left-2 w-3 h-3 rounded-full bg-[#444] border border-[#222] flex items-center justify-center">
                     <div class="w-1.5 h-0.5 bg-[#888] rotate-45"></div>
                 </div>
@@ -126,96 +126,96 @@ export function renderGymView() {
                 </div>
 
                 <div class="flex items-center justify-between mb-1.5 px-1">
-                    <span class="font-['Space_Mono'] text-[10px] uppercase font-bold text-[#A8A495] tracking-wider flex items-center gap-1.5">
+                    <span class="font-mono text-[10px] uppercase font-bold text-[#A8A495] tracking-wider flex items-center gap-1.5">
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/amulet-coin.png" class="w-4 h-4 pokemon-sprite" alt="">
-                        Amulet Coin Telemetry
+                        Telemetría de Moneda Amuleto
                     </span>
                     <div class="flex items-center gap-1">
-                        <span class="text-[9px] font-['Space_Mono'] text-[#A8A495]">Comp:</span>
+                        <span class="text-[9px] font-mono text-[#A8A495]">Comp:</span>
                         <input type="number" id="gymCompHours" value="0" min="0" max="18" step="0.5" class="w-10 p-0.5 text-[10px] text-center bg-[#1C1C17] border border-[#444] text-[#9BBC0F] font-mono rounded" title="Horas de compensación previa">
-                        <span class="text-[9px] font-['Space_Mono'] text-[#A8A495]">h</span>
+                        <span class="text-[9px] font-mono text-[#A8A495]">h</span>
                     </div>
                 </div>
 
-                <!-- The Real Olive Green Game Boy LCD Screen -->
+                <!-- Pantalla LCD Verde Fósforo (Siempre activa con el mismo brillo retro) -->
                 <div class="lcd-screen-gb p-3 rounded border-2 border-[#181816] flex flex-col justify-between my-1">
                     <div class="flex justify-between text-[10px] font-bold opacity-80 border-b border-[#0F380F]/30 pb-1">
-                        <span>AMULET 1H RUNTIME</span>
+                        <span>DURACIÓN AMULETO 1H</span>
                         <span id="amuletStatusText">INACTIVO</span>
                     </div>
                     <div class="flex items-baseline justify-between my-2">
-                        <span id="amuletTimerText" class="text-4xl font-black tracking-widest leading-none">60:00</span>
-                        <span class="text-xs font-bold uppercase tracking-wider">+50% BUFF</span>
+                        <span id="amuletTimerText" class="text-4xl font-black tracking-widest leading-none font-lcd">60:00</span>
+                        <span class="text-xs font-bold uppercase tracking-wider">+50% BONO</span>
                     </div>
                     <div class="flex justify-between text-[9px] font-bold opacity-75 pt-1 border-t border-[#0F380F]/30">
-                        <span>RELOAD: 18H GYM CYCLE</span>
-                        <span>SILPH-BUS: SYNCED</span>
+                        <span>RECARGA: CICLO 18H</span>
+                        <span>BUS SILPH: SINCRONIZADO</span>
                     </div>
                 </div>
 
-                <!-- Control Buttons -->
+                <!-- Botones de Control -->
                 <div class="flex items-center justify-between mt-2 pt-1 gap-2">
-                    <button id="amuletBtnStart" class="flex-1 py-1.5 bg-[#FFC800] text-[#241A00] hover:bg-[#FFE066] border-2 border-[#181816] font-['Space_Grotesk'] font-black text-xs uppercase tracking-wider rounded shadow-[1px_2px_0px_#181816] active:translate-y-0.5 cursor-pointer">
-                        Iniciar Cronómetro
+                    <button id="amuletBtnStart" class="flex-1 py-1.5 bg-[#FFC800] text-[#241A00] hover:bg-[#FFE066] border-2 border-[#181816] font-tech font-black text-xs uppercase tracking-wider rounded shadow-[1px_2px_0px_#181816] active:translate-y-0.5 cursor-pointer">
+                        Iniciar cronómetro
                     </button>
-                    <button id="amuletBtnReset" class="px-3 py-1.5 bg-[#3B3B3B] text-[#A8A495] hover:text-white border-2 border-[#181816] font-mono text-xs rounded hover:bg-[#4B4B4B] cursor-pointer" title="Reiniciar">
-                        Reset
+                    <button id="amuletBtnReset" class="px-3 py-1.5 bg-[#3B3B3B] text-[#A8A495] hover:text-white border-2 border-[#181816] font-mono text-xs rounded hover:bg-[#4B4B4B] cursor-pointer" title="Reiniciar cronómetro">
+                        Reiniciar
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- COMBAT HP BAR: GYM TARGETS SYSTEM -->
-        <section class="w-full bg-[#E5E0D0] border-2 border-[#2B2B2B] rounded-xl p-3 md:p-4 shadow-[2px_3px_0px_#2B2B2B] flex flex-col gap-2.5 mb-6">
+        <!-- BARRA DE SALUD DE COMBATE: SISTEMA DE OBJETIVOS DE GIMNASIO -->
+        <section class="w-full bg-[#E5E0D0] dark:bg-[#242420] border-2 border-[#2B2B2B] dark:border-[#3A3A34] rounded-xl p-3 md:p-4 shadow-[2px_3px_0px_#2B2B2B] dark:shadow-[2px_3px_0px_#000] flex flex-col gap-2.5 mb-6 transition-colors">
             <div class="flex flex-wrap items-center justify-between gap-2">
                 <div class="flex items-center gap-2">
-                    <span class="font-['Space_Grotesk'] font-bold text-sm text-[#1C1C17] tracking-wide">Total gym target clearance (daily 24h cycle)</span>
+                    <span class="font-tech font-bold text-sm text-[#1C1C17] dark:text-[#F4F1E8] tracking-wide">Despeje total de gimnasios (ciclo diario 24h)</span>
                 </div>
-                <div class="flex items-center gap-3 font-['Space_Mono'] font-bold text-xs">
-                    <span class="text-[#2B2B2B]">Active combat: <strong id="gymsReadyCount" class="text-[#526600]">40</strong> / 40 ready</span>
-                    <span id="gymsCooldownBadge" class="bg-[#D2CDBC] px-2 py-0.5 rounded border border-[#2B2B2B]/40 text-[#b7102a]">0 cooldown</span>
+                <div class="flex items-center gap-3 font-mono font-bold text-xs">
+                    <span class="text-[#2B2B2B] dark:text-[#F4F1E8]">Combate activo: <strong id="gymsReadyCount" class="text-[#1B5E20] dark:text-[#C3F400]">40</strong> / 40 listos</span>
+                    <span id="gymsCooldownBadge" class="bg-[#D2CDBC] dark:bg-[#33332D] px-2 py-0.5 rounded border border-[#2B2B2B]/40 dark:border-[#4A4A42] text-[#5F5A4D] dark:text-[#B5B1A4]">0 en enfriamiento</span>
                 </div>
             </div>
-            <!-- The Wide Combat Health Gauge -->
-            <div class="relative w-full h-8 bg-[#2B2B2B] rounded-md p-1 border-2 border-[#181816] shadow-inner flex items-center">
+            <!-- Medidor de Combate Segmentado en 8 partes -->
+            <div class="relative w-full h-8 bg-[#2B2B2B] dark:bg-[#161614] rounded-md p-1 border-2 border-[#181816] dark:border-[#3A3A34] shadow-inner flex items-center">
                 <div class="w-full h-full rounded bg-[#1C1C17] overflow-hidden flex relative">
                     <div id="gymHpReadyBar" class="h-full w-[100%] bg-gradient-to-r from-[#9BBC0F] via-[#CDF14B] to-[#FFC800] rounded-l flex items-center justify-end pr-2 transition-all duration-500 shadow-[inset_0_2px_0_rgba(255,255,255,0.6)]">
-                        <span id="gymHpClearanceText" class="font-['Space_Mono'] font-black text-xs text-[#241A00] tracking-wider">100% ready</span>
+                        <span id="gymHpClearanceText" class="font-mono font-black text-xs text-[#241A00] tracking-wider">100% listos</span>
                     </div>
-                    <div id="gymHpCooldownBar" class="h-full w-[0%] bg-[#4B1218] flex items-center justify-center transition-all duration-500">
-                        <span class="font-['Space_Mono'] font-bold text-[10px] text-[#FFA8A8] tracking-wider">Cooldown</span>
+                    <div id="gymHpCooldownBar" class="h-full w-[0%] bg-[#3D1B1E] flex items-center justify-center transition-all duration-500">
+                        <span class="font-mono font-bold text-[10px] text-[#FFA8A8] tracking-wider">Enfriamiento</span>
                     </div>
                 </div>
-                <div class="absolute inset-x-1 inset-y-1 pointer-events-none grid grid-cols-8 divide-x-2 divide-[#2B2B2B]/70">
+                <div class="absolute inset-x-1 inset-y-1 pointer-events-none grid grid-cols-8 divide-x-2 divide-[#2B2B2B]/70 dark:divide-[#161614]">
                     <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
                 </div>
             </div>
-            <!-- Subtext Route Bar -->
-            <div class="flex flex-wrap items-center justify-between text-[11px] font-['Space_Mono'] text-[#5F5A4D] pt-0.5">
+            <!-- Barra de Ruta Óptima -->
+            <div class="flex flex-wrap items-center justify-between text-[11px] font-mono text-[#5F5A4D] dark:text-[#B5B1A4] pt-0.5">
                 <span class="flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5 text-[#755B00]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
-                    Optimal re-run sequence: <strong>Celadon &gt; Saffron &gt; Vermilion &gt; Cerulean &gt; Fuchsia</strong>
+                    <svg class="w-3.5 h-3.5 text-[#755B00] dark:text-[#FFC800]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                    Secuencia óptima de rutas: <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">Azulona &gt; Azafrán &gt; Carmín &gt; Celeste &gt; Fucsia</strong>
                 </span>
-                <button id="btn-reset-gyms" class="font-bold text-[#b7102a] hover:underline cursor-pointer uppercase text-[10px] tracking-wider">
-                    [ Reset All Gyms ]
+                <button id="btn-reset-gyms" class="font-bold text-[#b7102a] dark:text-[#FFA8A8] hover:underline cursor-pointer uppercase text-[10px] tracking-wider">
+                    [ Reiniciar todos los gimnasios ]
                 </button>
             </div>
         </section>
 
-        <!-- REGIONAL CIRCUIT DECK CONTAINER -->
+        <!-- MAZO DE CIRCUITOS REGIONALES -->
         <div class="flex flex-col gap-4">
             <div class="flex items-center justify-between px-1">
                 <div class="flex items-center gap-2">
-                    <span class="font-['Space_Grotesk'] font-black text-base text-[#1C1C17] tracking-wide">Regional circuit deck</span>
-                    <span class="font-['Space_Mono'] text-[10px] bg-[#E2DDCF] border border-[#2B2B2B] px-1.5 py-0.5 rounded font-bold">Asymmetric loadout</span>
+                    <span class="font-tech font-black text-base text-[#1C1C17] dark:text-[#F4F1E8] tracking-wide">Mazo de circuitos regionales</span>
+                    <span class="font-mono text-[10px] bg-[#E2DDCF] dark:bg-[#282824] border border-[#2B2B2B] dark:border-[#4A4A42] px-1.5 py-0.5 rounded font-bold text-[#5F5A4D] dark:text-[#B5B1A4]">Carga asimétrica</span>
                 </div>
-                <span class="font-['Space_Mono'] text-xs font-bold text-[#526600]">VS-Seeker synchronized</span>
+                <span class="font-mono text-xs font-bold text-[#1B5E20] dark:text-[#C3F400]">VS-Buscador sincronizado</span>
             </div>
 
-            <!-- Kanto Top Deck -->
+            <!-- Tarjeta Principal de Kanto -->
             <div id="kantoDeckContainer"></div>
 
-            <!-- Subordinated Regions Deck -->
+            <!-- Regiones Subordinadas -->
             <div id="subRegionsDeckContainer" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
         </div>
     `;
@@ -246,7 +246,7 @@ export function initGyms() {
     document.getElementById('amuletBtnStart')?.addEventListener('click', startAmuletTimer);
     document.getElementById('amuletBtnReset')?.addEventListener('click', resetAmuletTimer);
     
-    // Amulet Toggle handler with animated knob
+    // Manejador de interruptor amuleto con perilla animada
     const amuletToggle = document.getElementById('amuletCoinToggle');
     if (amuletToggle) {
         amuletToggle.addEventListener('change', () => {
@@ -264,7 +264,7 @@ export function initGyms() {
         });
     }
     
-    // Listen for realtime cross-device gym updates
+    // Escuchar actualizaciones en tiempo real entre dispositivos
     document.addEventListener('gymUpdated', (e) => {
         const payload = e.detail;
         if (payload && payload.new) {
@@ -285,7 +285,7 @@ export function initGyms() {
         }
     });
 
-    // Start global timers for gyms
+    // Iniciar temporizador global de gimnasios
     setInterval(updateTimers, 1000);
 }
 
@@ -304,100 +304,130 @@ export function renderGyms() {
             if (localStorage.getItem(`gym-${cleanRegion}-${idx}`) === 'true') completedInRegion++;
         });
         const isRegionCleared = completedInRegion === list.length;
+        const progressPct = Math.round((completedInRegion / list.length) * 100);
+
+        // Determinación del botón dinámico de liga (Diferenciar empezar, seguir y completado)
+        let actionBtnHtml = '';
+        if (completedInRegion === 0) {
+            actionBtnHtml = `
+                <button data-region="${regionName}" data-action="mark-all" class="text-[10px] font-mono uppercase bg-[#2B2B2B] dark:bg-[#3E3E36] text-white hover:bg-[#444] px-2.5 py-1 rounded font-bold transition cursor-pointer" title="Marcar todos los líderes como completados">
+                    Completar todo
+                </button>
+            `;
+        } else if (completedInRegion < list.length) {
+            actionBtnHtml = `
+                <button data-region="${regionName}" data-action="mark-all" class="text-[10px] font-mono uppercase bg-[#FFC800] text-[#241A00] hover:bg-[#FFE066] border border-[#2B2B2B] px-2.5 py-1 rounded font-black transition cursor-pointer shadow-sm" title="Continuar marcando los líderes restantes">
+                    Continuar (${completedInRegion}/${list.length})
+                </button>
+            `;
+        } else {
+            actionBtnHtml = `
+                <button data-region="${regionName}" data-action="mark-all" class="text-[10px] font-mono uppercase bg-[#1B5E20]/20 text-[#1B5E20] dark:text-[#C3F400] border border-[#1B5E20]/40 px-2.5 py-1 rounded font-bold transition cursor-default opacity-80" disabled>
+                    Completado
+                </button>
+            `;
+        }
+
+        const resetBtnHtml = `
+            <button data-region="${regionName}" data-action="unmark-all" class="text-[10px] font-mono uppercase bg-[#E4DFD0] dark:bg-[#33332D] text-[#2B2B2B] dark:text-[#F4F1E8] hover:text-[#b7102a] dark:hover:text-[#FFA8A8] border border-[#2B2B2B] dark:border-[#4A4A42] px-2 py-1 rounded transition cursor-pointer" title="Reiniciar circuito">
+                Reiniciar
+            </button>
+        `;
 
         if (regionName === 'Kanto') {
-            // Render KANTO FULL WIDTH 8-COL HORIZONTAL LEADER STRIP
+            // Renderizado de la Liga de Kanto (Fila Horizontal de 8 Columnas)
             kantoContainer.innerHTML = `
-                <div class="w-full bg-[#FAF8F2] border-[3px] border-[#2B2B2B] rounded-2xl p-4 shadow-[4px_5px_0px_#2B2B2B] relative overflow-hidden flex flex-col justify-between">
-                    <!-- Corner Rivets -->
-                    <div class="absolute top-2 left-2 w-2.5 h-2.5 rounded-full bg-[#D8D4C7] border border-[#2B2B2B] flex items-center justify-center">
-                        <div class="w-1.5 h-0.5 bg-[#2B2B2B]"></div>
+                <div class="w-full bg-[#FAF8F2] dark:bg-[#282824] border-[3px] border-[#2B2B2B] dark:border-[#3A3A34] rounded-2xl p-4 shadow-[4px_5px_0px_#2B2B2B] dark:shadow-[4px_5px_0px_#000] relative overflow-hidden flex flex-col justify-between transition-colors">
+                    <!-- Remaches Esquineros -->
+                    <div class="absolute top-2 left-2 w-2.5 h-2.5 rounded-full bg-[#D8D4C7] dark:bg-[#3E3E36] border border-[#2B2B2B] dark:border-[#4A4A42] flex items-center justify-center">
+                        <div class="w-1.5 h-0.5 bg-[#2B2B2B] dark:bg-[#20201C]"></div>
                     </div>
-                    <div class="absolute top-2 right-2 w-2.5 h-2.5 rounded-full bg-[#D8D4C7] border border-[#2B2B2B] flex items-center justify-center">
-                        <div class="w-1.5 h-0.5 bg-[#2B2B2B]"></div>
+                    <div class="absolute top-2 right-2 w-2.5 h-2.5 rounded-full bg-[#D8D4C7] dark:bg-[#3E3E36] border border-[#2B2B2B] dark:border-[#4A4A42] flex items-center justify-center">
+                        <div class="w-1.5 h-0.5 bg-[#2B2B2B] dark:bg-[#20201C]"></div>
                     </div>
                     
-                    <!-- Physical Rotated Inked Stamp -->
+                    <!-- Sello Dinámico Físico Rotado -->
                     ${isRegionCleared ? `
-                        <div class="absolute right-6 top-6 z-20 pointer-events-none stamp-cleared bg-[#FAF8F2]/95 px-3 py-1 font-['Space_Mono'] font-black text-xs md:text-sm tracking-widest shadow-sm">
-                            ★ VERIFIED CLEARED ★
+                        <div class="absolute right-4 sm:right-6 top-4 sm:top-6 z-20 pointer-events-none stamp-cleared bg-[#FAF8F2]/95 dark:bg-[#282824]/95 px-3 py-1 font-mono font-black text-xs md:text-sm tracking-widest shadow-sm">
+                            ★ COMPLETADO Y VERIFICADO ★
                         </div>
                     ` : `
-                        <div class="absolute right-6 top-6 z-20 pointer-events-none stamp-progress bg-[#FAF8F2]/95 px-2.5 py-0.5 font-['Space_Mono'] font-bold text-[10px] md:text-xs tracking-tight shadow-sm">
-                            PENDING ${list.length - completedInRegion}/${list.length}
+                        <div class="absolute right-4 sm:right-6 top-4 sm:top-6 z-20 pointer-events-none stamp-progress bg-[#FAF8F2]/95 dark:bg-[#282824]/95 px-2.5 py-0.5 font-mono font-bold text-[10px] md:text-xs tracking-tight shadow-sm">
+                            PENDIENTE ${list.length - completedInRegion}/${list.length}
                         </div>
                     `}
 
-                    <!-- Kanto Header -->
-                    <div class="flex flex-wrap items-center justify-between border-b-2 border-[#2B2B2B] pb-2 mb-3 gap-2">
+                    <!-- Encabezado de Kanto -->
+                    <div class="flex flex-wrap items-center justify-between border-b-2 border-[#2B2B2B] dark:border-[#3A3A34] pb-2 mb-3 gap-2">
                         <div class="flex items-center gap-2">
-                            <span class="bg-[#FFC800] text-[#241A00] font-['Space_Grotesk'] font-black text-xs px-2 py-0.5 rounded border border-[#2B2B2B]">R-01</span>
-                            <span class="font-['Space_Grotesk'] font-black text-base md:text-lg text-[#1C1C17]">Kanto League</span>
-                            <span class="font-['Space_Grotesk'] font-bold text-[11px] text-[#755B00] bg-[#FFDF92] px-2 py-0.5 rounded">Home circuit</span>
+                            <span class="bg-[#FFC800] text-[#241A00] font-tech font-black text-xs px-2 py-0.5 rounded border border-[#2B2B2B]">R-01</span>
+                            <span class="font-tech font-black text-base md:text-lg text-[#1C1C17] dark:text-[#F4F1E8]">Liga de Kanto</span>
+                            <span class="font-tech font-bold text-[11px] text-[#5C3800] dark:text-[#FFDF92] bg-[#FFDF92] dark:bg-[#473200] px-2 py-0.5 rounded">Circuito local</span>
                         </div>
                         <div class="flex items-center gap-1.5 z-10 mr-0 sm:mr-36">
-                            <button data-region="${regionName}" data-action="mark-all" class="text-[10px] font-mono uppercase bg-[#2B2B2B] text-white hover:bg-[#444] px-2.5 py-1 rounded font-bold transition cursor-pointer">
-                                Completar
-                            </button>
-                            <button data-region="${regionName}" data-action="unmark-all" class="text-[10px] font-mono uppercase bg-[#E4DFD0] text-[#5F5A4D] hover:text-[#b7102a] border border-[#2B2B2B] px-2 py-1 rounded transition cursor-pointer">
-                                Reset
-                            </button>
+                            ${actionBtnHtml}
+                            ${resetBtnHtml}
                         </div>
                     </div>
 
-                    <!-- All 8 Kanto Leaders in a SINGLE HORIZONTAL ROW of 8 Columns -->
+                    <!-- Cuadrícula de los 8 Líderes en Fila Horizontal -->
                     <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 z-10">
                         ${list.map((gym, idx) => {
                             const id = `gym-${cleanRegion}-${idx}`;
                             const isChecked = localStorage.getItem(id) === 'true';
                             const [city, leader] = gym.name.includes(':') ? gym.name.split(':') : [gym.name, ''];
                             return `
-                                <div class="leader-tile bg-[#F0ECE1] border border-[#2B2B2B] p-2 rounded-lg flex flex-col justify-between cursor-pointer hover:border-[#FFC800] transition select-none ${isChecked ? 'ring-1 ring-[#2B2B2B]' : ''}" data-gym-id="${id}">
+                                <div class="leader-tile ${isChecked ? 'bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B]/40 dark:border-[#3A3A34]' : 'bg-[#F0ECE1] dark:bg-[#2A2A26] border border-[#2B2B2B] dark:border-[#3A3A34]'} p-2 rounded-lg flex flex-col justify-between cursor-pointer hover:border-[#FFC800] transition select-none" data-gym-id="${id}">
                                     <div class="flex items-center justify-between">
-                                        <span class="w-4 h-4 rounded-full ${isChecked ? 'bg-[#526600]' : 'bg-[#2B2B2B]'} text-white text-[9px] font-black flex items-center justify-center">${idx + 1}</span>
-                                        <span id="timer-${id}" class="font-['Space_Mono'] text-[9px] font-bold ${isChecked ? 'text-[#b7102a]' : 'text-[#526600]'}">
-                                            ${isChecked ? '--:--:--' : 'Ready'}
+                                        ${isChecked ? `
+                                            <span class="w-4 h-4 rounded-full bg-[#1B5E20]/15 dark:bg-[#C3F400]/20 text-[#1B5E20] dark:text-[#C3F400] text-[10px] font-bold flex items-center justify-center">✓</span>
+                                        ` : `
+                                            <span class="w-4 h-4 rounded-full bg-[#2B2B2B] dark:bg-[#3E3E36] text-white text-[9px] font-black flex items-center justify-center">${idx + 1}</span>
+                                        `}
+                                        <span id="timer-${id}" class="font-mono text-[9px] ${isChecked ? 'text-[#5F5A4D] dark:text-[#B5B1A4] font-medium' : 'text-[#1B5E20] dark:text-[#C3F400] font-bold'}">
+                                            ${isChecked ? '--:--:--' : 'Listo'}
                                         </span>
                                     </div>
-                                    <span id="label-${id}" class="font-['Space_Grotesk'] font-bold text-xs text-[#1C1C17] mt-1.5 truncate ${isChecked ? 'line-through text-[#81765F]' : ''}">
+                                    <span id="label-${id}" class="font-tech font-bold text-xs mt-1.5 truncate ${isChecked ? 'text-[#5F5A4D] dark:text-[#B5B1A4]' : 'text-[#1C1C17] dark:text-[#F4F1E8]'}">
                                         ${leader ? leader.trim() : city.trim()}
                                     </span>
-                                    <span class="font-['Space_Mono'] text-[8px] text-[#81765F] truncate">${city.replace(/\(.*?\)/, '').trim()}</span>
+                                    <span class="font-mono text-[8px] text-[#5F5A4D] dark:text-[#B5B1A4] truncate">${city.replace(/\(.*?\)/, '').trim()}</span>
                                 </div>
                             `;
                         }).join('')}
                     </div>
+
+                    <!-- Barra Delgada de Progreso Integrada en el Borde Inferior -->
+                    <div class="w-full bg-[#D8D4C7] dark:bg-[#1E1E1A] h-[3px] rounded-full overflow-hidden mt-3" title="Progreso del circuito: ${progressPct}%">
+                        <div class="h-full bg-[#FFC800] transition-all duration-300" style="width: ${progressPct}%"></div>
+                    </div>
                 </div>
             `;
         } else {
-            // Subordinated Region Card (Unova, Sinnoh, Hoenn, Johto)
+            // Tarjetas de Regiones Subordinadas (Teselia, Sinnoh, Hoenn, Johto)
             const regionNumber = regionName.includes('Teselia') ? 'R-02' : regionName.includes('Sinnoh') ? 'R-03' : regionName.includes('Hoenn') ? 'R-04' : 'R-05';
             const card = document.createElement('div');
-            card.className = "bg-[#F6F4EB] border-2 border-[#2B2B2B] rounded-xl p-3 shadow-[2px_3px_0px_#2B2B2B] relative overflow-hidden flex flex-col justify-between";
+            card.className = "bg-[#F6F4EB] dark:bg-[#262622] border-2 border-[#2B2B2B] dark:border-[#3A3A34] rounded-xl p-3 shadow-[2px_3px_0px_#2B2B2B] dark:shadow-[2px_3px_0px_#000] relative overflow-hidden flex flex-col justify-between transition-colors";
             card.innerHTML = `
-                <!-- Dynamic Stamp -->
+                <!-- Sello Dinámico -->
                 ${isRegionCleared ? `
-                    <div class="absolute -right-2 top-6 z-20 pointer-events-none stamp-cleared bg-[#F6F4EB]/95 px-2 py-0.5 font-['Space_Mono'] font-bold text-[10px] tracking-tight shadow-sm">
-                        ★ VERIFIED ★
+                    <div class="absolute -right-2 top-6 z-20 pointer-events-none stamp-cleared bg-[#F6F4EB]/95 dark:bg-[#262622]/95 px-2 py-0.5 font-mono font-bold text-[10px] tracking-tight shadow-sm">
+                        ★ COMPLETADO ★
                     </div>
                 ` : `
-                    <div class="absolute -right-2 top-6 z-20 pointer-events-none stamp-progress bg-[#F6F4EB]/90 px-2 py-0.5 font-['Space_Mono'] font-bold text-[10px] tracking-tight shadow-sm">
-                        PENDING ${list.length - completedInRegion}/${list.length}
+                    <div class="absolute -right-2 top-6 z-20 pointer-events-none stamp-progress bg-[#F6F4EB]/90 dark:bg-[#262622]/90 px-2 py-0.5 font-mono font-bold text-[10px] tracking-tight shadow-sm">
+                        PENDIENTE ${list.length - completedInRegion}/${list.length}
                     </div>
                 `}
 
-                <div class="flex items-center justify-between border-b border-[#2B2B2B]/30 pb-1.5 mb-2">
+                <div class="flex items-center justify-between border-b border-[#2B2B2B]/30 dark:border-[#3A3A34] pb-1.5 mb-2">
                     <div class="flex items-center gap-1.5">
-                        <span class="bg-[#E4DFD0] text-[#2B2B2B] font-['Space_Grotesk'] font-bold text-[10px] px-1.5 py-0.5 rounded border border-[#2B2B2B]">${regionNumber}</span>
-                        <span class="font-['Space_Grotesk'] font-bold text-xs text-[#1C1C17]">${regionName}</span>
+                        <span class="bg-[#E4DFD0] dark:bg-[#33332D] text-[#2B2B2B] dark:text-[#F4F1E8] font-tech font-bold text-[10px] px-1.5 py-0.5 rounded border border-[#2B2B2B] dark:border-[#4A4A42]">${regionNumber}</span>
+                        <span class="font-tech font-bold text-xs text-[#1C1C17] dark:text-[#F4F1E8]">${regionName}</span>
                     </div>
                     <div class="flex items-center gap-1 z-10 mr-16">
-                        <button data-region="${regionName}" data-action="mark-all" class="text-[9px] font-mono uppercase bg-[#2B2B2B] text-white hover:bg-[#444] px-2 py-0.5 rounded transition cursor-pointer font-bold">
-                            Completar
-                        </button>
-                        <button data-region="${regionName}" data-action="unmark-all" class="text-[9px] font-mono uppercase bg-[#E4DFD0] text-[#5F5A4D] hover:text-[#b7102a] border border-[#2B2B2B]/40 px-1.5 py-0.5 rounded transition cursor-pointer">
-                            Reset
-                        </button>
+                        ${actionBtnHtml}
+                        ${resetBtnHtml}
                     </div>
                 </div>
 
@@ -407,37 +437,45 @@ export function renderGyms() {
                         const isChecked = localStorage.getItem(id) === 'true';
                         const [city, leader] = gym.name.includes(':') ? gym.name.split(':') : [gym.name, ''];
                         return `
-                            <div class="leader-tile ${isChecked ? 'bg-[#FFDFDE] border border-[#E63946]/30' : 'bg-[#EDE9DE]'} p-1.5 rounded flex justify-between items-center cursor-pointer hover:border-[#FFC800] transition select-none" data-gym-id="${id}">
-                                <span id="label-${id}" class="font-medium truncate mr-1 text-[11px] ${isChecked ? 'text-[#7A131C] line-through' : 'text-[#1C1C17]'}">
-                                    ${leader ? leader.trim() : city.trim()}
-                                </span>
-                                <span id="timer-${id}" class="font-['Space_Mono'] text-[8px] font-bold ${isChecked ? 'text-[#E63946]' : 'text-[#526600]'}">
-                                    ${isChecked ? '--:--:--' : 'Ready'}
+                            <div class="leader-tile ${isChecked ? 'bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B]/30 dark:border-[#3A3A34]' : 'bg-[#EDE9DE] dark:bg-[#2A2A26] border border-transparent'} p-1.5 rounded flex justify-between items-center cursor-pointer hover:border-[#FFC800] transition select-none" data-gym-id="${id}">
+                                <div class="flex items-center gap-1 truncate mr-1">
+                                    ${isChecked ? `<span class="text-[#1B5E20] dark:text-[#C3F400] text-[10px] font-bold">✓</span>` : ''}
+                                    <span id="label-${id}" class="font-medium truncate text-[11px] ${isChecked ? 'text-[#5F5A4D] dark:text-[#B5B1A4]' : 'text-[#1C1C17] dark:text-[#F4F1E8]'}">
+                                        ${leader ? leader.trim() : city.trim()}
+                                    </span>
+                                </div>
+                                <span id="timer-${id}" class="font-mono text-[8px] ${isChecked ? 'text-[#5F5A4D] dark:text-[#B5B1A4] font-medium' : 'text-[#1B5E20] dark:text-[#C3F400] font-bold'}">
+                                    ${isChecked ? '--:--:--' : 'Listo'}
                                 </span>
                             </div>
                         `;
                     }).join('')}
                 </div>
 
-                <div class="mt-2 pt-1.5 border-t border-[#D8D4C7] flex items-center justify-between font-['Space_Mono'] text-[9px] text-[#81765F]">
+                <!-- Barra Delgada de Progreso Integrada en el Borde Inferior -->
+                <div class="w-full bg-[#D8D4C7] dark:bg-[#1E1E1A] h-[3px] rounded-full overflow-hidden mt-2.5" title="Progreso del circuito: ${progressPct}%">
+                    <div class="h-full bg-[#FFC800] transition-all duration-300" style="width: ${progressPct}%"></div>
+                </div>
+
+                <div class="mt-1.5 pt-1 border-t border-[#D8D4C7]/40 dark:border-[#33332D] flex items-center justify-between font-mono text-[9px] text-[#5F5A4D] dark:text-[#B5B1A4]">
                     <span>${completedInRegion}/${list.length} completados</span>
-                    <span class="text-[#526600] font-bold">Circuit active</span>
+                    <span class="text-[#1B5E20] dark:text-[#C3F400] font-bold">Circuito activo</span>
                 </div>
             `;
             subContainer.appendChild(card);
         }
     }
 
-    // Attach click handlers to leader tiles
+    // Vincular controladores de clics a las tarjetas de líderes
     document.querySelectorAll('.leader-tile').forEach(tile => {
-        tile.addEventListener('click', (e) => {
+        tile.addEventListener('click', () => {
             const gymId = tile.dataset.gymId;
             const currentlyChecked = localStorage.getItem(gymId) === 'true';
             toggleGymState(gymId, !currentlyChecked);
         });
     });
 
-    // Attach mark-all and unmark-all handlers
+    // Vincular controladores de marcar todos y reiniciar
     document.querySelectorAll('button[data-action="mark-all"]').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -451,6 +489,8 @@ export function renderGyms() {
         });
     });
 }
+
+
 
 export function toggleGymState(id, isChecked) {
     const label = document.getElementById(`label-${id}`);
@@ -542,21 +582,21 @@ export function updateGymStats() {
 
     if (earningsTextEl) earningsTextEl.innerText = `$${earnings.toLocaleString()}`;
     if (payoutBaseEl) payoutBaseEl.innerText = `Base: $${baseEarnings.toLocaleString()}`;
-    if (payoutBonusEl) payoutBonusEl.innerText = `Bonus: +$${bonus.toLocaleString()}`;
+    if (payoutBonusEl) payoutBonusEl.innerText = `Bono: +$${bonus.toLocaleString()}`;
     if (earningsBarEl) earningsBarEl.style.width = `${(completedCount / totalLeaders) * 100}%`;
 
     const readyPct = Math.round((readyCount / totalLeaders) * 100);
     const cooldownPct = 100 - readyPct;
 
     if (readyCountEl) readyCountEl.innerText = `${readyCount}`;
-    if (cooldownBadgeEl) cooldownBadgeEl.innerText = `${completedCount} cooldown`;
+    if (cooldownBadgeEl) cooldownBadgeEl.innerText = `${completedCount} en enfriamiento`;
     if (hpReadyBarEl) hpReadyBarEl.style.width = `${readyPct}%`;
     if (hpCooldownBarEl) hpCooldownBarEl.style.width = `${cooldownPct}%`;
-    if (hpClearanceTextEl) hpClearanceTextEl.innerText = `${readyPct}% ready`;
+    if (hpClearanceTextEl) hpClearanceTextEl.innerText = `${readyPct}% listos`;
 }
 
 export function resetGyms() {
-    if (confirm('¿Borrar TODO el progreso de gimnasios?')) {
+    if (confirm('¿Reiniciar TODO el progreso de gimnasios?')) {
         const keysToRemove = [];
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
@@ -595,8 +635,8 @@ export function updateAmuletUI() {
         if (timerEl) timerEl.innerText = '60:00';
         if (statusEl) statusEl.innerText = 'INACTIVO';
         if (btnEl) {
-            btnEl.innerText = 'Iniciar Cronómetro';
-            btnEl.className = 'flex-1 py-1.5 bg-[#FFC800] text-[#241A00] hover:bg-[#FFE066] border-2 border-[#181816] font-[\'Space_Grotesk\'] font-black text-xs uppercase tracking-wider rounded shadow-[1px_2px_0px_#181816] active:translate-y-0.5 cursor-pointer';
+            btnEl.innerText = 'Iniciar cronómetro';
+            btnEl.className = 'flex-1 py-1.5 bg-[#FFC800] text-[#241A00] hover:bg-[#FFE066] border-2 border-[#181816] font-tech font-black text-xs uppercase tracking-wider rounded shadow-[1px_2px_0px_#181816] active:translate-y-0.5 cursor-pointer';
         }
         return;
     }
@@ -607,21 +647,21 @@ export function updateAmuletUI() {
     if (remaining <= 0) {
         if (timerEl) {
             timerEl.innerText = 'AGOTADO';
-            timerEl.className = 'text-3xl font-black text-[#E63946] animate-pulse';
+            timerEl.className = 'text-3xl font-black text-[#E63946] animate-pulse font-lcd';
         }
-        if (statusEl) statusEl.innerText = 'BUFF FINALIZADO';
+        if (statusEl) statusEl.innerText = 'BONO FINALIZADO';
         if (btnEl) btnEl.innerText = 'Reiniciar';
     } else {
         const m = Math.floor(remaining / 60000);
         const s = Math.floor((remaining % 60000) / 1000);
         if (timerEl) {
             timerEl.innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-            timerEl.className = 'text-4xl font-black tracking-widest leading-none';
+            timerEl.className = 'text-4xl font-black tracking-widest leading-none font-lcd';
         }
-        if (statusEl) statusEl.innerText = 'BUFF ACTIVO';
+        if (statusEl) statusEl.innerText = 'BONO ACTIVO';
         if (btnEl) {
-            btnEl.innerText = 'En Curso (Activo)';
-            btnEl.className = 'flex-1 py-1.5 bg-[#526600] text-white border-2 border-[#181816] font-[\'Space_Grotesk\'] font-black text-xs uppercase tracking-wider rounded shadow-[1px_2px_0px_#181816]';
+            btnEl.innerText = 'En curso (Activo)';
+            btnEl.className = 'flex-1 py-1.5 bg-[#1B5E20] dark:bg-[#C3F400] text-white dark:text-[#181816] border-2 border-[#181816] font-tech font-black text-xs uppercase tracking-wider rounded shadow-[1px_2px_0px_#181816]';
         }
     }
 }
@@ -648,18 +688,18 @@ export function updateTimers() {
                 localStorage.removeItem(id);
                 localStorage.removeItem(key);
                 if (timerEl) {
-                    timerEl.innerText = 'Ready';
-                    timerEl.className = "font-['Space_Mono'] text-[9px] font-bold text-[#526600]";
+                    timerEl.innerText = 'Listo';
+                    timerEl.className = "font-mono text-[9px] font-bold text-[#1B5E20] dark:text-[#C3F400]";
                     const label = document.getElementById(`label-${id}`);
                     if (label) {
-                        label.classList.remove('line-through', 'text-[#81765F]', 'text-os-muted');
-                        label.classList.add('text-[#1C1C17]');
+                        label.classList.remove('line-through', 'text-[#5F5A4D]', 'dark:text-[#B5B1A4]', 'text-os-muted');
+                        label.classList.add('text-[#1C1C17]', 'dark:text-[#F4F1E8]');
                     }
                 }
             } else if (timerEl) {
                 const fmt = (typeof formatTime === 'function') ? formatTime(remaining) : _formatTimeStr(remaining);
                 timerEl.innerText = fmt;
-                timerEl.className = "font-['Space_Mono'] text-[9px] font-bold text-[#b7102a]";
+                timerEl.className = "font-mono text-[9px] font-medium text-[#5F5A4D] dark:text-[#B5B1A4]";
             }
         }
     }
