@@ -1,8 +1,6 @@
 import { state } from '../state.js';
-
 import { formatTime } from '../utils/format.js';
-
-
+import { toggleGym, resetAllGyms } from '../db.js';
 export const GYM_DATA = {
     "Teselia / Unova": [
         { name: "Ciudad Gres (Striaton): Millo/Zeo/Maíz", reward: 9000 },
@@ -150,6 +148,22 @@ export function renderGymView() {
 }
 
 export function initGyms() {
+    // 1. Sync from state.gyms (which loadInitialState fetched from Supabase)
+    if (state.gyms && Array.isArray(state.gyms) && state.gyms.length > 0) {
+        state.gyms.forEach(g => {
+            const key = g.gym_id.startsWith('gym-') ? g.gym_id : `gym-${g.gym_id}`;
+            if (g.completed) {
+                localStorage.setItem(key, 'true');
+                if (g.completed_at) {
+                    localStorage.setItem(`time-${key}`, new Date(g.completed_at).getTime());
+                }
+            } else {
+                localStorage.removeItem(key);
+                localStorage.removeItem(`time-${key}`);
+            }
+        });
+    }
+
     renderGyms();
     updateGymStats();
     updateAmuletUI();
@@ -159,6 +173,27 @@ export function initGyms() {
     document.getElementById('amuletBtnReset')?.addEventListener('click', resetAmuletTimer);
     document.getElementById('amuletCoinToggle')?.addEventListener('change', updateGymStats);
     
+    // Listen for realtime cross-device gym updates
+    document.addEventListener('gymUpdated', (e) => {
+        const payload = e.detail;
+        if (payload && payload.new) {
+            const row = payload.new;
+            const key = row.gym_id.startsWith('gym-') ? row.gym_id : `gym-${row.gym_id}`;
+            if (row.completed) {
+                localStorage.setItem(key, 'true');
+                if (row.completed_at) {
+                    localStorage.setItem(`time-${key}`, new Date(row.completed_at).getTime());
+                }
+            } else {
+                localStorage.removeItem(key);
+                localStorage.removeItem(`time-${key}`);
+            }
+            renderGyms();
+            updateGymStats();
+            updateTimers();
+        }
+    });
+
     // Start global timers for gyms
     setInterval(updateTimers, 1000);
 }
@@ -236,10 +271,11 @@ export function toggleGymState(id, isChecked) {
     const timerEl = document.getElementById(`timer-${id}`);
     const compHours = parseFloat(document.getElementById('gymCompHours')?.value) || 0;
     const compMs = compHours * 60 * 60 * 1000;
+    const targetTimestamp = Date.now() - compMs;
 
     if (isChecked) {
         localStorage.setItem(id, 'true');
-        localStorage.setItem(`time-${id}`, Date.now() - compMs);
+        localStorage.setItem(`time-${id}`, targetTimestamp);
         if (label) {
             label.classList.add('checked-label', 'text-os-muted', 'line-through');
             label.classList.remove('text-os-text');
@@ -262,6 +298,16 @@ export function toggleGymState(id, isChecked) {
     }
     updateGymStats();
     updateTimers();
+
+    // Async sync to Supabase in background
+    try {
+        const completedAt = isChecked ? new Date(targetTimestamp).toISOString() : null;
+        toggleGym(id, isChecked, completedAt).catch(err => {
+            console.warn('Could not sync gym to Supabase:', err);
+        });
+    } catch(err) {
+        console.warn('Error initiating gym sync:', err);
+    }
 }
 
 export function toggleWholeRegion(regionName, checkAll) {
@@ -270,6 +316,7 @@ export function toggleWholeRegion(regionName, checkAll) {
     const compHours = parseFloat(document.getElementById('gymCompHours')?.value) || 0;
     const compMs = compHours * 60 * 60 * 1000;
     const targetTime = Date.now() - compMs;
+    const completedAt = checkAll ? new Date(targetTime).toISOString() : null;
 
     list.forEach((_, index) => {
         const id = `gym-${cleanRegion}-${index}`;
@@ -280,6 +327,7 @@ export function toggleWholeRegion(regionName, checkAll) {
             localStorage.removeItem(id);
             localStorage.removeItem(`time-${id}`);
         }
+        toggleGym(id, checkAll, completedAt).catch(() => {});
     });
 
     renderGyms();
@@ -338,6 +386,9 @@ export function resetGyms() {
         keysToRemove.forEach(k => localStorage.removeItem(k));
         renderGyms();
         updateGymStats();
+
+        // Sync reset to Supabase
+        resetAllGyms().catch(err => console.warn('Could not reset gyms on Supabase:', err));
     }
 }
 

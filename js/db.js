@@ -10,18 +10,19 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 export async function getGymProgress() {
   const { data: { session } } = await supabase.auth.getSession();
   if (!session) return [];
-  const { data, error } = await supabase.from('gym_progress').select('*');
+  const { data, error } = await supabase.from('gym_progress').select('*').eq('user_id', session.user.id);
   if (error) throw error;
   return data;
 }
 
-export async function toggleGym(gymId, completed) {
+export async function toggleGym(gymId, completed, customCompletedAt = null) {
   const { data: { session } } = await supabase.auth.getSession();
   if (!session) return null;
   const user_id = session.user.id;
+  const completed_at = completed ? (customCompletedAt || new Date().toISOString()) : null;
   const { data, error } = await supabase
     .from('gym_progress')
-    .upsert({ user_id, gym_id: gymId, completed, completed_at: completed ? new Date().toISOString() : null }, { onConflict: 'user_id, gym_id' })
+    .upsert({ user_id, gym_id: gymId, completed, completed_at }, { onConflict: 'user_id, gym_id' })
     .select();
   if (error) throw error;
   return data[0];
@@ -30,13 +31,17 @@ export async function toggleGym(gymId, completed) {
 export async function resetAllGyms() {
   const { data: { session } } = await supabase.auth.getSession();
   if (!session) return;
-  const { error } = await supabase.from('gym_progress').update({ completed: false, completed_at: null }).neq('gym_id', '');
+  const { error } = await supabase.from('gym_progress').update({ completed: false, completed_at: null }).eq('user_id', session.user.id);
   if (error) throw error;
 }
 
 // --- Berry ---
 export async function getCrops() {
-  const { data, error } = await supabase.from('berry_crops').select('*').order('created_at', { ascending: true });
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) {
+    return JSON.parse(localStorage.getItem('pokemmo_crops') || '[]');
+  }
+  const { data, error } = await supabase.from('berry_crops').select('*').eq('user_id', session.user.id).order('created_at', { ascending: true });
   if (error) throw error;
 
   // Deduplicate duplicate ghost crops created by repeated migration loops
@@ -132,7 +137,7 @@ export async function getCaughtPokemon() {
   if (!session) {
     return JSON.parse(localStorage.getItem('pokemmo_dex_caught') || '[]');
   }
-  const { data, error } = await supabase.from('pokemon_caught').select('pokemon_id');
+  const { data, error } = await supabase.from('pokemon_caught').select('pokemon_id').eq('user_id', session.user.id);
   if (error) throw error;
   return data.map(row => row.pokemon_id);
 }
@@ -143,7 +148,7 @@ export async function catchPokemon(pokemonId) {
   const user_id = session.user.id;
   const { data, error } = await supabase
     .from('pokemon_caught')
-    .insert([{ user_id, pokemon_id: pokemonId }])
+    .upsert([{ user_id, pokemon_id: pokemonId }], { onConflict: 'user_id, pokemon_id' })
     .select();
   if (error) throw error;
   return data[0];
@@ -152,7 +157,7 @@ export async function catchPokemon(pokemonId) {
 export async function uncatchPokemon(pokemonId) {
   const { data: { session } } = await supabase.auth.getSession();
   if (!session) return;
-  const { error } = await supabase.from('pokemon_caught').delete().eq('pokemon_id', pokemonId);
+  const { error } = await supabase.from('pokemon_caught').delete().match({ user_id: session.user.id, pokemon_id: pokemonId });
   if (error) throw error;
 }
 

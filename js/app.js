@@ -85,11 +85,17 @@ async function updateHeaderAuth() {
     
     const session = await getSession();
     if (session) {
+        const rawEmail = session.user.email || '';
+        const userDisplay = rawEmail.includes('@pokemmo.app') ? rawEmail.split('@')[0] : rawEmail;
+
         authArea.innerHTML = `
             <div class="flex items-center gap-2 sm:gap-4">
                 <div class="flex flex-col items-end text-right">
-                    <span class="hidden md:inline text-xs text-os-muted">${session.user.email}</span>
-                    <button onclick="logout()" class="text-[11px] text-os-red hover:text-white border border-os-red/30 hover:border-os-red px-2 py-0.5 rounded transition font-mono uppercase font-semibold">Cerrar Sesión</button>
+                    <span class="text-xs font-mono font-semibold text-os-blue truncate max-w-[140px] sm:max-w-none flex items-center gap-1">
+                        <svg class="w-3.5 h-3.5 text-os-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        ${userDisplay}
+                    </span>
+                    <button onclick="logout()" class="text-[10px] text-os-red hover:text-white border border-os-red/30 hover:border-os-red px-2 py-0.5 rounded transition font-mono uppercase font-semibold">Cerrar Sesión</button>
                 </div>
                 <div id="sync-badge-container" class="hidden sm:block panel px-3 py-1.5 rounded-sm">
                     ${renderSyncBadge()}
@@ -104,13 +110,15 @@ async function updateHeaderAuth() {
         });
     } else if (isGuestMode()) {
         authArea.innerHTML = `
-            <div class="flex items-center gap-2 sm:gap-3">
-                <span class="text-[11px] font-mono text-amber-400 bg-amber-400/10 border border-amber-400/30 px-2.5 py-1 rounded-md flex items-center gap-1.5">
+            <div class="flex items-center gap-1.5 sm:gap-2">
+                <span class="text-[10px] sm:text-[11px] font-mono text-amber-400 bg-amber-400/10 border border-amber-400/30 px-2 py-1 rounded-md flex items-center gap-1.5" title="Tus datos solo se guardan en este dispositivo.">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fame-checker.png" alt="" class="w-3.5 h-3.5 pokemon-sprite">
-                    <span>Invitado (Local)</span>
+                    <span class="hidden sm:inline">Invitado (Local)</span>
+                    <span class="sm:hidden">Invitado</span>
                 </span>
-                <button onclick="window.showAuthModal()" class="text-[11px] text-os-blue hover:text-white border border-os-blue/40 hover:bg-os-blue px-2 py-0.5 rounded transition font-mono uppercase font-semibold">
-                    Iniciar Sesión
+                <button onclick="window.showAuthModal()" class="text-[10px] sm:text-[11px] text-white bg-blue-600 hover:bg-blue-500 border border-blue-500 px-2.5 py-1 rounded transition font-mono uppercase font-semibold flex items-center gap-1 shadow-sm cursor-pointer" title="Inicia sesión para sincronizar tu progreso entre PC y móvil">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    <span>Sincronizar</span>
                 </button>
             </div>
         `;

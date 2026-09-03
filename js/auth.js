@@ -1,13 +1,24 @@
 import { supabase, addCrop, catchPokemon, savePreferences, toggleGym } from './db.js';
 import { safeHTML, h, text, $ } from './utils/dom.js';
 
-export async function login(email, password) {
+export function normalizeAuthInput(input) {
+  const trimmed = (input || '').trim();
+  if (!trimmed) return '';
+  if (!trimmed.includes('@')) {
+    return `${trimmed.toLowerCase()}@pokemmo.app`;
+  }
+  return trimmed.toLowerCase();
+}
+
+export async function login(input, password) {
+  const email = normalizeAuthInput(input);
   const { data, error } = await supabase.auth.signInWithPassword({ email, password });
   if (error) throw error;
   return data;
 }
 
-export async function register(email, password) {
+export async function register(input, password) {
+  const email = normalizeAuthInput(input);
   const { data, error } = await supabase.auth.signUp({ email, password });
   if (error) throw error;
   return data;
@@ -28,11 +39,8 @@ export function onAuthStateChange(callback) {
 }
 
 export async function migrateLocalStorage() {
-  const migrated = localStorage.getItem('pokemmo_migrated');
-  if (migrated === 'true') return;
-
-  // Mark as true immediately to prevent parallel execution or loops on page refresh
-  localStorage.setItem('pokemmo_migrated', 'true');
+  const session = await getSession();
+  if (!session) return;
 
   try {
     // 1. Migrate preferences
@@ -55,29 +63,32 @@ export async function migrateLocalStorage() {
       const dexCaught = localStorage.getItem('pokemmo_dex_caught');
       if (dexCaught) {
         const caughtList = JSON.parse(dexCaught);
-        for (const pid of caughtList) {
-          await catchPokemon(pid).catch(() => {});
+        if (Array.isArray(caughtList)) {
+          for (const pid of caughtList) {
+            await catchPokemon(pid).catch(() => {});
+          }
         }
       }
     } catch(e) {
       console.warn('Caught pokemon migration error:', e);
     }
 
-    // 3. Migrate crops - clear local cache immediately to prevent duplicates
+    // 3. Migrate crops
     try {
       const crops = localStorage.getItem('pokemmo_crops');
-      localStorage.removeItem('pokemmo_crops');
       if (crops) {
         const cropsList = JSON.parse(crops);
-        for (const c of cropsList) {
-          await addCrop({
-            type: c.type || 'Unknown',
-            location: c.location || 'Unknown',
-            plantedAt: c.plantedAt ? new Date(c.plantedAt).toISOString() : new Date().toISOString(),
-            waterCount: c.waterCount || 0,
-            wateredAt: c.lastWateredAt ? new Date(c.lastWateredAt).toISOString() : null,
-            harvested: c.harvested || false
-          }).catch(() => {});
+        if (Array.isArray(cropsList)) {
+          for (const c of cropsList) {
+            await addCrop({
+              type: c.type || 'Unknown',
+              location: c.location || 'Unknown',
+              plantedAt: c.plantedAt ? new Date(c.plantedAt).toISOString() : new Date().toISOString(),
+              waterCount: c.waterCount || 0,
+              wateredAt: c.lastWateredAt ? new Date(c.lastWateredAt).toISOString() : null,
+              harvested: c.harvested || false
+            }).catch(() => {});
+          }
         }
       }
     } catch(e) {
@@ -89,9 +100,12 @@ export async function migrateLocalStorage() {
       for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         if (key && key.startsWith('gym-')) {
-          const gymId = key.substring(4);
           const completed = localStorage.getItem(key) === 'true';
-          await toggleGym(gymId, completed).catch(() => {});
+          if (completed) {
+            const savedTime = localStorage.getItem(`time-${key}`);
+            const completedAt = savedTime ? new Date(parseInt(savedTime)).toISOString() : new Date().toISOString();
+            await toggleGym(key, true, completedAt).catch(() => {});
+          }
         }
       }
     } catch(e) {
@@ -124,9 +138,10 @@ export function renderAuthUI(onSuccess) {
           <div id="auth-error" class="hidden p-3 text-xs rounded-lg bg-os-red/10 border border-os-red/30 text-os-red font-mono"></div>
           
           <div>
-            <label class="block text-xs font-mono text-os-muted mb-1 uppercase font-semibold">Correo Electrónico</label>
-            <input type="email" id="auth-email" required
-              class="w-full px-3.5 py-2.5 rounded-lg text-xs font-mono bg-os-bg border border-os-border text-os-text focus:outline-none focus:border-os-blue focus:ring-2 focus:ring-os-blue/20 transition" placeholder="entrenador@pokemmo.com" />
+            <label class="block text-xs font-mono text-os-muted mb-1 uppercase font-semibold">Usuario o Correo</label>
+            <input type="text" id="auth-email" required autocomplete="username"
+              class="w-full px-3.5 py-2.5 rounded-lg text-xs font-mono bg-os-bg border border-os-border text-os-text focus:outline-none focus:border-os-blue focus:ring-2 focus:ring-os-blue/20 transition" placeholder="zedsuaj o entrenador@pokemmo.com" />
+            <p class="text-[10px] text-os-muted mt-1 font-mono">Usa el mismo usuario en tu PC y móvil para sincronizar todo en tiempo real.</p>
           </div>
           
           <div>

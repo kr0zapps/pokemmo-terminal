@@ -1,5 +1,5 @@
 import { state, setState, subscribe } from '../state.js';
-import { addCrop, updateCrop, removeCrop } from '../db.js';
+import { addCrop, updateCrop, removeCrop, getCrops } from '../db.js';
 import { formatTime } from '../utils/format.js';
 // We're importing DOM functions if they existed, but we'll manipulate directly for now
 
@@ -311,6 +311,17 @@ export function initBerries() {
     subscribe('crops', () => {
         renderCrops();
         saveCropsToLocal(); // fallback
+    });
+
+    // Cross-device realtime crop sync
+    document.addEventListener('cropUpdated', async () => {
+        try {
+            const crops = await getCrops();
+            setState('crops', crops);
+            renderCrops();
+        } catch (e) {
+            console.warn('Error reloading crops on realtime sync:', e);
+        }
     });
 
     const totalHarvestedEl = document.getElementById('totalHarvested');

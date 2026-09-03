@@ -1,6 +1,5 @@
 import { state, setState } from '../state.js';
-
-
+import { catchPokemon as dbCatchPokemon, uncatchPokemon as dbUncatchPokemon } from '../db.js';
 let POKEDEX_DB = [];
 let dexCaughtList = [];
 let currentDexRegion = 'Kanto';
@@ -164,7 +163,34 @@ export function renderCaughtModal() {
 }
 
 export async function initPokédex() {
-    dexCaughtList = JSON.parse(localStorage.getItem('pokemmo_dex_caught')) || state.dexCaughtList || [];
+    const localCaught = JSON.parse(localStorage.getItem('pokemmo_dex_caught')) || [];
+    const serverCaught = (state.caught && Array.isArray(state.caught)) ? state.caught : [];
+    dexCaughtList = Array.from(new Set([...serverCaught, ...localCaught]));
+    
+    localStorage.setItem('pokemmo_dex_caught', JSON.stringify(dexCaughtList));
+    setState('caught', dexCaughtList);
+
+    // Cross-device realtime sync
+    document.addEventListener('pokedexUpdated', (e) => {
+        const payload = e.detail;
+        if (payload) {
+            if (payload.eventType === 'INSERT' && payload.new && payload.new.pokemon_id) {
+                const pid = payload.new.pokemon_id;
+                if (!dexCaughtList.includes(pid)) dexCaughtList.push(pid);
+            } else if (payload.eventType === 'DELETE' && payload.old && payload.old.pokemon_id) {
+                const pid = payload.old.pokemon_id;
+                const idx = dexCaughtList.indexOf(pid);
+                if (idx !== -1) dexCaughtList.splice(idx, 1);
+            }
+            localStorage.setItem('pokemmo_dex_caught', JSON.stringify(dexCaughtList));
+            setState('caught', dexCaughtList);
+            updateDexProgress();
+            renderDexResults(false);
+            if (document.getElementById('caughtModal') && !document.getElementById('caughtModal').classList.contains('hidden')) {
+                renderCaughtGrid();
+            }
+        }
+    });
     
     await autoLoadDB();
     
@@ -660,10 +686,13 @@ export function renderDexResults(resetPage = false) {
 
 export function catchPokemon(id) {
     const idx = dexCaughtList.indexOf(id);
+    let isNowCaught = false;
     if (idx === -1) {
         dexCaughtList.push(id);
+        isNowCaught = true;
     } else {
         dexCaughtList.splice(idx, 1);
+        isNowCaught = false;
     }
 
     localStorage.setItem('pokemmo_dex_caught', JSON.stringify(dexCaughtList));
@@ -673,6 +702,13 @@ export function catchPokemon(id) {
     renderDexResults(false);
     if (document.getElementById('caughtModal') && !document.getElementById('caughtModal').classList.contains('hidden')) {
         renderCaughtGrid();
+    }
+
+    // Sync to Supabase in background
+    if (isNowCaught) {
+        dbCatchPokemon(id).catch(err => console.warn('Could not sync catch to Supabase:', err));
+    } else {
+        dbUncatchPokemon(id).catch(err => console.warn('Could not sync release to Supabase:', err));
     }
 }
 
