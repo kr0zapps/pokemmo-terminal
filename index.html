@@ -10,11 +10,10 @@
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10.4.0/dist/mermaid.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
     
-    <!-- Fonts -->
+    <!-- Fonts: Solo Google Fonts Verificadas (Chakra Petch, IBM Plex Sans, JetBrains Mono, VT323, Press Start 2P) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Rubik:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700;800&family=Press+Start+2P&family=Space+Grotesk:wght@500;600;700&family=VT323&display=swap" rel="stylesheet">
     
     <!-- Tailwind Configuration -->
     <script>
@@ -23,26 +22,43 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Pixel Operator"', 'sans-serif'],
-                        tech: ['"Space Grotesk"', '"Rubik"', 'sans-serif'],
-                        chicago: ['"Space Grotesk"', '"Rubik"', 'sans-serif'],
-                        mono: ['"Pixel Operator"', 'monospace'],
-                        lcd: ['"VT323"', '"Pixel Operator 8"', 'monospace'],
-                        pixel: ['"Pixel Operator 8"', '"Press Start 2P"', 'monospace'],
-                        pokemon: ['"Pokemon Solid"', '"Space Grotesk"', 'sans-serif'],
+                        sans: ['"IBM Plex Sans"', 'sans-serif'],
+                        tech: ['"Chakra Petch"', 'sans-serif'],
+                        header: ['"Chakra Petch"', 'sans-serif'],
+                        body: ['"IBM Plex Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                        lcd: ['"VT323"', 'monospace'],
+                        pixel: ['"Press Start 2P"', 'monospace'],
+                        pokemon: ['"Chakra Petch"', 'sans-serif'],
+                    },
+                    fontSize: {
+                        'xs': ['13px', '18px'],
+                        'sm': ['14px', '20px'],
+                        'base': ['15px', '22px'],
+                        'lg': ['18px', '26px'],
+                        'xl': ['20px', '28px'],
+                        '2xl': ['24px', '32px'],
+                        '3xl': ['30px', '36px'],
+                        '4xl': ['36px', '42px'],
+                        '5xl': ['48px', '52px'],
+                        '6xl': ['60px', '64px'],
+                        '7xl': ['72px', '76px'],
                     },
                     colors: {
                         rotom: {
-                            chassis: '#F4F1E8',
-                            dark: '#2B2B2B',
+                            chassis: '#1A1A16',
+                            panel: '#242420',
+                            elevated: '#2E2E27',
+                            border: '#35352E',
+                            dark: '#1A1A16',
                             yellow: '#FFC800',
                             amber: '#755B00',
                             lcdbg: '#9BBC0F',
                             lcdfg: '#0F380F',
-                            green: '#1B5E20',
+                            green: '#10B981',
                             red: '#E63946',
-                            muted: '#5F5A4D',
-                            text: '#1C1C17'
+                            muted: '#A8A594',
+                            text: '#F4F1E8'
                         },
                         os: {
                             bg: 'var(--os-bg)',
@@ -68,7 +84,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-[#242422] dark:bg-[#0F0F0D] font-sans text-[#1C1C17] dark:text-[#F4F1E8] antialiased min-h-screen p-2 sm:p-4 md:p-6 lg:p-8 flex justify-center selection:bg-[#FFC800] selection:text-black transition-colors">
+<body class="bg-[#EFECE4] dark:bg-[#141412] font-sans text-[#1C1C17] dark:text-[#F4F1E8] antialiased min-h-screen p-2 sm:p-4 md:p-6 lg:p-8 flex justify-center selection:bg-[#FFC800] selection:text-black transition-colors">
 
     <!-- OVERALL ROTOM PHONE CONSOLE UNIT (Molded Outer Chassis) -->
     <div class="w-full max-w-[1420px] flex flex-col items-center">
@@ -96,13 +112,13 @@
         </div>
 
         <!-- CHASIS DE HARDWARE ROTOM -->
-        <div class="w-full bg-[#F4F1E8] dark:bg-[#1A1A16] border-[4px] md:border-[5px] border-[#2B2B2B] dark:border-[#3A3A34] rounded-t-[28px] rounded-b-[20px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.85),inset_0_3px_0_rgba(255,255,255,0.9)] relative overflow-hidden flex flex-col transition-colors">
+        <div class="w-full bg-[#F4F1E8] dark:bg-[#1A1A16] border-[4px] md:border-[5px] border-[#2B2B2B] dark:border-[#35352E] rounded-t-[28px] rounded-b-[20px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.85),inset_0_3px_0_rgba(255,255,255,0.9)] relative overflow-hidden flex flex-col transition-colors">
             
-            <!-- 2. BISEL CURVADO SUPERIOR CON OJO OCULAR ROTOM -->
-            <header class="relative w-full bg-[#E5E0D0] dark:bg-[#22221D] border-b-[3px] border-[#2B2B2B] dark:border-[#3A3A34] px-4 md:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4 transition-colors">
+            <!-- 2. BISEL CURVADO SUPERIOR CON OJO OCULAR ROTOM (Nivel 3: Superficie Elevada #2E2E27) -->
+            <header class="relative w-full bg-[#EDE8DC] dark:bg-[#2E2E27] border-b-[3px] border-[#2B2B2B] dark:border-[#35352E] px-4 md:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4 transition-colors">
                 <div class="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-black/10 pointer-events-none"></div>
                 
-                <!-- IZQUIERDA: BADGE DE OJO ROTOM & TÍTULO -->
+                <!-- IZQUIERDA: BADGE DE OJO ROTOM & TÍTULO (Acento Amarillo #FFC800 para marca) -->
                 <div class="flex items-center gap-3 sm:gap-4 z-10">
                     <div class="relative rotom-polygon bg-[#FFC800] border-2 border-[#2B2B2B] px-4 sm:px-5 py-2 flex items-center gap-2.5 shadow-[2px_3px_0px_#2B2B2B]">
                         <div class="relative w-6 h-6 rounded-full bg-white border-2 border-[#2B2B2B] flex items-center justify-center overflow-hidden">
@@ -112,10 +128,10 @@
                         </div>
                         <div class="flex flex-col">
                             <div class="flex items-baseline gap-1.5">
-                                <span class="font-pokemon text-lg sm:text-xl tracking-wider text-[#FFCC00]">PokéMMO</span>
-                                <span class="font-chicago font-bold text-sm tracking-wider text-[#241A00]">ROTOM-PHONE</span>
+                                <span class="font-tech text-lg sm:text-xl font-bold tracking-wider text-[#241A00]">PokéMMO</span>
+                                <span class="font-tech font-extrabold text-sm tracking-wider text-[#241A00]">ROTOM-PHONE</span>
                             </div>
-                            <span class="font-mono text-[9px] text-[#594400] font-bold tracking-normal">Terminal de Operaciones</span>
+                            <span class="font-mono text-[13px] text-[#594400] font-bold tracking-normal">Terminal de Operaciones</span>
                         </div>
                     </div>
                     
@@ -128,51 +144,51 @@
                 <!-- DERECHA: RELOJ EN JUEGO POKÉMMO, ESTACIÓN & MODO OSCURO -->
                 <div class="flex items-center gap-2.5 sm:gap-4 z-10 flex-wrap">
                     <!-- Informador de Hora en Juego y Estación Oficial de PokéMMO -->
-                    <div id="pokemmoClockWidget" class="flex items-center gap-2 bg-[#20201C] dark:bg-[#161614] border-2 border-[#2B2B2B] dark:border-[#3A3A34] px-2.5 sm:px-3 py-1.5 rounded-lg shadow-inner">
+                    <div id="pokemmoClockWidget" class="flex items-center gap-2 bg-[#20201C] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] px-2.5 sm:px-3 py-1.5 rounded-lg shadow-inner">
                         <div class="flex items-center gap-1.5" title="Hora dentro de PokéMMO (1h real = 4h en juego)">
                             <span class="w-2 h-2 rounded-full bg-[#9BBC0F] animate-pulse"></span>
                             <span id="headerInGameClock" class="font-lcd text-lg sm:text-xl font-black tracking-widest text-[#9BBC0F] leading-none">--:--:--</span>
                         </div>
                         <div class="h-4 w-[1px] bg-[#444]"></div>
-                        <span id="headerDayPhaseBadge" class="flex items-center gap-1 font-tech text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">
+                        <span id="headerDayPhaseBadge" class="flex items-center gap-1 font-tech text-[13px] font-bold px-2.5 py-0.5 rounded shadow-sm">
                             <span id="headerDayPhaseIcon"></span>
                             <span id="headerDayPhaseText">--</span>
                         </span>
-                        <span id="headerSeasonBadge" class="flex items-center gap-1 font-tech text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">
+                        <span id="headerSeasonBadge" class="flex items-center gap-1 font-tech text-[13px] font-bold px-2.5 py-0.5 rounded shadow-sm">
                             <span id="headerSeasonIcon"></span>
                             <span id="headerSeasonText">--</span>
                         </span>
                     </div>
 
                     <!-- Selector de Modo Claro / Oscuro -->
-                    <button id="themeToggleBtn" onclick="toggleTheme()" class="flex items-center gap-1.5 bg-[#D8D3C3] dark:bg-[#33332D] border border-[#2B2B2B] dark:border-[#4A4A42] px-2.5 py-1.5 rounded cursor-pointer hover:border-[#FFC800] transition" title="Alternar modo claro / oscuro" type="button">
-                        <svg id="themeIconSun" class="w-3.5 h-3.5 text-[#FFC800] hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-                        <svg id="themeIconMoon" class="w-3.5 h-3.5 text-[#5F5A4D] dark:text-[#F4F1E8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-                        <span id="themeToggleText" class="font-mono text-[10px] font-bold text-[#1C1C17] dark:text-[#F4F1E8]">Modo</span>
+                    <button id="themeToggleBtn" onclick="toggleTheme()" class="flex items-center gap-1.5 bg-[#EDE8DC] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-1.5 rounded-lg cursor-pointer hover:border-[#FFC800] transition" title="Alternar modo claro / oscuro" type="button">
+                        <svg id="themeIconSun" class="w-4 h-4 text-[#FFC800] hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                        <svg id="themeIconMoon" class="w-4 h-4 text-[#5F5A4D] dark:text-[#F4F1E8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                        <span id="themeToggleText" class="font-mono text-[13px] font-bold text-[#1C1C17] dark:text-[#F4F1E8]">Modo</span>
                     </button>
 
                     <!-- Batería de Hardware -->
-                    <div class="hidden sm:flex items-center gap-1.5 bg-[#D8D3C3] dark:bg-[#33332D] border border-[#2B2B2B] dark:border-[#4A4A42] px-2.5 py-1.5 rounded">
+                    <div class="hidden sm:flex items-center gap-1.5 bg-[#EDE8DC] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-1.5 rounded-lg">
                         <svg class="w-4 h-4 text-[#2B2B2B] dark:text-[#F4F1E8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                         <div class="flex gap-0.5">
-                            <div class="w-2 h-3.5 bg-[#1B5E20] dark:bg-[#C3F400] rounded-[1px]"></div>
-                            <div class="w-2 h-3.5 bg-[#1B5E20] dark:bg-[#C3F400] rounded-[1px]"></div>
-                            <div class="w-2 h-3.5 bg-[#1B5E20] dark:bg-[#C3F400] rounded-[1px]"></div>
-                            <div class="w-2 h-3.5 bg-[#1B5E20] dark:bg-[#C3F400] rounded-[1px]"></div>
+                            <div class="w-2 h-3.5 bg-[#1B5E20] dark:bg-[#10B981] rounded-[1px]"></div>
+                            <div class="w-2 h-3.5 bg-[#1B5E20] dark:bg-[#10B981] rounded-[1px]"></div>
+                            <div class="w-2 h-3.5 bg-[#1B5E20] dark:bg-[#10B981] rounded-[1px]"></div>
+                            <div class="w-2 h-3.5 bg-[#1B5E20] dark:bg-[#10B981] rounded-[1px]"></div>
                             <div class="w-2 h-3.5 bg-[#A8A495] rounded-[1px]"></div>
                         </div>
-                        <span class="font-mono text-[11px] font-bold text-[#2B2B2B] dark:text-[#F4F1E8] ml-1">94%</span>
+                        <span class="font-mono text-[13px] font-bold text-[#2B2B2B] dark:text-[#F4F1E8] ml-1">94%</span>
                     </div>
                 </div>
             </header>
 
-            <!-- 3. TABLERO DE CABINA INTERNO -->
+            <!-- 3. TABLERO DE CABINA INTERNO (Nivel 1: Chasis #1A1A16) -->
             <main id="app-main" class="w-full p-3 sm:p-5 md:p-6 lg:p-7 flex flex-col gap-6 relative min-h-[600px]">
                 <!-- Vistas inyectadas por app.js -->
             </main>
 
-            <!-- 4. TIRA DE BASE INFERIOR DEL CHASIS -->
-            <footer class="w-full bg-[#D8D4C7] dark:bg-[#20201B] border-t-[3px] border-[#2B2B2B] dark:border-[#3A3A34] px-4 md:px-8 py-3 flex flex-wrap items-center justify-between gap-3 text-[#5F5A4D] dark:text-[#B5B1A4] transition-colors">
+            <!-- 4. TIRA DE BASE INFERIOR DEL CHASIS (Nivel 3: Superficie Elevada #2E2E27) -->
+            <footer class="w-full bg-[#EDE8DC] dark:bg-[#2E2E27] border-t-[3px] border-[#2B2B2B] dark:border-[#35352E] px-4 md:px-8 py-3 flex flex-wrap items-center justify-between gap-3 text-[#5F5A4D] dark:text-[#A8A594] transition-colors">
                 <div class="flex items-center gap-3">
                     <div class="flex gap-1">
                         <div class="w-1.5 h-4 bg-[#FFC800] rounded-full"></div>
@@ -180,14 +196,14 @@
                         <div class="w-1.5 h-4 bg-[#2B2B2B]/40 dark:bg-white/20 rounded-full"></div>
                     </div>
                     <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-                        <span class="font-tech text-xs font-bold text-[#1C1C17] dark:text-[#F4F1E8]">HORARIO SERVIDOR POKÉMMO</span>
-                        <span class="font-mono text-[11px] text-[#5F5A4D] dark:text-[#B5B1A4]">• 1h real = 4h en juego • Día 24h = 6h reales</span>
+                        <span class="font-tech text-[13px] font-bold text-[#1C1C17] dark:text-[#F4F1E8]">HORARIO SERVIDOR POKÉMMO</span>
+                        <span class="font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">• 1h real = 4h en juego • Día 24h = 6h reales</span>
                     </div>
                 </div>
-                <div class="flex items-center gap-3 md:gap-5 text-xs font-mono font-bold flex-wrap">
+                <div class="flex items-center gap-3 md:gap-5 text-[13px] font-mono font-bold flex-wrap">
                     <span class="flex items-center gap-1.5">
-                        <span class="text-[#5F5A4D] dark:text-[#B5B1A4]">Próximo reinicio (6h):</span>
-                        <span id="footerResetTimer" class="font-lcd text-sm text-[#1B5E20] dark:text-[#C3F400] tracking-wider font-black">--:--:--</span>
+                        <span class="text-[#5F5A4D] dark:text-[#A8A594]">Próximo reinicio (6h):</span>
+                        <span id="footerResetTimer" class="font-lcd text-base text-[#1B5E20] dark:text-[#10B981] tracking-wider font-black">--:--:--</span>
                     </span>
                 </div>
             </footer>

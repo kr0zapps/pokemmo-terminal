@@ -66,17 +66,17 @@ export function renderGymView() {
                 <!-- Línea Técnica con Título en Español -->
                 <div class="w-full h-1 bg-[#D8D4C7] dark:bg-[#3A3A34] border-b border-white/20 mb-3 flex items-center justify-between">
                     <div class="w-16 h-1 bg-[#2B2B2B] dark:bg-[#FFC800]"></div>
-                    <span class="font-mono text-[10px] text-[#5F5A4D] dark:text-[#B5B1A4] font-bold tracking-wide bg-[#F4F1E8] dark:bg-[#1A1A16] px-2">Estimación de ganancias de circuito</span>
+                    <span class="font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594] font-bold tracking-wide bg-[#F4F1E8] dark:bg-[#1A1A16] px-2">Estimación de ganancias de circuito</span>
                     <div class="w-28 h-1 bg-[#FFC800]"></div>
                 </div>
                 <!-- Fila de Encabezado con Interruptor Deslizante -->
                 <div class="flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-2">
-                        <span class="font-tech font-bold text-xs tracking-wide text-[#5F5A4D] dark:text-[#B5B1A4]">Estimado de ingresos</span>
+                        <span class="font-tech font-bold text-xs tracking-wide text-[#5F5A4D] dark:text-[#A8A594]">Estimado de ingresos</span>
                     </div>
                     <!-- Interruptor Deslizante Mecánico: Moneda Amuleto +50% activa -->
-                    <label class="flex items-center gap-2 bg-[#E2DDCF] dark:bg-[#282824] border-2 border-[#2B2B2B] dark:border-[#4A4A42] px-3 py-1.5 rounded-lg shadow-sm cursor-pointer select-none">
-                        <span class="font-tech font-extrabold text-[11px] tracking-wide text-[#2B2B2B] dark:text-[#F4F1E8]">Moneda Amuleto +50% activa</span>
+                    <label class="flex items-center gap-2 bg-[#E2DDCF] dark:bg-[#242420] border-2 border-[#2B2B2B] dark:border-[#35352E] px-3 py-1.5 rounded-lg shadow-sm cursor-pointer select-none">
+                        <span class="font-tech font-extrabold text-[13px] tracking-wide text-[#2B2B2B] dark:text-[#F4F1E8]">Moneda Amuleto +50% activa</span>
                         <input type="checkbox" id="amuletCoinToggle" checked class="sr-only">
                         <div id="amuletToggleKnob" class="w-11 h-6 bg-[#2B2B2B] dark:bg-[#161614] rounded-full p-0.5 flex items-center transition-all shadow-inner">
                             <div class="w-5 h-5 rounded-full bg-[#FFC800] border border-[#2B2B2B] transform translate-x-5 transition-transform shadow-md flex items-center justify-center">
@@ -95,15 +95,15 @@ export function renderGymView() {
                             Poké$
                         </span>
                     </div>
-                    <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#5F5A4D] dark:text-[#B5B1A4] mt-1 flex-wrap">
-                        <span class="bg-[#E4DFD0] dark:bg-[#282824] px-2 py-0.5 rounded border border-[#81765F]/30 dark:border-[#4A4A42] text-[#1C1C17] dark:text-[#F4F1E8]" id="payoutBaseText">Base: $0</span>
+                    <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#5F5A4D] dark:text-[#A8A594] mt-1 flex-wrap">
+                        <span class="bg-[#E4DFD0] dark:bg-[#242420] px-2 py-0.5 rounded border border-[#81765F]/30 dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8]" id="payoutBaseText">Base: $0</span>
                         <span class="text-[#2B2B2B] dark:text-[#F4F1E8] font-black">+</span>
                         <span class="bg-[#FFDF92] dark:bg-[#473200] text-[#5C3800] dark:text-[#FFDF92] px-2 py-0.5 rounded border border-[#755B00]/40 font-black" id="payoutBonusText">Bono: +$0</span>
                     </div>
                 </div>
                 <!-- Barra Recesiva de Progreso -->
-                <div class="w-full bg-[#E5E0D0] dark:bg-[#22221D] h-2.5 rounded-full overflow-hidden border border-[#2B2B2B] dark:border-[#3A3A34] shadow-inner mt-2">
-                    <div id="gymEarningsBar" class="h-full bg-[#FFC800] w-0 border-r border-[#2B2B2B] transition-all duration-500"></div>
+                <div class="w-full bg-[#E5E0D0] dark:bg-[#22221D] h-2.5 rounded-full overflow-hidden border border-[#2B2B2B] dark:border-[#35352E] shadow-inner mt-2">
+                    <div id="gymEarningsBar" class="h-full bg-gradient-to-r from-[#10B981] via-[#F59E0B] to-[#10B981] w-0 border-r border-[#2B2B2B] transition-all duration-500"></div>
                 </div>
             </div>
 
@@ -124,20 +124,20 @@ export function renderGymView() {
                 </div>
 
                 <div class="flex items-center justify-between mb-1.5 px-1">
-                    <span class="font-mono text-[10px] uppercase font-bold text-[#A8A495] tracking-wider flex items-center gap-1.5">
+                    <span class="font-mono text-[13px] uppercase font-bold text-[#A8A495] tracking-wider flex items-center gap-1.5">
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/amulet-coin.png" class="w-4 h-4 pokemon-sprite" alt="">
                         Telemetría de Moneda Amuleto
                     </span>
                     <div class="flex items-center gap-1">
-                        <span class="text-[9px] font-mono text-[#A8A495]">Comp:</span>
-                        <input type="number" id="gymCompHours" value="0" min="0" max="18" step="0.5" class="w-10 p-0.5 text-[10px] text-center bg-[#1C1C17] border border-[#444] text-[#9BBC0F] font-mono rounded" title="Horas de compensación previa">
-                        <span class="text-[9px] font-mono text-[#A8A495]">h</span>
+                        <span class="text-[13px] font-mono text-[#A8A495]">Comp:</span>
+                        <input type="number" id="gymCompHours" value="0" min="0" max="18" step="0.5" class="w-10 p-0.5 text-[13px] text-center bg-[#1C1C17] border border-[#444] text-[#9BBC0F] font-mono rounded" title="Horas de compensación previa">
+                        <span class="text-[13px] font-mono text-[#A8A495]">h</span>
                     </div>
                 </div>
 
                 <!-- Pantalla LCD Verde Fósforo (Siempre activa con el mismo brillo retro) -->
                 <div class="lcd-screen-gb p-3 rounded border-2 border-[#181816] flex flex-col justify-between my-1">
-                    <div class="flex justify-between text-[10px] font-bold opacity-80 border-b border-[#0F380F]/30 pb-1">
+                    <div class="flex justify-between text-[13px] font-bold opacity-80 border-b border-[#0F380F]/30 pb-1">
                         <span>DURACIÓN AMULETO 1H</span>
                         <span id="amuletStatusText">INACTIVO</span>
                     </div>
@@ -145,7 +145,7 @@ export function renderGymView() {
                         <span id="amuletTimerText" class="text-4xl font-black tracking-widest leading-none font-lcd">60:00</span>
                         <span class="text-xs font-bold uppercase tracking-wider">+50% BONO</span>
                     </div>
-                    <div class="flex justify-between text-[9px] font-bold opacity-75 pt-1 border-t border-[#0F380F]/30">
+                    <div class="flex justify-between text-[13px] font-bold opacity-75 pt-1 border-t border-[#0F380F]/30">
                         <span>RECARGA: CICLO 18H</span>
                         <span>ESTADO: LISTO</span>
                     </div>
@@ -164,24 +164,24 @@ export function renderGymView() {
         </div>
 
         <!-- BARRA DE SALUD DE COMBATE: SISTEMA DE OBJETIVOS DE GIMNASIO -->
-        <section class="w-full bg-[#E5E0D0] dark:bg-[#242420] border-2 border-[#2B2B2B] dark:border-[#3A3A34] rounded-xl p-3 md:p-4 shadow-[2px_3px_0px_#2B2B2B] dark:shadow-[2px_3px_0px_#000] flex flex-col gap-2.5 mb-6 transition-colors">
+        <section class="w-full bg-[#E5E0D0] dark:bg-[#242420] border-2 border-[#2B2B2B] dark:border-[#35352E] rounded-xl p-3 md:p-4 shadow-[2px_3px_0px_#2B2B2B] dark:shadow-[2px_3px_0px_#000] flex flex-col gap-2.5 mb-6 transition-colors">
             <div class="flex flex-wrap items-center justify-between gap-2">
                 <div class="flex items-center gap-2">
                     <span class="font-tech font-bold text-sm text-[#1C1C17] dark:text-[#F4F1E8] tracking-wide">Despeje total de gimnasios (ciclo diario 24h)</span>
                 </div>
                 <div class="flex items-center gap-3 font-mono font-bold text-xs">
                     <span class="text-[#2B2B2B] dark:text-[#F4F1E8]">Combate activo: <strong id="gymsReadyCount" class="text-[#1B5E20] dark:text-[#C3F400]">40</strong> / 40 listos</span>
-                    <span id="gymsCooldownBadge" class="bg-[#D2CDBC] dark:bg-[#33332D] px-2 py-0.5 rounded border border-[#2B2B2B]/40 dark:border-[#4A4A42] text-[#5F5A4D] dark:text-[#B5B1A4]">0 en enfriamiento</span>
+                    <span id="gymsCooldownBadge" class="bg-[#D2CDBC] dark:bg-[#2E2E27] px-2 py-0.5 rounded border border-[#2B2B2B]/40 dark:border-[#35352E] text-[#5F5A4D] dark:text-[#A8A594]">0 en enfriamiento</span>
                 </div>
             </div>
             <!-- Medidor de Combate Segmentado en 8 partes -->
-            <div class="relative w-full h-8 bg-[#2B2B2B] dark:bg-[#161614] rounded-md p-1 border-2 border-[#181816] dark:border-[#3A3A34] shadow-inner flex items-center">
+            <div class="relative w-full h-8 bg-[#2B2B2B] dark:bg-[#161614] rounded-md p-1 border-2 border-[#181816] dark:border-[#35352E] shadow-inner flex items-center">
                 <div class="w-full h-full rounded bg-[#1C1C17] overflow-hidden flex relative">
                     <div id="gymHpReadyBar" class="h-full w-[100%] bg-gradient-to-r from-[#9BBC0F] via-[#CDF14B] to-[#FFC800] rounded-l flex items-center justify-end pr-2 transition-all duration-500 shadow-[inset_0_2px_0_rgba(255,255,255,0.6)]">
                         <span id="gymHpClearanceText" class="font-mono font-black text-xs text-[#241A00] tracking-wider">100% listos</span>
                     </div>
                     <div id="gymHpCooldownBar" class="h-full w-[0%] bg-[#3D1B1E] flex items-center justify-center transition-all duration-500">
-                        <span class="font-mono font-bold text-[10px] text-[#FFA8A8] tracking-wider">Enfriamiento</span>
+                        <span class="font-mono font-bold text-[13px] text-[#FFA8A8] tracking-wider">Enfriamiento</span>
                     </div>
                 </div>
                 <div class="absolute inset-x-1 inset-y-1 pointer-events-none grid grid-cols-8 divide-x-2 divide-[#2B2B2B]/70 dark:divide-[#161614]">
@@ -189,12 +189,12 @@ export function renderGymView() {
                 </div>
             </div>
             <!-- Barra de Ruta Óptima -->
-            <div class="flex flex-wrap items-center justify-between text-[11px] font-mono text-[#5F5A4D] dark:text-[#B5B1A4] pt-0.5">
+            <div class="flex flex-wrap items-center justify-between text-[13px] font-mono text-[#5F5A4D] dark:text-[#A8A594] pt-0.5">
                 <span class="flex items-center gap-1.5">
                     <svg class="w-3.5 h-3.5 text-[#755B00] dark:text-[#FFC800]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
                     Secuencia óptima de rutas: <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">Azulona &gt; Azafrán &gt; Carmín &gt; Celeste &gt; Fucsia</strong>
                 </span>
-                <button id="btn-reset-gyms" class="font-bold text-[#b7102a] dark:text-[#FFA8A8] hover:underline cursor-pointer uppercase text-[10px] tracking-wider">
+                <button id="btn-reset-gyms" class="font-bold text-[#b7102a] dark:text-[#FFA8A8] hover:underline cursor-pointer uppercase text-[13px] tracking-wider">
                     [ Reiniciar todos los gimnasios ]
                 </button>
             </div>
@@ -205,7 +205,7 @@ export function renderGymView() {
             <div class="flex items-center justify-between px-1">
                 <div class="flex items-center gap-2">
                     <span class="font-tech font-black text-base text-[#1C1C17] dark:text-[#F4F1E8] tracking-wide">Mazo de circuitos regionales</span>
-                    <span class="font-mono text-[10px] bg-[#E2DDCF] dark:bg-[#282824] border border-[#2B2B2B] dark:border-[#4A4A42] px-1.5 py-0.5 rounded font-bold text-[#5F5A4D] dark:text-[#B5B1A4]">Carga asimétrica</span>
+                    <span class="font-mono text-[13px] bg-[#E2DDCF] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E] px-1.5 py-0.5 rounded font-bold text-[#5F5A4D] dark:text-[#A8A594]">Carga asimétrica</span>
                 </div>
                 <span class="font-mono text-xs font-bold text-[#1B5E20] dark:text-[#C3F400]">VS-Buscador sincronizado</span>
             </div>
@@ -308,26 +308,26 @@ export function renderGyms() {
         let actionBtnHtml = '';
         if (completedInRegion === 0) {
             actionBtnHtml = `
-                <button data-region="${regionName}" data-action="mark-all" class="text-[10px] font-mono uppercase bg-[#2B2B2B] dark:bg-[#3E3E36] text-white hover:bg-[#444] px-2.5 py-1 rounded font-bold transition cursor-pointer" title="Marcar todos los líderes como completados">
+                <button data-region="${regionName}" data-action="mark-all" class="text-[13px] font-mono uppercase bg-[#2B2B2B] dark:bg-[#3E3E36] text-white hover:bg-[#444] px-2.5 py-1 rounded font-bold transition cursor-pointer" title="Marcar todos los líderes como completados">
                     Completar todo
                 </button>
             `;
         } else if (completedInRegion < list.length) {
             actionBtnHtml = `
-                <button data-region="${regionName}" data-action="mark-all" class="text-[10px] font-mono uppercase bg-[#FFC800] text-[#241A00] hover:bg-[#FFE066] border border-[#2B2B2B] px-2.5 py-1 rounded font-black transition cursor-pointer shadow-sm" title="Continuar marcando los líderes restantes">
+                <button data-region="${regionName}" data-action="mark-all" class="text-[13px] font-mono uppercase bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] px-2.5 py-1 rounded font-black transition cursor-pointer shadow-sm" title="Continuar marcando los líderes restantes">
                     Continuar (${completedInRegion}/${list.length})
                 </button>
             `;
         } else {
             actionBtnHtml = `
-                <button data-region="${regionName}" data-action="mark-all" class="text-[10px] font-mono uppercase bg-[#1B5E20]/20 text-[#1B5E20] dark:text-[#C3F400] border border-[#1B5E20]/40 px-2.5 py-1 rounded font-bold transition cursor-default opacity-80" disabled>
+                <button data-region="${regionName}" data-action="mark-all" class="text-[13px] font-mono uppercase bg-[#1B5E20]/20 text-[#1B5E20] dark:text-[#C3F400] border border-[#1B5E20]/40 px-2.5 py-1 rounded font-bold transition cursor-default opacity-80" disabled>
                     Completado
                 </button>
             `;
         }
 
         const resetBtnHtml = `
-            <button data-region="${regionName}" data-action="unmark-all" class="text-[10px] font-mono uppercase bg-[#E4DFD0] dark:bg-[#33332D] text-[#2B2B2B] dark:text-[#F4F1E8] hover:text-[#b7102a] dark:hover:text-[#FFA8A8] border border-[#2B2B2B] dark:border-[#4A4A42] px-2 py-1 rounded transition cursor-pointer" title="Reiniciar circuito">
+            <button data-region="${regionName}" data-action="unmark-all" class="text-[13px] font-mono uppercase bg-[#E4DFD0] dark:bg-[#2E2E27] text-[#2B2B2B] dark:text-[#F4F1E8] hover:text-[#b7102a] dark:hover:text-[#FFA8A8] border border-[#2B2B2B] dark:border-[#35352E] px-2 py-1 rounded transition cursor-pointer" title="Reiniciar circuito">
                 Reiniciar
             </button>
         `;
@@ -335,32 +335,32 @@ export function renderGyms() {
         if (regionName === 'Kanto') {
             // Renderizado de la Liga de Kanto (Fila Horizontal de 8 Columnas)
             kantoContainer.innerHTML = `
-                <div class="w-full bg-[#FAF8F2] dark:bg-[#282824] border-[3px] border-[#2B2B2B] dark:border-[#3A3A34] rounded-2xl p-4 shadow-[4px_5px_0px_#2B2B2B] dark:shadow-[4px_5px_0px_#000] relative overflow-hidden flex flex-col justify-between transition-colors">
+                <div class="w-full bg-[#FAF8F2] dark:bg-[#242420] border-[3px] border-[#2B2B2B] dark:border-[#35352E] rounded-2xl p-4 shadow-[4px_5px_0px_#2B2B2B] dark:shadow-[4px_5px_0px_#000] relative overflow-hidden flex flex-col justify-between transition-colors">
                     <!-- Remaches Esquineros -->
-                    <div class="absolute top-2 left-2 w-2.5 h-2.5 rounded-full bg-[#D8D4C7] dark:bg-[#3E3E36] border border-[#2B2B2B] dark:border-[#4A4A42] flex items-center justify-center">
+                    <div class="absolute top-2 left-2 w-2.5 h-2.5 rounded-full bg-[#D8D4C7] dark:bg-[#3E3E36] border border-[#2B2B2B] dark:border-[#35352E] flex items-center justify-center">
                         <div class="w-1.5 h-0.5 bg-[#2B2B2B] dark:bg-[#20201C]"></div>
                     </div>
-                    <div class="absolute top-2 right-2 w-2.5 h-2.5 rounded-full bg-[#D8D4C7] dark:bg-[#3E3E36] border border-[#2B2B2B] dark:border-[#4A4A42] flex items-center justify-center">
+                    <div class="absolute top-2 right-2 w-2.5 h-2.5 rounded-full bg-[#D8D4C7] dark:bg-[#3E3E36] border border-[#2B2B2B] dark:border-[#35352E] flex items-center justify-center">
                         <div class="w-1.5 h-0.5 bg-[#2B2B2B] dark:bg-[#20201C]"></div>
                     </div>
                     
                     <!-- Sello Dinámico Físico Rotado -->
                     ${isRegionCleared ? `
-                        <div class="absolute right-4 sm:right-6 top-4 sm:top-6 z-20 pointer-events-none stamp-cleared bg-[#FAF8F2]/95 dark:bg-[#282824]/95 px-3 py-1 font-mono font-black text-xs md:text-sm tracking-widest shadow-sm">
+                        <div class="absolute right-4 sm:right-6 top-4 sm:top-6 z-20 pointer-events-none stamp-cleared bg-[#FAF8F2]/95 dark:bg-[#242420]/95 px-3 py-1 font-mono font-black text-xs md:text-sm tracking-widest shadow-sm">
                             ★ COMPLETADO Y VERIFICADO ★
                         </div>
                     ` : `
-                        <div class="absolute right-4 sm:right-6 top-4 sm:top-6 z-20 pointer-events-none stamp-progress bg-[#FAF8F2]/95 dark:bg-[#282824]/95 px-2.5 py-0.5 font-mono font-bold text-[10px] md:text-xs tracking-tight shadow-sm">
+                        <div class="absolute right-4 sm:right-6 top-4 sm:top-6 z-20 pointer-events-none stamp-progress bg-[#FAF8F2]/95 dark:bg-[#242420]/95 px-2.5 py-0.5 font-mono font-bold text-[13px] md:text-xs tracking-tight shadow-sm">
                             PENDIENTE ${list.length - completedInRegion}/${list.length}
                         </div>
                     `}
 
                     <!-- Encabezado de Kanto -->
-                    <div class="flex flex-wrap items-center justify-between border-b-2 border-[#2B2B2B] dark:border-[#3A3A34] pb-2 mb-3 gap-2">
+                    <div class="flex flex-wrap items-center justify-between border-b-2 border-[#2B2B2B] dark:border-[#35352E] pb-2 mb-3 gap-2">
                         <div class="flex items-center gap-2">
-                            <span class="bg-[#FFC800] text-[#241A00] font-tech font-black text-xs px-2 py-0.5 rounded border border-[#2B2B2B]">R-01</span>
+                            <span class="bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] px-2 py-0.5 rounded border border-[#2B2B2B] dark:border-[#35352E]">R-01</span>
                             <span class="font-tech font-black text-base md:text-lg text-[#1C1C17] dark:text-[#F4F1E8]">Liga de Kanto</span>
-                            <span class="font-tech font-bold text-[11px] text-[#5C3800] dark:text-[#FFDF92] bg-[#FFDF92] dark:bg-[#473200] px-2 py-0.5 rounded">Circuito local</span>
+                            <span class="font-tech font-bold text-[13px] text-[#5C3800] dark:text-[#FFDF92] bg-[#FFDF92] dark:bg-[#473200] px-2 py-0.5 rounded">Circuito local</span>
                         </div>
                         <div class="flex items-center gap-1.5 z-10 mr-0 sm:mr-36">
                             ${actionBtnHtml}
@@ -375,21 +375,21 @@ export function renderGyms() {
                             const isChecked = localStorage.getItem(id) === 'true';
                             const [city, leader] = gym.name.includes(':') ? gym.name.split(':') : [gym.name, ''];
                             return `
-                                <div class="leader-tile ${isChecked ? 'bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B]/40 dark:border-[#3A3A34]' : 'bg-[#F0ECE1] dark:bg-[#2A2A26] border border-[#2B2B2B] dark:border-[#3A3A34]'} p-2 rounded-lg flex flex-col justify-between cursor-pointer hover:border-[#FFC800] transition select-none" data-gym-id="${id}">
+                                <div class="leader-tile ${isChecked ? 'bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B]/40 dark:border-[#35352E]' : 'bg-[#F0ECE1] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E]'} p-2 rounded-lg flex flex-col justify-between cursor-pointer hover:border-[#FFC800] transition select-none" data-gym-id="${id}">
                                     <div class="flex items-center justify-between">
                                         ${isChecked ? `
-                                            <span class="w-4 h-4 rounded-full bg-[#1B5E20]/15 dark:bg-[#C3F400]/20 text-[#1B5E20] dark:text-[#C3F400] text-[10px] font-bold flex items-center justify-center">✓</span>
+                                            <span class="w-4 h-4 rounded-full bg-[#1B5E20]/15 dark:bg-[#C3F400]/20 text-[#1B5E20] dark:text-[#C3F400] text-[13px] font-bold flex items-center justify-center">✓</span>
                                         ` : `
-                                            <span class="w-4 h-4 rounded-full bg-[#2B2B2B] dark:bg-[#3E3E36] text-white text-[9px] font-black flex items-center justify-center">${idx + 1}</span>
+                                            <span class="w-4 h-4 rounded-full bg-[#2B2B2B] dark:bg-[#3E3E36] text-white text-[13px] font-black flex items-center justify-center">${idx + 1}</span>
                                         `}
-                                        <span id="timer-${id}" class="font-mono text-[9px] ${isChecked ? 'text-[#5F5A4D] dark:text-[#B5B1A4] font-medium' : 'text-[#1B5E20] dark:text-[#C3F400] font-bold'}">
+                                        <span id="timer-${id}" class="font-mono text-[13px] ${isChecked ? 'text-[#5F5A4D] dark:text-[#A8A594] font-medium' : 'text-[#1B5E20] dark:text-[#C3F400] font-bold'}">
                                             ${isChecked ? '--:--:--' : 'Listo'}
                                         </span>
                                     </div>
-                                    <span id="label-${id}" class="font-tech font-bold text-xs mt-1.5 truncate ${isChecked ? 'text-[#5F5A4D] dark:text-[#B5B1A4]' : 'text-[#1C1C17] dark:text-[#F4F1E8]'}">
+                                    <span id="label-${id}" class="font-tech font-bold text-xs mt-1.5 truncate ${isChecked ? 'text-[#5F5A4D] dark:text-[#A8A594]' : 'text-[#1C1C17] dark:text-[#F4F1E8]'}">
                                         ${leader ? leader.trim() : city.trim()}
                                     </span>
-                                    <span class="font-mono text-[8px] text-[#5F5A4D] dark:text-[#B5B1A4] truncate">${city.replace(/\(.*?\)/, '').trim()}</span>
+                                    <span class="font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594] truncate">${city.replace(/\(.*?\)/, '').trim()}</span>
                                 </div>
                             `;
                         }).join('')}
@@ -397,7 +397,7 @@ export function renderGyms() {
 
                     <!-- Barra Delgada de Progreso Integrada en el Borde Inferior -->
                     <div class="w-full bg-[#D8D4C7] dark:bg-[#1E1E1A] h-[3px] rounded-full overflow-hidden mt-3" title="Progreso del circuito: ${progressPct}%">
-                        <div class="h-full bg-[#FFC800] transition-all duration-300" style="width: ${progressPct}%"></div>
+                        <div class="h-full bg-[#10B981] transition-all duration-300" style="width: ${progressPct}%"></div>
                     </div>
                 </div>
             `;
@@ -405,22 +405,22 @@ export function renderGyms() {
             // Tarjetas de Regiones Subordinadas (Teselia, Sinnoh, Hoenn, Johto)
             const regionNumber = regionName.includes('Teselia') ? 'R-02' : regionName.includes('Sinnoh') ? 'R-03' : regionName.includes('Hoenn') ? 'R-04' : 'R-05';
             const card = document.createElement('div');
-            card.className = "bg-[#F6F4EB] dark:bg-[#262622] border-2 border-[#2B2B2B] dark:border-[#3A3A34] rounded-xl p-3 shadow-[2px_3px_0px_#2B2B2B] dark:shadow-[2px_3px_0px_#000] relative overflow-hidden flex flex-col justify-between transition-colors";
+            card.className = "bg-[#F6F4EB] dark:bg-[#262622] border-2 border-[#2B2B2B] dark:border-[#35352E] rounded-xl p-3 shadow-[2px_3px_0px_#2B2B2B] dark:shadow-[2px_3px_0px_#000] relative overflow-hidden flex flex-col justify-between transition-colors";
             card.innerHTML = `
                 <!-- Sello Dinámico -->
                 ${isRegionCleared ? `
-                    <div class="absolute -right-2 top-6 z-20 pointer-events-none stamp-cleared bg-[#F6F4EB]/95 dark:bg-[#262622]/95 px-2 py-0.5 font-mono font-bold text-[10px] tracking-tight shadow-sm">
+                    <div class="absolute -right-2 top-6 z-20 pointer-events-none stamp-cleared bg-[#F6F4EB]/95 dark:bg-[#262622]/95 px-2 py-0.5 font-mono font-bold text-[13px] tracking-tight shadow-sm">
                         ★ COMPLETADO ★
                     </div>
                 ` : `
-                    <div class="absolute -right-2 top-6 z-20 pointer-events-none stamp-progress bg-[#F6F4EB]/90 dark:bg-[#262622]/90 px-2 py-0.5 font-mono font-bold text-[10px] tracking-tight shadow-sm">
+                    <div class="absolute -right-2 top-6 z-20 pointer-events-none stamp-progress bg-[#F6F4EB]/90 dark:bg-[#262622]/90 px-2 py-0.5 font-mono font-bold text-[13px] tracking-tight shadow-sm">
                         PENDIENTE ${list.length - completedInRegion}/${list.length}
                     </div>
                 `}
 
-                <div class="flex items-center justify-between border-b border-[#2B2B2B]/30 dark:border-[#3A3A34] pb-1.5 mb-2">
+                <div class="flex items-center justify-between border-b border-[#2B2B2B]/30 dark:border-[#35352E] pb-1.5 mb-2">
                     <div class="flex items-center gap-1.5">
-                        <span class="bg-[#E4DFD0] dark:bg-[#33332D] text-[#2B2B2B] dark:text-[#F4F1E8] font-tech font-bold text-[10px] px-1.5 py-0.5 rounded border border-[#2B2B2B] dark:border-[#4A4A42]">${regionNumber}</span>
+                        <span class="bg-[#E4DFD0] dark:bg-[#2E2E27] text-[#2B2B2B] dark:text-[#F4F1E8] font-tech font-bold text-[13px] px-1.5 py-0.5 rounded border border-[#2B2B2B] dark:border-[#35352E]">${regionNumber}</span>
                         <span class="font-tech font-bold text-xs text-[#1C1C17] dark:text-[#F4F1E8]">${regionName}</span>
                     </div>
                     <div class="flex items-center gap-1 z-10 mr-16">
@@ -429,20 +429,20 @@ export function renderGyms() {
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-1.5 text-[11px] z-10">
+                <div class="grid grid-cols-2 gap-1.5 text-[13px] z-10">
                     ${list.map((gym, idx) => {
                         const id = `gym-${cleanRegion}-${idx}`;
                         const isChecked = localStorage.getItem(id) === 'true';
                         const [city, leader] = gym.name.includes(':') ? gym.name.split(':') : [gym.name, ''];
                         return `
-                            <div class="leader-tile ${isChecked ? 'bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B]/30 dark:border-[#3A3A34]' : 'bg-[#EDE9DE] dark:bg-[#2A2A26] border border-transparent'} p-1.5 rounded flex justify-between items-center cursor-pointer hover:border-[#FFC800] transition select-none" data-gym-id="${id}">
+                            <div class="leader-tile ${isChecked ? 'bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B]/30 dark:border-[#35352E]' : 'bg-[#EDE9DE] dark:bg-[#242420] border border-transparent'} p-1.5 rounded flex justify-between items-center cursor-pointer hover:border-[#FFC800] transition select-none" data-gym-id="${id}">
                                 <div class="flex items-center gap-1 truncate mr-1">
-                                    ${isChecked ? `<span class="text-[#1B5E20] dark:text-[#C3F400] text-[10px] font-bold">✓</span>` : ''}
-                                    <span id="label-${id}" class="font-medium truncate text-[11px] ${isChecked ? 'text-[#5F5A4D] dark:text-[#B5B1A4]' : 'text-[#1C1C17] dark:text-[#F4F1E8]'}">
+                                    ${isChecked ? `<span class="text-[#1B5E20] dark:text-[#C3F400] text-[13px] font-bold">✓</span>` : ''}
+                                    <span id="label-${id}" class="font-medium truncate text-[13px] ${isChecked ? 'text-[#5F5A4D] dark:text-[#A8A594]' : 'text-[#1C1C17] dark:text-[#F4F1E8]'}">
                                         ${leader ? leader.trim() : city.trim()}
                                     </span>
                                 </div>
-                                <span id="timer-${id}" class="font-mono text-[8px] ${isChecked ? 'text-[#5F5A4D] dark:text-[#B5B1A4] font-medium' : 'text-[#1B5E20] dark:text-[#C3F400] font-bold'}">
+                                <span id="timer-${id}" class="font-mono text-[13px] ${isChecked ? 'text-[#5F5A4D] dark:text-[#A8A594] font-medium' : 'text-[#1B5E20] dark:text-[#C3F400] font-bold'}">
                                     ${isChecked ? '--:--:--' : 'Listo'}
                                 </span>
                             </div>
@@ -452,10 +452,10 @@ export function renderGyms() {
 
                 <!-- Barra Delgada de Progreso Integrada en el Borde Inferior -->
                 <div class="w-full bg-[#D8D4C7] dark:bg-[#1E1E1A] h-[3px] rounded-full overflow-hidden mt-2.5" title="Progreso del circuito: ${progressPct}%">
-                    <div class="h-full bg-[#FFC800] transition-all duration-300" style="width: ${progressPct}%"></div>
+                    <div class="h-full bg-[#10B981] transition-all duration-300" style="width: ${progressPct}%"></div>
                 </div>
 
-                <div class="mt-1.5 pt-1 border-t border-[#D8D4C7]/40 dark:border-[#33332D] flex items-center justify-between font-mono text-[9px] text-[#5F5A4D] dark:text-[#B5B1A4]">
+                <div class="mt-1.5 pt-1 border-t border-[#D8D4C7]/40 dark:border-[#33332D] flex items-center justify-between font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">
                     <span>${completedInRegion}/${list.length} completados</span>
                     <span class="text-[#1B5E20] dark:text-[#C3F400] font-bold">Circuito activo</span>
                 </div>
@@ -687,17 +687,17 @@ export function updateTimers() {
                 localStorage.removeItem(key);
                 if (timerEl) {
                     timerEl.innerText = 'Listo';
-                    timerEl.className = "font-mono text-[9px] font-bold text-[#1B5E20] dark:text-[#C3F400]";
+                    timerEl.className = "font-mono text-[13px] font-bold text-[#1B5E20] dark:text-[#C3F400]";
                     const label = document.getElementById(`label-${id}`);
                     if (label) {
-                        label.classList.remove('line-through', 'text-[#5F5A4D]', 'dark:text-[#B5B1A4]', 'text-os-muted');
+                        label.classList.remove('line-through', 'text-[#5F5A4D]', 'dark:text-[#A8A594]', 'text-os-muted');
                         label.classList.add('text-[#1C1C17]', 'dark:text-[#F4F1E8]');
                     }
                 }
             } else if (timerEl) {
                 const fmt = (typeof formatTime === 'function') ? formatTime(remaining) : _formatTimeStr(remaining);
                 timerEl.innerText = fmt;
-                timerEl.className = "font-mono text-[9px] font-medium text-[#5F5A4D] dark:text-[#B5B1A4]";
+                timerEl.className = "font-mono text-[13px] font-medium text-[#5F5A4D] dark:text-[#A8A594]";
             }
         }
     }

@@ -33,7 +33,7 @@ export function renderBreedingView() {
             <div class="flex items-center gap-2.5">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/egg.png" class="w-6 h-6 pokemon-sprite" alt="Crianza">
                 <span class="text-xl font-pokemon text-amber-400">Crianza y Genética</span>
-                <span class="text-[10px] font-mono uppercase bg-os-elevated border border-os-border text-os-blue px-2 py-0.5 rounded font-semibold">Simulador IVs</span>
+                <span class="text-[13px] font-mono uppercase bg-os-elevated border border-os-border text-os-blue px-2 py-0.5 rounded font-semibold">Simulador IVs</span>
             </div>
             <p class="text-xs text-os-muted mt-1">Generador de árboles genealógicos y presupuesto exacto de brazales para el GTL.</p>
         </div>
@@ -118,12 +118,12 @@ export function renderBreedingView() {
                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/coin-case.png" class="w-4 h-4 pokemon-sprite" alt="GTL">
                             <span>Insumos GTL</span>
                         </span>
-                        <span class="text-[10px] text-os-muted font-normal">Precios de Mercado</span>
+                        <span class="text-[13px] text-os-muted font-normal">Precios de Mercado</span>
                     </h2>
                     <div id="shopping-list" class="space-y-2 font-mono text-xs text-os-text"></div>
                 </div>
                 <div class="mt-6 pt-4 border-t border-os-border text-right">
-                    <div class="text-os-muted mb-1 text-[10px] uppercase font-mono font-semibold tracking-wider">Presupuesto Estimado</div>
+                    <div class="text-os-muted mb-1 text-[13px] uppercase font-mono font-semibold tracking-wider">Presupuesto Estimado</div>
                     <div id="cost-total-pokeyen" class="text-2xl font-mono font-bold text-amber-400 tabular-nums">$0</div>
                 </div>
             </div>
@@ -132,12 +132,12 @@ export function renderBreedingView() {
         <!-- Diagrama -->
         <div class="lg:col-span-3">
             <div class="panel p-5 rounded-xl border border-os-border min-h-[600px] overflow-auto relative">
-                <div class="flex justify-between items-center mb-4 border-b-2 border-[#2B2B2B] dark:border-[#3A3A34] pb-3">
+                <div class="flex justify-between items-center mb-4 border-b-2 border-[#2B2B2B] dark:border-[#35352E] pb-3">
                     <h2 class="text-xs font-tech font-bold text-[#1C1C17] dark:text-[#F4F1E8] uppercase tracking-wider">Diagrama Genético (Bottom-Up)</h2>
-                    <button id="btn-update-tree" class="px-3.5 py-1.5 bg-[#FFC800] hover:bg-[#FFE066] text-[#241A00] border-2 border-[#2B2B2B] text-xs font-tech font-bold rounded-lg transition shadow-sm cursor-pointer">Actualizar Árbol</button>
+                    <button id="btn-update-tree" class="px-3.5 py-1.5 bg-[#EDE8DC] dark:bg-[#2E2E27] hover:border-[#FFC800] text-[#1C1C17] dark:text-[#F4F1E8] border border-[#2B2B2B] dark:border-[#35352E] text-[13px] font-tech font-bold rounded-lg transition shadow-sm cursor-pointer">Actualizar Árbol</button>
                 </div>
-                <div id="mermaid-container" class="w-full flex justify-center mt-4 bg-[#FAF8F2] dark:bg-[#161614] p-3 rounded-xl border-2 border-[#2B2B2B]/30 dark:border-[#3A3A34] shadow-inner">
-                    <div class="text-[#5F5A4D] dark:text-[#B5B1A4] text-xs font-mono mt-10">Selecciona entre 2 y 6 IVs para generar el árbol...</div>
+                <div id="mermaid-container" class="w-full flex justify-center mt-4 bg-[#FAF8F2] dark:bg-[#161614] p-3 rounded-xl border-2 border-[#2B2B2B]/30 dark:border-[#35352E] shadow-inner">
+                    <div class="text-[#5F5A4D] dark:text-[#A8A594] text-xs font-mono mt-10">Selecciona entre 2 y 6 IVs para generar el árbol...</div>
                 </div>
             </div>
         </div>
@@ -508,7 +508,7 @@ export async function generateBreedingTree() {
         let eggSuffix = currentEggGroup ? ` (${currentEggGroup})` : '';
         let name = stat === 'Nature' ? `Pokémon con Naturaleza${eggSuffix}` : `Pokémon 1x31 en ${stat}${eggSuffix}`;
         htmlList += `
-            <div class="flex justify-between text-[11px] text-os-muted py-0.5">
+            <div class="flex justify-between text-[13px] text-os-muted py-0.5">
                 <span>&bull; ${count}x ${name}</span>
             </div>
         `;

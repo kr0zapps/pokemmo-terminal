@@ -125,11 +125,11 @@ async function updateHeaderAuth() {
         const userDisplay = rawEmail.includes('@pokemmo.app') ? rawEmail.split('@')[0] : rawEmail;
 
         authArea.innerHTML = `
-            <div class="flex items-center gap-2 bg-[#D8D3C3] dark:bg-[#2E2E28] border border-[#2B2B2B] dark:border-[#4A4A42] px-2.5 sm:px-3 py-1 rounded shadow-inner">
-                <span class="font-tech font-bold text-[10px] text-[#5F5A4D] dark:text-[#B5B1A4]">ID Entrenador:</span>
-                <span class="font-mono font-bold text-xs text-[#1C1C17] dark:text-[#F4F1E8] tracking-wider bg-[#EDE8D8] dark:bg-[#1E1E1A] px-1.5 py-0.5 rounded border border-[#81765F]/40 dark:border-[#4A4A42]">${userDisplay}</span>
-                <span class="text-[#81765F] dark:text-[#666] text-[10px]">|</span>
-                <button onclick="logout()" class="font-tech font-bold text-[10px] text-[#b7102a] dark:text-[#FFA8A8] hover:underline uppercase cursor-pointer" title="Cerrar sesión">Cerrar sesión</button>
+            <div class="flex items-center gap-2 bg-[#EDE8DC] dark:bg-[#2E2E27] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-1 rounded-lg shadow-inner">
+                <span class="font-tech font-bold text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">ID Entrenador:</span>
+                <span class="font-mono font-bold text-[13px] text-[#1C1C17] dark:text-[#F4F1E8] tracking-wider bg-[#F4F1E8] dark:bg-[#1A1A16] px-2 py-0.5 rounded border border-[#81765F]/40 dark:border-[#35352E]">${userDisplay}</span>
+                <span class="text-[#81765F] dark:text-[#666] text-[13px]">|</span>
+                <button onclick="logout()" class="font-tech font-bold text-[13px] text-[#b7102a] dark:text-[#FFA8A8] hover:underline uppercase cursor-pointer" title="Cerrar sesión">Cerrar sesión</button>
             </div>
             <div id="sync-badge-container" class="hidden sm:block">
                 ${renderSyncBadge()}
@@ -143,13 +143,13 @@ async function updateHeaderAuth() {
         });
     } else if (isGuestMode()) {
         authArea.innerHTML = `
-            <div class="flex items-center gap-1.5 sm:gap-2">
-                <div class="flex items-center gap-1.5 bg-[#D8D3C3] dark:bg-[#2E2E28] border border-[#2B2B2B] dark:border-[#4A4A42] px-2.5 py-1 rounded shadow-inner">
-                    <span class="font-tech font-bold text-[10px] text-[#5F5A4D] dark:text-[#B5B1A4]">Modo:</span>
-                    <span class="font-mono font-bold text-[11px] text-[#5C3800] dark:text-[#FFDF92] bg-[#FFDF92] dark:bg-[#473200] px-1.5 py-0.5 rounded border border-[#755B00]/40">Invitado</span>
+            <div class="flex items-center gap-2">
+                <div class="flex items-center gap-1.5 bg-[#EDE8DC] dark:bg-[#2E2E27] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-1 rounded-lg shadow-inner">
+                    <span class="font-tech font-bold text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">Modo:</span>
+                    <span class="font-mono font-bold text-[13px] text-[#5C3800] dark:text-[#FFDF92] bg-[#FFDF92] dark:bg-[#473200] px-2 py-0.5 rounded border border-[#755B00]/40">Invitado</span>
                 </div>
-                <button onclick="window.showAuthModal()" class="text-[10px] sm:text-[11px] text-[#241A00] bg-[#FFC800] hover:bg-[#ffe066] border-2 border-[#2B2B2B] px-2.5 py-1 rounded shadow-[1px_2px_0px_#2B2B2B] active:translate-y-0.5 font-tech uppercase font-bold flex items-center gap-1 cursor-pointer" title="Inicia sesión para sincronizar tu progreso entre PC y móvil">
-                    <svg class="w-3.5 h-3.5 text-[#241A00]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                <button onclick="window.showAuthModal()" class="text-[13px] text-[#1C1C17] dark:text-[#F4F1E8] bg-[#EDE8DC] dark:bg-[#2E2E27] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-1 rounded-lg font-tech uppercase font-bold flex items-center gap-1.5 cursor-pointer transition shadow-sm" title="Inicia sesión para sincronizar tu progreso entre PC y móvil">
+                    <svg class="w-3.5 h-3.5 text-[#5F5A4D] dark:text-[#A8A594]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
                     <span>Sincronizar</span>
                 </button>
             </div>
@@ -172,7 +172,7 @@ export function initPokeMMOClock() {
         const phaseIcon = document.getElementById('headerDayPhaseIcon');
         const phaseText = document.getElementById('headerDayPhaseText');
         if (phaseBadge && phaseText) {
-            phaseBadge.className = `flex items-center gap-1 font-tech text-[10px] font-bold px-2 py-0.5 rounded shadow-sm ${clock.phaseBadgeClass}`;
+            phaseBadge.className = `flex items-center gap-1 font-tech text-[13px] font-bold px-2.5 py-0.5 rounded shadow-sm ${clock.phaseBadgeClass}`;
             if (phaseIcon) phaseIcon.innerHTML = clock.phaseIconSvg;
             phaseText.textContent = clock.phase;
             phaseBadge.title = `Fase en PokéMMO: ${clock.phase}`;
@@ -183,7 +183,7 @@ export function initPokeMMOClock() {
         const seasonIcon = document.getElementById('headerSeasonIcon');
         const seasonText = document.getElementById('headerSeasonText');
         if (seasonBadge && seasonText) {
-            seasonBadge.className = `flex items-center gap-1 font-tech text-[10px] font-bold px-2 py-0.5 rounded shadow-sm ${clock.seasonBadgeClass}`;
+            seasonBadge.className = `flex items-center gap-1 font-tech text-[13px] font-bold px-2.5 py-0.5 rounded shadow-sm ${clock.seasonBadgeClass}`;
             if (seasonIcon) seasonIcon.innerHTML = clock.seasonIconSvg;
             seasonText.textContent = clock.season;
             seasonBadge.title = `Estación en PokéMMO: ${clock.season} (${clock.seasonDesc})`;

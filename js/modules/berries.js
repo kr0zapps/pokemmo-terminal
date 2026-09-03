@@ -140,13 +140,13 @@ export function renderBerryView() {
                     <div class="flex items-center gap-2.5">
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/wailmer-pail.png" class="w-7 h-7 pokemon-sprite">
                         <span class="text-xl font-pokemon text-amber-400">Cultivo de Bayas</span>
-                        <span class="text-[10px] font-mono uppercase bg-os-elevated border border-os-border text-os-green px-2 py-0.5 rounded font-semibold">Riego y Cosecha</span>
+                        <span class="text-[13px] font-mono uppercase bg-os-elevated border border-os-border text-os-green px-2 py-0.5 rounded font-semibold">Riego y Cosecha</span>
                     </div>
                     <p class="text-xs text-os-muted mt-1">Monitoreo de hidratación de suelo, temporizadores de maduración y calculadora de rendimiento.</p>
                 </div>
                 <div class="text-right flex items-center gap-3">
                     <div class="bg-os-surface border border-os-border px-3.5 py-1.5 rounded-xl text-right">
-                        <p class="text-[10px] text-os-muted uppercase font-mono font-semibold tracking-wider">Rondas Cosechadas</p>
+                        <p class="text-[13px] text-os-muted uppercase font-mono font-semibold tracking-wider">Rondas Cosechadas</p>
                         <p class="text-xl font-mono font-bold text-os-green tabular-nums" id="totalHarvested">0</p>
                     </div>
                     <button id="btnResetHarvest" class="text-xs font-mono text-os-muted hover:text-os-red transition border border-os-border hover:border-os-red/40 p-2.5 rounded-lg cursor-pointer flex items-center justify-center" title="Reiniciar contador">
@@ -161,17 +161,17 @@ export function renderBerryView() {
                     <h2 class="text-xs font-mono text-os-muted uppercase tracking-wider mb-4 font-semibold">Inventario de Semillas</h2>
                     
                     <div class="grid grid-cols-5 gap-2 mb-5">
-                        <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Picante</label><input type="number" id="inv_picante" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
-                        <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Dulce</label><input type="number" id="inv_dulce" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
-                        <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Seca</label><input type="number" id="inv_seca" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
-                        <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Amarga</label><input type="number" id="inv_amarga" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
-                        <div><label class="block text-[10px] uppercase text-os-muted mb-1 truncate">Ácida</label><input type="number" id="inv_acida" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
+                        <div><label class="block text-[13px] uppercase text-os-muted mb-1 truncate">Picante</label><input type="number" id="inv_picante" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
+                        <div><label class="block text-[13px] uppercase text-os-muted mb-1 truncate">Dulce</label><input type="number" id="inv_dulce" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
+                        <div><label class="block text-[13px] uppercase text-os-muted mb-1 truncate">Seca</label><input type="number" id="inv_seca" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
+                        <div><label class="block text-[13px] uppercase text-os-muted mb-1 truncate">Amarga</label><input type="number" id="inv_amarga" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
+                        <div><label class="block text-[13px] uppercase text-os-muted mb-1 truncate">Ácida</label><input type="number" id="inv_acida" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
                         
-                        <div><label class="block text-[10px] uppercase text-os-red mb-1 truncate font-bold">M. Picante</label><input type="number" id="inv_v_picante" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-os-red/40"></div>
-                        <div><label class="block text-[10px] uppercase text-pink-400 mb-1 truncate font-bold">M. Dulce</label><input type="number" id="inv_v_dulce" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-pink-500/40"></div>
-                        <div><label class="block text-[10px] uppercase text-blue-400 mb-1 truncate font-bold">M. Seca</label><input type="number" id="inv_v_seca" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-blue-500/40"></div>
-                        <div><label class="block text-[10px] uppercase text-green-400 mb-1 truncate font-bold">M. Amarga</label><input type="number" id="inv_v_amarga" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-green-500/40"></div>
-                        <div><label class="block text-[10px] uppercase text-yellow-400 mb-1 truncate font-bold">M. Ácida</label><input type="number" id="inv_v_acida" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-yellow-500/40"></div>
+                        <div><label class="block text-[13px] uppercase text-os-red mb-1 truncate font-bold">M. Picante</label><input type="number" id="inv_v_picante" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-os-red/40"></div>
+                        <div><label class="block text-[13px] uppercase text-pink-400 mb-1 truncate font-bold">M. Dulce</label><input type="number" id="inv_v_dulce" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-pink-500/40"></div>
+                        <div><label class="block text-[13px] uppercase text-blue-400 mb-1 truncate font-bold">M. Seca</label><input type="number" id="inv_v_seca" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-blue-500/40"></div>
+                        <div><label class="block text-[13px] uppercase text-green-400 mb-1 truncate font-bold">M. Amarga</label><input type="number" id="inv_v_amarga" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-green-500/40"></div>
+                        <div><label class="block text-[13px] uppercase text-yellow-400 mb-1 truncate font-bold">M. Ácida</label><input type="number" id="inv_v_acida" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-yellow-500/40"></div>
                     </div>
                     
                     <button id="btnCalculateInventory" class="w-full btn-primary py-2.5 text-xs font-mono uppercase tracking-wider mb-4 cursor-pointer">
@@ -220,7 +220,7 @@ export function renderBerryView() {
                         <h2 class="text-xs font-mono text-os-muted uppercase tracking-wider mb-4 font-semibold">Plantación de Bayas</h2>
                         <div class="grid grid-cols-2 gap-3 mb-4">
                             <div>
-                                <label class="block text-[10px] uppercase text-os-muted mb-1 font-mono">Especie</label>
+                                <label class="block text-[13px] uppercase text-os-muted mb-1 font-mono">Especie</label>
                                 <select id="berryType" class="w-full p-2 text-sm cursor-pointer">
                                     <option value="zanama" selected>Zanama (Leppa) / 20h (PP)</option>
                                     <option value="basicas">Básicas (Oran, Cheri...) / 16h</option>
@@ -231,15 +231,15 @@ export function renderBerryView() {
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-[10px] uppercase text-os-muted mb-1 font-mono">Coordenadas / Parcela</label>
+                                <label class="block text-[13px] uppercase text-os-muted mb-1 font-mono">Coordenadas / Parcela</label>
                                 <input type="text" id="berryLocation" placeholder="Ej. Ruta 104, Loza..." class="w-full p-2 text-sm">
                             </div>
                             <div>
-                                <label class="block text-[10px] uppercase text-os-green mb-1 font-mono font-bold">Duración 2 Gotas Base (Hrs)</label>
+                                <label class="block text-[13px] uppercase text-os-green mb-1 font-mono font-bold">Duración 2 Gotas Base (Hrs)</label>
                                 <input type="number" id="berryWaterHours" value="4.0" min="0.5" max="44" step="0.5" class="w-full p-2 text-sm text-center border-os-green/40 font-mono text-os-green" title="Horas antes de que las 2 gotas iniciales se consuman por completo">
                             </div>
                             <div>
-                                <label class="block text-[10px] uppercase text-os-muted mb-1 font-mono">Tiempo Ya Transcurrido (Hrs)</label>
+                                <label class="block text-[13px] uppercase text-os-muted mb-1 font-mono">Tiempo Ya Transcurrido (Hrs)</label>
                                 <input type="number" id="berryElapsed" placeholder="0 (recién plantada)" min="0" step="0.5" class="w-full p-2 text-sm">
                             </div>
                         </div>
@@ -267,7 +267,7 @@ export function renderWaterModal() {
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/wailmer-pail.png" class="w-7 h-7 pokemon-sprite" alt="Cubo Wailmer">
                         <div>
                             <h2 class="text-sm font-bold text-os-text" id="waterSimTitle">Confirmación de Riego</h2>
-                            <p class="text-[10px] font-mono text-os-muted" id="waterSimSubtitle">Análisis de hidratación del suelo</p>
+                            <p class="text-[13px] font-mono text-os-muted" id="waterSimSubtitle">Análisis de hidratación del suelo</p>
                         </div>
                     </div>
                     <button id="btnCloseWaterPreview1" class="text-os-muted hover:text-white p-1 rounded-md transition flex items-center justify-center cursor-pointer" title="Cerrar">
@@ -426,7 +426,7 @@ export function calculateInventory() {
             let seedsHtml = '<div class="mt-2 pt-2 border-t border-gray-800 text-left space-y-1">';
             recipe.reqs.forEach(req => {
                 seedsHtml += `
-                    <div class="flex items-center gap-1 text-[10px] text-gray-400">
+                    <div class="flex items-center gap-1 text-[13px] text-gray-400">
                         <span class="w-2 h-2 rounded-full ${req.color}"></span>
                         <span>${req.qty}x ${req.name.replace('Semilla ', '')}</span>
                     </div>
@@ -439,7 +439,7 @@ export function calculateInventory() {
                     <div>
                         <p class="text-sm text-gray-300 font-bold mb-1">${recipe.name}</p>
                         <p class="text-2xl font-black text-purple-400">x${maxCrafts}</p>
-                        <p class="text-[10px] text-gray-500 uppercase mt-1 mb-1">Plantas</p>
+                        <p class="text-[13px] text-gray-500 uppercase mt-1 mb-1">Plantas</p>
                     </div>
                     ${seedsHtml}
                 </div>
@@ -549,11 +549,11 @@ export function openWaterPreviewModal(id) {
                 </p>
                 <div class="grid grid-cols-2 gap-2 text-center font-mono text-xs bg-os-bg p-2.5 border border-emerald-500/20 rounded-lg mb-2">
                     <div>
-                        <span class="text-os-muted block text-[9px] uppercase tracking-wider">Gotas tras regar</span>
+                        <span class="text-os-muted block text-[13px] uppercase tracking-wider">Gotas tras regar</span>
                         <span class="text-emerald-400 font-bold">5 / 5 Gotas (Máx)</span>
                     </div>
                     <div>
-                        <span class="text-os-muted block text-[9px] uppercase tracking-wider">Próximo riego</span>
+                        <span class="text-os-muted block text-[13px] uppercase tracking-wider">Próximo riego</span>
                         <span class="text-emerald-400 font-bold">Ninguno (Protegido)</span>
                     </div>
                 </div>
@@ -574,11 +574,11 @@ export function openWaterPreviewModal(id) {
                 </p>
                 <div class="grid grid-cols-2 gap-2 text-center font-mono text-xs bg-os-bg p-2.5 border border-amber-500/20 rounded-lg mb-3">
                     <div>
-                        <span class="text-os-muted block text-[9px] uppercase tracking-wider">Duración de 5 Gotas</span>
+                        <span class="text-os-muted block text-[13px] uppercase tracking-wider">Duración de 5 Gotas</span>
                         <span class="text-amber-400 font-bold">~${nextWaterInHours} horas</span>
                     </div>
                     <div>
-                        <span class="text-os-muted block text-[9px] uppercase tracking-wider">Próximo Riego</span>
+                        <span class="text-os-muted block text-[13px] uppercase tracking-wider">Próximo Riego</span>
                         <span class="text-os-red font-bold">En ~${nextWaterInHours} horas</span>
                     </div>
                 </div>
@@ -684,53 +684,53 @@ export function renderCrops() {
         const dbInfo = BERRY_DB[crop.type] || BERRY_DB.zanama;
         const card = document.createElement('div');
         card.id = `crop-card-${crop.id}`;
-        card.className = `panel p-4 flex flex-col justify-between transition-all duration-200 relative overflow-hidden rounded-xl border-2 border-[#2B2B2B] dark:border-[#3A3A34] bg-[#FAF8F2] dark:bg-[#282824] shadow-[3px_4px_0px_#2B2B2B] dark:shadow-[3px_4px_0px_#000]`;
+        card.className = `panel p-4 flex flex-col justify-between transition-all duration-200 relative overflow-hidden rounded-xl border-2 border-[#2B2B2B] dark:border-[#35352E] bg-[#FAF8F2] dark:bg-[#242420] shadow-[3px_4px_0px_#2B2B2B] dark:shadow-[3px_4px_0px_#000]`;
         
         card.innerHTML = `
             <div class="z-10 relative">
                 <div class="flex justify-between items-start mb-3">
                     <div class="flex items-center gap-3">
-                        <div class="berry-pedestal flex-shrink-0 bg-[#E5E0D0] dark:bg-[#20201C] border-2 border-[#2B2B2B] dark:border-[#3A3A34] rounded-lg p-1">
+                        <div class="berry-pedestal flex-shrink-0 bg-[#E5E0D0] dark:bg-[#20201C] border-2 border-[#2B2B2B] dark:border-[#35352E] rounded-lg p-1">
                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${dbInfo.sprite}.png" class="w-8 h-8 pokemon-sprite" onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'" alt="${dbInfo.name}">
                         </div>
                         <div>
                             <h3 class="font-tech text-sm sm:text-base font-bold text-[#1C1C17] dark:text-[#F4F1E8]">${dbInfo.name}</h3>
-                            <p class="font-mono text-xs text-[#5F5A4D] dark:text-[#B5B1A4]"><span class="text-[#2563EB] dark:text-[#60A5FA] font-bold">${crop.location}</span> &bull; <span class="text-[#1B5E20] dark:text-[#C3F400] font-bold">${dbInfo.yield || '5-7'} u.</span></p>
+                            <p class="font-mono text-xs text-[#5F5A4D] dark:text-[#A8A594]"><span class="text-[#2563EB] dark:text-[#60A5FA] font-bold">${crop.location}</span> &bull; <span class="text-[#1B5E20] dark:text-[#C3F400] font-bold">${dbInfo.yield || '5-7'} u.</span></p>
                         </div>
                     </div>
                     <div id="crop-badge-${crop.id}"></div>
                 </div>
 
                 <!-- Indicador de Fase / Etapa -->
-                <div id="crop-stage-${crop.id}" class="font-mono text-xs mb-2 text-[#5F5A4D] dark:text-[#B5B1A4]"></div>
+                <div id="crop-stage-${crop.id}" class="font-mono text-xs mb-2 text-[#5F5A4D] dark:text-[#A8A594]"></div>
 
                 <!-- Estado de Humedad (Caja de Hardware Recesiva) -->
                 <div class="bg-[#2B2B2B] dark:bg-[#1E1E1A] border-2 border-[#181816] dark:border-[#33332D] p-3 mb-3 rounded-xl shadow-inner text-[#F4F1E8]">
                     <div class="flex justify-between items-center text-xs font-mono mb-1.5">
-                        <span class="font-tech text-[10px] text-[#A8A495] uppercase font-bold tracking-wider">Humedad de Suelo</span>
+                        <span class="font-tech text-[13px] text-[#A8A495] uppercase font-bold tracking-wider">Humedad de Suelo</span>
                         <div id="crop-drops-${crop.id}"></div>
                     </div>
                     <p id="crop-advice-${crop.id}" class="text-xs text-[#D8D4C7] leading-tight font-mono">Calculando estado de hidratación...</p>
                 </div>
 
                 <div class="grid grid-cols-2 gap-2 mb-3">
-                    <div class="bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#3A3A34] p-2 rounded-lg text-center shadow-sm">
-                        <p id="crop-water-label-${crop.id}" class="text-[10px] text-[#5F5A4D] dark:text-[#B5B1A4] uppercase tracking-wider mb-0.5 font-tech font-bold">Humedad Restante</p>
+                    <div class="bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#35352E] p-2 rounded-lg text-center shadow-sm">
+                        <p id="crop-water-label-${crop.id}" class="text-[13px] text-[#5F5A4D] dark:text-[#A8A594] uppercase tracking-wider mb-0.5 font-tech font-bold">Humedad Restante</p>
                         <p id="crop-water-time-${crop.id}" class="font-lcd text-lg font-black text-[#1C1C17] dark:text-[#F4F1E8] tabular-nums tracking-wider">--:--:--</p>
                     </div>
-                    <div class="bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#3A3A34] p-2 rounded-lg text-center shadow-sm">
-                        <p class="text-[10px] text-[#5F5A4D] dark:text-[#B5B1A4] uppercase tracking-wider mb-0.5 font-tech font-bold">Cosecha Total</p>
+                    <div class="bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#35352E] p-2 rounded-lg text-center shadow-sm">
+                        <p class="text-[13px] text-[#5F5A4D] dark:text-[#A8A594] uppercase tracking-wider mb-0.5 font-tech font-bold">Cosecha Total</p>
                         <p id="crop-harvest-time-${crop.id}" class="font-lcd text-lg font-black text-[#1C1C17] dark:text-[#F4F1E8] tabular-nums tracking-wider">--:--:--</p>
                     </div>
                 </div>
 
-                <div class="w-full bg-[#E5E0D0] dark:bg-[#22221D] border border-[#2B2B2B] dark:border-[#3A3A34] h-2.5 rounded-full overflow-hidden mb-2 shadow-inner">
-                    <div id="crop-progress-${crop.id}" class="h-2.5 progress-bar-transition w-0 bg-[#FFC800] rounded-full"></div>
+                <div class="w-full bg-[#E5E0D0] dark:bg-[#22221D] border border-[#2B2B2B] dark:border-[#35352E] h-2.5 rounded-full overflow-hidden mb-2 shadow-inner">
+                    <div id="crop-progress-${crop.id}" class="h-2.5 progress-bar-transition w-0 bg-[#10B981] rounded-full"></div>
                 </div>
             </div>
             <div class="flex gap-2 mt-auto z-10 relative pt-2">
-                <button id="btn-water-${crop.id}" class="flex-1 bg-[#FFC800] hover:bg-[#FFE066] border-2 border-[#2B2B2B] text-[#241A00] py-2 px-2 text-xs font-tech font-bold uppercase transition rounded-lg shadow-[1px_2px_0px_#2B2B2B] cursor-pointer">Regar</button>
-                <button id="btn-harvest-${crop.id}" class="flex-1 bg-[#E4DFD0] dark:bg-[#33332D] border-2 border-[#2B2B2B] dark:border-[#4A4A42] text-[#2B2B2B] dark:text-[#F4F1E8] hover:text-[#E63946] py-2 px-2 text-xs font-tech font-bold uppercase transition rounded-lg cursor-pointer">Cancelar</button>
+                <button id="btn-water-${crop.id}" class="flex-1 bg-[#EDE8DC] dark:bg-[#2E2E27] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] py-2 px-2 text-xs font-tech font-bold uppercase transition rounded-lg shadow-[1px_2px_0px_#2B2B2B] cursor-pointer">Regar</button>
+                <button id="btn-harvest-${crop.id}" class="flex-1 bg-[#E4DFD0] dark:bg-[#2E2E27] border-2 border-[#2B2B2B] dark:border-[#35352E] text-[#2B2B2B] dark:text-[#F4F1E8] hover:text-[#E63946] py-2 px-2 text-xs font-tech font-bold uppercase transition rounded-lg cursor-pointer">Cancelar</button>
             </div>
         `;
         container.appendChild(card);
@@ -798,7 +798,7 @@ export function updateTimers() {
             }
 
             if (waterLabel) waterLabel.innerText = 'Tiempo Marchitar';
-            if (badge) badge.innerHTML = `<span class="text-[9px] font-mono text-os-green bg-os-green/10 border border-os-green/30 px-2 py-0.5 rounded font-semibold uppercase">Listo</span>`;
+            if (badge) badge.innerHTML = `<span class="text-[13px] font-mono text-os-green bg-os-green/10 border border-os-green/30 px-2 py-0.5 rounded font-semibold uppercase">Listo</span>`;
 
             if (remainingWiltMs <= 0) {
                 if (waterTimeText) {
@@ -808,7 +808,7 @@ export function updateTimers() {
                 if (dropsText) dropsText.innerHTML = '<span class="text-xs font-mono text-os-red font-bold">Planta Marchita (Excedió 8h)</span>';
                 if (adviceText) {
                     adviceText.innerText = 'Han pasado más de 8 horas desde la maduración. La planta se marchitó.';
-                    adviceText.className = 'text-[10px] text-os-red font-semibold';
+                    adviceText.className = 'text-[13px] text-os-red font-semibold';
                 }
             } else {
                 if (waterTimeText) {
@@ -818,7 +818,7 @@ export function updateTimers() {
                 if (dropsText) dropsText.innerHTML = '<span class="text-xs font-mono text-os-green font-bold">Frutos Listos (' + (dbInfo.yield || '5-7') + ' u.)</span>';
                 if (adviceText) {
                     adviceText.innerText = `Cosecha lista. Tienes ${formatTime(remainingWiltMs)} antes de que empiece a marchitarse.`;
-                    adviceText.className = 'text-[10px] text-os-green font-medium';
+                    adviceText.className = 'text-[13px] text-os-green font-medium';
                 }
             }
 
@@ -859,11 +859,11 @@ export function updateTimers() {
 
         if (currentDrops === 0) {
             if (waterLabel) waterLabel.innerText = 'Suelo Seco';
-            if (badge) badge.innerHTML = `<span class="text-[9px] font-mono text-os-red bg-os-red/10 border border-os-red/40 px-2 py-0.5 rounded font-bold uppercase animate-pulse">Seco (0/5)</span>`;
+            if (badge) badge.innerHTML = `<span class="text-[13px] font-mono text-os-red bg-os-red/10 border border-os-red/40 px-2 py-0.5 rounded font-bold uppercase animate-pulse">Seco (0/5)</span>`;
             if (dropsText) dropsText.innerHTML = renderMoistureGauge(0, 5);
             if (adviceText) {
                 adviceText.innerText = 'Suelo completamente seco. Riega ahora para no perder rendimiento ni arriesgar la cosecha.';
-                adviceText.className = 'text-[10px] text-os-red font-semibold';
+                adviceText.className = 'text-[13px] text-os-red font-semibold';
             }
             if (waterTimeText) {
                 waterTimeText.innerText = '¡REGAR YA!';
@@ -878,11 +878,11 @@ export function updateTimers() {
         }
         else if (isMoistureCoveringHarvest) {
             if (waterLabel) waterLabel.innerText = 'Estado Riego';
-            if (badge) badge.innerHTML = `<span class="text-[9px] font-mono text-os-green bg-os-green/10 border border-os-green/30 px-2 py-0.5 rounded font-bold uppercase">Protegido</span>`;
+            if (badge) badge.innerHTML = `<span class="text-[13px] font-mono text-os-green bg-os-green/10 border border-os-green/30 px-2 py-0.5 rounded font-bold uppercase">Protegido</span>`;
             if (dropsText) dropsText.innerHTML = renderMoistureGauge(currentDrops, 5);
             if (adviceText) {
                 adviceText.innerText = `Las ${currentDrops} gotas duran ${formatTime(timeToZeroDropsMs)} y cosechas en ${formatTime(remainingHarvestMs)}. No requiere más agua.`;
-                adviceText.className = 'text-[10px] text-os-green font-medium';
+                adviceText.className = 'text-[13px] text-os-green font-medium';
             }
             if (waterTimeText) {
                 waterTimeText.innerText = 'PROTEGIDO';
@@ -900,9 +900,9 @@ export function updateTimers() {
             
             if (badge) {
                 if (!crop.watered) {
-                    badge.innerHTML = `<span class="text-[9px] font-mono text-os-blue bg-os-blue/10 border border-os-blue/30 px-2 py-0.5 rounded font-semibold uppercase">2 Gotas Base</span>`;
+                    badge.innerHTML = `<span class="text-[13px] font-mono text-os-blue bg-os-blue/10 border border-os-blue/30 px-2 py-0.5 rounded font-semibold uppercase">2 Gotas Base</span>`;
                 } else {
-                    badge.innerHTML = `<span class="text-[9px] font-mono ${isCritical ? 'text-amber-400 bg-amber-400/10 border border-amber-400/30' : 'text-os-blue bg-os-blue/10 border border-os-blue/30'} px-2 py-0.5 rounded font-semibold uppercase">Hidratado (${currentDrops}/5)</span>`;
+                    badge.innerHTML = `<span class="text-[13px] font-mono ${isCritical ? 'text-amber-400 bg-amber-400/10 border border-amber-400/30' : 'text-os-blue bg-os-blue/10 border border-os-blue/30'} px-2 py-0.5 rounded font-semibold uppercase">Hidratado (${currentDrops}/5)</span>`;
                 }
             }
 
@@ -916,7 +916,7 @@ export function updateTimers() {
                 } else {
                     adviceText.innerText = `Quedan ${currentDrops} gotas (~${formatTime(timeToZeroDropsMs)} de humedad). Como faltan ${formatTime(remainingHarvestMs)} para cosechar, requerirá otro riego en ${formatTime(timeToZeroDropsMs)}.`;
                 }
-                adviceText.className = isCritical ? 'text-[10px] text-amber-400 font-semibold' : 'text-[10px] text-os-muted';
+                adviceText.className = isCritical ? 'text-[13px] text-amber-400 font-semibold' : 'text-[13px] text-os-muted';
             }
 
             if (waterTimeText) {

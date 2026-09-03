@@ -141,7 +141,7 @@ export function renderAuthUI(onSuccess) {
             <label class="block text-xs font-mono text-os-muted mb-1 uppercase font-semibold">Usuario o Correo</label>
             <input type="text" id="auth-email" required autocomplete="username"
               class="w-full px-3.5 py-2.5 rounded-lg text-xs font-mono bg-os-bg border border-os-border text-os-text focus:outline-none focus:border-os-blue focus:ring-2 focus:ring-os-blue/20 transition" placeholder="zedsuaj o entrenador@pokemmo.com" />
-            <p class="text-[10px] text-os-muted mt-1 font-mono">Usa el mismo usuario en tu PC y móvil para sincronizar todo en tiempo real.</p>
+            <p class="text-[13px] text-os-muted mt-1 font-mono">Usa el mismo usuario en tu PC y móvil para sincronizar todo.</p>
           </div>
           
           <div>
@@ -166,7 +166,7 @@ export function renderAuthUI(onSuccess) {
 
           <div class="relative flex py-2 items-center">
             <div class="flex-grow border-t border-os-border"></div>
-            <span class="flex-shrink mx-3 text-[10px] font-mono uppercase text-os-muted">O sin registrarte</span>
+            <span class="flex-shrink mx-3 text-[13px] font-mono uppercase text-os-muted font-bold">O sin registrarte</span>
             <div class="flex-grow border-t border-os-border"></div>
           </div>
 

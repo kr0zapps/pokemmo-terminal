@@ -72,63 +72,63 @@
     --stat-spe: #EC4899;
 }
 
-/* Modo Oscuro Real (Negro cálido coherente con chasis Rotom) */
+/* Modo Oscuro Real: 3 Niveles de Luminosidad Físicos (#1A1A16 Chasis, #242420 Módulos, #2E2E27 Elevada) */
 html.dark, body.dark {
-    --rotom-outer-bg: #0F0F0D;
+    --rotom-outer-bg: #141412;
     --rotom-chassis: #1A1A16;
-    --rotom-chassis-bezel: #22221D;
+    --rotom-chassis-bezel: #2E2E27;
     --rotom-surface-deck: #242420;
-    --rotom-surface-card: #2A2A26;
-    --rotom-surface-tile: #20201C;
-    --rotom-border: #3A3A34;
-    --rotom-border-subtle: #30302A;
-    --rotom-border-strong: #4A4A42;
+    --rotom-surface-card: #242420;
+    --rotom-surface-tile: #1A1A16;
+    --rotom-border: #35352E;
+    --rotom-border-subtle: #2C2C26;
+    --rotom-border-strong: #45453C;
     --rotom-text: #F4F1E8;
-    --rotom-muted: #B5B1A4;
-    /* Acentos idénticos en ambos modos */
+    --rotom-muted: #A8A594;
+    /* Acentos (Amarillo como acento puro <= 5%) */
     --rotom-yellow: #FFC800;
     --rotom-yellow-soft: #423000;
     --rotom-amber: #E0A800;
     --rotom-red: #E63946;
     --rotom-red-soft: #42181B;
-    --rotom-green: #C3F400;
+    --rotom-green: #10B981;
     /* Pantallas LCD mantienen brillo fósforo idéntico */
     --rotom-lcd-bg: #9BBC0F;
     --rotom-lcd-fg: #0F380F;
 
     --os-bg: #1A1A16;
-    --os-panel: #2A2A26;
+    --os-panel: #242420;
     --os-surface: #242420;
-    --os-elevated: #2E2E28;
-    --os-border: #3A3A34;
-    --os-border-subtle: #30302A;
-    --os-border-strong: #4A4A42;
+    --os-elevated: #2E2E27;
+    --os-border: #35352E;
+    --os-border-subtle: #2C2C26;
+    --os-border-strong: #45453C;
     --os-text: #F4F1E8;
-    --os-muted: #B5B1A4;
+    --os-muted: #A8A594;
     --os-red: #E63946;
-    --os-green: #C3F400;
+    --os-green: #10B981;
     --os-blue: #60A5FA;
     --os-gold: #FBBF24;
 }
 
-/* Tipografías Auténticas de Consola e Interfaz Táctica */
-.font-tech, .font-chicago {
-    font-family: 'Space Grotesk', 'Rubik', sans-serif;
-    letter-spacing: -0.01em;
+/* Tipografías Auténticas de Consola Táctica (Google Fonts Verificables) */
+body, .font-sans, .font-body {
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
 }
-.font-body {
-    font-family: 'Pixel Operator', monospace, sans-serif;
-    font-size: 1.05rem;
+.font-tech, .font-chicago, .font-header {
+    font-family: 'Chakra Petch', sans-serif;
+    letter-spacing: 0.02em;
 }
 .font-mono {
-    font-family: 'Pixel Operator', monospace;
-    font-size: 0.95rem;
+    font-family: 'JetBrains Mono', monospace;
 }
 .font-lcd {
-    font-family: 'VT323', 'Pixel Operator 8', monospace;
+    font-family: 'VT323', monospace;
 }
 .font-pixel {
-    font-family: 'Pixel Operator 8', 'Press Start 2P', monospace;
+    font-family: 'Press Start 2P', monospace;
 }
 
 /* Rotom Phone Hardware Molding & Industrial Classes */
@@ -305,19 +305,19 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-/* Hardware Panel & System Containers */
+/* Hardware Panel & System Containers (Nivel 2: Módulos #242420 con borde 1px #35352E) */
 .panel {
     background-color: var(--os-panel);
-    border: 2px solid var(--os-border);
-    border-radius: 14px;
-    box-shadow: 2px 3px 0px var(--os-border);
+    border: 1px solid var(--os-border);
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
     color: var(--os-text);
     transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 html.dark .panel {
     background-color: #242420;
-    border-color: #3A3A34;
-    box-shadow: 2px 3px 0px #0F0F0D;
+    border: 1px solid #35352E;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     color: #F4F1E8;
 }
 
@@ -334,8 +334,8 @@ html.dark .panel {
 
 /* Berry Garden Pedestal Slot */
 .berry-pedestal {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     border-radius: 10px;
     background: radial-gradient(circle at center, rgba(56, 189, 248, 0.12) 0%, rgba(16, 21, 34, 0.6) 80%);
     border: 1px solid var(--os-border);
@@ -344,73 +344,78 @@ html.dark .panel {
     justify-content: center;
 }
 
-/* IV Stat Selection Chips */
+/* IV Stat Selection Chips (Densidad >= 13px) */
 .stat-chip {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 0.65rem;
-    border: 2px solid var(--os-border-subtle);
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--os-border-subtle);
     border-radius: 8px;
     background: var(--os-surface);
     color: var(--os-text);
+    font-size: 13px;
     transition: all 0.15s ease;
     cursor: pointer;
     user-select: none;
 }
 html.dark .stat-chip {
-    background: #20201C;
-    border-color: #3A3A34;
+    background: #1A1A16;
+    border-color: #35352E;
     color: #F4F1E8;
 }
 .stat-chip:hover {
-    border-color: var(--rotom-yellow);
+    border-color: #FFC800;
 }
 .stat-chip input[type="checkbox"]:checked + span {
     font-weight: 700;
 }
 
-/* Input & Select Controls (Respetan Modo Claro y Modo Oscuro) */
+/* Input & Select Controls (Respetan Modo Claro y Modo Oscuro, Mínimo 13px) */
 input:not([type="checkbox"]):not([type="radio"]), select, textarea {
     background-color: var(--os-surface) !important;
-    border: 2px solid var(--os-border) !important;
+    border: 1px solid var(--os-border) !important;
     color: var(--os-text) !important;
     border-radius: 8px !important;
-    font-family: 'Pixel Operator', monospace !important;
+    font-family: 'IBM Plex Sans', sans-serif !important;
+    font-size: 13px !important;
     transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease !important;
 }
 html.dark input:not([type="checkbox"]):not([type="radio"]), html.dark select, html.dark textarea {
-    background-color: #161614 !important;
-    border-color: #3A3A34 !important;
+    background-color: #1A1A16 !important;
+    border-color: #35352E !important;
     color: #F4F1E8 !important;
 }
 input:focus, select:focus, textarea:focus {
     border-color: #FFC800 !important;
     outline: none !important;
-    box-shadow: 0 0 0 2px rgba(255, 200, 0, 0.4) !important;
+    box-shadow: 0 0 0 2px rgba(255, 200, 0, 0.25) !important;
 }
 
-/* Action Buttons */
+/* Action Buttons (Superficie Elevada, Amarillo reservado como acento puro) */
 .btn-primary {
-    background: #FFC800;
-    color: #241A00;
-    border: 2px solid #2B2B2B;
+    background: var(--os-elevated);
+    color: var(--os-text);
+    border: 1px solid var(--os-border);
     border-radius: 8px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 800;
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
     padding: 0.55rem 1.1rem;
     transition: all 0.15s ease;
-    box-shadow: 2px 3px 0px #2B2B2B;
     cursor: pointer;
 }
+html.dark .btn-primary {
+    background: #2E2E27;
+    border-color: #35352E;
+    color: #F4F1E8;
+}
 .btn-primary:hover {
-    background: #FFE066;
+    border-color: #FFC800;
     transform: translateY(-1px);
-    box-shadow: 3px 4px 0px #2B2B2B;
 }
 .btn-primary:active {
     transform: translateY(1px);
-    box-shadow: 1px 1px 0px #2B2B2B;
 }
 
 /* Subtle Fade In Animation */
