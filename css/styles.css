@@ -312,6 +312,33 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
+/* Hardware Panel & System Containers */
+.panel {
+    background-color: var(--os-panel);
+    border: 2px solid var(--os-border);
+    border-radius: 14px;
+    box-shadow: 2px 3px 0px var(--os-border);
+    color: var(--os-text);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+html.dark .panel {
+    background-color: #242420;
+    border-color: #3A3A34;
+    box-shadow: 2px 3px 0px #0F0F0D;
+    color: #F4F1E8;
+}
+
+/* Utilidades Dinámicas de Sistema para Modo Claro / Oscuro */
+.bg-os-bg { background-color: var(--os-bg) !important; }
+.bg-os-panel { background-color: var(--os-panel) !important; }
+.bg-os-surface { background-color: var(--os-surface) !important; }
+.bg-os-elevated { background-color: var(--os-elevated) !important; }
+.border-os-border { border-color: var(--os-border) !important; }
+.border-os-border-strong { border-color: var(--os-border-strong) !important; }
+.border-os-border-subtle { border-color: var(--os-border-subtle) !important; }
+.text-os-text { color: var(--os-text) !important; }
+.text-os-muted { color: var(--os-muted) !important; }
+
 /* Berry Garden Pedestal Slot */
 .berry-pedestal {
     width: 42px;
@@ -330,29 +357,39 @@ body {
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 0.65rem;
-    border: 1px solid var(--os-border);
+    border: 2px solid var(--os-border-subtle);
     border-radius: 8px;
-    background: var(--os-bg);
+    background: var(--os-surface);
+    color: var(--os-text);
     transition: all 0.15s ease;
     cursor: pointer;
     user-select: none;
 }
+html.dark .stat-chip {
+    background: #20201C;
+    border-color: #3A3A34;
+    color: #F4F1E8;
+}
 .stat-chip:hover {
-    background: var(--os-elevated);
-    border-color: var(--os-border-strong);
+    border-color: var(--rotom-yellow);
 }
 .stat-chip input[type="checkbox"]:checked + span {
     font-weight: 700;
 }
 
-/* Input & Select Controls */
-input, select, textarea {
-    background-color: #EDE9DE !important;
+/* Input & Select Controls (Respetan Modo Claro y Modo Oscuro) */
+input:not([type="checkbox"]):not([type="radio"]), select, textarea {
+    background-color: var(--os-surface) !important;
     border: 2px solid var(--os-border) !important;
-    color: #1C1C17 !important;
+    color: var(--os-text) !important;
     border-radius: 8px !important;
-    font-family: 'JetBrains Mono', monospace !important;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+    font-family: 'Pixel Operator', monospace !important;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease !important;
+}
+html.dark input:not([type="checkbox"]):not([type="radio"]), html.dark select, html.dark textarea {
+    background-color: #161614 !important;
+    border-color: #3A3A34 !important;
+    color: #F4F1E8 !important;
 }
 input:focus, select:focus, textarea:focus {
     border-color: #FFC800 !important;

@@ -132,12 +132,12 @@ export function renderBreedingView() {
         <!-- Diagrama -->
         <div class="lg:col-span-3">
             <div class="panel p-5 rounded-xl border border-os-border min-h-[600px] overflow-auto relative">
-                <div class="flex justify-between items-center mb-4 border-b border-os-border pb-3">
-                    <h2 class="text-xs font-mono font-semibold text-os-text uppercase tracking-wider">Diagrama Genético (Bottom-Up)</h2>
-                    <button id="btn-update-tree" class="px-3 py-1.5 bg-os-elevated hover:bg-os-blue hover:text-black border border-os-border text-xs font-mono rounded-lg transition font-semibold cursor-pointer">Actualizar Árbol</button>
+                <div class="flex justify-between items-center mb-4 border-b-2 border-[#2B2B2B] dark:border-[#3A3A34] pb-3">
+                    <h2 class="text-xs font-tech font-bold text-[#1C1C17] dark:text-[#F4F1E8] uppercase tracking-wider">Diagrama Genético (Bottom-Up)</h2>
+                    <button id="btn-update-tree" class="px-3.5 py-1.5 bg-[#FFC800] hover:bg-[#FFE066] text-[#241A00] border-2 border-[#2B2B2B] text-xs font-tech font-bold rounded-lg transition shadow-sm cursor-pointer">Actualizar Árbol</button>
                 </div>
-                <div id="mermaid-container" class="w-full flex justify-center mt-4">
-                    <div class="text-os-muted text-xs font-mono mt-10">Selecciona entre 2 y 6 IVs para generar el árbol...</div>
+                <div id="mermaid-container" class="w-full flex justify-center mt-4 bg-[#FAF8F2] dark:bg-[#161614] p-3 rounded-xl border-2 border-[#2B2B2B]/30 dark:border-[#3A3A34] shadow-inner">
+                    <div class="text-[#5F5A4D] dark:text-[#B5B1A4] text-xs font-mono mt-10">Selecciona entre 2 y 6 IVs para generar el árbol...</div>
                 </div>
             </div>
         </div>
@@ -207,6 +207,13 @@ export function initBreeding() {
     if (btnCloseModal) {
         btnCloseModal.addEventListener('click', closeEggGroupModal);
     }
+
+    document.addEventListener('themeChanged', () => {
+        const view = $('#view-breeding');
+        if (view && !view.classList.contains('hidden')) {
+            generateBreedingTree();
+        }
+    });
 
     getPokedexDb().then(db => {
         if (Array.isArray(db)) {
@@ -588,7 +595,17 @@ export async function generateBreedingTree() {
     }
 
     buildGraph(targetStats, useNature);
-    mGraph += `style N0 fill:#1e3a8a,stroke:#3b82f6,stroke-width:3px,color:#fff\n`;
+    
+    const isDark = document.documentElement.classList.contains('dark');
+    if (isDark) {
+        mGraph += `style N0 fill:#FFC800,stroke:#FFE066,stroke-width:3px,color:#241A00\n`;
+        mGraph += `classDef default fill:#2E2E28,stroke:#C3F400,stroke-width:2px,color:#F4F1E8;\n`;
+        mGraph += `linkStyle default stroke:#FFC800,stroke-width:2px;\n`;
+    } else {
+        mGraph += `style N0 fill:#FFC800,stroke:#2B2B2B,stroke-width:3px,color:#241A00\n`;
+        mGraph += `classDef default fill:#FAF8F2,stroke:#2B2B2B,stroke-width:2px,color:#1C1C17;\n`;
+        mGraph += `linkStyle default stroke:#2B2B2B,stroke-width:2px;\n`;
+    }
 
     const viewBreeding = $('#view-breeding');
     if (viewBreeding && viewBreeding.classList.contains('hidden')) {
@@ -598,6 +615,34 @@ export async function generateBreedingTree() {
 
     try {
         if (window.mermaid) {
+            window.mermaid.initialize({
+                startOnLoad: false,
+                theme: 'base',
+                themeVariables: isDark ? {
+                    darkMode: true,
+                    background: '#161614',
+                    primaryColor: '#2E2E28',
+                    primaryTextColor: '#F4F1E8',
+                    primaryBorderColor: '#C3F400',
+                    lineColor: '#FFC800',
+                    secondaryColor: '#3A3A34',
+                    tertiaryColor: '#20201C',
+                    edgeLabelBackground: '#161614',
+                    fontFamily: '"Pixel Operator", monospace'
+                } : {
+                    darkMode: false,
+                    background: '#FAF8F2',
+                    primaryColor: '#FAF8F2',
+                    primaryTextColor: '#1C1C17',
+                    primaryBorderColor: '#2B2B2B',
+                    lineColor: '#2B2B2B',
+                    secondaryColor: '#EDE8DC',
+                    tertiaryColor: '#F0ECE1',
+                    edgeLabelBackground: '#FAF8F2',
+                    fontFamily: '"Pixel Operator", monospace'
+                }
+            });
+
             if (panZoomInstance) {
                 try {
                     panZoomInstance.destroy();
@@ -632,7 +677,7 @@ export async function generateBreedingTree() {
         }
     } catch (e) {
         console.error('Mermaid render error:', e);
-        container.innerHTML = `<div class="text-red-400 p-4 bg-red-900/30 rounded border border-red-500 text-xs">Error renderizando el diagrama: ${e.message || e}</div>`;
+        container.innerHTML = `<div class="text-[#E63946] p-4 bg-[#FFDFDE] dark:bg-[#381E20] rounded-lg border-2 border-[#E63946] text-xs font-mono font-bold">Error renderizando el diagrama: ${e.message || e}</div>`;
     }
 }
 

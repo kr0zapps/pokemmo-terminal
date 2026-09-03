@@ -107,6 +107,7 @@ export function applyTheme(theme) {
         if (themeText) themeText.textContent = 'Oscuro';
     }
     localStorage.setItem('pokemmo_theme', theme);
+    document.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
 }
 
 window.toggleTheme = function() {
