@@ -34,27 +34,7 @@ export function getConnectionStatus() {
 }
 
 export function renderSyncBadge() {
-  const colors = {
-    'connected': 'var(--os-green, #10B981)',
-    'connecting': 'var(--os-blue, #3B82F6)',
-    'disconnected': 'var(--os-red, #F93822)'
-  };
-  
-  const labels = {
-    'connected': 'Conectado',
-    'connecting': 'Conectando...',
-    'disconnected': 'Desconectado'
-  };
-
-  const color = colors[currentStatus] || colors['disconnected'];
-  const label = labels[currentStatus] || labels['disconnected'];
-
-  return `
-    <div class="flex items-center gap-2 text-sm" style="color: var(--os-text, #EDEDED); font-family: 'Inter', sans-serif;">
-      <span class="w-2 h-2 rounded-full" style="background-color: ${color}; box-shadow: 0 0 8px ${color};"></span>
-      <span style="color: var(--os-muted, #82889E);">${label}</span>
-    </div>
-  `;
+  return '';
 }
 
 

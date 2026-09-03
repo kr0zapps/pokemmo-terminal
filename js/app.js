@@ -3,7 +3,7 @@
 import { supabase } from './db.js';
 import { getSession, onAuthStateChange, renderAuthUI, migrateLocalStorage, logout, isGuestMode, setGuestMode } from './auth.js';
 import { loadInitialState, state } from './state.js';
-import { initRealtimeSync, renderSyncBadge } from './sync.js';
+import { initRealtimeSync } from './sync.js';
 import { switchTab, initRouter } from './router.js';
 import * as gyms from './modules/gyms.js';
 import * as berries from './modules/berries.js';
@@ -131,16 +131,7 @@ async function updateHeaderAuth() {
                 <span class="text-[#81765F] dark:text-[#666] text-[13px]">|</span>
                 <button onclick="logout()" class="font-tech font-bold text-[13px] text-[#b7102a] dark:text-[#FFA8A8] hover:underline uppercase cursor-pointer" title="Cerrar sesión">Cerrar sesión</button>
             </div>
-            <div id="sync-badge-container" class="hidden sm:block">
-                ${renderSyncBadge()}
-            </div>
         `;
-        
-        // Listen to sync status changes to update the badge
-        document.addEventListener('syncStatusChanged', () => {
-            const container = document.getElementById('sync-badge-container');
-            if (container) container.innerHTML = renderSyncBadge();
-        });
     } else if (isGuestMode()) {
         authArea.innerHTML = `
             <div class="flex items-center gap-2">
