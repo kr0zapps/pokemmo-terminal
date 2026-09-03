@@ -3,224 +3,224 @@
     "id": 1,
     "name": "Bulbasaur",
     "region": "Kanto",
-    "location": "Parada: Bosque Verde",
-    "method": "Lure / Grass",
+    "location": "Bosque Verde",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 50 - 52)"
   },
   {
     "id": 2,
     "name": "Ivysaur",
     "region": "Kanto",
-    "location": "Parada: Ruta 5",
-    "method": "Lure / Grass",
+    "location": "Ruta 5",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 14 - 15)"
   },
   {
     "id": 3,
     "name": "Venusaur",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya",
-    "method": "Lure / Grass",
+    "location": "Bosque Baya",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 42 - 44)"
   },
   {
     "id": 4,
     "name": "Charmander",
     "region": "Kanto",
-    "location": "Parada: Ruta 3",
-    "method": "Lure / Grass",
+    "location": "Ruta 3",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 7 - 8)"
   },
   {
     "id": 5,
     "name": "Charmeleon",
     "region": "Kanto",
-    "location": "Parada: Túnel Roca (Sótano 1)",
-    "method": "Lure / Cave",
+    "location": "Túnel Roca (Sótano 1)",
+    "method": "Señuelo / Cueva",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 23)"
   },
   {
     "id": 6,
     "name": "Charizard",
     "region": "Kanto",
-    "location": "Parada: Cañón Siete",
-    "method": "Lure / Grass",
+    "location": "Cañón Siete",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 31 - 33)"
   },
   {
     "id": 7,
     "name": "Squirtle",
     "region": "Kanto",
-    "location": "Parada: Ruta 24",
-    "method": "Lure / Grass",
+    "location": "Ruta 24",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 51 - 53)"
   },
   {
     "id": 8,
     "name": "Wartortle",
     "region": "Kanto",
-    "location": "Parada: Islas Espuma (Piso 1)",
-    "method": "Lure / Cave",
+    "location": "Islas Espuma (Piso 1)",
+    "method": "Señuelo / Cueva",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 36 - 38)"
   },
   {
     "id": 9,
     "name": "Blastoise",
     "region": "Kanto",
-    "location": "Parada: Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
-    "method": "Lure / Cave",
+    "location": "Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
+    "method": "Señuelo / Cueva",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 53 - 55)"
   },
   {
     "id": 10,
     "name": "Caterpie",
     "region": "Kanto",
-    "location": "Parada: Bosque Diseño | Ruta 2",
-    "method": "Grass / Cave",
+    "location": "Bosque Diseño | Ruta 2",
+    "method": "Pasto / Cueva",
     "hint": "Tasa de Aparición: 5% (Nv. 50 - 52)"
   },
   {
     "id": 11,
     "name": "Metapod",
     "region": "Kanto",
-    "location": "Parada: Bosque Diseño | Ruta 24",
-    "method": "Grass / GrassX5",
+    "location": "Bosque Diseño | Ruta 24",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 51 - 53)"
   },
   {
     "id": 12,
     "name": "Butterfree",
     "region": "Kanto",
-    "location": "Parada: Bosque Diseño | Ruta 2",
-    "method": "Grass / Headbutt",
+    "location": "Bosque Diseño | Ruta 2",
+    "method": "Pasto / Golpe Cabeza",
     "hint": "Tasa de Aparición: 10% (Nv. 52 - 53)"
   },
   {
     "id": 13,
     "name": "Weedle",
     "region": "Kanto",
-    "location": "Parada: Bosque Diseño | Ruta 2",
-    "method": "Grass / Cave",
+    "location": "Bosque Diseño | Ruta 2",
+    "method": "Pasto / Cueva",
     "hint": "Tasa de Aparición: 5% (Nv. 50 - 52)"
   },
   {
     "id": 14,
     "name": "Kakuna",
     "region": "Kanto",
-    "location": "Parada: Bosque Diseño | Ruta 24",
-    "method": "Grass / GrassX5",
+    "location": "Bosque Diseño | Ruta 24",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 51 - 53)"
   },
   {
     "id": 15,
     "name": "Beedrill",
     "region": "Kanto",
-    "location": "Parada: Bosque Diseño | Bosque Azulejo (Interior)",
-    "method": "Grass / Headbutt",
+    "location": "Bosque Diseño | Bosque Azulejo (Interior)",
+    "method": "Pasto / Golpe Cabeza",
     "hint": "Tasa de Aparición: 10% (Nv. 52 - 53)"
   },
   {
     "id": 16,
     "name": "Pidgey",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Puente Villa",
-    "method": "Grass / GrassX3",
+    "location": "Bosque Baya | Puente Villa",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 5% (Nv. 42 - 44)"
   },
   {
     "id": 17,
     "name": "Pidgeotto",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Puente Villa",
-    "method": "Grass / GrassX5",
+    "location": "Bosque Baya | Puente Villa",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 20% (Nv. 43 - 45)"
   },
   {
     "id": 18,
     "name": "Pidgeot",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Puente Villa",
-    "method": "Grass / GrassX5",
+    "location": "Bosque Baya | Puente Villa",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 20% (Nv. 43 - 45)"
   },
   {
     "id": 19,
     "name": "Rattata",
     "region": "Kanto",
-    "location": "Parada: Mansión Pokémon (Piso 3) | Mansión Pokémon (Piso 2)",
-    "method": "Inside / Grass",
+    "location": "Mansión Pokémon (Piso 3) | Mansión Pokémon (Piso 2)",
+    "method": "Interior / Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 35 - 37)"
   },
   {
     "id": 20,
     "name": "Raticate",
     "region": "Kanto",
-    "location": "Parada: Mansión Pokémon (Piso 2) | Mansión Pokémon (Piso 3)",
-    "method": "Inside / InsideX5",
+    "location": "Mansión Pokémon (Piso 2) | Mansión Pokémon (Piso 3)",
+    "method": "Interior / InteriorX",
     "hint": "Tasa de Aparición: 10% (Nv. 37 - 38)"
   },
   {
     "id": 21,
     "name": "Spearow",
     "region": "Kanto",
-    "location": "Parada: Cabo Extremo | Camino Candente",
-    "method": "Grass / Shadow",
+    "location": "Cabo Extremo | Camino Candente",
+    "method": "Pasto / Sombra",
     "hint": "Tasa de Aparición: 5% (Nv. 40 - 42)"
   },
   {
     "id": 22,
     "name": "Fearow",
     "region": "Kanto",
-    "location": "Parada: Entrada al Cañón | Cabo Extremo",
-    "method": "Grass / GrassX5",
+    "location": "Entrada al Cañón | Cabo Extremo",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 20% (Nv. 51 - 53)"
   },
   {
     "id": 23,
     "name": "Ekans",
     "region": "Kanto",
-    "location": "Parada: Ruta 3 | Ruta 4",
-    "method": "Grass / Headbutt",
+    "location": "Ruta 3 | Ruta 4",
+    "method": "Pasto / Golpe Cabeza",
     "hint": "Tasa de Aparición: 5% (Nv. 7 - 8)"
   },
   {
     "id": 24,
     "name": "Arbok",
     "region": "Kanto",
-    "location": "Parada: Ruta 9 | Ruta 23",
-    "method": "Grass / Cave",
+    "location": "Ruta 9 | Ruta 23",
+    "method": "Pasto / Cueva",
     "hint": "Tasa de Aparición: 5% (Nv. 43 - 44)"
   },
   {
     "id": 25,
     "name": "Pikachu",
     "region": "Kanto",
-    "location": "Parada: Central Energía | Ruta 1",
-    "method": "Inside / Grass",
+    "location": "Central Energía | Ruta 1",
+    "method": "Interior / Pasto",
     "hint": "Tasa de Aparición: 20% (Nv. 35 - 37)"
   },
   {
     "id": 26,
     "name": "Raichu",
     "region": "Kanto",
-    "location": "Parada: Zona Safari (South Area) | Zona Safari (Northeast Area)",
-    "method": "Lure / Grass",
+    "location": "Zona Safari (Área Sur) | Zona Safari (Área Noreste)",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 31 - 33)"
   },
   {
     "id": 27,
     "name": "Sandshrew",
     "region": "Kanto",
-    "location": "Parada: Monte Moon (Piso 1) | Monte Moon (Sótano 2)",
-    "method": "Cave / CaveX3",
+    "location": "Monte Moon (Piso 1) | Monte Moon (Sótano 2)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 15% (Nv. 8 - 10)"
   },
   {
     "id": 28,
     "name": "Sandslash",
     "region": "Kanto",
-    "location": "Parada: Ruta 23 | Calle Victoria (Piso 1)",
-    "method": "Grass / Cave",
+    "location": "Ruta 23 | Calle Victoria (Piso 1)",
+    "method": "Pasto / Cueva",
     "hint": "Tasa de Aparición: 10% (Nv. 43 - 44)"
   },
   {
@@ -235,16 +235,16 @@
     "id": 30,
     "name": "Nidorina",
     "region": "Kanto",
-    "location": "Parada: Ruta 9 | Ruta 10",
-    "method": "Grass / GrassX5",
+    "location": "Ruta 9 | Ruta 10",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 5% (Nv. 21 - 22)"
   },
   {
     "id": 31,
     "name": "Nidoqueen",
     "region": "Kanto",
-    "location": "Parada: Ruta 14",
-    "method": "Lure / Grass",
+    "location": "Ruta 14",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 54 - 56)"
   },
   {
@@ -259,256 +259,256 @@
     "id": 33,
     "name": "Nidorino",
     "region": "Kanto",
-    "location": "Parada: Ruta 9 | Ruta 10",
-    "method": "Grass / Cave",
+    "location": "Ruta 9 | Ruta 10",
+    "method": "Pasto / Cueva",
     "hint": "Tasa de Aparición: 5% (Nv. 21 - 22)"
   },
   {
     "id": 34,
     "name": "Nidoking",
     "region": "Kanto",
-    "location": "Parada: Ruta 15",
-    "method": "Lure / Grass",
+    "location": "Ruta 15",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 51 - 53)"
   },
   {
     "id": 35,
     "name": "Clefairy",
     "region": "Kanto",
-    "location": "Parada: Monte Moon (Piso 1) | Monte Moon (Sótano 1)",
-    "method": "Cave / CaveX3",
+    "location": "Monte Moon (Piso 1) | Monte Moon (Sótano 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 10% (Nv. 8 - 10)"
   },
   {
     "id": 36,
     "name": "Clefable",
     "region": "Kanto",
-    "location": "Parada: Monte Moon (Piso 1) | Monte Moon (Sótano 1)",
-    "method": "Lure / Cave / Grass",
+    "location": "Monte Moon (Piso 1) | Monte Moon (Sótano 1)",
+    "method": "Señuelo / Cueva / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 8 - 10)"
   },
   {
     "id": 37,
     "name": "Vulpix",
     "region": "Kanto",
-    "location": "Parada: Mansión Pokémon (Piso 2) | Mansión Pokémon (Piso 3)",
-    "method": "Inside / Grass",
+    "location": "Mansión Pokémon (Piso 2) | Mansión Pokémon (Piso 3)",
+    "method": "Interior / Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 35 - 37)"
   },
   {
     "id": 38,
     "name": "Ninetales",
     "region": "Kanto",
-    "location": "Parada: Ruta 7 | Scorched Slab",
-    "method": "Lure / Grass / Cave",
+    "location": "Ruta 7 | Scorched Slab",
+    "method": "Señuelo / Pasto / Cueva",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 11 - 12)"
   },
   {
     "id": 39,
     "name": "Jigglypuff",
     "region": "Kanto",
-    "location": "Parada: Ruta 3 | Ruta 4",
-    "method": "Grass / GrassX5",
+    "location": "Ruta 3 | Ruta 4",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 5% (Nv. 7 - 8)"
   },
   {
     "id": 40,
     "name": "Wigglytuff",
     "region": "Kanto",
-    "location": "Parada: Ruta 14",
-    "method": "Lure / Grass",
+    "location": "Ruta 14",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 54 - 56)"
   },
   {
     "id": 41,
     "name": "Zubat",
     "region": "Kanto",
-    "location": "Parada: Diglett'S Cueva (Sótano 1) | Monte Moon (Sótano 1)",
-    "method": "Cave / Inside",
+    "location": "Diglett'S Cueva (Sótano 1) | Monte Moon (Sótano 1)",
+    "method": "Cueva / Interior",
     "hint": "Tasa de Aparición: 5% (Nv. 18 - 22)"
   },
   {
     "id": 42,
     "name": "Golbat",
     "region": "Kanto",
-    "location": "Parada: Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
-    "method": "Cave / Inside",
+    "location": "Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
+    "method": "Cueva / Interior",
     "hint": "Tasa de Aparición: 5% (Nv. 53 - 55)"
   },
   {
     "id": 43,
     "name": "Oddish",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Puente Villa",
-    "method": "Grass / GrassX3",
+    "location": "Bosque Baya | Puente Villa",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 42 - 44)"
   },
   {
     "id": 44,
     "name": "Gloom",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Puente Villa",
-    "method": "Grass / GrassX5",
+    "location": "Bosque Baya | Puente Villa",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 42 - 44)"
   },
   {
     "id": 45,
     "name": "Vileplume",
     "region": "Kanto",
-    "location": "Parada: Ruta 13",
-    "method": "Lure / Grass",
+    "location": "Ruta 13",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 63 - 65)"
   },
   {
     "id": 46,
     "name": "Paras",
     "region": "Kanto",
-    "location": "Parada: Monte Moon (Piso 1) | Monte Moon (Sótano 2)",
-    "method": "Cave / CaveX3",
+    "location": "Monte Moon (Piso 1) | Monte Moon (Sótano 2)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 5% (Nv. 8 - 10)"
   },
   {
     "id": 47,
     "name": "Parasect",
     "region": "Kanto",
-    "location": "Parada: Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
-    "method": "Cave / Grass",
+    "location": "Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
+    "method": "Cueva / Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 55 - 56)"
   },
   {
     "id": 48,
     "name": "Venonat",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Puente Villa",
-    "method": "Grass / Headbutt",
+    "location": "Bosque Baya | Puente Villa",
+    "method": "Pasto / Golpe Cabeza",
     "hint": "Tasa de Aparición: 15% (Nv. 11 - 12)"
   },
   {
     "id": 49,
     "name": "Venomoth",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Cueva Celeste (Piso 1)",
-    "method": "Grass / Cave",
+    "location": "Bosque Baya | Cueva Celeste (Piso 1)",
+    "method": "Pasto / Cueva",
     "hint": "Tasa de Aparición: 10% (Nv. 42 - 44)"
   },
   {
     "id": 50,
     "name": "Diglett",
     "region": "Kanto",
-    "location": "Parada: Diglett'S Cueva (Sótano 1) | Oreburgh Mine (Piso 1)",
-    "method": "Cave / CaveX3",
+    "location": "Diglett'S Cueva (Sótano 1) | Oreburgh Mine (Piso 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 85% (Nv. 18 - 22)"
   },
   {
     "id": 51,
     "name": "Dugtrio",
     "region": "Kanto",
-    "location": "Parada: Diglett'S Cueva (Sótano 1) | Maniac Túnel",
-    "method": "Cave / Grass",
+    "location": "Diglett'S Cueva (Sótano 1) | Maniac Túnel",
+    "method": "Cueva / Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 26)"
   },
   {
     "id": 52,
     "name": "Meowth",
     "region": "Kanto",
-    "location": "Parada: Puente Villa | Cabo Extremo",
-    "method": "Grass / GrassX3",
+    "location": "Puente Villa | Cabo Extremo",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 41 - 43)"
   },
   {
     "id": 53,
     "name": "Persian",
     "region": "Kanto",
-    "location": "Parada: Puente Villa | Entrada al Cañón",
-    "method": "Grass / Cave",
+    "location": "Puente Villa | Entrada al Cañón",
+    "method": "Pasto / Cueva",
     "hint": "Tasa de Aparición: 10% (Nv. 42 - 44)"
   },
   {
     "id": 54,
     "name": "Psyduck",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Cabo Extremo",
-    "method": "Water / Grass",
+    "location": "Bosque Baya | Cabo Extremo",
+    "method": "Agua / Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 43 - 45)"
   },
   {
     "id": 55,
     "name": "Golduck",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Puente Villa",
-    "method": "Grass / Water",
+    "location": "Bosque Baya | Puente Villa",
+    "method": "Pasto / Agua",
     "hint": "Tasa de Aparición: 15% (Nv. 44 - 45)"
   },
   {
     "id": 56,
     "name": "Mankey",
     "region": "Kanto",
-    "location": "Parada: Túnel Roca (Sótano 1) | Túnel Roca (Piso 1)",
-    "method": "Cave / CaveX3",
+    "location": "Túnel Roca (Sótano 1) | Túnel Roca (Piso 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 20% (Nv. 22 - 23)"
   },
   {
     "id": 57,
     "name": "Primeape",
     "region": "Kanto",
-    "location": "Parada: Cueva Celeste (Piso 1) | Ruta 23",
-    "method": "Cave / Grass",
+    "location": "Cueva Celeste (Piso 1) | Ruta 23",
+    "method": "Cueva / Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 55 - 56)"
   },
   {
     "id": 58,
     "name": "Growlithe",
     "region": "Kanto",
-    "location": "Parada: Mansión Pokémon (Piso 2) | Mansión Pokémon (Piso 3)",
-    "method": "Inside / Grass",
+    "location": "Mansión Pokémon (Piso 2) | Mansión Pokémon (Piso 3)",
+    "method": "Interior / Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 36 - 38)"
   },
   {
     "id": 59,
     "name": "Arcanine",
     "region": "Kanto",
-    "location": "Parada: Ruta 8",
-    "method": "Lure / Grass",
+    "location": "Ruta 8",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 63 - 65)"
   },
   {
     "id": 60,
     "name": "Poliwag",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Cabo Extremo",
-    "method": "Good Rod / Super Rod",
+    "location": "Bosque Baya | Cabo Extremo",
+    "method": "Buena Caña / Súper Caña",
     "hint": "Tasa de Aparición: 10% (Nv. 20 - 30)"
   },
   {
     "id": 61,
     "name": "Poliwhirl",
     "region": "Kanto",
-    "location": "Parada: Cabo Extremo | Cueva Celeste (Sótano 1)",
-    "method": "Super Rod / Water",
+    "location": "Cabo Extremo | Cueva Celeste (Sótano 1)",
+    "method": "Súper Caña / Agua",
     "hint": "Tasa de Aparición: 15% (Nv. 30 - 40)"
   },
   {
     "id": 62,
     "name": "Poliwrath",
     "region": "Kanto",
-    "location": "Parada: Cinnabar Isla | Pallet Pueblo",
-    "method": "Lure / Water / Fishing",
+    "location": "Cinnabar Isla | Pallet Pueblo",
+    "method": "Señuelo / Agua / Pesca",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 42 - 44)"
   },
   {
     "id": 63,
     "name": "Abra",
     "region": "Kanto",
-    "location": "Parada: Ruta 5 | Ruta 6",
-    "method": "Grass / Cave",
+    "location": "Ruta 5 | Ruta 6",
+    "method": "Pasto / Cueva",
     "hint": "Tasa de Aparición: 15% (Nv. 14 - 15)"
   },
   {
     "id": 64,
     "name": "Kadabra",
     "region": "Kanto",
-    "location": "Parada: Cueva Celeste (Piso 2) | Cueva Celeste (Sótano 1)",
-    "method": "Cave / CaveX5",
+    "location": "Cueva Celeste (Piso 2) | Cueva Celeste (Sótano 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 10% (Nv. 55 - 57)"
   },
   {
@@ -523,136 +523,136 @@
     "id": 66,
     "name": "Machop",
     "region": "Kanto",
-    "location": "Parada: Mt. Ember (Outside) | Túnel Roca (Sótano 1)",
-    "method": "Grass / Cave",
+    "location": "Mt. Ember (Outside) | Túnel Roca (Sótano 1)",
+    "method": "Pasto / Cueva",
     "hint": "Tasa de Aparición: 10% (Nv. 39 - 41)"
   },
   {
     "id": 67,
     "name": "Machoke",
     "region": "Kanto",
-    "location": "Parada: Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
-    "method": "Cave / Grass",
+    "location": "Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
+    "method": "Cueva / Pasto",
     "hint": "Tasa de Aparición: 15% (Nv. 53 - 55)"
   },
   {
     "id": 68,
     "name": "Machamp",
     "region": "Kanto",
-    "location": "Parada: Ruta 226",
-    "method": "Lure / Grass",
+    "location": "Ruta 226",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 69,
     "name": "Bellsprout",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Puente Villa",
-    "method": "Grass / GrassX3",
+    "location": "Bosque Baya | Puente Villa",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 5% (Nv. 42 - 44)"
   },
   {
     "id": 70,
     "name": "Weepinbell",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Puente Villa",
-    "method": "Grass / GrassX5",
+    "location": "Bosque Baya | Puente Villa",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 15% (Nv. 43 - 45)"
   },
   {
     "id": 71,
     "name": "Victreebel",
     "region": "Kanto",
-    "location": "Parada: Ruta 12",
-    "method": "Lure / Grass",
+    "location": "Ruta 12",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 72,
     "name": "Tentacool",
     "region": "Kanto",
-    "location": "Parada: Puente Villa | Cerulean Ciudad",
-    "method": "Water / WaterX5",
+    "location": "Puente Villa | Cerulean Ciudad",
+    "method": "Agua / AguaX",
     "hint": "Tasa de Aparición: 60% (Nv. 42 - 44)"
   },
   {
     "id": 73,
     "name": "Tentacruel",
     "region": "Kanto",
-    "location": "Parada: Puente Villa | Cinnabar Isla",
-    "method": "Water / WaterX5",
+    "location": "Puente Villa | Cinnabar Isla",
+    "method": "Agua / AguaX",
     "hint": "Tasa de Aparición: 35% (Nv. 42 - 44)"
   },
   {
     "id": 74,
     "name": "Geodude",
     "region": "Kanto",
-    "location": "Parada: Camino Candente | Mt. Ember (Outside)",
-    "method": "Grass / Rocks",
+    "location": "Camino Candente | Mt. Ember (Outside)",
+    "method": "Pasto / Rocas",
     "hint": "Tasa de Aparición: 10% (Nv. 38 - 41)"
   },
   {
     "id": 75,
     "name": "Graveler",
     "region": "Kanto",
-    "location": "Parada: Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
-    "method": "Cave / CaveX5",
+    "location": "Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 5% (Nv. 53 - 55)"
   },
   {
     "id": 76,
     "name": "Golem",
     "region": "Kanto",
-    "location": "Parada: Cueva Celeste (Sótano 1) | Cueva Celeste (Piso 1)",
-    "method": "Rocks / Cave",
+    "location": "Cueva Celeste (Sótano 1) | Cueva Celeste (Piso 1)",
+    "method": "Rocas / Cueva",
     "hint": "Tasa de Aparición: 15% (Nv. 63 - 64)"
   },
   {
     "id": 77,
     "name": "Ponyta",
     "region": "Kanto",
-    "location": "Parada: Camino Candente | Mt. Ember (Outside)",
-    "method": "Grass / Inside",
+    "location": "Camino Candente | Mt. Ember (Outside)",
+    "method": "Pasto / Interior",
     "hint": "Tasa de Aparición: 15% (Nv. 39 - 42)"
   },
   {
     "id": 78,
     "name": "Rapidash",
     "region": "Kanto",
-    "location": "Parada: Camino Candente | Mt. Ember (Outside)",
-    "method": "Grass / Dark Grass",
+    "location": "Camino Candente | Mt. Ember (Outside)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% (Nv. 40 - 42)"
   },
   {
     "id": 79,
     "name": "Slowpoke",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Cabo Extremo",
-    "method": "Water / Grass",
+    "location": "Bosque Baya | Cabo Extremo",
+    "method": "Agua / Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 43 - 45)"
   },
   {
     "id": 80,
     "name": "Slowbro",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Puente Villa",
-    "method": "Grass / GrassX5",
+    "location": "Bosque Baya | Puente Villa",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 30% (Nv. 44 - 45)"
   },
   {
     "id": 81,
     "name": "Magnemite",
     "region": "Kanto",
-    "location": "Parada: Central Energía | Ruta 6",
-    "method": "Inside / InsideX5",
+    "location": "Central Energía | Ruta 6",
+    "method": "Interior / InteriorX",
     "hint": "Tasa de Aparición: 15% (Nv. 35 - 37)"
   },
   {
     "id": 82,
     "name": "Magneton",
     "region": "Kanto",
-    "location": "Parada: Cueva Celeste (Piso 1) | Cueva Celeste (Sótano 1)",
-    "method": "Cave / Inside",
+    "location": "Cueva Celeste (Piso 1) | Cueva Celeste (Sótano 1)",
+    "method": "Cueva / Interior",
     "hint": "Tasa de Aparición: 10% (Nv. 53 - 55)"
   },
   {
@@ -667,304 +667,304 @@
     "id": 84,
     "name": "Doduo",
     "region": "Kanto",
-    "location": "Parada: Ruta 16 | Ruta 17",
-    "method": "Grass / GrassX5",
+    "location": "Ruta 16 | Ruta 17",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 20% (Nv. 25 - 27)"
   },
   {
     "id": 85,
     "name": "Dodrio",
     "region": "Kanto",
-    "location": "Parada: Ruta 18 | Zona Safari (Northwest Area)",
-    "method": "Grass / GrassX5",
+    "location": "Ruta 18 | Zona Safari (Área Noroeste)",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 31)"
   },
   {
     "id": 86,
     "name": "Seel",
     "region": "Kanto",
-    "location": "Parada: Icefall Cueva (Sótano 1) | Icefall Cueva (Interior)",
-    "method": "Cave / Water",
+    "location": "Icefall Cueva (Sótano 1) | Icefall Cueva (Interior)",
+    "method": "Cueva / Agua",
     "hint": "Tasa de Aparición: 10% (Nv. 50 - 52)"
   },
   {
     "id": 87,
     "name": "Dewgong",
     "region": "Kanto",
-    "location": "Parada: Icefall Cueva (Sótano 1) | Icefall Cueva (Interior)",
-    "method": "Cave / CaveX5",
+    "location": "Icefall Cueva (Sótano 1) | Icefall Cueva (Interior)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 20% (Nv. 51 - 53)"
   },
   {
     "id": 88,
     "name": "Grimer",
     "region": "Kanto",
-    "location": "Parada: Celadon Ciudad | Mansión Pokémon (Sótano 1)",
-    "method": "Water / Super Rod",
+    "location": "Celadon Ciudad | Mansión Pokémon (Sótano 1)",
+    "method": "Agua / Súper Caña",
     "hint": "Tasa de Aparición: 15% (Nv. 33 - 35)"
   },
   {
     "id": 89,
     "name": "Muk",
     "region": "Kanto",
-    "location": "Parada: Celadon Ciudad | Mansión Pokémon (Piso 1)",
-    "method": "Water / Inside",
+    "location": "Celadon Ciudad | Mansión Pokémon (Piso 1)",
+    "method": "Agua / Interior",
     "hint": "Tasa de Aparición: 5% (Nv. 38)"
   },
   {
     "id": 90,
     "name": "Shellder",
     "region": "Kanto",
-    "location": "Parada: Cinnabar Isla | Five Isla",
-    "method": "Good Rod / Super Rod",
+    "location": "Cinnabar Isla | Five Isla",
+    "method": "Buena Caña / Súper Caña",
     "hint": "Tasa de Aparición: 25% (Nv. 20 - 30)"
   },
   {
     "id": 91,
     "name": "Cloyster",
     "region": "Kanto",
-    "location": "Parada: Ruta 11 | S.S. Anne",
-    "method": "Lure / Water / Fishing",
+    "location": "Ruta 11 | S.S. Anne",
+    "method": "Señuelo / Agua / Pesca",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 24 - 25)"
   },
   {
     "id": 92,
     "name": "Gastly",
     "region": "Kanto",
-    "location": "Parada: Lost Cueva (???) | Pokémon Torre (Piso 7)",
-    "method": "Cave / CaveX5",
+    "location": "Lost Cueva (???) | Pokémon Torre (Piso 7)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 20% (Nv. 51 - 52)"
   },
   {
     "id": 93,
     "name": "Haunter",
     "region": "Kanto",
-    "location": "Parada: Lost Cueva (???) | Pokémon Torre (Piso 3)",
-    "method": "Cave / CaveX5",
+    "location": "Lost Cueva (???) | Pokémon Torre (Piso 3)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 55% (Nv. 52 - 53)"
   },
   {
     "id": 94,
     "name": "Gengar",
     "region": "Kanto",
-    "location": "Parada: Pokémon Torre (Piso 7)",
-    "method": "Lure / Inside",
+    "location": "Pokémon Torre (Piso 7)",
+    "method": "Señuelo / Interior",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 51 - 52)"
   },
   {
     "id": 95,
     "name": "Onix",
     "region": "Kanto",
-    "location": "Parada: Monte Moon (Piso 1) | Monte Moon (Sótano 1)",
-    "method": "Cave / CaveX3",
+    "location": "Monte Moon (Piso 1) | Monte Moon (Sótano 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 5% (Nv. 8 - 9)"
   },
   {
     "id": 96,
     "name": "Drowzee",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Ruta 6",
-    "method": "Grass / GrassX3",
+    "location": "Bosque Baya | Ruta 6",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 42 - 44)"
   },
   {
     "id": 97,
     "name": "Hypno",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Zona Safari",
-    "method": "Grass / GrassX5",
+    "location": "Bosque Baya | Zona Safari",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 42 - 44)"
   },
   {
     "id": 98,
     "name": "Krabby",
     "region": "Kanto",
-    "location": "Parada: Puente Villa | Cerulean Ciudad",
-    "method": "Super Rod / Good Rod",
+    "location": "Puente Villa | Cerulean Ciudad",
+    "method": "Súper Caña / Buena Caña",
     "hint": "Tasa de Aparición: 35% (Nv. 30 - 40)"
   },
   {
     "id": 99,
     "name": "Kingler",
     "region": "Kanto",
-    "location": "Parada: Puente Villa | Cueva Celeste (Sótano 1)",
-    "method": "Super Rod / Grass",
+    "location": "Puente Villa | Cueva Celeste (Sótano 1)",
+    "method": "Súper Caña / Pasto",
     "hint": "Tasa de Aparición: 15% (Nv. 30 - 40)"
   },
   {
     "id": 100,
     "name": "Voltorb",
     "region": "Kanto",
-    "location": "Parada: Central Energía | Ruta 10",
-    "method": "Inside / Grass",
+    "location": "Central Energía | Ruta 10",
+    "method": "Interior / Pasto",
     "hint": "Tasa de Aparición: 15% (Nv. 35 - 37)"
   },
   {
     "id": 101,
     "name": "Electrode",
     "region": "Kanto",
-    "location": "Parada: Cueva Celeste (Piso 2) | Cueva Celeste (Sótano 1)",
-    "method": "Cave / CaveX5",
+    "location": "Cueva Celeste (Piso 2) | Cueva Celeste (Sótano 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 5% (Nv. 57 - 58)"
   },
   {
     "id": 102,
     "name": "Exeggcute",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Ruta 23",
-    "method": "Grass / Headbutt",
+    "location": "Bosque Baya | Ruta 23",
+    "method": "Pasto / Golpe Cabeza",
     "hint": "Tasa de Aparición: 5% (Nv. 43 - 45)"
   },
   {
     "id": 103,
     "name": "Exeggutor",
     "region": "Kanto",
-    "location": "Parada: Ruta 23",
-    "method": "Lure / Grass",
+    "location": "Ruta 23",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 43 - 44)"
   },
   {
     "id": 104,
     "name": "Cubone",
     "region": "Kanto",
-    "location": "Parada: Pokémon Torre (Piso 7) | Pokémon Torre (Piso 3)",
-    "method": "Inside / InsideX3",
+    "location": "Pokémon Torre (Piso 7) | Pokémon Torre (Piso 3)",
+    "method": "Interior / InteriorX",
     "hint": "Tasa de Aparición: 10% (Nv. 23 - 24)"
   },
   {
     "id": 105,
     "name": "Marowak",
     "region": "Kanto",
-    "location": "Parada: Zona Safari (West Area) | Cañón Siete",
-    "method": "Grass / GrassX5",
+    "location": "Zona Safari (Área Oeste) | Cañón Siete",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 5% (Nv. 31 - 33)"
   },
   {
     "id": 106,
     "name": "Hitmonlee",
     "region": "Kanto",
-    "location": "Parada: Calle Victoria (Piso 2)",
-    "method": "Cave",
+    "location": "Calle Victoria (Piso 2)",
+    "method": "Cueva",
     "hint": "Tasa de Aparición: 5% (Nv. 47 - 49)"
   },
   {
     "id": 107,
     "name": "Hitmonchan",
     "region": "Kanto",
-    "location": "Parada: Calle Victoria (Piso 3)",
-    "method": "Cave",
+    "location": "Calle Victoria (Piso 3)",
+    "method": "Cueva",
     "hint": "Tasa de Aparición: 5% (Nv. 46 - 48)"
   },
   {
     "id": 108,
     "name": "Lickitung",
     "region": "Kanto",
-    "location": "Parada: Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
-    "method": "Cave / Grass",
+    "location": "Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
+    "method": "Cueva / Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 53 - 55)"
   },
   {
     "id": 109,
     "name": "Koffing",
     "region": "Kanto",
-    "location": "Parada: Celadon Ciudad | Mansión Pokémon (Sótano 1)",
-    "method": "Water / WaterX5",
+    "location": "Celadon Ciudad | Mansión Pokémon (Sótano 1)",
+    "method": "Agua / AguaX",
     "hint": "Tasa de Aparición: 5% (Nv. 33 - 35)"
   },
   {
     "id": 110,
     "name": "Weezing",
     "region": "Kanto",
-    "location": "Parada: Celadon Ciudad | Mansión Pokémon (Piso 1)",
-    "method": "Water / Inside",
+    "location": "Celadon Ciudad | Mansión Pokémon (Piso 1)",
+    "method": "Agua / Interior",
     "hint": "Tasa de Aparición: 5% (Nv. 37 - 38)"
   },
   {
     "id": 111,
     "name": "Rhyhorn",
     "region": "Kanto",
-    "location": "Parada: Túnel Roca (Sótano 1) | Túnel Roca (Piso 1)",
-    "method": "Cave / CaveX3",
+    "location": "Túnel Roca (Sótano 1) | Túnel Roca (Piso 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 10% (Nv. 22 - 23)"
   },
   {
     "id": 112,
     "name": "Rhydon",
     "region": "Kanto",
-    "location": "Parada: Cueva Celeste (Piso 1) | Cueva Celeste (Sótano 1)",
-    "method": "Cave / CaveX5",
+    "location": "Cueva Celeste (Piso 1) | Cueva Celeste (Sótano 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 15% (Nv. 53 - 55)"
   },
   {
     "id": 113,
     "name": "Chansey",
     "region": "Kanto",
-    "location": "Parada: Zona Safari (North Area) | Ruta 209",
-    "method": "Grass",
+    "location": "Zona Safari (Área Norte) | Ruta 209",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 20% (Nv. 31 - 33)"
   },
   {
     "id": 114,
     "name": "Tangela",
     "region": "Kanto",
-    "location": "Parada: Ruta 21 (North) | Zona Safari (Center Area)",
-    "method": "Grass / GrassX5",
+    "location": "Ruta 21 (Norte) | Zona Safari (Área Central)",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 15% (Nv. 34 - 35)"
   },
   {
     "id": 115,
     "name": "Kangaskhan",
     "region": "Kanto",
-    "location": "Parada: Entrada al Cañón | Zona Safari (East Area)",
-    "method": "Grass / Dark Grass",
+    "location": "Entrada al Cañón | Zona Safari (Área Este)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 20% (Nv. 32 - 33)"
   },
   {
     "id": 116,
     "name": "Horsea",
     "region": "Kanto",
-    "location": "Parada: Puente Villa | Cerulean Ciudad",
-    "method": "Super Rod / Good Rod",
+    "location": "Puente Villa | Cerulean Ciudad",
+    "method": "Súper Caña / Buena Caña",
     "hint": "Tasa de Aparición: 15% (Nv. 30 - 40)"
   },
   {
     "id": 117,
     "name": "Seadra",
     "region": "Kanto",
-    "location": "Parada: Puente Villa | Cueva Celeste (Sótano 1)",
-    "method": "Super Rod / Fishing",
+    "location": "Puente Villa | Cueva Celeste (Sótano 1)",
+    "method": "Súper Caña / Pesca",
     "hint": "Tasa de Aparición: 10% (Nv. 32 - 40)"
   },
   {
     "id": 118,
     "name": "Goldeen",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Cabo Extremo",
-    "method": "Super Rod / Good Rod",
+    "location": "Bosque Baya | Cabo Extremo",
+    "method": "Súper Caña / Buena Caña",
     "hint": "Tasa de Aparición: 40% (Nv. 30 - 40)"
   },
   {
     "id": 119,
     "name": "Seaking",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Cueva Celeste (Sótano 1)",
-    "method": "Super Rod / Water",
+    "location": "Bosque Baya | Cueva Celeste (Sótano 1)",
+    "method": "Súper Caña / Agua",
     "hint": "Tasa de Aparición: 45% (Nv. 33 - 40)"
   },
   {
     "id": 120,
     "name": "Staryu",
     "region": "Kanto",
-    "location": "Parada: Cerulean Ciudad | Cinnabar Isla",
-    "method": "Good Rod / Super Rod",
+    "location": "Cerulean Ciudad | Cinnabar Isla",
+    "method": "Buena Caña / Súper Caña",
     "hint": "Tasa de Aparición: 10% (Nv. 42 - 44)"
   },
   {
     "id": 121,
     "name": "Starmie",
     "region": "Kanto",
-    "location": "Parada: Cerulean Ciudad | Ruta 24",
-    "method": "Lure / Water / Grass",
+    "location": "Cerulean Ciudad | Ruta 24",
+    "method": "Señuelo / Agua / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 42 - 44)"
   },
   {
@@ -979,112 +979,112 @@
     "id": 123,
     "name": "Scyther",
     "region": "Kanto",
-    "location": "Parada: Zona Safari (Center Area) | Ruta 210 (South)",
-    "method": "Grass",
+    "location": "Zona Safari (Área Central) | Ruta 210 (Sur)",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 32 - 33)"
   },
   {
     "id": 124,
     "name": "Jynx",
     "region": "Kanto",
-    "location": "Parada: Islas Espuma (Piso 1) | Islas Espuma (Sótano 1)",
-    "method": "Cave / CaveX5",
+    "location": "Islas Espuma (Piso 1) | Islas Espuma (Sótano 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 10% (Nv. 36 - 38)"
   },
   {
     "id": 125,
     "name": "Electabuzz",
     "region": "Kanto",
-    "location": "Parada: Central Energía | Ruta 222",
-    "method": "Inside / InsideX5",
+    "location": "Central Energía | Ruta 222",
+    "method": "Interior / InteriorX",
     "hint": "Tasa de Aparición: 5% (Nv. 36 - 38)"
   },
   {
     "id": 126,
     "name": "Magmar",
     "region": "Kanto",
-    "location": "Parada: Mt. Ember (Outside) | Mansión Pokémon (Piso 2)",
-    "method": "Grass / Inside",
+    "location": "Mt. Ember (Outside) | Mansión Pokémon (Piso 2)",
+    "method": "Pasto / Interior",
     "hint": "Tasa de Aparición: 5% (Nv. 40 - 42)"
   },
   {
     "id": 127,
     "name": "Pinsir",
     "region": "Kanto",
-    "location": "Parada: Bosque Diseño | Zona Safari (Center Area)",
-    "method": "Grass / Dark Grass",
+    "location": "Bosque Diseño | Zona Safari (Área Central)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% (Nv. 32 - 33)"
   },
   {
     "id": 128,
     "name": "Tauros",
     "region": "Kanto",
-    "location": "Parada: Zona Safari (West Area) | Ruta 38",
-    "method": "Grass / GrassX5",
+    "location": "Zona Safari (Área Oeste) | Ruta 38",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 20% (Nv. 32 - 33)"
   },
   {
     "id": 129,
     "name": "Magikarp",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Puente Villa",
-    "method": "Good Rod / Old Rod",
+    "location": "Bosque Baya | Puente Villa",
+    "method": "Buena Caña / Caña Vieja",
     "hint": "Tasa de Aparición: 35% (Nv. 20 - 30)"
   },
   {
     "id": 130,
     "name": "Gyarados",
     "region": "Kanto",
-    "location": "Parada: Bosque Baya | Puente Villa",
-    "method": "Super Rod / Good Rod",
+    "location": "Bosque Baya | Puente Villa",
+    "method": "Súper Caña / Buena Caña",
     "hint": "Tasa de Aparición: 15% (Nv. 30 - 40)"
   },
   {
     "id": 131,
     "name": "Lapras",
     "region": "Kanto",
-    "location": "Parada: Icefall Cueva (Back Room) | Ruta 19",
-    "method": "Water",
+    "location": "Icefall Cueva (Back Room) | Ruta 19",
+    "method": "Agua",
     "hint": "Tasa de Aparición: 15% (Nv. 52 - 53)"
   },
   {
     "id": 132,
     "name": "Ditto",
     "region": "Kanto",
-    "location": "Parada: Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
-    "method": "Cave / CaveX5",
+    "location": "Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 5% (Nv. 54 - 56)"
   },
   {
     "id": 133,
     "name": "Eevee",
     "region": "Kanto",
-    "location": "Parada: Ruta 17 | Ruta 203",
-    "method": "Grass",
+    "location": "Ruta 17 | Ruta 203",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 26 - 29)"
   },
   {
     "id": 134,
     "name": "Vaporeon",
     "region": "Kanto",
-    "location": "Parada: Cabo Extremo",
-    "method": "Lure / Grass",
+    "location": "Cabo Extremo",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 40 - 42)"
   },
   {
     "id": 135,
     "name": "Jolteon",
     "region": "Kanto",
-    "location": "Parada: Ruin Valle",
-    "method": "Lure / Grass",
+    "location": "Ruin Valle",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 49 - 52)"
   },
   {
     "id": 136,
     "name": "Flareon",
     "region": "Kanto",
-    "location": "Parada: Camino Candente",
-    "method": "Lure / Grass",
+    "location": "Camino Candente",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 40 - 42)"
   },
   {
@@ -1139,8 +1139,8 @@
     "id": 143,
     "name": "Snorlax",
     "region": "Kanto",
-    "location": "Parada: Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
-    "method": "Cave / Grass",
+    "location": "Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
+    "method": "Cueva / Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 55 - 56)"
   },
   {
@@ -1171,24 +1171,24 @@
     "id": 147,
     "name": "Dratini",
     "region": "Kanto",
-    "location": "Parada: Ruta 10 | Zona Safari (Center Area)",
-    "method": "Water / Super Rod",
+    "location": "Ruta 10 | Zona Safari (Área Central)",
+    "method": "Agua / Súper Caña",
     "hint": "Tasa de Aparición: 5% (Nv. 33 - 35)"
   },
   {
     "id": 148,
     "name": "Dragonair",
     "region": "Kanto",
-    "location": "Parada: Ruta 10 | Zona Safari (Center Area)",
-    "method": "Water / Super Rod",
+    "location": "Ruta 10 | Zona Safari (Área Central)",
+    "method": "Agua / Súper Caña",
     "hint": "Tasa de Aparición: 5% (Nv. 30 - 40)"
   },
   {
     "id": 149,
     "name": "Dragonite",
     "region": "Kanto",
-    "location": "Parada: Outcast Isla | Challenger's Cueva (Sótano 2)",
-    "method": "Lure / Water / Fishing",
+    "location": "Outcast Isla | Challenger's Cueva (Sótano 2)",
+    "method": "Señuelo / Agua / Pesca",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 54 - 56)"
   },
   {
@@ -1211,648 +1211,648 @@
     "id": 152,
     "name": "Chikorita",
     "region": "Johto",
-    "location": "Parada: National Parque",
-    "method": "Lure / Grass",
+    "location": "National Parque",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 153,
     "name": "Bayleef",
     "region": "Johto",
-    "location": "Parada: Ruta 48",
-    "method": "Lure / Grass",
+    "location": "Ruta 48",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 154,
     "name": "Meganium",
     "region": "Johto",
-    "location": "Parada: Ruta 28",
-    "method": "Lure / Grass",
+    "location": "Ruta 28",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 155,
     "name": "Cyndaquil",
     "region": "Johto",
-    "location": "Parada: Ruta 35",
-    "method": "Lure / Grass",
+    "location": "Ruta 35",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 156,
     "name": "Quilava",
     "region": "Johto",
-    "location": "Parada: Ruta 45",
-    "method": "Lure / Grass",
+    "location": "Ruta 45",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 157,
     "name": "Typhlosion",
     "region": "Johto",
-    "location": "Parada: Ruta 26",
-    "method": "Lure / Grass",
+    "location": "Ruta 26",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 63 - 65)"
   },
   {
     "id": 158,
     "name": "Totodile",
     "region": "Johto",
-    "location": "Parada: Ruta 32",
-    "method": "Lure / Grass",
+    "location": "Ruta 32",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 49 - 51)"
   },
   {
     "id": 159,
     "name": "Croconaw",
     "region": "Johto",
-    "location": "Parada: Ruta 44",
-    "method": "Lure / Grass",
+    "location": "Ruta 44",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 160,
     "name": "Feraligatr",
     "region": "Johto",
-    "location": "Parada: Mt. Silver (Outside)",
-    "method": "Lure / Grass",
+    "location": "Mt. Silver (Outside)",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 63 - 65)"
   },
   {
     "id": 161,
     "name": "Sentret",
     "region": "Johto",
-    "location": "Parada: Ruta 1 | Ruta 29",
-    "method": "Grass / Cave",
+    "location": "Ruta 1 | Ruta 29",
+    "method": "Pasto / Cueva",
     "hint": "Tasa de Aparición: 15% (Nv. 2 - 4)"
   },
   {
     "id": 162,
     "name": "Furret",
     "region": "Johto",
-    "location": "Parada: Entrada al Cañón | Five Isle Meadow",
-    "method": "Grass",
+    "location": "Entrada al Cañón | Prado Isla Quíntupla",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 15% (Nv. 50 - 53)"
   },
   {
     "id": 163,
     "name": "Hoothoot",
     "region": "Johto",
-    "location": "Parada: Ruta 1 | Ruta 2",
-    "method": "Grass / Sweet ScentX3",
+    "location": "Ruta 1 | Ruta 2",
+    "method": "Pasto / Dulce AromaX",
     "hint": "Tasa de Aparición: 45% (Nv. 4 - 5)"
   },
   {
     "id": 164,
     "name": "Noctowl",
     "region": "Johto",
-    "location": "Parada: Ruta 8 | Ruta 13",
-    "method": "Grass / GrassX5",
+    "location": "Ruta 8 | Ruta 13",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 15% (Nv. 63 - 65)"
   },
   {
     "id": 165,
     "name": "Ledyba",
     "region": "Johto",
-    "location": "Parada: Bosque Diseño | Bosque Verde",
-    "method": "Grass / GrassX3",
+    "location": "Bosque Diseño | Bosque Verde",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 50 - 52)"
   },
   {
     "id": 166,
     "name": "Ledian",
     "region": "Johto",
-    "location": "Parada: Bosque Diseño | Dreamyard",
-    "method": "Grass / Dark Grass",
+    "location": "Bosque Diseño | Dreamyard",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 15% (Nv. 51 - 53)"
   },
   {
     "id": 167,
     "name": "Spinarak",
     "region": "Johto",
-    "location": "Parada: Bosque Diseño | Bosque Verde",
-    "method": "Grass / Headbutt",
+    "location": "Bosque Diseño | Bosque Verde",
+    "method": "Pasto / Golpe Cabeza",
     "hint": "Tasa de Aparición: 5% (Nv. 50 - 52)"
   },
   {
     "id": 168,
     "name": "Ariados",
     "region": "Johto",
-    "location": "Parada: Bosque Diseño | Sky Pillar (Piso 1)",
-    "method": "Grass / Cave",
+    "location": "Bosque Diseño | Sky Pillar (Piso 1)",
+    "method": "Pasto / Cueva",
     "hint": "Tasa de Aparición: 5% (Nv. 51 - 53)"
   },
   {
     "id": 169,
     "name": "Crobat",
     "region": "Johto",
-    "location": "Parada: Scorched Slab | Marfloor Cuevarn",
-    "method": "Lure / Water / Cave",
+    "location": "Scorched Slab | Marfloor Cuevarn",
+    "method": "Señuelo / Agua / Cueva",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 170,
     "name": "Chinchou",
     "region": "Johto",
-    "location": "Parada: Cinnabar Isla | Pallet Pueblo",
-    "method": "Good Rod / Super Rod",
+    "location": "Cinnabar Isla | Pallet Pueblo",
+    "method": "Buena Caña / Súper Caña",
     "hint": "Tasa de Aparición: 5% (Nv. 20 - 30)"
   },
   {
     "id": 171,
     "name": "Lanturn",
     "region": "Johto",
-    "location": "Parada: Cinnabar Isla | Camino Candente",
-    "method": "Super Rod / Water",
+    "location": "Cinnabar Isla | Camino Candente",
+    "method": "Súper Caña / Agua",
     "hint": "Tasa de Aparición: 10% (Nv. 30 - 40)"
   },
   {
     "id": 172,
     "name": "Pichu",
     "region": "Johto",
-    "location": "Parada: Ruta 1 | Trophy Garden",
-    "method": "Grass",
+    "location": "Ruta 1 | Trophy Garden",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 26 - 28)"
   },
   {
     "id": 173,
     "name": "Cleffa",
     "region": "Johto",
-    "location": "Parada: Ruta 29",
-    "method": "Grass",
+    "location": "Ruta 29",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 2 - 4)"
   },
   {
     "id": 174,
     "name": "Igglybuff",
     "region": "Johto",
-    "location": "Parada: Ruta 4",
-    "method": "Grass",
+    "location": "Ruta 4",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 7 - 8)"
   },
   {
     "id": 175,
     "name": "Togepi",
     "region": "Johto",
-    "location": "Parada: Ruta 34",
-    "method": "Grass",
+    "location": "Ruta 34",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
     "id": 176,
     "name": "Togetic",
     "region": "Johto",
-    "location": "Parada: Five Isle Meadow",
-    "method": "Grass",
+    "location": "Prado Isla Quíntupla",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 50 - 53)"
   },
   {
     "id": 177,
     "name": "Natu",
     "region": "Johto",
-    "location": "Parada: Ruin Valle | Mirage Torre (Piso 2)",
-    "method": "Grass / Cave",
+    "location": "Ruin Valle | Mirage Torre (Piso 2)",
+    "method": "Pasto / Cueva",
     "hint": "Tasa de Aparición: 5% (Nv. 49 - 52)"
   },
   {
     "id": 178,
     "name": "Xatu",
     "region": "Johto",
-    "location": "Parada: Ruin Valle | Ruta 115",
-    "method": "Grass / Headbutt",
+    "location": "Ruin Valle | Ruta 115",
+    "method": "Pasto / Golpe Cabeza",
     "hint": "Tasa de Aparición: 10% (Nv. 51 - 53)"
   },
   {
     "id": 179,
     "name": "Mareep",
     "region": "Johto",
-    "location": "Parada: Zona Safari (Southeast Area) | Ruta 32",
-    "method": "Grass / GrassX3",
+    "location": "Zona Safari (Área Sureste) | Ruta 32",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 20% (Nv. 49 - 51)"
   },
   {
     "id": 180,
     "name": "Flaaffy",
     "region": "Johto",
-    "location": "Parada: Ruta 42 | Ruta 43",
-    "method": "Grass / GrassX5",
+    "location": "Ruta 42 | Ruta 43",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 15% (Nv. 22 - 24)"
   },
   {
     "id": 181,
     "name": "Ampharos",
     "region": "Johto",
-    "location": "Parada: Ruta 43",
-    "method": "Lure / Grass",
+    "location": "Ruta 43",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 182,
     "name": "Bellossom",
     "region": "Johto",
-    "location": "Parada: Water Camino",
-    "method": "Lure / Grass",
+    "location": "Water Camino",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 183,
     "name": "Marill",
     "region": "Johto",
-    "location": "Parada: Four Isla | Ruta 22",
-    "method": "Water / WaterX5",
+    "location": "Four Isla | Ruta 22",
+    "method": "Agua / AguaX",
     "hint": "Tasa de Aparición: 10% (Nv. 49 - 52)"
   },
   {
     "id": 184,
     "name": "Azumarill",
     "region": "Johto",
-    "location": "Parada: Bosque Baya | Four Isla",
-    "method": "Water / Grass",
+    "location": "Bosque Baya | Four Isla",
+    "method": "Agua / Pasto",
     "hint": "Tasa de Aparición: 40% (Nv. 49 - 52)"
   },
   {
     "id": 185,
     "name": "Sudowoodo",
     "region": "Johto",
-    "location": "Parada: Jagged Pass | Ruta 209",
-    "method": "Grass",
+    "location": "Jagged Pass | Ruta 209",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 21 - 22)"
   },
   {
     "id": 186,
     "name": "Politoed",
     "region": "Johto",
-    "location": "Parada: Four Isla | Fuchsia Ciudad",
-    "method": "Lure / Water / Grass",
+    "location": "Four Isla | Fuchsia Ciudad",
+    "method": "Señuelo / Agua / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 49 - 52)"
   },
   {
     "id": 187,
     "name": "Hoppip",
     "region": "Johto",
-    "location": "Parada: Five Isla | Five Isle Meadow",
-    "method": "Water / Grass",
+    "location": "Five Isla | Prado Isla Quíntupla",
+    "method": "Agua / Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 49 - 52)"
   },
   {
     "id": 188,
     "name": "Skiploom",
     "region": "Johto",
-    "location": "Parada: Five Isla | Five Isle Meadow",
-    "method": "Water / Grass",
+    "location": "Five Isla | Prado Isla Quíntupla",
+    "method": "Agua / Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 49 - 52)"
   },
   {
     "id": 189,
     "name": "Jumpluff",
     "region": "Johto",
-    "location": "Parada: Memorial Pillar",
-    "method": "Lure / Grass",
+    "location": "Memorial Pillar",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 190,
     "name": "Aipom",
     "region": "Johto",
-    "location": "Parada: Zona Safari (Northeast Area) | Zona Safari (Southeast Area)",
-    "method": "Grass / Honey Tree",
+    "location": "Zona Safari (Área Noreste) | Zona Safari (Área Sureste)",
+    "method": "Pasto / Árbol de Miel",
     "hint": "Tasa de Aparición: 30% (Nv. 49 - 51)"
   },
   {
     "id": 191,
     "name": "Sunkern",
     "region": "Johto",
-    "location": "Parada: Ruta 24 | Zona Safari (Northeast Area)",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 24 | Zona Safari (Área Noreste)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% (Nv. 12 - 14)"
   },
   {
     "id": 192,
     "name": "Sunflora",
     "region": "Johto",
-    "location": "Parada: Ruta 12",
-    "method": "Grass",
+    "location": "Ruta 12",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 22 - 24)"
   },
   {
     "id": 193,
     "name": "Yanma",
     "region": "Johto",
-    "location": "Parada: Ruin Valle | Bosque Azulejo (Exterior)",
-    "method": "Grass / Dark Grass",
+    "location": "Ruin Valle | Bosque Azulejo (Exterior)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% (Nv. 50 - 53)"
   },
   {
     "id": 194,
     "name": "Wooper",
     "region": "Johto",
-    "location": "Parada: Four Isla | Ruin Valle",
-    "method": "Water / Inside",
+    "location": "Four Isla | Ruin Valle",
+    "method": "Agua / Interior",
     "hint": "Tasa de Aparición: 10% (Nv. 49 - 52)"
   },
   {
     "id": 195,
     "name": "Quagsire",
     "region": "Johto",
-    "location": "Parada: Four Isla | Icefall Cueva",
-    "method": "Water / Grass",
+    "location": "Four Isla | Icefall Cueva",
+    "method": "Agua / Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 49 - 52)"
   },
   {
     "id": 196,
     "name": "Espeon",
     "region": "Johto",
-    "location": "Parada: Ruinas Of Alph (Outside)",
-    "method": "Lure / Grass",
+    "location": "Ruinas Of Alph (Outside)",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 197,
     "name": "Umbreon",
     "region": "Johto",
-    "location": "Parada: Ruta 36",
-    "method": "Lure / Grass",
+    "location": "Ruta 36",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 198,
     "name": "Murkrow",
     "region": "Johto",
-    "location": "Parada: Lost Cueva (???) | Ruta 7",
-    "method": "Cave / Grass",
+    "location": "Lost Cueva (???) | Ruta 7",
+    "method": "Cueva / Pasto",
     "hint": "Tasa de Aparición: 15% (Nv. 11 - 12)"
   },
   {
     "id": 199,
     "name": "Slowking",
     "region": "Johto",
-    "location": "Parada: Cabo Extremo | Cueva Celeste (Piso 1)",
-    "method": "Water / Dark Grass",
+    "location": "Cabo Extremo | Cueva Celeste (Piso 1)",
+    "method": "Agua / Pasto Oscuro",
     "hint": "Tasa de Aparición: 10% (Nv. 40 - 42)"
   },
   {
     "id": 200,
     "name": "Misdreavus",
     "region": "Johto",
-    "location": "Parada: Lost Cueva (???) | Abundant Shrine",
-    "method": "Cave / Grass",
+    "location": "Lost Cueva (???) | Santuario Abundancia",
+    "method": "Cueva / Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 51 - 52)"
   },
   {
     "id": 201,
     "name": "Unown",
     "region": "Johto",
-    "location": "Parada: Altering Cueva | Dilford Chamber",
-    "method": "Cave",
+    "location": "Altering Cueva | Dilford Chamber",
+    "method": "Cueva",
     "hint": "Tasa de Aparición: 1% (Nv. 53 - 54)"
   },
   {
     "id": 202,
     "name": "Wobbuffet",
     "region": "Johto",
-    "location": "Parada: Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
-    "method": "Cave / CaveX5",
+    "location": "Cueva Celeste (Piso 1) | Cueva Celeste (Piso 2)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 5% (Nv. 54 - 56)"
   },
   {
     "id": 203,
     "name": "Girafarig",
     "region": "Johto",
-    "location": "Parada: Zona Safari (South Area) | Zona Safari (Southwest Area)",
-    "method": "Grass / GrassX5",
+    "location": "Zona Safari (Área Sur) | Zona Safari (Área Suroeste)",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 15% (Nv. 31 - 33)"
   },
   {
     "id": 204,
     "name": "Pineco",
     "region": "Johto",
-    "location": "Parada: Zona Safari (Northeast Area) | Cherrygrove Ciudad",
-    "method": "Grass / Headbutt",
+    "location": "Zona Safari (Área Noreste) | Ciudad Cerezo",
+    "method": "Pasto / Golpe Cabeza",
     "hint": "Tasa de Aparición: 10% (Nv. 49 - 51)"
   },
   {
     "id": 205,
     "name": "Forretress",
     "region": "Johto",
-    "location": "Parada: Mt. Silver (Outside) | Ruta 26",
-    "method": "Headbutt",
+    "location": "Mt. Silver (Outside) | Ruta 26",
+    "method": "Golpe Cabeza",
     "hint": "Tasa de Aparición: 25% (Nv. 63 - 65)"
   },
   {
     "id": 206,
     "name": "Dunsparce",
     "region": "Johto",
-    "location": "Parada: Diglett'S Cueva (Sótano 1) | Three Isle Port",
-    "method": "Cave / Grass",
+    "location": "Diglett'S Cueva (Sótano 1) | Three Isle Port",
+    "method": "Cueva / Pasto",
     "hint": "Tasa de Aparición: 95% (Nv. 49 - 52)"
   },
   {
     "id": 207,
     "name": "Gligar",
     "region": "Johto",
-    "location": "Parada: Zona Safari (Southeast Area) | Ruta 11",
-    "method": "Grass / GrassX5",
+    "location": "Zona Safari (Área Sureste) | Ruta 11",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 49 - 51)"
   },
   {
     "id": 208,
     "name": "Steelix",
     "region": "Johto",
-    "location": "Parada: Relic Castle (Sótano 1) | Relic Castle (Sótano 2)",
-    "method": "Cave",
+    "location": "Relic Castle (Sótano 1) | Relic Castle (Sótano 2)",
+    "method": "Cueva",
     "hint": "Tasa de Aparición: 5% (Nv. 26 - 29)"
   },
   {
     "id": 209,
     "name": "Snubbull",
     "region": "Johto",
-    "location": "Parada: Ruta 5 | Ruta 6",
-    "method": "Grass / GrassX3",
+    "location": "Ruta 5 | Ruta 6",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 5% (Nv. 14 - 16)"
   },
   {
     "id": 210,
     "name": "Granbull",
     "region": "Johto",
-    "location": "Parada: Ruta 38",
-    "method": "Grass",
+    "location": "Ruta 38",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 32 - 33)"
   },
   {
     "id": 211,
     "name": "Qwilfish",
     "region": "Johto",
-    "location": "Parada: Five Isle Meadow | Green Camino",
-    "method": "Super Rod / Fishing",
+    "location": "Prado Isla Quíntupla | Green Camino",
+    "method": "Súper Caña / Pesca",
     "hint": "Tasa de Aparición: 20% (Nv. 30 - 40)"
   },
   {
     "id": 212,
     "name": "Scizor",
     "region": "Johto",
-    "location": "Parada: Ruta 210 (North)",
-    "method": "Lure / Grass",
+    "location": "Ruta 210 (Norte)",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 213,
     "name": "Shuckle",
     "region": "Johto",
-    "location": "Parada: Zona Safari (Northeast Area) | Cianwood Ciudad",
-    "method": "Rocks",
+    "location": "Zona Safari (Área Noreste) | Ciudad Orquídea",
+    "method": "Rocas",
     "hint": "Tasa de Aparición: 100% (Nv. 54 - 55)"
   },
   {
     "id": 214,
     "name": "Heracross",
     "region": "Johto",
-    "location": "Parada: Bosque Diseño | Zona Safari (Northwest Area)",
-    "method": "Grass / Dark Grass",
+    "location": "Bosque Diseño | Zona Safari (Área Noroeste)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 10% (Nv. 52 - 53)"
   },
   {
     "id": 215,
     "name": "Sneasel",
     "region": "Johto",
-    "location": "Parada: Icefall Cueva (Sótano 1) | Icefall Cueva (Interior)",
-    "method": "Cave / CaveX5",
+    "location": "Icefall Cueva (Sótano 1) | Icefall Cueva (Interior)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 35% (Nv. 26 - 28)"
   },
   {
     "id": 216,
     "name": "Teddiursa",
     "region": "Johto",
-    "location": "Parada: Zona Safari (Northeast Area) | Dark Cueva (South)",
-    "method": "Grass / Cave",
+    "location": "Zona Safari (Área Noreste) | Cueva Oscura (Sur)",
+    "method": "Pasto / Cueva",
     "hint": "Tasa de Aparición: 30% (Nv. 49 - 51)"
   },
   {
     "id": 217,
     "name": "Ursaring",
     "region": "Johto",
-    "location": "Parada: Calle Victoria (Piso 1) | Calle Victoria (Piso 3)",
-    "method": "Cave / Grass",
+    "location": "Calle Victoria (Piso 1) | Calle Victoria (Piso 3)",
+    "method": "Cueva / Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 45 - 47)"
   },
   {
     "id": 218,
     "name": "Slugma",
     "region": "Johto",
-    "location": "Parada: Mt. Ember (Sótano 1) | Mt. Ember (Piso 3)",
-    "method": "Cave / CaveX5",
+    "location": "Mt. Ember (Sótano 1) | Mt. Ember (Piso 3)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 5% (Nv. 51 - 52)"
   },
   {
     "id": 219,
     "name": "Magcargo",
     "region": "Johto",
-    "location": "Parada: Mt. Ember (Piso 2) | Mt. Ember (Sótano 2)",
-    "method": "Cave / CaveX5",
+    "location": "Mt. Ember (Piso 2) | Mt. Ember (Sótano 2)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 5% (Nv. 42 - 43)"
   },
   {
     "id": 220,
     "name": "Swinub",
     "region": "Johto",
-    "location": "Parada: Icefall Cueva (Sótano 1) | Icefall Cueva (Interior)",
-    "method": "Cave / Grass",
+    "location": "Icefall Cueva (Sótano 1) | Icefall Cueva (Interior)",
+    "method": "Cueva / Pasto",
     "hint": "Tasa de Aparición: 15% (Nv. 50 - 52)"
   },
   {
     "id": 221,
     "name": "Piloswine",
     "region": "Johto",
-    "location": "Parada: Icefall Cueva (Interior) | Icefall Cueva (Sótano 1)",
-    "method": "Cave / CaveX5",
+    "location": "Icefall Cueva (Interior) | Icefall Cueva (Sótano 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 35% (Nv. 51 - 53)"
   },
   {
     "id": 222,
     "name": "Corsola",
     "region": "Johto",
-    "location": "Parada: Puente Villa | Cerulean Ciudad",
-    "method": "Water / Good Rod",
+    "location": "Puente Villa | Cerulean Ciudad",
+    "method": "Agua / Buena Caña",
     "hint": "Tasa de Aparición: 5% (Nv. 20 - 30)"
   },
   {
     "id": 223,
     "name": "Remoraid",
     "region": "Johto",
-    "location": "Parada: Five Isle Meadow | Green Camino",
-    "method": "Super Rod / Good Rod",
+    "location": "Prado Isla Quíntupla | Green Camino",
+    "method": "Súper Caña / Buena Caña",
     "hint": "Tasa de Aparición: 20% (Nv. 30 - 40)"
   },
   {
     "id": 224,
     "name": "Octillery",
     "region": "Johto",
-    "location": "Parada: Ruta 23 | Tanoby Ruinas",
-    "method": "Water / Super Rod",
+    "location": "Ruta 23 | Tanoby Ruinas",
+    "method": "Agua / Súper Caña",
     "hint": "Tasa de Aparición: 5% (Nv. 30 - 40)"
   },
   {
     "id": 225,
     "name": "Delibird",
     "region": "Johto",
-    "location": "Parada: Icefall Cueva (Sótano 1) | Icefall Cueva (Interior)",
-    "method": "Cave / CaveX5",
+    "location": "Icefall Cueva (Sótano 1) | Icefall Cueva (Interior)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 10% (Nv. 51 - 53)"
   },
   {
     "id": 226,
     "name": "Mantine",
     "region": "Johto",
-    "location": "Parada: Green Camino | Tanoby Ruinas",
-    "method": "Water",
+    "location": "Green Camino | Tanoby Ruinas",
+    "method": "Agua",
     "hint": "Tasa de Aparición: 5% (Nv. 52 - 53)"
   },
   {
     "id": 227,
     "name": "Skarmory",
     "region": "Johto",
-    "location": "Parada: Cañón Siete | Ruta 113",
-    "method": "Grass / Headbutt",
+    "location": "Cañón Siete | Ruta 113",
+    "method": "Pasto / Golpe Cabeza",
     "hint": "Tasa de Aparición: 5% (Nv. 52 - 53)"
   },
   {
     "id": 228,
     "name": "Houndour",
     "region": "Johto",
-    "location": "Parada: Ruta 7 | Ruta 113",
-    "method": "Grass",
+    "location": "Ruta 7 | Ruta 113",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 11 - 12)"
   },
   {
     "id": 229,
     "name": "Houndoom",
     "region": "Johto",
-    "location": "Parada: Valor Lagofront",
-    "method": "Grass",
+    "location": "Valor Lagofront",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
     "id": 230,
     "name": "Kingdra",
     "region": "Johto",
-    "location": "Parada: Ruta 4 | Ruta 12",
-    "method": "Lure / Water / Fishing",
+    "location": "Ruta 4 | Ruta 12",
+    "method": "Señuelo / Agua / Pesca",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 7 - 8)"
   },
   {
     "id": 231,
     "name": "Phanpy",
     "region": "Johto",
-    "location": "Parada: Entrada al Cañón | Zona Safari (North Area)",
-    "method": "Grass / GrassX5",
+    "location": "Entrada al Cañón | Zona Safari (Área Norte)",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 49 - 52)"
   },
   {
     "id": 232,
     "name": "Donphan",
     "region": "Johto",
-    "location": "Parada: Entrada al Cañón | Cañón Siete",
-    "method": "Grass / GrassX5",
+    "location": "Entrada al Cañón | Cañón Siete",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 25% (Nv. 51 - 53)"
   },
   {
@@ -1867,72 +1867,72 @@
     "id": 234,
     "name": "Stantler",
     "region": "Johto",
-    "location": "Parada: Zona Safari (Southeast Area) | Abundant Shrine",
-    "method": "Grass / GrassX5",
+    "location": "Zona Safari (Área Sureste) | Santuario Abundancia",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 15% (Nv. 50 - 52)"
   },
   {
     "id": 235,
     "name": "Smeargle",
     "region": "Johto",
-    "location": "Parada: Ruta 6 | Artisan Cueva (Piso 1)",
-    "method": "Grass / Cave",
+    "location": "Ruta 6 | Artisan Cueva (Piso 1)",
+    "method": "Pasto / Cueva",
     "hint": "Tasa de Aparición: 95% (Nv. 56 - 57)"
   },
   {
     "id": 236,
     "name": "Tyrogue",
     "region": "Johto",
-    "location": "Parada: Union Cueva (Piso 1) | Union Cueva (Sótano 1)",
-    "method": "Cave",
+    "location": "Union Cueva (Piso 1) | Union Cueva (Sótano 1)",
+    "method": "Cueva",
     "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
     "id": 237,
     "name": "Hitmontop",
     "region": "Johto",
-    "location": "Parada: Calle Victoria (Piso 1) | Calle Victoria (Piso 3)",
-    "method": "Lure / Cave",
+    "location": "Calle Victoria (Piso 1) | Calle Victoria (Piso 3)",
+    "method": "Señuelo / Cueva",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 43 - 44)"
   },
   {
     "id": 238,
     "name": "Smoochum",
     "region": "Johto",
-    "location": "Parada: Ice Camino (Piso 1) | Ice Camino (Sótano 3)",
-    "method": "Cave",
+    "location": "Ice Camino (Piso 1) | Ice Camino (Sótano 3)",
+    "method": "Cueva",
     "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
     "id": 239,
     "name": "Elekid",
     "region": "Johto",
-    "location": "Parada: Ruta 10 | Valle Windworks",
-    "method": "Grass",
+    "location": "Ruta 10 | Valle Windworks",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 21 - 22)"
   },
   {
     "id": 240,
     "name": "Magby",
     "region": "Johto",
-    "location": "Parada: Mansión Pokémon (Piso 2) | Burned Torre (Sótano 1)",
-    "method": "Inside / Cave",
+    "location": "Mansión Pokémon (Piso 2) | Burned Torre (Sótano 1)",
+    "method": "Interior / Cueva",
     "hint": "Tasa de Aparición: 5% (Nv. 18 - 20)"
   },
   {
     "id": 241,
     "name": "Miltank",
     "region": "Johto",
-    "location": "Parada: Zona Safari (Northeast Area) | Ruta 38",
-    "method": "Grass",
+    "location": "Zona Safari (Área Noreste) | Ruta 38",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 20% (Nv. 50 - 52)"
   },
   {
     "id": 242,
     "name": "Blissey",
     "region": "Johto",
-    "location": "Parada: Zona Safari (Center Area)",
-    "method": "Lure / Grass",
+    "location": "Zona Safari (Área Central)",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 34 - 35)"
   },
   {
@@ -1963,24 +1963,24 @@
     "id": 246,
     "name": "Larvitar",
     "region": "Johto",
-    "location": "Parada: Cañón Siete | Desierto Complejo (Exterior)",
-    "method": "Grass / Dust Cloud",
+    "location": "Cañón Siete | Desierto Complejo (Exterior)",
+    "method": "Pasto / Nube de Polvo",
     "hint": "Tasa de Aparición: 5% (Nv. 50 - 52)"
   },
   {
     "id": 247,
     "name": "Pupitar",
     "region": "Johto",
-    "location": "Parada: Ruta 15 | Calle Victoria (Outside)",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 15 | Calle Victoria (Outside)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% (Nv. 51 - 53)"
   },
   {
     "id": 248,
     "name": "Tyranitar",
     "region": "Johto",
-    "location": "Parada: Ruta 15 | Mt. Silver Cueva (Piso 1)",
-    "method": "Lure / Dark Grass / Grass",
+    "location": "Ruta 15 | Mt. Silver Cueva (Piso 1)",
+    "method": "Señuelo / Pasto Oscuro / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 51 - 53)"
   },
   {
@@ -2011,184 +2011,184 @@
     "id": 252,
     "name": "Treecko",
     "region": "Hoenn",
-    "location": "Parada: Petalburg Bosque",
-    "method": "Lure / Grass",
+    "location": "Petalburg Bosque",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 6 - 8)"
   },
   {
     "id": 253,
     "name": "Grovyle",
     "region": "Hoenn",
-    "location": "Parada: Ruta 119",
-    "method": "Lure / Grass",
+    "location": "Ruta 119",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 27 - 28)"
   },
   {
     "id": 254,
     "name": "Sceptile",
     "region": "Hoenn",
-    "location": "Parada: Ruta 123",
-    "method": "Lure / Grass",
+    "location": "Ruta 123",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 27 - 28)"
   },
   {
     "id": 255,
     "name": "Torchic",
     "region": "Hoenn",
-    "location": "Parada: Ruta 112",
-    "method": "Lure / Grass",
+    "location": "Ruta 112",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 256,
     "name": "Combusken",
     "region": "Hoenn",
-    "location": "Parada: Ruta 114",
-    "method": "Lure / Grass",
+    "location": "Ruta 114",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 3 - 4)"
   },
   {
     "id": 257,
     "name": "Blaziken",
     "region": "Hoenn",
-    "location": "Parada: Magma Hideout",
-    "method": "Lure / Cave",
+    "location": "Magma Hideout",
+    "method": "Señuelo / Cueva",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 20 - 21)"
   },
   {
     "id": 258,
     "name": "Mudkip",
     "region": "Hoenn",
-    "location": "Parada: Ruta 104",
-    "method": "Lure / Grass",
+    "location": "Ruta 104",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 6 - 8)"
   },
   {
     "id": 259,
     "name": "Marshtomp",
     "region": "Hoenn",
-    "location": "Parada: Ruta 120",
-    "method": "Lure / Grass",
+    "location": "Ruta 120",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 28 - 31)"
   },
   {
     "id": 260,
     "name": "Swampert",
     "region": "Hoenn",
-    "location": "Parada: Calle Victoria (Piso 1) | Calle Victoria (Sótano 1)",
-    "method": "Lure / Cave",
+    "location": "Calle Victoria (Piso 1) | Calle Victoria (Sótano 1)",
+    "method": "Señuelo / Cueva",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 43 - 44)"
   },
   {
     "id": 261,
     "name": "Poochyena",
     "region": "Hoenn",
-    "location": "Parada: Petalburg Bosque | Ruta 101",
-    "method": "Grass / Sweet ScentX3",
+    "location": "Petalburg Bosque | Ruta 101",
+    "method": "Pasto / Dulce AromaX",
     "hint": "Tasa de Aparición: 30% (Nv. 6 - 8)"
   },
   {
     "id": 262,
     "name": "Mightyena",
     "region": "Hoenn",
-    "location": "Parada: Ruta 120 | Ruta 121",
-    "method": "Grass / GrassX5",
+    "location": "Ruta 120 | Ruta 121",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 15% (Nv. 28 - 31)"
   },
   {
     "id": 263,
     "name": "Zigzagoon",
     "region": "Hoenn",
-    "location": "Parada: Petalburg Bosque | Ruta 101",
-    "method": "Grass / Sweet ScentX3",
+    "location": "Petalburg Bosque | Ruta 101",
+    "method": "Pasto / Dulce AromaX",
     "hint": "Tasa de Aparición: 30% (Nv. 6 - 8)"
   },
   {
     "id": 264,
     "name": "Linoone",
     "region": "Hoenn",
-    "location": "Parada: Ruta 118 | Ruta 119",
-    "method": "Grass",
+    "location": "Ruta 118 | Ruta 119",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 15% (Nv. 27 - 28)"
   },
   {
     "id": 265,
     "name": "Wurmple",
     "region": "Hoenn",
-    "location": "Parada: Petalburg Bosque | Ruta 101",
-    "method": "Grass / Honey Tree",
+    "location": "Petalburg Bosque | Ruta 101",
+    "method": "Pasto / Árbol de Miel",
     "hint": "Tasa de Aparición: 15% (Nv. 6 - 8)"
   },
   {
     "id": 266,
     "name": "Silcoon",
     "region": "Hoenn",
-    "location": "Parada: Petalburg Bosque | Eterna Bosque",
-    "method": "Grass / Honey Tree",
+    "location": "Petalburg Bosque | Eterna Bosque",
+    "method": "Pasto / Árbol de Miel",
     "hint": "Tasa de Aparición: 5% (Nv. 7 - 8)"
   },
   {
     "id": 267,
     "name": "Beautifly",
     "region": "Hoenn",
-    "location": "Parada: Ruta 224 | Ruta 229",
-    "method": "Grass",
+    "location": "Ruta 224 | Ruta 229",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 55 - 56)"
   },
   {
     "id": 268,
     "name": "Cascoon",
     "region": "Hoenn",
-    "location": "Parada: Petalburg Bosque | Eterna Bosque",
-    "method": "Grass / Honey Tree",
+    "location": "Petalburg Bosque | Eterna Bosque",
+    "method": "Pasto / Árbol de Miel",
     "hint": "Tasa de Aparición: 5% (Nv. 7 - 8)"
   },
   {
     "id": 269,
     "name": "Dustox",
     "region": "Hoenn",
-    "location": "Parada: Ruta 224 | Ruta 229",
-    "method": "Lure / Grass",
+    "location": "Ruta 224 | Ruta 229",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 55 - 56)"
   },
   {
     "id": 270,
     "name": "Lotad",
     "region": "Hoenn",
-    "location": "Parada: Petalburg Ciudad | Ruta 102",
-    "method": "Water / Grass",
+    "location": "Petalburg Ciudad | Ruta 102",
+    "method": "Agua / Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 27 - 28)"
   },
   {
     "id": 271,
     "name": "Lombre",
     "region": "Hoenn",
-    "location": "Parada: Petalburg Ciudad | Ruta 102",
-    "method": "Water / Grass",
+    "location": "Petalburg Ciudad | Ruta 102",
+    "method": "Agua / Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 27 - 28)"
   },
   {
     "id": 272,
     "name": "Ludicolo",
     "region": "Hoenn",
-    "location": "Parada: Ruta 117 | Ruta 123",
-    "method": "Lure / Water",
+    "location": "Ruta 117 | Ruta 123",
+    "method": "Señuelo / Agua",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 4)"
   },
   {
     "id": 273,
     "name": "Seedot",
     "region": "Hoenn",
-    "location": "Parada: Ruta 102 | Ruta 114",
-    "method": "Grass",
+    "location": "Ruta 102 | Ruta 114",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 3 - 4)"
   },
   {
     "id": 274,
     "name": "Nuzleaf",
     "region": "Hoenn",
-    "location": "Parada: Ruta 114 | Ruta 119",
-    "method": "Grass / GrassX5",
+    "location": "Ruta 114 | Ruta 119",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 22 - 23)"
   },
   {
@@ -2203,104 +2203,104 @@
     "id": 276,
     "name": "Taillow",
     "region": "Hoenn",
-    "location": "Parada: Petalburg Bosque | Ruta 104",
-    "method": "Grass",
+    "location": "Petalburg Bosque | Ruta 104",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 6 - 8)"
   },
   {
     "id": 277,
     "name": "Swellow",
     "region": "Hoenn",
-    "location": "Parada: Ruta 115 | Giant Chasm (Entrance)",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 115 | Giant Chasm (Entrance)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 10% (Nv. 27 - 28)"
   },
   {
     "id": 278,
     "name": "Wingull",
     "region": "Hoenn",
-    "location": "Parada: Dewford Pueblo | Ever Grande Ciudad",
-    "method": "Water / WaterX5",
+    "location": "Dewford Pueblo | Ever Grande Ciudad",
+    "method": "Agua / AguaX",
     "hint": "Tasa de Aparición: 20% (Nv. 27 - 28)"
   },
   {
     "id": 279,
     "name": "Pelipper",
     "region": "Hoenn",
-    "location": "Parada: Battle Frontier | Dewford Pueblo",
-    "method": "Water / Grass",
+    "location": "Battle Frontier | Dewford Pueblo",
+    "method": "Agua / Pasto",
     "hint": "Tasa de Aparición: 20% (Nv. 56 - 57)"
   },
   {
     "id": 280,
     "name": "Ralts",
     "region": "Hoenn",
-    "location": "Parada: Ruta 102 | Ruta 117",
-    "method": "Grass",
+    "location": "Ruta 102 | Ruta 117",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 4)"
   },
   {
     "id": 281,
     "name": "Kirlia",
     "region": "Hoenn",
-    "location": "Parada: Ruta 212 (North) | Snowpoint Temple (Sótano 3)",
-    "method": "Grass / Cave",
+    "location": "Ruta 212 (Norte) | Snowpoint Temple (Sótano 3)",
+    "method": "Pasto / Cueva",
     "hint": "Tasa de Aparición: 15% (Nv. 28 - 30)"
   },
   {
     "id": 282,
     "name": "Gardevoir",
     "region": "Hoenn",
-    "location": "Parada: Ruta 224",
-    "method": "Lure / Grass",
+    "location": "Ruta 224",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 55 - 56)"
   },
   {
     "id": 283,
     "name": "Surskit",
     "region": "Hoenn",
-    "location": "Parada: Petalburg Ciudad | Ruta 102",
-    "method": "Water / Grass",
+    "location": "Petalburg Ciudad | Ruta 102",
+    "method": "Agua / Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 27 - 28)"
   },
   {
     "id": 284,
     "name": "Masquerain",
     "region": "Hoenn",
-    "location": "Parada: Petalburg Ciudad | Ruta 102",
-    "method": "Water / WaterX5",
+    "location": "Petalburg Ciudad | Ruta 102",
+    "method": "Agua / AguaX",
     "hint": "Tasa de Aparición: 10% (Nv. 27 - 28)"
   },
   {
     "id": 285,
     "name": "Shroomish",
     "region": "Hoenn",
-    "location": "Parada: Petalburg Bosque | Ruta 119",
-    "method": "Grass",
+    "location": "Petalburg Bosque | Ruta 119",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 6 - 8)"
   },
   {
     "id": 286,
     "name": "Breloom",
     "region": "Hoenn",
-    "location": "Parada: Ruta 210 (South)",
-    "method": "Grass",
+    "location": "Ruta 210 (Sur)",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 32 - 33)"
   },
   {
     "id": 287,
     "name": "Slakoth",
     "region": "Hoenn",
-    "location": "Parada: Petalburg Bosque | Bosque Azulejo (Interior)",
-    "method": "Grass",
+    "location": "Petalburg Bosque | Bosque Azulejo (Interior)",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 6 - 8)"
   },
   {
     "id": 288,
     "name": "Vigoroth",
     "region": "Hoenn",
-    "location": "Parada: Bosque Azulejo (Interior)",
-    "method": "Dark Grass",
+    "location": "Bosque Azulejo (Interior)",
+    "method": "Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% (Nv. 23 - 25)"
   },
   {
@@ -2315,16 +2315,16 @@
     "id": 290,
     "name": "Nincada",
     "region": "Hoenn",
-    "location": "Parada: Ruta 116 | Rustboro Ciudad",
-    "method": "Grass",
+    "location": "Ruta 116 | Rustboro Ciudad",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 20% (Nv. 6 - 8)"
   },
   {
     "id": 291,
     "name": "Ninjask",
     "region": "Hoenn",
-    "location": "Parada: Ruta 118",
-    "method": "Grass",
+    "location": "Ruta 118",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 27 - 28)"
   },
   {
@@ -2339,416 +2339,416 @@
     "id": 293,
     "name": "Whismur",
     "region": "Hoenn",
-    "location": "Parada: Ruta 116 | Rustboro Ciudad",
-    "method": "Grass / GrassX3",
+    "location": "Ruta 116 | Rustboro Ciudad",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 25% (Nv. 6 - 7)"
   },
   {
     "id": 294,
     "name": "Loudred",
     "region": "Hoenn",
-    "location": "Parada: Desierto Underpass | Calle Victoria (Sótano 1)",
-    "method": "Cave / CaveX5",
+    "location": "Desierto Underpass | Calle Victoria (Sótano 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 45% (Nv. 50 - 52)"
   },
   {
     "id": 295,
     "name": "Exploud",
     "region": "Hoenn",
-    "location": "Parada: Desierto Underpass",
-    "method": "Cave",
+    "location": "Desierto Underpass",
+    "method": "Cueva",
     "hint": "Tasa de Aparición: 10% (Nv. 50 - 52)"
   },
   {
     "id": 296,
     "name": "Makuhita",
     "region": "Hoenn",
-    "location": "Parada: Granite Cueva (Sótano 1) | Granite Cueva (Piso 1)",
-    "method": "Cave / CaveX3",
+    "location": "Granite Cueva (Sótano 1) | Granite Cueva (Piso 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 15% (Nv. 12 - 13)"
   },
   {
     "id": 297,
     "name": "Hariyama",
     "region": "Hoenn",
-    "location": "Parada: Calle Victoria (Sótano 1) | Calle Victoria (Piso 1)",
-    "method": "Cave / CaveX5",
+    "location": "Calle Victoria (Sótano 1) | Calle Victoria (Piso 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 15% (Nv. 43 - 45)"
   },
   {
     "id": 298,
     "name": "Azurill",
     "region": "Hoenn",
-    "location": "Parada: Ruta 102 | Complejo Area",
-    "method": "Water",
+    "location": "Ruta 102 | Complejo Industrial",
+    "method": "Agua",
     "hint": "Tasa de Aparición: 10% (Nv. 27 - 28)"
   },
   {
     "id": 299,
     "name": "Nosepass",
     "region": "Hoenn",
-    "location": "Parada: Granite Cueva (Sótano 2) | Chargestone Cueva (Piso 1)",
-    "method": "Rocks / Cave",
+    "location": "Granite Cueva (Sótano 2) | Chargestone Cueva (Piso 1)",
+    "method": "Rocas / Cueva",
     "hint": "Tasa de Aparición: 30% (Nv. 22 - 23)"
   },
   {
     "id": 300,
     "name": "Skitty",
     "region": "Hoenn",
-    "location": "Parada: Ruta 116 | Rustboro Ciudad",
-    "method": "Grass",
+    "location": "Ruta 116 | Rustboro Ciudad",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 8)"
   },
   {
     "id": 301,
     "name": "Delcatty",
     "region": "Hoenn",
-    "location": "Parada: Ruta 116 | Rustboro Ciudad",
-    "method": "Lure / Grass",
+    "location": "Ruta 116 | Rustboro Ciudad",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 6 - 8)"
   },
   {
     "id": 302,
     "name": "Sableye",
     "region": "Hoenn",
-    "location": "Parada: Cueva Of Origin | Cueva Of Origin (Piso 1)",
-    "method": "Cave / CaveX3",
+    "location": "Cueva Of Origin | Cueva Of Origin (Piso 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 10% (Nv. 37 - 39)"
   },
   {
     "id": 303,
     "name": "Mawile",
     "region": "Hoenn",
-    "location": "Parada: Cueva Of Origin | Cueva Of Origin (Piso 1)",
-    "method": "Cave / CaveX3",
+    "location": "Cueva Of Origin | Cueva Of Origin (Piso 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 10% (Nv. 37 - 39)"
   },
   {
     "id": 304,
     "name": "Aron",
     "region": "Hoenn",
-    "location": "Parada: Granite Cueva (Back Room) | Granite Cueva (Sótano 1)",
-    "method": "Cave / CaveX3",
+    "location": "Granite Cueva (Back Room) | Granite Cueva (Sótano 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 15% (Nv. 14)"
   },
   {
     "id": 305,
     "name": "Lairon",
     "region": "Hoenn",
-    "location": "Parada: Calle Victoria (Sótano 1) | Calle Victoria (Piso 1)",
-    "method": "Cave / CaveX5",
+    "location": "Calle Victoria (Sótano 1) | Calle Victoria (Piso 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 15% (Nv. 43 - 44)"
   },
   {
     "id": 306,
     "name": "Aggron",
     "region": "Hoenn",
-    "location": "Parada: Giant Chasm (Entrance)",
-    "method": "Lure / Grass",
+    "location": "Giant Chasm (Entrance)",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 27 - 28)"
   },
   {
     "id": 307,
     "name": "Meditite",
     "region": "Hoenn",
-    "location": "Parada: Mt. Pyre (Montañaside) | Mt. Pyre (Summit)",
-    "method": "Grass / GrassX5",
+    "location": "Mt. Pyre (Montañaside) | Mt. Pyre (Summit)",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 35% (Nv. 31 - 33)"
   },
   {
     "id": 308,
     "name": "Medicham",
     "region": "Hoenn",
-    "location": "Parada: Calle Victoria (Sótano 1) | Calle Victoria (Sótano 2)",
-    "method": "Cave / CaveX5",
+    "location": "Calle Victoria (Sótano 1) | Calle Victoria (Sótano 2)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 15% (Nv. 43 - 45)"
   },
   {
     "id": 309,
     "name": "Electrike",
     "region": "Hoenn",
-    "location": "Parada: Ruta 110 | Ruta 118",
-    "method": "Grass",
+    "location": "Ruta 110 | Ruta 118",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 20% (Nv. 14 - 16)"
   },
   {
     "id": 310,
     "name": "Manectric",
     "region": "Hoenn",
-    "location": "Parada: Ruta 118 | Ruta 123",
-    "method": "Grass / GrassX5",
+    "location": "Ruta 118 | Ruta 123",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 27 - 28)"
   },
   {
     "id": 311,
     "name": "Plusle",
     "region": "Hoenn",
-    "location": "Parada: Ruta 110",
-    "method": "Grass",
+    "location": "Ruta 110",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 16)"
   },
   {
     "id": 312,
     "name": "Minun",
     "region": "Hoenn",
-    "location": "Parada: Ruta 110",
-    "method": "Grass",
+    "location": "Ruta 110",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 14 - 16)"
   },
   {
     "id": 313,
     "name": "Volbeat",
     "region": "Hoenn",
-    "location": "Parada: Ruta 117 | Ruta 229",
-    "method": "Grass",
+    "location": "Ruta 117 | Ruta 229",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 4)"
   },
   {
     "id": 314,
     "name": "Illumise",
     "region": "Hoenn",
-    "location": "Parada: Ruta 117 | Ruta 229",
-    "method": "Grass",
+    "location": "Ruta 117 | Ruta 229",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 4)"
   },
   {
     "id": 315,
     "name": "Roselia",
     "region": "Hoenn",
-    "location": "Parada: Ruta 117 | Ruta 121",
-    "method": "Grass / GrassX5",
+    "location": "Ruta 117 | Ruta 121",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 16 - 18)"
   },
   {
     "id": 316,
     "name": "Gulpin",
     "region": "Hoenn",
-    "location": "Parada: Ruta 110",
-    "method": "Grass",
+    "location": "Ruta 110",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 14 - 16)"
   },
   {
     "id": 317,
     "name": "Swalot",
     "region": "Hoenn",
-    "location": "Parada: Ruta 212 (South)",
-    "method": "Grass",
+    "location": "Ruta 212 (Sur)",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 13 - 15)"
   },
   {
     "id": 318,
     "name": "Carvanha",
     "region": "Hoenn",
-    "location": "Parada: Ruta 118 | Ruta 119",
-    "method": "Good Rod / Super Rod",
+    "location": "Ruta 118 | Ruta 119",
+    "method": "Buena Caña / Súper Caña",
     "hint": "Tasa de Aparición: 20% (Nv. 20 - 30)"
   },
   {
     "id": 319,
     "name": "Sharpedo",
     "region": "Hoenn",
-    "location": "Parada: Mossdeep Ciudad | Pacifidlog Pueblo",
-    "method": "Super Rod / Water",
+    "location": "Mossdeep Ciudad | Pacifidlog Pueblo",
+    "method": "Súper Caña / Agua",
     "hint": "Tasa de Aparición: 40% (Nv. 30 - 40)"
   },
   {
     "id": 320,
     "name": "Wailmer",
     "region": "Hoenn",
-    "location": "Parada: Aqua Hideout | Dewford Pueblo",
-    "method": "Good Rod / Super Rod",
+    "location": "Aqua Hideout | Dewford Pueblo",
+    "method": "Buena Caña / Súper Caña",
     "hint": "Tasa de Aparición: 20% (Nv. 20 - 30)"
   },
   {
     "id": 321,
     "name": "Wailord",
     "region": "Hoenn",
-    "location": "Parada: Ruta 129 | Undella Bay",
-    "method": "Water / Super Rod",
+    "location": "Ruta 129 | Bahía Arenisca",
+    "method": "Agua / Súper Caña",
     "hint": "Tasa de Aparición: 5% (Nv. 40)"
   },
   {
     "id": 322,
     "name": "Numel",
     "region": "Hoenn",
-    "location": "Parada: Fiery Camino | Jagged Pass",
-    "method": "Cave / CaveX3",
+    "location": "Fiery Camino | Jagged Pass",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 20% (Nv. 20 - 21)"
   },
   {
     "id": 323,
     "name": "Camerupt",
     "region": "Hoenn",
-    "location": "Parada: Ruta 227 | Stark Montaña (Entrance)",
-    "method": "Grass / Cave",
+    "location": "Ruta 227 | Stark Montaña (Entrance)",
+    "method": "Pasto / Cueva",
     "hint": "Tasa de Aparición: 10% (Nv. 55 - 56)"
   },
   {
     "id": 324,
     "name": "Torkoal",
     "region": "Hoenn",
-    "location": "Parada: Fiery Camino | Magma Hideout",
-    "method": "Cave / CaveX5",
+    "location": "Fiery Camino | Magma Hideout",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 10% (Nv. 20 - 21)"
   },
   {
     "id": 325,
     "name": "Spoink",
     "region": "Hoenn",
-    "location": "Parada: Jagged Pass | Mt. Pyre (Montañaside)",
-    "method": "Grass / GrassX5",
+    "location": "Jagged Pass | Mt. Pyre (Montañaside)",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 30% (Nv. 23 - 24)"
   },
   {
     "id": 326,
     "name": "Grumpig",
     "region": "Hoenn",
-    "location": "Parada: Mt. Pyre (Montañaside) | Mt. Pyre (Summit)",
-    "method": "Grass",
+    "location": "Mt. Pyre (Montañaside) | Mt. Pyre (Summit)",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 32 - 33)"
   },
   {
     "id": 327,
     "name": "Spinda",
     "region": "Hoenn",
-    "location": "Parada: Ruta 113",
-    "method": "Grass / GrassX3",
+    "location": "Ruta 113",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 55% (Nv. 20 - 22)"
   },
   {
     "id": 328,
     "name": "Trapinch",
     "region": "Hoenn",
-    "location": "Parada: Mirage Torre (Piso 2) | Mirage Torre (Piso 1)",
-    "method": "Cave / Grass",
+    "location": "Mirage Torre (Piso 2) | Mirage Torre (Piso 1)",
+    "method": "Cueva / Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 25 - 27)"
   },
   {
     "id": 329,
     "name": "Vibrava",
     "region": "Hoenn",
-    "location": "Parada: Dragonspiral Torre (Entryway) | Dragonspiral Torre (Piso 7)",
-    "method": "Shadow",
+    "location": "Dragonspiral Torre (Entryway) | Dragonspiral Torre (Piso 7)",
+    "method": "Sombra",
     "hint": "Tasa de Aparición: 10% (Nv. 35)"
   },
   {
     "id": 330,
     "name": "Flygon",
     "region": "Hoenn",
-    "location": "Parada: Sky Pillar (Piso 1)",
-    "method": "Lure / Cave",
+    "location": "Sky Pillar (Piso 1)",
+    "method": "Señuelo / Cueva",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 51 - 53)"
   },
   {
     "id": 331,
     "name": "Cacnea",
     "region": "Hoenn",
-    "location": "Parada: Mirage Torre (Piso 2) | Mirage Torre (Piso 1)",
-    "method": "Cave / Grass",
+    "location": "Mirage Torre (Piso 2) | Mirage Torre (Piso 1)",
+    "method": "Cueva / Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 25 - 27)"
   },
   {
     "id": 332,
     "name": "Cacturne",
     "region": "Hoenn",
-    "location": "Parada: Ruta 228",
-    "method": "Grass",
+    "location": "Ruta 228",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 54 - 55)"
   },
   {
     "id": 333,
     "name": "Swablu",
     "region": "Hoenn",
-    "location": "Parada: Ruta 114 | Ruta 115",
-    "method": "Grass / Shadow",
+    "location": "Ruta 114 | Ruta 115",
+    "method": "Pasto / Sombra",
     "hint": "Tasa de Aparición: 20% (Nv. 21 - 23)"
   },
   {
     "id": 334,
     "name": "Altaria",
     "region": "Hoenn",
-    "location": "Parada: Sky Pillar (Piso 5) | Sky Pillar (Piso 4)",
-    "method": "Cave / Dark Grass",
+    "location": "Sky Pillar (Piso 5) | Sky Pillar (Piso 4)",
+    "method": "Cueva / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% (Nv. 38 - 40)"
   },
   {
     "id": 335,
     "name": "Zangoose",
     "region": "Hoenn",
-    "location": "Parada: Ruta 114 | Ruta 7",
-    "method": "Grass / GrassX5",
+    "location": "Ruta 114 | Ruta 7",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 15% (Nv. 21 - 23)"
   },
   {
     "id": 336,
     "name": "Seviper",
     "region": "Hoenn",
-    "location": "Parada: Ruta 114 | Ruta 7",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 114 | Ruta 7",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% (Nv. 21 - 23)"
   },
   {
     "id": 337,
     "name": "Lunatone",
     "region": "Hoenn",
-    "location": "Parada: Meteor Falls (Entrance) | Meteor Falls (Upper Interior)",
-    "method": "Cave / CaveX5",
+    "location": "Meteor Falls (Entrance) | Meteor Falls (Upper Interior)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 10% (Nv. 22 - 23)"
   },
   {
     "id": 338,
     "name": "Solrock",
     "region": "Hoenn",
-    "location": "Parada: Meteor Falls (Entrance) | Meteor Falls (Upper Interior)",
-    "method": "Cave / CaveX5",
+    "location": "Meteor Falls (Entrance) | Meteor Falls (Upper Interior)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 45% (Nv. 22 - 23)"
   },
   {
     "id": 339,
     "name": "Barboach",
     "region": "Hoenn",
-    "location": "Parada: Meteor Falls (Upper Interior) | Meteor Falls (Entrance)",
-    "method": "Good Rod / Super Rod",
+    "location": "Meteor Falls (Upper Interior) | Meteor Falls (Entrance)",
+    "method": "Buena Caña / Súper Caña",
     "hint": "Tasa de Aparición: 20% (Nv. 20 - 30)"
   },
   {
     "id": 340,
     "name": "Whiscash",
     "region": "Hoenn",
-    "location": "Parada: Meteor Falls (Upper Interior) | Meteor Falls (Lower Interior)",
-    "method": "Super Rod / Water",
+    "location": "Meteor Falls (Upper Interior) | Meteor Falls (Lower Interior)",
+    "method": "Súper Caña / Agua",
     "hint": "Tasa de Aparición: 5% (Nv. 30 - 40)"
   },
   {
     "id": 341,
     "name": "Corphish",
     "region": "Hoenn",
-    "location": "Parada: Petalburg Ciudad | Ruta 102",
-    "method": "Good Rod / Super Rod",
+    "location": "Petalburg Ciudad | Ruta 102",
+    "method": "Buena Caña / Súper Caña",
     "hint": "Tasa de Aparición: 20% (Nv. 20 - 30)"
   },
   {
     "id": 342,
     "name": "Crawdaunt",
     "region": "Hoenn",
-    "location": "Parada: Petalburg Ciudad | Ruta 123",
-    "method": "Water / Super Rod",
+    "location": "Petalburg Ciudad | Ruta 123",
+    "method": "Agua / Súper Caña",
     "hint": "Tasa de Aparición: 5% (Nv. 30 - 40)"
   },
   {
     "id": 343,
     "name": "Baltoy",
     "region": "Hoenn",
-    "location": "Parada: Mirage Torre (Piso 2) | Mirage Torre (Piso 1)",
-    "method": "Cave / CaveX5",
+    "location": "Mirage Torre (Piso 2) | Mirage Torre (Piso 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 30% (Nv. 25 - 27)"
   },
   {
     "id": 344,
     "name": "Claydol",
     "region": "Hoenn",
-    "location": "Parada: Sky Pillar (Piso 1) | Sky Pillar (Piso 5)",
-    "method": "Cave / CaveX5",
+    "location": "Sky Pillar (Piso 1) | Sky Pillar (Piso 5)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 25% (Nv. 38 - 40)"
   },
   {
@@ -2787,8 +2787,8 @@
     "id": 349,
     "name": "Feebas",
     "region": "Hoenn",
-    "location": "Parada: Ruta 119 | Mt. Coronet (Sótano 1)",
-    "method": "Super Rod",
+    "location": "Ruta 119 | Mt. Coronet (Sótano 1)",
+    "method": "Súper Caña",
     "hint": "Tasa de Aparición: 10% (Nv. 27 - 28)"
   },
   {
@@ -2803,176 +2803,176 @@
     "id": 351,
     "name": "Castform",
     "region": "Hoenn",
-    "location": "Parada: Zona Safari (South Area) | Zona Safari (Southwest Area)",
-    "method": "Grass",
+    "location": "Zona Safari (Área Sur) | Zona Safari (Área Suroeste)",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 20% (Nv. 31 - 33)"
   },
   {
     "id": 352,
     "name": "Kecleon",
     "region": "Hoenn",
-    "location": "Parada: Ruta 118 | Ruta 119",
-    "method": "Grass",
+    "location": "Ruta 118 | Ruta 119",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 27 - 28)"
   },
   {
     "id": 353,
     "name": "Shuppet",
     "region": "Hoenn",
-    "location": "Parada: Mt. Pyre (Montañaside) | Mt. Pyre (Summit)",
-    "method": "Grass / Inside",
+    "location": "Mt. Pyre (Montañaside) | Mt. Pyre (Summit)",
+    "method": "Pasto / Interior",
     "hint": "Tasa de Aparición: 10% (Nv. 31 - 33)"
   },
   {
     "id": 354,
     "name": "Banette",
     "region": "Hoenn",
-    "location": "Parada: Sky Pillar (Piso 1) | Sky Pillar (Piso 5)",
-    "method": "Cave / CaveX5",
+    "location": "Sky Pillar (Piso 1) | Sky Pillar (Piso 5)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 10% (Nv. 38 - 40)"
   },
   {
     "id": 355,
     "name": "Duskull",
     "region": "Hoenn",
-    "location": "Parada: Mt. Pyre (Montañaside) | Mt. Pyre (Summit)",
-    "method": "Grass / Inside",
+    "location": "Mt. Pyre (Montañaside) | Mt. Pyre (Summit)",
+    "method": "Pasto / Interior",
     "hint": "Tasa de Aparición: 10% (Nv. 31 - 33)"
   },
   {
     "id": 356,
     "name": "Dusclops",
     "region": "Hoenn",
-    "location": "Parada: Sky Pillar (Piso 1) | Sky Pillar (Piso 5)",
-    "method": "Cave / CaveX5",
+    "location": "Sky Pillar (Piso 1) | Sky Pillar (Piso 5)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 10% (Nv. 38 - 39)"
   },
   {
     "id": 357,
     "name": "Tropius",
     "region": "Hoenn",
-    "location": "Parada: Ruta 119 | Ruta 120",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 119 | Ruta 120",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% (Nv. 28 - 29)"
   },
   {
     "id": 358,
     "name": "Chimecho",
     "region": "Hoenn",
-    "location": "Parada: Mt. Pyre (Summit) | Abundant Shrine",
-    "method": "Grass / Dark Grass",
+    "location": "Mt. Pyre (Summit) | Santuario Abundancia",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% (Nv. 33 - 34)"
   },
   {
     "id": 359,
     "name": "Absol",
     "region": "Hoenn",
-    "location": "Parada: Ruta 120 | Giant Chasm (Entrance)",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 120 | Giant Chasm (Entrance)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% (Nv. 29 - 31)"
   },
   {
     "id": 360,
     "name": "Wynaut",
     "region": "Hoenn",
-    "location": "Parada: Three Isle Port",
-    "method": "Grass",
+    "location": "Three Isle Port",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 49 - 52)"
   },
   {
     "id": 361,
     "name": "Snorunt",
     "region": "Hoenn",
-    "location": "Parada: Shoal Cueva (Sótano 1) | Shoal Cueva (Entrance)",
-    "method": "Cave / CaveX5",
+    "location": "Shoal Cueva (Sótano 1) | Shoal Cueva (Entrance)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 10% (Nv. 35 - 36)"
   },
   {
     "id": 362,
     "name": "Glalie",
     "region": "Hoenn",
-    "location": "Parada: Shoal Cueva (Sótano 2) | Acuity Lagofront",
-    "method": "Cave / Grass",
+    "location": "Shoal Cueva (Sótano 2) | Acuity Lagofront",
+    "method": "Cueva / Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 42)"
   },
   {
     "id": 363,
     "name": "Spheal",
     "region": "Hoenn",
-    "location": "Parada: Lilycove Ciudad | Mossdeep Ciudad",
-    "method": "Water / WaterX5",
+    "location": "Lilycove Ciudad | Mossdeep Ciudad",
+    "method": "Agua / AguaX",
     "hint": "Tasa de Aparición: 10% (Nv. 32 - 33)"
   },
   {
     "id": 364,
     "name": "Sealeo",
     "region": "Hoenn",
-    "location": "Parada: Mossdeep Ciudad | Ruta 124",
-    "method": "Water / WaterX5",
+    "location": "Mossdeep Ciudad | Ruta 124",
+    "method": "Agua / AguaX",
     "hint": "Tasa de Aparición: 10% (Nv. 34 - 36)"
   },
   {
     "id": 365,
     "name": "Walrein",
     "region": "Hoenn",
-    "location": "Parada: Giant Chasm (Cueva) | Ruta 230",
-    "method": "Lure / Water",
+    "location": "Giant Chasm (Cueva) | Ruta 230",
+    "method": "Señuelo / Agua",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 366,
     "name": "Clamperl",
     "region": "Hoenn",
-    "location": "Parada: Underwater (Ruta 126) | Underwater (Ruta 124)",
-    "method": "Water / WaterX5",
+    "location": "Underwater (Ruta 126) | Underwater (Ruta 124)",
+    "method": "Agua / AguaX",
     "hint": "Tasa de Aparición: 45% (Nv. 36 - 37)"
   },
   {
     "id": 367,
     "name": "Huntail",
     "region": "Hoenn",
-    "location": "Parada: Underwater (Ruta 124) | Ruta 4",
-    "method": "Water / Fishing",
+    "location": "Underwater (Ruta 124) | Ruta 4",
+    "method": "Agua / Pesca",
     "hint": "Tasa de Aparición: 10% (Nv. 36 - 37)"
   },
   {
     "id": 368,
     "name": "Gorebyss",
     "region": "Hoenn",
-    "location": "Parada: Underwater (Ruta 126) | Ruta 4",
-    "method": "Lure / Water / Fishing",
+    "location": "Underwater (Ruta 126) | Ruta 4",
+    "method": "Señuelo / Agua / Pesca",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 36 - 37)"
   },
   {
     "id": 369,
     "name": "Relicanth",
     "region": "Hoenn",
-    "location": "Parada: Underwater (Ruta 126) | Underwater (Ruta 124)",
-    "method": "Water / Fishing",
+    "location": "Underwater (Ruta 126) | Underwater (Ruta 124)",
+    "method": "Agua / Pesca",
     "hint": "Tasa de Aparición: 5% (Nv. 37 - 38)"
   },
   {
     "id": 370,
     "name": "Luvdisc",
     "region": "Hoenn",
-    "location": "Parada: Ruta 19 | Ever Grande Ciudad",
-    "method": "Good Rod / Super Rod",
+    "location": "Ruta 19 | Ever Grande Ciudad",
+    "method": "Buena Caña / Súper Caña",
     "hint": "Tasa de Aparición: 5% (Nv. 20 - 30)"
   },
   {
     "id": 371,
     "name": "Bagon",
     "region": "Hoenn",
-    "location": "Parada: Meteor Falls (Back Room) | Meteor Falls (Entrance)",
-    "method": "Cave",
+    "location": "Meteor Falls (Back Room) | Meteor Falls (Entrance)",
+    "method": "Cueva",
     "hint": "Tasa de Aparición: 15% (Nv. 42 - 43)"
   },
   {
     "id": 372,
     "name": "Shelgon",
     "region": "Hoenn",
-    "location": "Parada: Meteor Falls (Upper Interior) | Meteor Falls (Northwest Room)",
-    "method": "Cave",
+    "location": "Meteor Falls (Upper Interior) | Meteor Falls (Northwest Room)",
+    "method": "Cueva",
     "hint": "Tasa de Aparición: 10% (Nv. 22 - 23)"
   },
   {
@@ -2987,24 +2987,24 @@
     "id": 374,
     "name": "Beldum",
     "region": "Hoenn",
-    "location": "Parada: Meteor Falls (Northwest Room)",
-    "method": "Cave",
+    "location": "Meteor Falls (Northwest Room)",
+    "method": "Cueva",
     "hint": "Tasa de Aparición: 5% (Nv. 50 - 52)"
   },
   {
     "id": 375,
     "name": "Metang",
     "region": "Hoenn",
-    "location": "Parada: Chargestone Cueva (Piso 1) | Giant Chasm (Bosque)",
-    "method": "Cave / Grass",
+    "location": "Chargestone Cueva (Piso 1) | Giant Chasm (Bosque)",
+    "method": "Cueva / Pasto",
     "hint": "Tasa de Aparición: 2.5% (Nv. 54 - 56)"
   },
   {
     "id": 376,
     "name": "Metagross",
     "region": "Hoenn",
-    "location": "Parada: Giant Chasm (Entrance) | Giant Chasm (Bosque)",
-    "method": "Lure / Dark Grass",
+    "location": "Giant Chasm (Entrance) | Giant Chasm (Bosque)",
+    "method": "Señuelo / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 27 - 28)"
   },
   {
@@ -3091,168 +3091,168 @@
     "id": 387,
     "name": "Turtwig",
     "region": "Sinnoh",
-    "location": "Parada: Eterna Bosque",
-    "method": "Lure / Grass",
+    "location": "Eterna Bosque",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 7 - 8)"
   },
   {
     "id": 388,
     "name": "Grotle",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 212 (North)",
-    "method": "Lure / Grass",
+    "location": "Ruta 212 (Norte)",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 28 - 30)"
   },
   {
     "id": 389,
     "name": "Torterra",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 229",
-    "method": "Lure / Grass",
+    "location": "Ruta 229",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 55 - 56)"
   },
   {
     "id": 390,
     "name": "Chimchar",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 214",
-    "method": "Lure / Grass",
+    "location": "Ruta 214",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 391,
     "name": "Monferno",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 221",
-    "method": "Lure / Grass",
+    "location": "Ruta 221",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 14 - 15)"
   },
   {
     "id": 392,
     "name": "Infernape",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 227",
-    "method": "Lure / Grass",
+    "location": "Ruta 227",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 55 - 56)"
   },
   {
     "id": 393,
     "name": "Piplup",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 213",
-    "method": "Lure / Grass",
+    "location": "Ruta 213",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 27 - 28)"
   },
   {
     "id": 394,
     "name": "Prinplup",
     "region": "Sinnoh",
-    "location": "Parada: Lago Acuity",
-    "method": "Lure / Grass",
+    "location": "Lago Acuity",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 36 - 37)"
   },
   {
     "id": 395,
     "name": "Empoleon",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 222",
-    "method": "Lure / Grass",
+    "location": "Ruta 222",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 36 - 38)"
   },
   {
     "id": 396,
     "name": "Starly",
     "region": "Sinnoh",
-    "location": "Parada: Lago Verity | Ruta 201",
-    "method": "Grass / Sweet ScentX3",
+    "location": "Lago Verity | Ruta 201",
+    "method": "Pasto / Dulce AromaX",
     "hint": "Tasa de Aparición: 25% (Nv. 2 - 3)"
   },
   {
     "id": 397,
     "name": "Staravia",
     "region": "Sinnoh",
-    "location": "Parada: Lago Valor | Lago Verity",
-    "method": "Grass",
+    "location": "Lago Valor | Lago Verity",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 15% (Nv. 40 - 42)"
   },
   {
     "id": 398,
     "name": "Staraptor",
     "region": "Sinnoh",
-    "location": "Parada: Sendoff Spring",
-    "method": "Lure / Grass",
+    "location": "Sendoff Spring",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 399,
     "name": "Bidoof",
     "region": "Sinnoh",
-    "location": "Parada: Eterna Bosque | Lago Verity",
-    "method": "Grass / Sweet ScentX3",
+    "location": "Eterna Bosque | Lago Verity",
+    "method": "Pasto / Dulce AromaX",
     "hint": "Tasa de Aparición: 20% (Nv. 13 - 14)"
   },
   {
     "id": 400,
     "name": "Bibarel",
     "region": "Sinnoh",
-    "location": "Parada: Bosque Azulejo (Exterior) | Ruta 6",
-    "method": "Dark Grass / Water",
+    "location": "Bosque Azulejo (Exterior) | Ruta 6",
+    "method": "Pasto Oscuro / Agua",
     "hint": "Tasa de Aparición: 20% (Nv. 51 - 53)"
   },
   {
     "id": 401,
     "name": "Kricketot",
     "region": "Sinnoh",
-    "location": "Parada: Eterna Bosque | Lago Verity",
-    "method": "Grass",
+    "location": "Eterna Bosque | Lago Verity",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 7 - 8)"
   },
   {
     "id": 402,
     "name": "Kricketune",
     "region": "Sinnoh",
-    "location": "Parada: Dreamyard | Dreamyard (Sótano 1)",
-    "method": "Dark Grass / Grass",
+    "location": "Dreamyard | Dreamyard (Sótano 1)",
+    "method": "Pasto Oscuro / Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 51 - 53)"
   },
   {
     "id": 403,
     "name": "Shinx",
     "region": "Sinnoh",
-    "location": "Parada: Fuego Ironworks | Ruta 202",
-    "method": "Grass / Sweet ScentX3",
+    "location": "Fuego Ironworks | Ruta 202",
+    "method": "Pasto / Dulce AromaX",
     "hint": "Tasa de Aparición: 10% (Nv. 31 - 32)"
   },
   {
     "id": 404,
     "name": "Luxio",
     "region": "Sinnoh",
-    "location": "Parada: Fuego Ironworks | Lago Verity",
-    "method": "Grass / GrassX5",
+    "location": "Fuego Ironworks | Lago Verity",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 31 - 32)"
   },
   {
     "id": 405,
     "name": "Luxray",
     "region": "Sinnoh",
-    "location": "Parada: Fuego Ironworks",
-    "method": "Lure / Grass",
+    "location": "Fuego Ironworks",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 31 - 32)"
   },
   {
     "id": 406,
     "name": "Budew",
     "region": "Sinnoh",
-    "location": "Parada: Eterna Bosque | Great Marsh (Area 2)",
-    "method": "Grass / Inside",
+    "location": "Eterna Bosque | Gran Pantanal (Área )",
+    "method": "Pasto / Interior",
     "hint": "Tasa de Aparición: 15% (Nv. 13 - 14)"
   },
   {
     "id": 407,
     "name": "Roserade",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 117 | Ruta 12",
-    "method": "Lure / Grass",
+    "location": "Ruta 117 | Ruta 12",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 4)"
   },
   {
@@ -3291,8 +3291,8 @@
     "id": 412,
     "name": "Burmy",
     "region": "Sinnoh",
-    "location": "Parada: Honey Tree",
-    "method": "Honey Tree",
+    "location": "Honey Tree",
+    "method": "Árbol de Miel",
     "hint": "Tasa de Aparición: 5% (Nv. 15 - 20)"
   },
   {
@@ -3315,72 +3315,72 @@
     "id": 415,
     "name": "Combee",
     "region": "Sinnoh",
-    "location": "Parada: Lostlorn Bosque | Ruta 12",
-    "method": "Grass / Dark Grass",
+    "location": "Lostlorn Bosque | Ruta 12",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 10% (Nv. 22 - 24)"
   },
   {
     "id": 416,
     "name": "Vespiquen",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 12",
-    "method": "Lure / Grass",
+    "location": "Ruta 12",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 417,
     "name": "Pachirisu",
     "region": "Sinnoh",
-    "location": "Parada: Fuego Ironworks | Ruta 205 (South)",
-    "method": "Grass / GrassX3",
+    "location": "Fuego Ironworks | Ruta 205 (Sur)",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 31 - 33)"
   },
   {
     "id": 418,
     "name": "Buizel",
     "region": "Sinnoh",
-    "location": "Parada: Lostlorn Bosque | Ruta 3",
-    "method": "Water / WaterX5",
+    "location": "Lostlorn Bosque | Ruta 3",
+    "method": "Agua / AguaX",
     "hint": "Tasa de Aparición: 30% (Nv. 31 - 33)"
   },
   {
     "id": 419,
     "name": "Floatzel",
     "region": "Sinnoh",
-    "location": "Parada: Cold Storage | Moor Of Icirrus",
-    "method": "Grass / Water",
+    "location": "Cold Storage | Moor Of Icirrus",
+    "method": "Pasto / Agua",
     "hint": "Tasa de Aparición: 25% (Nv. 50 - 52)"
   },
   {
     "id": 420,
     "name": "Cherubi",
     "region": "Sinnoh",
-    "location": "Parada: Honey Tree",
-    "method": "Honey Tree",
+    "location": "Honey Tree",
+    "method": "Árbol de Miel",
     "hint": "Tasa de Aparición: 10% (Nv. 15 - 20)"
   },
   {
     "id": 421,
     "name": "Cherrim",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 12",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 12",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% (Nv. 52 - 54)"
   },
   {
     "id": 422,
     "name": "Shellos",
     "region": "Sinnoh",
-    "location": "Parada: Canalave Ciudad | Fuego Ironworks",
-    "method": "Water / Grass",
+    "location": "Canalave Ciudad | Fuego Ironworks",
+    "method": "Agua / Pasto",
     "hint": "Tasa de Aparición: 15% (Nv. 32 - 33)"
   },
   {
     "id": 423,
     "name": "Gastrodon",
     "region": "Sinnoh",
-    "location": "Parada: Canalave Ciudad | Fuego Ironworks",
-    "method": "Water / WaterX5",
+    "location": "Canalave Ciudad | Fuego Ironworks",
+    "method": "Agua / AguaX",
     "hint": "Tasa de Aparición: 5% (Nv. 33 - 34)"
   },
   {
@@ -3395,112 +3395,112 @@
     "id": 425,
     "name": "Drifloon",
     "region": "Sinnoh",
-    "location": "Parada: Celestial Torre (Rooftop) | Ruta 5",
-    "method": "Shadow / Grass",
+    "location": "Celestial Torre (Rooftop) | Ruta 5",
+    "method": "Sombra / Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 29 - 31)"
   },
   {
     "id": 426,
     "name": "Drifblim",
     "region": "Sinnoh",
-    "location": "Parada: Celestial Torre (Rooftop) | Giant Chasm (Entrance)",
-    "method": "Lure / Shadow / Grass",
+    "location": "Celestial Torre (Rooftop) | Giant Chasm (Entrance)",
+    "method": "Señuelo / Sombra / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 29 - 31)"
   },
   {
     "id": 427,
     "name": "Buneary",
     "region": "Sinnoh",
-    "location": "Parada: Eterna Bosque | Ruta 221",
-    "method": "Grass / GrassX3",
+    "location": "Eterna Bosque | Ruta 221",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 35% (Nv. 14 - 15)"
   },
   {
     "id": 428,
     "name": "Lopunny",
     "region": "Sinnoh",
-    "location": "Parada: Trophy Garden",
-    "method": "Grass",
+    "location": "Trophy Garden",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 26 - 28)"
   },
   {
     "id": 429,
     "name": "Mismagius",
     "region": "Sinnoh",
-    "location": "Parada: Lost Cueva (???) | Abundant Shrine",
-    "method": "Lure / Cave / Grass",
+    "location": "Lost Cueva (???) | Santuario Abundancia",
+    "method": "Señuelo / Cueva / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 51 - 52)"
   },
   {
     "id": 430,
     "name": "Honchkrow",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 18 | Abundant Shrine",
-    "method": "Grass / Shadow",
+    "location": "Ruta 18 | Santuario Abundancia",
+    "method": "Pasto / Sombra",
     "hint": "Tasa de Aparición: 10% (Nv. 65 - 67)"
   },
   {
     "id": 431,
     "name": "Glameow",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 218 | Ruta 222",
-    "method": "Grass",
+    "location": "Ruta 218 | Ruta 222",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 32 - 33)"
   },
   {
     "id": 432,
     "name": "Purugly",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 222 | Ruta 229",
-    "method": "Grass / GrassX5",
+    "location": "Ruta 222 | Ruta 229",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 5% (Nv. 41 - 43)"
   },
   {
     "id": 433,
     "name": "Chingling",
     "region": "Sinnoh",
-    "location": "Parada: Mt. Pyre (Piso 1) | Mt. Pyre (Montañaside)",
-    "method": "Inside / Grass",
+    "location": "Mt. Pyre (Piso 1) | Mt. Pyre (Montañaside)",
+    "method": "Interior / Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 31 - 33)"
   },
   {
     "id": 434,
     "name": "Stunky",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 206 | Ruta 208",
-    "method": "Grass",
+    "location": "Ruta 206 | Ruta 208",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
     "id": 435,
     "name": "Skuntank",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 221 | Ruta 225",
-    "method": "Lure / Grass",
+    "location": "Ruta 221 | Ruta 225",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 14 - 15)"
   },
   {
     "id": 436,
     "name": "Bronzor",
     "region": "Sinnoh",
-    "location": "Parada: Abundant Shrine | Mt. Coronet (Piso 3)",
-    "method": "Grass / Cave",
+    "location": "Santuario Abundancia | Mt. Coronet (Piso 3)",
+    "method": "Pasto / Cueva",
     "hint": "Tasa de Aparición: 25% (Nv. 52 - 54)"
   },
   {
     "id": 437,
     "name": "Bronzong",
     "region": "Sinnoh",
-    "location": "Parada: Abundant Shrine | Iron Isla (Piso 1)",
-    "method": "Dark Grass / Dark GrassX5",
+    "location": "Santuario Abundancia | Iron Isla (Piso 1)",
+    "method": "Pasto Oscuro / Pasto OscuroX",
     "hint": "Tasa de Aparición: 25% (Nv. 55 - 57)"
   },
   {
     "id": 438,
     "name": "Bonsly",
     "region": "Sinnoh",
-    "location": "Parada: Ilex Bosque",
-    "method": "Cave",
+    "location": "Ilex Bosque",
+    "method": "Cueva",
     "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
@@ -3515,88 +3515,88 @@
     "id": 440,
     "name": "Happiny",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 209",
-    "method": "Grass",
+    "location": "Ruta 209",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 31 - 33)"
   },
   {
     "id": 441,
     "name": "Chatot",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 213 | Ruta 218",
-    "method": "Grass",
+    "location": "Ruta 213 | Ruta 218",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 27 - 28)"
   },
   {
     "id": 442,
     "name": "Spiritomb",
     "region": "Sinnoh",
-    "location": "Parada: Turnback Cueva (???)",
-    "method": "Rocks",
+    "location": "Turnback Cueva (???)",
+    "method": "Rocas",
     "hint": "Tasa de Aparición: 2.5% (Nv. 56 - 57)"
   },
   {
     "id": 443,
     "name": "Gible",
     "region": "Sinnoh",
-    "location": "Parada: Ravaged Camino | Wayward Cueva (Sótano 1)",
-    "method": "Cave",
+    "location": "Ravaged Camino | Wayward Cueva (Sótano 1)",
+    "method": "Cueva",
     "hint": "Tasa de Aparición: 10% (Nv. 17 - 20)"
   },
   {
     "id": 444,
     "name": "Gabite",
     "region": "Sinnoh",
-    "location": "Parada: Calle Victoria (Piso 1) | Calle Victoria (Sótano 1)",
-    "method": "Cave",
+    "location": "Calle Victoria (Piso 1) | Calle Victoria (Sótano 1)",
+    "method": "Cueva",
     "hint": "Tasa de Aparición: 5% (Nv. 44 - 46)"
   },
   {
     "id": 445,
     "name": "Garchomp",
     "region": "Sinnoh",
-    "location": "Parada: Calle Victoria (Piso 1) | Calle Victoria (Piso 2)",
-    "method": "Lure / Cave",
+    "location": "Calle Victoria (Piso 1) | Calle Victoria (Piso 2)",
+    "method": "Señuelo / Cueva",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 43 - 44)"
   },
   {
     "id": 446,
     "name": "Munchlax",
     "region": "Sinnoh",
-    "location": "Parada: Honey Tree | Pokéathlon Dome",
-    "method": "Honey Tree / Headbutt",
+    "location": "Honey Tree | Pokéathlon Dome",
+    "method": "Árbol de Miel / Golpe Cabeza",
     "hint": "Tasa de Aparición: 5% (Nv. 15 - 20)"
   },
   {
     "id": 447,
     "name": "Riolu",
     "region": "Sinnoh",
-    "location": "Parada: Challenger's Cueva (Sótano 2) | Challenger's Cueva (Sótano 1)",
-    "method": "Cave / Dust Cloud",
+    "location": "Challenger's Cueva (Sótano 2) | Challenger's Cueva (Sótano 1)",
+    "method": "Cueva / Nube de Polvo",
     "hint": "Tasa de Aparición: 5% (Nv. 54 - 56)"
   },
   {
     "id": 448,
     "name": "Lucario",
     "region": "Sinnoh",
-    "location": "Parada: Challenger's Cueva (Sótano 2) | Challenger's Cueva (Sótano 1)",
-    "method": "Lure / Dust Cloud / Cave",
+    "location": "Challenger's Cueva (Sótano 2) | Challenger's Cueva (Sótano 1)",
+    "method": "Señuelo / Nube de Polvo / Cueva",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 54 - 56)"
   },
   {
     "id": 449,
     "name": "Hippopotas",
     "region": "Sinnoh",
-    "location": "Parada: Maniac Túnel | Ruta 207",
-    "method": "Cave / CaveX5",
+    "location": "Maniac Túnel | Ruta 207",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 20% (Nv. 24 - 25)"
   },
   {
     "id": 450,
     "name": "Hippowdon",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 228",
-    "method": "Grass / GrassX5",
+    "location": "Ruta 228",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 25% (Nv. 54 - 55)"
   },
   {
@@ -3611,176 +3611,176 @@
     "id": 452,
     "name": "Drapion",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 228",
-    "method": "Lure / Grass",
+    "location": "Ruta 228",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 54 - 55)"
   },
   {
     "id": 453,
     "name": "Croagunk",
     "region": "Sinnoh",
-    "location": "Parada: Bosque Azulejo (Exterior) | Ruta 212 (South)",
-    "method": "Grass / Dark Grass",
+    "location": "Bosque Azulejo (Exterior) | Ruta 212 (Sur)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% (Nv. 13 - 15)"
   },
   {
     "id": 454,
     "name": "Toxicroak",
     "region": "Sinnoh",
-    "location": "Parada: Moor Of Icirrus | Lago Valor",
-    "method": "Lure / Grass",
+    "location": "Moor Of Icirrus | Lago Valor",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 50 - 52)"
   },
   {
     "id": 455,
     "name": "Carnivine",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 18",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 18",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% (Nv. 32 - 34)"
   },
   {
     "id": 456,
     "name": "Finneon",
     "region": "Sinnoh",
-    "location": "Parada: P2 Laboratory | Ruta 4",
-    "method": "Super Rod / Good Rod",
+    "location": "P2 Laboratory | Ruta 4",
+    "method": "Súper Caña / Buena Caña",
     "hint": "Tasa de Aparición: 65% (Nv. 30 - 40)"
   },
   {
     "id": 457,
     "name": "Lumineon",
     "region": "Sinnoh",
-    "location": "Parada: P2 Laboratory | Ruta 17",
-    "method": "Water / Fishing",
+    "location": "P2 Laboratory | Ruta 17",
+    "method": "Agua / Pesca",
     "hint": "Tasa de Aparición: 25% (Nv. 31 - 40)"
   },
   {
     "id": 458,
     "name": "Mantyke",
     "region": "Sinnoh",
-    "location": "Parada: Trainer Torre | Battle Frontier",
-    "method": "Water",
+    "location": "Trainer Torre | Battle Frontier",
+    "method": "Agua",
     "hint": "Tasa de Aparición: 10% (Nv. 56 - 57)"
   },
   {
     "id": 459,
     "name": "Snover",
     "region": "Sinnoh",
-    "location": "Parada: Acuity Lagofront | Lago Acuity",
-    "method": "Grass / GrassX5",
+    "location": "Acuity Lagofront | Lago Acuity",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 40% (Nv. 36 - 37)"
   },
   {
     "id": 460,
     "name": "Abomasnow",
     "region": "Sinnoh",
-    "location": "Parada: Mt. Coronet (South Montañaside) | Mt. Coronet (North Montañaside)",
-    "method": "Grass / GrassX5",
+    "location": "Mt. Coronet (South Montañaside) | Mt. Coronet (North Montañaside)",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 20% (Nv. 40 - 42)"
   },
   {
     "id": 461,
     "name": "Weavile",
     "region": "Sinnoh",
-    "location": "Parada: Icefall Cueva (Sótano 1) | Icefall Cueva (Back Room)",
-    "method": "Cave / Grass",
+    "location": "Icefall Cueva (Sótano 1) | Icefall Cueva (Back Room)",
+    "method": "Cueva / Pasto",
     "hint": "Tasa de Aparición: 20% (Nv. 67 - 69)"
   },
   {
     "id": 462,
     "name": "Magnezone",
     "region": "Sinnoh",
-    "location": "Parada: New Mauville (Interior)",
-    "method": "Lure / Cave",
+    "location": "New Mauville (Interior)",
+    "method": "Señuelo / Cueva",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 463,
     "name": "Lickilicky",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 215",
-    "method": "Grass",
+    "location": "Ruta 215",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
     "id": 464,
     "name": "Rhyperior",
     "region": "Sinnoh",
-    "location": "Parada: Stark Montaña (Entrance) | Stark Montaña (Outside)",
-    "method": "Lure / Cave / Grass",
+    "location": "Stark Montaña (Entrance) | Stark Montaña (Outside)",
+    "method": "Señuelo / Cueva / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 55 - 56)"
   },
   {
     "id": 465,
     "name": "Tangrowth",
     "region": "Sinnoh",
-    "location": "Parada: Treasure Playa | Giant Chasm (Entrance)",
-    "method": "Grass / Dark Grass",
+    "location": "Treasure Playa | Giant Chasm (Entrance)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 10% (Nv. 27 - 28)"
   },
   {
     "id": 466,
     "name": "Electivire",
     "region": "Sinnoh",
-    "location": "Parada: Central Energía | Ruta 27",
-    "method": "Lure / Inside / Grass",
+    "location": "Central Energía | Ruta 27",
+    "method": "Señuelo / Interior / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 35 - 37)"
   },
   {
     "id": 467,
     "name": "Magmortar",
     "region": "Sinnoh",
-    "location": "Parada: Mt. Ember (Outside) | Mt. Ember (Piso 3)",
-    "method": "Lure / Grass / Cave",
+    "location": "Mt. Ember (Outside) | Mt. Ember (Piso 3)",
+    "method": "Señuelo / Pasto / Cueva",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 39 - 41)"
   },
   {
     "id": 468,
     "name": "Togekiss",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 230",
-    "method": "Lure / Grass",
+    "location": "Ruta 230",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 469,
     "name": "Yanmega",
     "region": "Sinnoh",
-    "location": "Parada: Great Marsh (Area 2)",
-    "method": "Lure / Inside",
+    "location": "Gran Pantanal (Área )",
+    "method": "Señuelo / Interior",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 13 - 14)"
   },
   {
     "id": 470,
     "name": "Leafeon",
     "region": "Sinnoh",
-    "location": "Parada: Puente Villa",
-    "method": "Grass",
+    "location": "Puente Villa",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 42 - 44)"
   },
   {
     "id": 471,
     "name": "Glaceon",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 217",
-    "method": "Lure / Grass",
+    "location": "Ruta 217",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 472,
     "name": "Gliscor",
     "region": "Sinnoh",
-    "location": "Parada: Ruta 10 (Gate) | Ruta 11",
-    "method": "Lure / Dark Grass / Grass",
+    "location": "Ruta 10 (Gate) | Ruta 11",
+    "method": "Señuelo / Pasto Oscuro / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 11 - 12)"
   },
   {
     "id": 473,
     "name": "Mamoswine",
     "region": "Sinnoh",
-    "location": "Parada: Dragonspiral Torre (Entryway) | Giant Chasm (Entrance)",
-    "method": "Lure / Grass / Cave",
+    "location": "Dragonspiral Torre (Entryway) | Giant Chasm (Entrance)",
+    "method": "Señuelo / Pasto / Cueva",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 35)"
   },
   {
@@ -3795,40 +3795,40 @@
     "id": 475,
     "name": "Gallade",
     "region": "Sinnoh",
-    "location": "Parada: Snowpoint Temple (Piso 1) | Snowpoint Temple (Sótano 3)",
-    "method": "Lure / Cave",
+    "location": "Snowpoint Temple (Piso 1) | Snowpoint Temple (Sótano 3)",
+    "method": "Señuelo / Cueva",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 28 - 30)"
   },
   {
     "id": 476,
     "name": "Probopass",
     "region": "Sinnoh",
-    "location": "Parada: Mt. Coronet (1F East) | Mt. Coronet (1F West)",
-    "method": "Cave / Grass",
+    "location": "Mt. Coronet (1F East) | Mt. Coronet (1F West)",
+    "method": "Cueva / Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 44 - 45)"
   },
   {
     "id": 477,
     "name": "Dusknoir",
     "region": "Sinnoh",
-    "location": "Parada: Turnback Cueva (???)",
-    "method": "Lure / Inside",
+    "location": "Turnback Cueva (???)",
+    "method": "Señuelo / Interior",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 56 - 57)"
   },
   {
     "id": 478,
     "name": "Froslass",
     "region": "Sinnoh",
-    "location": "Parada: Shoal Cueva (Sótano 1) | Shoal Cueva (Sótano 2)",
-    "method": "Lure / Cave",
+    "location": "Shoal Cueva (Sótano 1) | Shoal Cueva (Sótano 2)",
+    "method": "Señuelo / Cueva",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 35 - 36)"
   },
   {
     "id": 479,
     "name": "Rotom",
     "region": "Sinnoh",
-    "location": "Parada: Old Chateau (Piso 2)",
-    "method": "Inside",
+    "location": "Old Chateau (Piso 2)",
+    "method": "Interior",
     "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
@@ -3955,440 +3955,440 @@
     "id": 495,
     "name": "Snivy",
     "region": "Unova",
-    "location": "Parada: Bosque Azulejo (Interior)",
-    "method": "Lure / Grass",
+    "location": "Bosque Azulejo (Interior)",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 52 - 53)"
   },
   {
     "id": 496,
     "name": "Servine",
     "region": "Unova",
-    "location": "Parada: Lostlorn Bosque",
-    "method": "Lure / Grass",
+    "location": "Lostlorn Bosque",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 497,
     "name": "Serperior",
     "region": "Unova",
-    "location": "Parada: Abundant Shrine",
-    "method": "Lure / Grass",
+    "location": "Santuario Abundancia",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 50 - 52)"
   },
   {
     "id": 498,
     "name": "Tepig",
     "region": "Unova",
-    "location": "Parada: Ruta 3",
-    "method": "Lure / Grass",
+    "location": "Ruta 3",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 7 - 8)"
   },
   {
     "id": 499,
     "name": "Pignite",
     "region": "Unova",
-    "location": "Parada: Ruta 7",
-    "method": "Lure / Grass",
+    "location": "Ruta 7",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 11 - 12)"
   },
   {
     "id": 500,
     "name": "Emboar",
     "region": "Unova",
-    "location": "Parada: Ruta 15",
-    "method": "Lure / Grass",
+    "location": "Ruta 15",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 51 - 53)"
   },
   {
     "id": 501,
     "name": "Oshawott",
     "region": "Unova",
-    "location": "Parada: Ruta 6",
-    "method": "Lure / Grass",
+    "location": "Ruta 6",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 14 - 15)"
   },
   {
     "id": 502,
     "name": "Dewott",
     "region": "Unova",
-    "location": "Parada: Ruta 18",
-    "method": "Lure / Grass",
+    "location": "Ruta 18",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 31)"
   },
   {
     "id": 503,
     "name": "Samurott",
     "region": "Unova",
-    "location": "Parada: Village Puente",
-    "method": "Lure / Grass",
+    "location": "Village Puente",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 25 - 30)"
   },
   {
     "id": 504,
     "name": "Patrat",
     "region": "Unova",
-    "location": "Parada: Dreamyard | Ruta 1",
-    "method": "Grass / Sweet ScentX3",
+    "location": "Dreamyard | Ruta 1",
+    "method": "Pasto / Dulce AromaX",
     "hint": "Tasa de Aparición: 35% (Nv. 8 - 11)"
   },
   {
     "id": 505,
     "name": "Watchog",
     "region": "Unova",
-    "location": "Parada: Dreamyard (Sótano 1) | Dreamyard",
-    "method": "Dark Grass / Grass",
+    "location": "Dreamyard (Sótano 1) | Dreamyard",
+    "method": "Pasto Oscuro / Pasto",
     "hint": "Tasa de Aparición: 25% (Nv. 50 - 52)"
   },
   {
     "id": 506,
     "name": "Lillipup",
     "region": "Unova",
-    "location": "Parada: Ruta 1 | Ruta 2",
-    "method": "Grass / Sweet ScentX3",
+    "location": "Ruta 1 | Ruta 2",
+    "method": "Pasto / Dulce AromaX",
     "hint": "Tasa de Aparición: 45% (Nv. 2 - 4)"
   },
   {
     "id": 507,
     "name": "Herdier",
     "region": "Unova",
-    "location": "Parada: Cold Storage | P2 Laboratory",
-    "method": "Grass / Dark Grass",
+    "location": "Cold Storage | P2 Laboratory",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 25% (Nv. 24 - 26)"
   },
   {
     "id": 508,
     "name": "Stoutland",
     "region": "Unova",
-    "location": "Parada: Ruta 1 | Ruta 10 (Gate)",
-    "method": "Lure / Dark Grass / Grass",
+    "location": "Ruta 1 | Ruta 10 (Gate)",
+    "method": "Señuelo / Pasto Oscuro / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 35 - 37)"
   },
   {
     "id": 509,
     "name": "Purrloin",
     "region": "Unova",
-    "location": "Parada: Dreamyard | Ruta 2",
-    "method": "Grass / Dark Grass",
+    "location": "Dreamyard | Ruta 2",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 10% (Nv. 8 - 11)"
   },
   {
     "id": 510,
     "name": "Liepard",
     "region": "Unova",
-    "location": "Parada: Dreamyard | Dreamyard (Sótano 1)",
-    "method": "Lure / Dark Grass / Dark GrassX5",
+    "location": "Dreamyard | Dreamyard (Sótano 1)",
+    "method": "Señuelo / Pasto Oscuro / Pasto OscuroX",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 51 - 53)"
   },
   {
     "id": 511,
     "name": "Pansage",
     "region": "Unova",
-    "location": "Parada: Bosque Azulejo (Interior)",
-    "method": "Grass / Dark Grass",
+    "location": "Bosque Azulejo (Interior)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% (Nv. 15 - 17)"
   },
   {
     "id": 512,
     "name": "Simisage",
     "region": "Unova",
-    "location": "Parada: Lostlorn Bosque | Bosque Azulejo (Interior)",
-    "method": "Lure / Grass",
+    "location": "Lostlorn Bosque | Bosque Azulejo (Interior)",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 513,
     "name": "Pansear",
     "region": "Unova",
-    "location": "Parada: Bosque Azulejo (Interior)",
-    "method": "Grass / Dark Grass",
+    "location": "Bosque Azulejo (Interior)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 2.5% (Nv. 15 - 17)"
   },
   {
     "id": 514,
     "name": "Simisear",
     "region": "Unova",
-    "location": "Parada: Lostlorn Bosque | Bosque Azulejo (Interior)",
-    "method": "Lure / Grass",
+    "location": "Lostlorn Bosque | Bosque Azulejo (Interior)",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 515,
     "name": "Panpour",
     "region": "Unova",
-    "location": "Parada: Bosque Azulejo (Interior)",
-    "method": "Grass / Dark Grass",
+    "location": "Bosque Azulejo (Interior)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 7.5% (Nv. 15 - 17)"
   },
   {
     "id": 516,
     "name": "Simipour",
     "region": "Unova",
-    "location": "Parada: Lostlorn Bosque | Bosque Azulejo (Interior)",
-    "method": "Lure / Grass",
+    "location": "Lostlorn Bosque | Bosque Azulejo (Interior)",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 517,
     "name": "Munna",
     "region": "Unova",
-    "location": "Parada: Dreamyard | Dreamyard (Sótano 1)",
-    "method": "Grass / Sweet ScentX3",
+    "location": "Dreamyard | Dreamyard (Sótano 1)",
+    "method": "Pasto / Dulce AromaX",
     "hint": "Tasa de Aparición: 25% (Nv. 8 - 10)"
   },
   {
     "id": 518,
     "name": "Musharna",
     "region": "Unova",
-    "location": "Parada: Dreamyard",
-    "method": "Grass / Dark Grass",
+    "location": "Dreamyard",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 10% (Nv. 51 - 53)"
   },
   {
     "id": 519,
     "name": "Pidove",
     "region": "Unova",
-    "location": "Parada: Bosque Azulejo (Exterior) | Bosque Azulejo (Interior)",
-    "method": "Grass / Dark Grass",
+    "location": "Bosque Azulejo (Exterior) | Bosque Azulejo (Interior)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 15% (Nv. 12 - 15)"
   },
   {
     "id": 520,
     "name": "Tranquill",
     "region": "Unova",
-    "location": "Parada: Lostlorn Bosque | Bosque Azulejo (Interior)",
-    "method": "Grass / GrassX3",
+    "location": "Lostlorn Bosque | Bosque Azulejo (Interior)",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 22 - 24)"
   },
   {
     "id": 521,
     "name": "Unfezant",
     "region": "Unova",
-    "location": "Parada: Lostlorn Bosque | Ruta 7",
-    "method": "Lure / Shadow / Dark Grass",
+    "location": "Lostlorn Bosque | Ruta 7",
+    "method": "Señuelo / Sombra / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 522,
     "name": "Blitzle",
     "region": "Unova",
-    "location": "Parada: Ruta 3",
-    "method": "Grass / GrassX3",
+    "location": "Ruta 3",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 25% (Nv. 8 - 11)"
   },
   {
     "id": 523,
     "name": "Zebstrika",
     "region": "Unova",
-    "location": "Parada: Ruta 7",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 7",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 20% (Nv. 27 - 29)"
   },
   {
     "id": 524,
     "name": "Roggenrola",
     "region": "Unova",
-    "location": "Parada: Chargestone Cueva (Piso 1) | Chargestone Cueva (Sótano 2)",
-    "method": "Rocks / Cave",
+    "location": "Chargestone Cueva (Piso 1) | Chargestone Cueva (Sótano 2)",
+    "method": "Rocas / Cueva",
     "hint": "Tasa de Aparición: 50% (Nv. 30 - 32)"
   },
   {
     "id": 525,
     "name": "Boldore",
     "region": "Unova",
-    "location": "Parada: Challenger's Cueva (Sótano 2) | Challenger's Cueva (Sótano 1)",
-    "method": "Cave / CaveX5",
+    "location": "Challenger's Cueva (Sótano 2) | Challenger's Cueva (Sótano 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 15% (Nv. 53 - 55)"
   },
   {
     "id": 526,
     "name": "Gigalith",
     "region": "Unova",
-    "location": "Parada: Giant Chasm (Entrance) | Giant Chasm (Bosque)",
-    "method": "Rocks / Cave",
+    "location": "Giant Chasm (Entrance) | Giant Chasm (Bosque)",
+    "method": "Rocas / Cueva",
     "hint": "Tasa de Aparición: 20% (Nv. 56 - 58)"
   },
   {
     "id": 527,
     "name": "Woobat",
     "region": "Unova",
-    "location": "Parada: Challenger's Cueva (Sótano 2) | Challenger's Cueva (Sótano 1)",
-    "method": "Cave / CaveX5",
+    "location": "Challenger's Cueva (Sótano 2) | Challenger's Cueva (Sótano 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 10% (Nv. 53 - 55)"
   },
   {
     "id": 528,
     "name": "Swoobat",
     "region": "Unova",
-    "location": "Parada: Wellspring Cueva (Piso 1) | Wellspring Cueva (Sótano 1)",
-    "method": "Cave / Dust Cloud",
+    "location": "Wellspring Cueva (Piso 1) | Wellspring Cueva (Sótano 1)",
+    "method": "Cueva / Nube de Polvo",
     "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
     "id": 529,
     "name": "Drilbur",
     "region": "Unova",
-    "location": "Parada: Chargestone Cueva (Piso 1) | Chargestone Cueva (Sótano 2)",
-    "method": "Dust Cloud",
+    "location": "Chargestone Cueva (Piso 1) | Chargestone Cueva (Sótano 2)",
+    "method": "Nube de Polvo",
     "hint": "Tasa de Aparición: 10% (Nv. 22 - 23)"
   },
   {
     "id": 530,
     "name": "Excadrill",
     "region": "Unova",
-    "location": "Parada: Challenger's Cueva (Sótano 2) | Challenger's Cueva (Sótano 1)",
-    "method": "Lure / Dust Cloud",
+    "location": "Challenger's Cueva (Sótano 2) | Challenger's Cueva (Sótano 1)",
+    "method": "Señuelo / Nube de Polvo",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 54 - 56)"
   },
   {
     "id": 531,
     "name": "Audino",
     "region": "Unova",
-    "location": "Parada: Cold Storage | Dreamyard",
-    "method": "Grass",
+    "location": "Cold Storage | Dreamyard",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 50 - 52)"
   },
   {
     "id": 532,
     "name": "Timburr",
     "region": "Unova",
-    "location": "Parada: Cold Storage | Bosque Azulejo (Exterior)",
-    "method": "Grass / GrassX5",
+    "location": "Cold Storage | Bosque Azulejo (Exterior)",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 15% (Nv. 24 - 26)"
   },
   {
     "id": 533,
     "name": "Gurdurr",
     "region": "Unova",
-    "location": "Parada: Twist Montaña (Cold Room) | Twist Montaña (Túnel)",
-    "method": "Cave / CaveX5",
+    "location": "Twist Montaña (Cold Room) | Twist Montaña (Túnel)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 10% (Nv. 31 - 33)"
   },
   {
     "id": 534,
     "name": "Conkeldurr",
     "region": "Unova",
-    "location": "Parada: Twist Montaña (Túnel)",
-    "method": "Lure / Cave",
+    "location": "Twist Montaña (Túnel)",
+    "method": "Señuelo / Cueva",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 31 - 33)"
   },
   {
     "id": 535,
     "name": "Tympole",
     "region": "Unova",
-    "location": "Parada: Bosque Azulejo (Exterior)",
-    "method": "Grass / Dark Grass",
+    "location": "Bosque Azulejo (Exterior)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 10% (Nv. 12 - 15)"
   },
   {
     "id": 536,
     "name": "Palpitoad",
     "region": "Unova",
-    "location": "Parada: Moor Of Icirrus | Ruta 8",
-    "method": "Water",
+    "location": "Moor Of Icirrus | Ruta 8",
+    "method": "Agua",
     "hint": "Tasa de Aparición: 10% (Nv. 33 - 35)"
   },
   {
     "id": 537,
     "name": "Seismitoad",
     "region": "Unova",
-    "location": "Parada: Icirrus Ciudad | Moor Of Icirrus",
-    "method": "Lure / Water",
+    "location": "Icirrus Ciudad | Moor Of Icirrus",
+    "method": "Señuelo / Agua",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 32 - 34)"
   },
   {
     "id": 538,
     "name": "Throh",
     "region": "Unova",
-    "location": "Parada: Bosque Azulejo (Exterior) | Ruta 10 (Gate)",
-    "method": "Grass / GrassX3",
+    "location": "Bosque Azulejo (Exterior) | Ruta 10 (Gate)",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 11 - 12)"
   },
   {
     "id": 539,
     "name": "Sawk",
     "region": "Unova",
-    "location": "Parada: Bosque Azulejo (Exterior) | Ruta 10 (Gate)",
-    "method": "Grass / Dark Grass",
+    "location": "Bosque Azulejo (Exterior) | Ruta 10 (Gate)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 10% (Nv. 11 - 12)"
   },
   {
     "id": 540,
     "name": "Sewaddle",
     "region": "Unova",
-    "location": "Parada: Bosque Azulejo (Interior) | Ruta 12",
-    "method": "Grass / GrassX3",
+    "location": "Bosque Azulejo (Interior) | Ruta 12",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 25% (Nv. 15 - 16)"
   },
   {
     "id": 541,
     "name": "Swadloon",
     "region": "Unova",
-    "location": "Parada: Lostlorn Bosque | Bosque Azulejo (Interior)",
-    "method": "Grass / Dark Grass",
+    "location": "Lostlorn Bosque | Bosque Azulejo (Interior)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 15% (Nv. 22 - 24)"
   },
   {
     "id": 542,
     "name": "Leavanny",
     "region": "Unova",
-    "location": "Parada: Lostlorn Bosque | Ruta 6",
-    "method": "Lure / Grass",
+    "location": "Lostlorn Bosque | Ruta 6",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 543,
     "name": "Venipede",
     "region": "Unova",
-    "location": "Parada: Lostlorn Bosque | Bosque Azulejo (Interior)",
-    "method": "Grass / GrassX3",
+    "location": "Lostlorn Bosque | Bosque Azulejo (Interior)",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 22 - 24)"
   },
   {
     "id": 544,
     "name": "Whirlipede",
     "region": "Unova",
-    "location": "Parada: Lostlorn Bosque | Bosque Azulejo (Interior)",
-    "method": "Dark Grass / Dark GrassX3",
+    "location": "Lostlorn Bosque | Bosque Azulejo (Interior)",
+    "method": "Pasto Oscuro / Pasto OscuroX",
     "hint": "Tasa de Aparición: 10% (Nv. 34 - 36)"
   },
   {
     "id": 545,
     "name": "Scolipede",
     "region": "Unova",
-    "location": "Parada: Lostlorn Bosque",
-    "method": "Lure / Dark Grass",
+    "location": "Lostlorn Bosque",
+    "method": "Señuelo / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 22 - 24)"
   },
   {
     "id": 546,
     "name": "Cottonee",
     "region": "Unova",
-    "location": "Parada: Abundant Shrine | Lostlorn Bosque",
-    "method": "Grass / Dark Grass",
+    "location": "Santuario Abundancia | Lostlorn Bosque",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 10% (Nv. 52 - 54)"
   },
   {
     "id": 547,
     "name": "Whimsicott",
     "region": "Unova",
-    "location": "Parada: Abundant Shrine | Lostlorn Bosque",
-    "method": "Lure / Grass",
+    "location": "Santuario Abundancia | Lostlorn Bosque",
+    "method": "Señuelo / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 50 - 52)"
   },
   {
     "id": 548,
     "name": "Petilil",
     "region": "Unova",
-    "location": "Parada: Abundant Shrine | Lostlorn Bosque",
-    "method": "Grass / Dark Grass",
+    "location": "Santuario Abundancia | Lostlorn Bosque",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 10% (Nv. 52 - 54)"
   },
   {
     "id": 549,
     "name": "Lilligant",
     "region": "Unova",
-    "location": "Parada: Abundant Shrine | Lostlorn Bosque",
-    "method": "Lure / Grass / Dark Grass",
+    "location": "Santuario Abundancia | Lostlorn Bosque",
+    "method": "Señuelo / Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 50 - 52)"
   },
   {
@@ -4403,16 +4403,16 @@
     "id": 551,
     "name": "Sandile",
     "region": "Unova",
-    "location": "Parada: Desierto Complejo (Exterior) | Desierto Complejo (Interior)",
-    "method": "Grass / GrassX3",
+    "location": "Desierto Complejo (Exterior) | Desierto Complejo (Interior)",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 30% (Nv. 19 - 22)"
   },
   {
     "id": 552,
     "name": "Krokorok",
     "region": "Unova",
-    "location": "Parada: Relic Castle (Sótano 2) | Relic Castle (Sótano 3)",
-    "method": "Cave / CaveX5",
+    "location": "Relic Castle (Sótano 2) | Relic Castle (Sótano 3)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 35% (Nv. 36 - 38)"
   },
   {
@@ -4427,8 +4427,8 @@
     "id": 554,
     "name": "Darumaka",
     "region": "Unova",
-    "location": "Parada: Desierto Complejo (Interior) | Desierto Complejo (Exterior)",
-    "method": "Grass",
+    "location": "Desierto Complejo (Interior) | Desierto Complejo (Exterior)",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 20% (Nv. 20 - 22)"
   },
   {
@@ -4443,64 +4443,64 @@
     "id": 556,
     "name": "Maractus",
     "region": "Unova",
-    "location": "Parada: Desierto Complejo (Exterior) | Desierto Complejo (Interior)",
-    "method": "Grass",
+    "location": "Desierto Complejo (Exterior) | Desierto Complejo (Interior)",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 20 - 22)"
   },
   {
     "id": 557,
     "name": "Dwebble",
     "region": "Unova",
-    "location": "Parada: Desierto Complejo (Exterior) | Desierto Complejo (Interior)",
-    "method": "Grass / GrassX3",
+    "location": "Desierto Complejo (Exterior) | Desierto Complejo (Interior)",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 20 - 22)"
   },
   {
     "id": 558,
     "name": "Crustle",
     "region": "Unova",
-    "location": "Parada: Relic Castle (Sótano 2) | Relic Castle (Sótano 3)",
-    "method": "Rocks / Dark Grass",
+    "location": "Relic Castle (Sótano 2) | Relic Castle (Sótano 3)",
+    "method": "Rocas / Pasto Oscuro",
     "hint": "Tasa de Aparición: 100% (Nv. 39 - 41)"
   },
   {
     "id": 559,
     "name": "Scraggy",
     "region": "Unova",
-    "location": "Parada: Desierto Complejo (Exterior) | P2 Laboratory",
-    "method": "Grass / Dark Grass",
+    "location": "Desierto Complejo (Exterior) | P2 Laboratory",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 10% (Nv. 19 - 21)"
   },
   {
     "id": 560,
     "name": "Scrafty",
     "region": "Unova",
-    "location": "Parada: Ruta 15 | Ruta 18",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 15 | Ruta 18",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% (Nv. 50 - 52)"
   },
   {
     "id": 561,
     "name": "Sigilyph",
     "region": "Unova",
-    "location": "Parada: Desierto Complejo (Interior) | Desierto Complejo (Exterior)",
-    "method": "Grass / GrassX3",
+    "location": "Desierto Complejo (Interior) | Desierto Complejo (Exterior)",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 21 - 22)"
   },
   {
     "id": 562,
     "name": "Yamask",
     "region": "Unova",
-    "location": "Parada: Relic Castle (Sótano 1) | Relic Castle (Piso 1)",
-    "method": "Cave / CaveX3",
+    "location": "Relic Castle (Sótano 1) | Relic Castle (Piso 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 50% (Nv. 23 - 24)"
   },
   {
     "id": 563,
     "name": "Cofagrigus",
     "region": "Unova",
-    "location": "Parada: Relic Castle (Depths) | Relic Castle (B6F)",
-    "method": "Cave / CaveX5",
+    "location": "Relic Castle (Depths) | Relic Castle (B6F)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 40% (Nv. 52 - 54)"
   },
   {
@@ -4539,24 +4539,24 @@
     "id": 568,
     "name": "Trubbish",
     "region": "Unova",
-    "location": "Parada: Ruta 4 | Ruta 5",
-    "method": "Grass / GrassX3",
+    "location": "Ruta 4 | Ruta 5",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 15% (Nv. 17 - 19)"
   },
   {
     "id": 569,
     "name": "Garbodor",
     "region": "Unova",
-    "location": "Parada: Ruta 9",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 9",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 10% (Nv. 36 - 37)"
   },
   {
     "id": 570,
     "name": "Zorua",
     "region": "Unova",
-    "location": "Parada: Lostlorn Bosque",
-    "method": "GrassX3",
+    "location": "Lostlorn Bosque",
+    "method": "PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 22 - 24)"
   },
   {
@@ -4571,96 +4571,96 @@
     "id": 572,
     "name": "Minccino",
     "region": "Unova",
-    "location": "Parada: Cold Storage | Ruta 4",
-    "method": "Grass / Dark Grass",
+    "location": "Cold Storage | Ruta 4",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 15% (Nv. 24 - 25)"
   },
   {
     "id": 573,
     "name": "Cinccino",
     "region": "Unova",
-    "location": "Parada: Cold Storage | Ruta 5",
-    "method": "Lure / Grass / Dark Grass",
+    "location": "Cold Storage | Ruta 5",
+    "method": "Señuelo / Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 50 - 52)"
   },
   {
     "id": 574,
     "name": "Gothita",
     "region": "Unova",
-    "location": "Parada: Ruta 5 | Ruta 16",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 5 | Ruta 16",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 15% (Nv. 22 - 23)"
   },
   {
     "id": 575,
     "name": "Gothorita",
     "region": "Unova",
-    "location": "Parada: Ruta 9",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 9",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 15% (Nv. 35 - 37)"
   },
   {
     "id": 576,
     "name": "Gothitelle",
     "region": "Unova",
-    "location": "Parada: Ruta 9",
-    "method": "Lure / Dark Grass",
+    "location": "Ruta 9",
+    "method": "Señuelo / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 43 - 44)"
   },
   {
     "id": 577,
     "name": "Solosis",
     "region": "Unova",
-    "location": "Parada: Ruta 5 | Ruta 16",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 5 | Ruta 16",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 25% (Nv. 22 - 23)"
   },
   {
     "id": 578,
     "name": "Duosion",
     "region": "Unova",
-    "location": "Parada: Ruta 9",
-    "method": "Grass / GrassX5",
+    "location": "Ruta 9",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 20% (Nv. 35 - 37)"
   },
   {
     "id": 579,
     "name": "Reuniclus",
     "region": "Unova",
-    "location": "Parada: Ruta 9 | Ruta 14",
-    "method": "Lure / Grass / Dark Grass",
+    "location": "Ruta 9 | Ruta 14",
+    "method": "Señuelo / Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 43 - 44)"
   },
   {
     "id": 580,
     "name": "Ducklett",
     "region": "Unova",
-    "location": "Parada: Chargestone Cueva | Cold Storage",
-    "method": "Shadow",
+    "location": "Chargestone Cueva | Cold Storage",
+    "method": "Sombra",
     "hint": "Tasa de Aparición: 10% (Nv. 50 - 52)"
   },
   {
     "id": 581,
     "name": "Swanna",
     "region": "Unova",
-    "location": "Parada: Abundant Shrine | Marvelous Puente",
-    "method": "Lure / Shadow / Grass",
+    "location": "Santuario Abundancia | Marvelous Puente",
+    "method": "Señuelo / Sombra / Pasto",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 50 - 52)"
   },
   {
     "id": 582,
     "name": "Vanillite",
     "region": "Unova",
-    "location": "Parada: Cold Storage | Ruta 6",
-    "method": "Grass / GrassX5",
+    "location": "Cold Storage | Ruta 6",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 40% (Nv. 24 - 25)"
   },
   {
     "id": 583,
     "name": "Vanillish",
     "region": "Unova",
-    "location": "Parada: Dragonspiral Torre (Entryway) | Dragonspiral Torre (Outside)",
-    "method": "Grass / GrassX5",
+    "location": "Dragonspiral Torre (Entryway) | Dragonspiral Torre (Outside)",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 20% (Nv. 35)"
   },
   {
@@ -4675,56 +4675,56 @@
     "id": 585,
     "name": "Deerling",
     "region": "Unova",
-    "location": "Parada: Dragonspiral Torre (Outside) | Dragonspiral Torre (Entryway)",
-    "method": "Grass / Dark Grass",
+    "location": "Dragonspiral Torre (Outside) | Dragonspiral Torre (Entryway)",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 30% (Nv. 32 - 34)"
   },
   {
     "id": 586,
     "name": "Sawsbuck",
     "region": "Unova",
-    "location": "Parada: Dragonspiral Torre (Outside) | Dragonspiral Torre (Entryway)",
-    "method": "Dark Grass / Dark GrassX5",
+    "location": "Dragonspiral Torre (Outside) | Dragonspiral Torre (Entryway)",
+    "method": "Pasto Oscuro / Pasto OscuroX",
     "hint": "Tasa de Aparición: 30% (Nv. 35 - 37)"
   },
   {
     "id": 587,
     "name": "Emolga",
     "region": "Unova",
-    "location": "Parada: Abundant Shrine | Dragonspiral Torre (Entryway)",
-    "method": "Grass",
+    "location": "Santuario Abundancia | Dragonspiral Torre (Entryway)",
+    "method": "Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 50 - 52)"
   },
   {
     "id": 588,
     "name": "Karrablast",
     "region": "Unova",
-    "location": "Parada: Ruta 6 | Ruta 11",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 6 | Ruta 11",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 15% (Nv. 24 - 25)"
   },
   {
     "id": 589,
     "name": "Escavalier",
     "region": "Unova",
-    "location": "Parada: Ruta 6 | Ruta 11",
-    "method": "Lure / Grass / Dark Grass",
+    "location": "Ruta 6 | Ruta 11",
+    "method": "Señuelo / Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 14 - 15)"
   },
   {
     "id": 590,
     "name": "Foongus",
     "region": "Unova",
-    "location": "Parada: Ruta 6 | Ruta 7",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 6 | Ruta 7",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 10% (Nv. 24 - 25)"
   },
   {
     "id": 591,
     "name": "Amoonguss",
     "region": "Unova",
-    "location": "Parada: Ruta 10 (Gate) | Ruta 10",
-    "method": "Dark Grass / Grass",
+    "location": "Ruta 10 (Gate) | Ruta 10",
+    "method": "Pasto Oscuro / Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 39 - 41)"
   },
   {
@@ -4747,16 +4747,16 @@
     "id": 594,
     "name": "Alomomola",
     "region": "Unova",
-    "location": "Parada: Driftveil Ciudad | P2 Laboratory",
-    "method": "Water",
+    "location": "Driftveil Ciudad | P2 Laboratory",
+    "method": "Agua",
     "hint": "Tasa de Aparición: 10% (Nv. 30 - 40)"
   },
   {
     "id": 595,
     "name": "Joltik",
     "region": "Unova",
-    "location": "Parada: Chargestone Cueva (Sótano 2) | Chargestone Cueva (Sótano 1)",
-    "method": "Cave",
+    "location": "Chargestone Cueva (Sótano 2) | Chargestone Cueva (Sótano 1)",
+    "method": "Cueva",
     "hint": "Tasa de Aparición: 15% (Nv. 27 - 29)"
   },
   {
@@ -4771,24 +4771,24 @@
     "id": 597,
     "name": "Ferroseed",
     "region": "Unova",
-    "location": "Parada: Chargestone Cueva (Piso 1) | Chargestone Cueva (Sótano 2)",
-    "method": "Cave",
+    "location": "Chargestone Cueva (Piso 1) | Chargestone Cueva (Sótano 2)",
+    "method": "Cueva",
     "hint": "Tasa de Aparición: 15% (Nv. 27 - 29)"
   },
   {
     "id": 598,
     "name": "Ferrothorn",
     "region": "Unova",
-    "location": "Parada: Challenger's Cueva (Sótano 2)",
-    "method": "Lure / Cave",
+    "location": "Challenger's Cueva (Sótano 2)",
+    "method": "Señuelo / Cueva",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 54 - 56)"
   },
   {
     "id": 599,
     "name": "Klink",
     "region": "Unova",
-    "location": "Parada: Chargestone Cueva (Piso 1) | Chargestone Cueva (Sótano 2)",
-    "method": "Cave / CaveX5",
+    "location": "Chargestone Cueva (Piso 1) | Chargestone Cueva (Sótano 2)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 25% (Nv. 27 - 29)"
   },
   {
@@ -4811,48 +4811,48 @@
     "id": 602,
     "name": "Tynamo",
     "region": "Unova",
-    "location": "Parada: Chargestone Cueva (Piso 1) | Chargestone Cueva (Sótano 1)",
-    "method": "Cave / CaveX5",
+    "location": "Chargestone Cueva (Piso 1) | Chargestone Cueva (Sótano 1)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 2.5% (Nv. 28 - 29)"
   },
   {
     "id": 603,
     "name": "Eelektrik",
     "region": "Unova",
-    "location": "Parada: Undella Pueblo",
-    "method": "Water",
+    "location": "Undella Pueblo",
+    "method": "Agua",
     "hint": "Tasa de Aparición: 10% (Nv. 25 - 30)"
   },
   {
     "id": 604,
     "name": "Eelektross",
     "region": "Unova",
-    "location": "Parada: Ruta 13 | Undella Bay",
-    "method": "Lure / Water",
+    "location": "Ruta 13 | Bahía Arenisca",
+    "method": "Señuelo / Agua",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 63 - 65)"
   },
   {
     "id": 605,
     "name": "Elgyem",
     "region": "Unova",
-    "location": "Parada: Celestial Torre (Piso 3) | Celestial Torre (Piso 4)",
-    "method": "Inside / Grass",
+    "location": "Celestial Torre (Piso 3) | Celestial Torre (Piso 4)",
+    "method": "Interior / Pasto",
     "hint": "Tasa de Aparición: 25% (Nv. 29 - 31)"
   },
   {
     "id": 606,
     "name": "Beheeyem",
     "region": "Unova",
-    "location": "Parada: Ruta 14",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 14",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 10% (Nv. 54 - 56)"
   },
   {
     "id": 607,
     "name": "Litwick",
     "region": "Unova",
-    "location": "Parada: Celestial Torre (Rooftop) | Celestial Torre (Piso 4)",
-    "method": "Grass / Inside",
+    "location": "Celestial Torre (Rooftop) | Celestial Torre (Piso 4)",
+    "method": "Pasto / Interior",
     "hint": "Tasa de Aparición: 30% (Nv. 29 - 31)"
   },
   {
@@ -4875,16 +4875,16 @@
     "id": 610,
     "name": "Axew",
     "region": "Unova",
-    "location": "Parada: Guidance Chamber | Mistralton Cueva (Piso 2)",
-    "method": "Cave",
+    "location": "Guidance Chamber | Mistralton Cueva (Piso 2)",
+    "method": "Cueva",
     "hint": "Tasa de Aparición: 10% (Nv. 32 - 34)"
   },
   {
     "id": 611,
     "name": "Fraxure",
     "region": "Unova",
-    "location": "Parada: Mistralton Cueva (Piso 2) | Mistralton Cueva (Piso 1)",
-    "method": "Dust Cloud / Grass",
+    "location": "Mistralton Cueva (Piso 2) | Mistralton Cueva (Piso 1)",
+    "method": "Nube de Polvo / Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 42 - 44)"
   },
   {
@@ -4899,80 +4899,80 @@
     "id": 613,
     "name": "Cubchoo",
     "region": "Unova",
-    "location": "Parada: Dragonspiral Torre (Entryway) | Dragonspiral Torre (Outside)",
-    "method": "Grass / GrassX5",
+    "location": "Dragonspiral Torre (Entryway) | Dragonspiral Torre (Outside)",
+    "method": "Pasto / PastoX",
     "hint": "Tasa de Aparición: 10% (Nv. 33 - 35)"
   },
   {
     "id": 614,
     "name": "Beartic",
     "region": "Unova",
-    "location": "Parada: Dragonspiral Torre (Entryway) | Dragonspiral Torre (Outside)",
-    "method": "Dark Grass / Dark GrassX5",
+    "location": "Dragonspiral Torre (Entryway) | Dragonspiral Torre (Outside)",
+    "method": "Pasto Oscuro / Pasto OscuroX",
     "hint": "Tasa de Aparición: 10% (Nv. 37 - 38)"
   },
   {
     "id": 615,
     "name": "Cryogonal",
     "region": "Unova",
-    "location": "Parada: Twist Montaña (Túnel) | Twist Montaña (Cold Room)",
-    "method": "Cave / CaveX5",
+    "location": "Twist Montaña (Túnel) | Twist Montaña (Cold Room)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 10% (Nv. 32 - 33)"
   },
   {
     "id": 616,
     "name": "Shelmet",
     "region": "Unova",
-    "location": "Parada: Ruta 6 | Ruta 11",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 6 | Ruta 11",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 10% (Nv. 24 - 25)"
   },
   {
     "id": 617,
     "name": "Accelgor",
     "region": "Unova",
-    "location": "Parada: Ruta 6",
-    "method": "Lure / Dark Grass",
+    "location": "Ruta 6",
+    "method": "Señuelo / Pasto Oscuro",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 14 - 15)"
   },
   {
     "id": 618,
     "name": "Stunfisk",
     "region": "Unova",
-    "location": "Parada: Icirrus Ciudad | Moor Of Icirrus",
-    "method": "Water / Super Rod",
+    "location": "Icirrus Ciudad | Moor Of Icirrus",
+    "method": "Agua / Súper Caña",
     "hint": "Tasa de Aparición: 65% (Nv. 32 - 34)"
   },
   {
     "id": 619,
     "name": "Mienfoo",
     "region": "Unova",
-    "location": "Parada: Dragonspiral Torre (Entryway) | Dragonspiral Torre (Outside)",
-    "method": "Grass / Inside",
+    "location": "Dragonspiral Torre (Entryway) | Dragonspiral Torre (Outside)",
+    "method": "Pasto / Interior",
     "hint": "Tasa de Aparición: 20% (Nv. 33 - 35)"
   },
   {
     "id": 620,
     "name": "Mienshao",
     "region": "Unova",
-    "location": "Parada: Ruta 14",
-    "method": "Dark Grass / Dark GrassX5",
+    "location": "Ruta 14",
+    "method": "Pasto Oscuro / Pasto OscuroX",
     "hint": "Tasa de Aparición: 15% (Nv. 54 - 56)"
   },
   {
     "id": 621,
     "name": "Druddigon",
     "region": "Unova",
-    "location": "Parada: Dragonspiral Torre (Entryway) | Dragonspiral Torre (Piso 1)",
-    "method": "Grass / Inside",
+    "location": "Dragonspiral Torre (Entryway) | Dragonspiral Torre (Piso 1)",
+    "method": "Pasto / Interior",
     "hint": "Tasa de Aparición: 5% (Nv. 33 - 35)"
   },
   {
     "id": 622,
     "name": "Golett",
     "region": "Unova",
-    "location": "Parada: Dragonspiral Torre (Piso 1) | Dragonspiral Torre (Piso 2)",
-    "method": "Inside / InsideX5",
+    "location": "Dragonspiral Torre (Piso 1) | Dragonspiral Torre (Piso 2)",
+    "method": "Interior / InteriorX",
     "hint": "Tasa de Aparición: 50% (Nv. 34 - 36)"
   },
   {
@@ -4987,80 +4987,80 @@
     "id": 624,
     "name": "Pawniard",
     "region": "Unova",
-    "location": "Parada: Ruta 9 | Ruta 11",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 9 | Ruta 11",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 15% (Nv. 35 - 37)"
   },
   {
     "id": 625,
     "name": "Bisharp",
     "region": "Unova",
-    "location": "Parada: Ruta 11",
-    "method": "Dark Grass",
+    "location": "Ruta 11",
+    "method": "Pasto Oscuro",
     "hint": "Tasa de Aparición: 10% (Nv. 54 - 55)"
   },
   {
     "id": 626,
     "name": "Bouffalant",
     "region": "Unova",
-    "location": "Parada: Ruta 10 (Gate) | Ruta 10",
-    "method": "Grass / Dark Grass",
+    "location": "Ruta 10 (Gate) | Ruta 10",
+    "method": "Pasto / Pasto Oscuro",
     "hint": "Tasa de Aparición: 20% (Nv. 36 - 38)"
   },
   {
     "id": 627,
     "name": "Rufflet",
     "region": "Unova",
-    "location": "Parada: Desierto Complejo (Interior) | Desierto Complejo (Exterior)",
-    "method": "Shadow / Grass",
+    "location": "Desierto Complejo (Interior) | Desierto Complejo (Exterior)",
+    "method": "Sombra / Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 36 - 38)"
   },
   {
     "id": 628,
     "name": "Braviary",
     "region": "Unova",
-    "location": "Parada: Ruta 11 | Ruta 12",
-    "method": "Dark Grass / Shadow",
+    "location": "Ruta 11 | Ruta 12",
+    "method": "Pasto Oscuro / Sombra",
     "hint": "Tasa de Aparición: 5% (Nv. 54 - 55)"
   },
   {
     "id": 629,
     "name": "Vullaby",
     "region": "Unova",
-    "location": "Parada: Desierto Complejo (Interior) | Desierto Complejo (Exterior)",
-    "method": "Shadow / Grass",
+    "location": "Desierto Complejo (Interior) | Desierto Complejo (Exterior)",
+    "method": "Sombra / Pasto",
     "hint": "Tasa de Aparición: 10% (Nv. 36 - 38)"
   },
   {
     "id": 630,
     "name": "Mandibuzz",
     "region": "Unova",
-    "location": "Parada: Ruta 11 | Ruta 12",
-    "method": "Dark Grass / Shadow",
+    "location": "Ruta 11 | Ruta 12",
+    "method": "Pasto Oscuro / Sombra",
     "hint": "Tasa de Aparición: 5% (Nv. 54 - 55)"
   },
   {
     "id": 631,
     "name": "Heatmor",
     "region": "Unova",
-    "location": "Parada: Twist Montaña (Túnel) | Twist Montaña (Cold Room)",
-    "method": "Cave / Grass",
+    "location": "Twist Montaña (Túnel) | Twist Montaña (Cold Room)",
+    "method": "Cueva / Pasto",
     "hint": "Tasa de Aparición: 5% (Nv. 32 - 33)"
   },
   {
     "id": 632,
     "name": "Durant",
     "region": "Unova",
-    "location": "Parada: Trial Chamber | Twist Montaña (Cold Room)",
-    "method": "Cave / CaveX5",
+    "location": "Trial Chamber | Twist Montaña (Cold Room)",
+    "method": "Cueva / CuevaX",
     "hint": "Tasa de Aparición: 15% (Nv. 44 - 46)"
   },
   {
     "id": 633,
     "name": "Deino",
     "region": "Unova",
-    "location": "Parada: Calle Victoria (Piso 1)",
-    "method": "Cave",
+    "location": "Calle Victoria (Piso 1)",
+    "method": "Cueva",
     "hint": "Tasa de Aparición: 10% (Nv. 43 - 45)"
   },
   {
@@ -5075,16 +5075,16 @@
     "id": 635,
     "name": "Hydreigon",
     "region": "Unova",
-    "location": "Parada: Ruta 15",
-    "method": "Lure / Shadow",
+    "location": "Ruta 15",
+    "method": "Señuelo / Sombra",
     "hint": "Tasa de Aparición: 5% Señuelo (Nv. 51 - 53)"
   },
   {
     "id": 636,
     "name": "Larvesta",
     "region": "Unova",
-    "location": "Parada: Relic Castle (Depths) | Relic Castle (B6F)",
-    "method": "Cave",
+    "location": "Relic Castle (Depths) | Relic Castle (B6F)",
+    "method": "Cueva",
     "hint": "Tasa de Aparición: 2.5% (Nv. 52 - 54)"
   },
   {

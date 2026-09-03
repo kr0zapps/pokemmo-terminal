@@ -16,15 +16,15 @@ export function renderPokédexView() {
                 <div>
                     <div class="flex items-center gap-2.5">
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/town-map.png" class="w-7 h-7 pokemon-sprite">
-                        <span class="text-xl font-chicago font-bold text-[#1C1C17] dark:text-[#F4F1E8]">Radar Pokédex</span>
+                        <span class="text-xl font-tech font-bold text-[#1C1C17] dark:text-[#F4F1E8]">Radar Pokédex</span>
                         <span class="text-[13px] font-tech uppercase bg-[#FFDF92] dark:bg-[#473200] border border-[#755B00]/40 text-[#5C3800] dark:text-[#FFDF92] px-2 py-0.5 rounded font-bold">Rutas de Encuentro</span>
                     </div>
-                    <p class="text-xs text-[#5F5A4D] dark:text-[#A8A594] mt-1 font-mono">Ruteo geográfico secuencial y optimización de captura salvaje por región.</p>
+                    <p class="text-[13px] text-[#5F5A4D] dark:text-[#A8A594] mt-1 font-sans">Ruteo geográfico secuencial y optimización de captura salvaje por región.</p>
                 </div>
                 <div class="flex flex-wrap items-center gap-2">
-                    <button onclick="window.pokedex.openCaughtModal()" class="border-2 border-[#2B2B2B] dark:border-[#35352E] bg-[#FAF8F2] dark:bg-[#242420] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] px-3.5 py-1.5 text-xs font-tech font-bold transition flex items-center gap-2 rounded-lg shadow-sm cursor-pointer">
+                    <button onclick="window.pokedex.openCaughtModal()" class="border-2 border-[#2B2B2B] dark:border-[#35352E] bg-[#FAF8F2] dark:bg-[#242420] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] px-3.5 py-1.5 text-[13px] font-tech font-bold transition flex items-center gap-2 rounded-lg shadow-sm cursor-pointer">
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" class="w-4 h-4 pixelated">
-                        <span>Capturados (<strong id="btnCaughtCount" class="tabular-nums text-[#1B5E20] dark:text-[#C3F400]">0</strong>)</span>
+                        <span>Capturados (<strong id="btnCaughtCount" class="tabular-nums text-[#10B981] dark:text-[#10B981]">0</strong>)</span>
                     </button>
                 </div>
             </div>
@@ -33,59 +33,70 @@ export function renderPokédexView() {
                 <!-- Pestañas de Región -->
                 <div class="flex flex-wrap items-center justify-between gap-4">
                     <div id="regiónTabs" class="flex gap-1.5 overflow-x-auto pb-1 bg-[#EDE8DC] dark:bg-[#242420] border-2 border-[#2B2B2B] dark:border-[#35352E] p-1 rounded-xl">
-                        <button onclick="window.pokedex.setRegion('Kanto')" id="reg-Kanto" class="px-3.5 py-1.5 text-xs font-tech font-bold uppercase tracking-wider bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] rounded-lg border border-[#2B2B2B] dark:border-[#35352E] shadow-sm transition cursor-pointer">Kanto</button>
-                        <button onclick="window.pokedex.setRegion('Johto')" id="reg-Johto" class="px-3.5 py-1.5 text-xs font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer">Johto</button>
-                        <button onclick="window.pokedex.setRegion('Hoenn')" id="reg-Hoenn" class="px-3.5 py-1.5 text-xs font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer">Hoenn</button>
-                        <button onclick="window.pokedex.setRegion('Sinnoh')" id="reg-Sinnoh" class="px-3.5 py-1.5 text-xs font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer">Sinnoh</button>
-                        <button onclick="window.pokedex.setRegion('Unova')" id="reg-Unova" class="px-3.5 py-1.5 text-xs font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer">Teselia</button>
-                        <button onclick="window.pokedex.setRegion('all')" id="reg-all" class="px-3.5 py-1.5 text-xs font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer">Todas</button>
+                        <button onclick="window.pokedex.setRegion('Kanto')" id="reg-Kanto" class="px-3.5 py-1.5 text-[13px] font-tech font-bold uppercase tracking-wider bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] rounded-lg border border-[#2B2B2B] dark:border-[#35352E] shadow-sm transition cursor-pointer">Kanto</button>
+                        <button onclick="window.pokedex.setRegion('Johto')" id="reg-Johto" class="px-3.5 py-1.5 text-[13px] font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer">Johto</button>
+                        <button onclick="window.pokedex.setRegion('Hoenn')" id="reg-Hoenn" class="px-3.5 py-1.5 text-[13px] font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer">Hoenn</button>
+                        <button onclick="window.pokedex.setRegion('Sinnoh')" id="reg-Sinnoh" class="px-3.5 py-1.5 text-[13px] font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer">Sinnoh</button>
+                        <button onclick="window.pokedex.setRegion('Unova')" id="reg-Unova" class="px-3.5 py-1.5 text-[13px] font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer">Teselia</button>
+                        <button onclick="window.pokedex.setRegion('all')" id="reg-all" class="px-3.5 py-1.5 text-[13px] font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer">Todas</button>
                     </div>
                     
                     <div class="flex flex-wrap items-center gap-3">
-                        <label class="flex items-center gap-1.5 text-xs text-os-muted cursor-pointer select-none">
-                            <input type="checkbox" id="hideCaught" onchange="window.pokedex.renderDexResults(true)" class="w-4 h-4 accent-os-blue">
+                        <label class="flex items-center gap-1.5 text-[13px] text-[#5F5A4D] dark:text-[#A8A594] cursor-pointer select-none font-sans">
+                            <input type="checkbox" id="hideCaught" onchange="window.pokedex.renderDexResults(true)" class="w-4 h-4 accent-[#2563EB]">
                             Ocultar Capturados
                         </label>
-                        <label class="flex items-center gap-1.5 text-xs text-os-muted cursor-pointer select-none" title="Si ya capturaste una evolución superior, oculta sus formas previas">
-                            <input type="checkbox" id="hidePreEvos" onchange="window.pokedex.renderDexResults(true)" class="w-4 h-4 accent-os-blue">
+                        <label class="flex items-center gap-1.5 text-[13px] text-[#5F5A4D] dark:text-[#A8A594] cursor-pointer select-none font-sans" title="Si ya capturaste una evolución superior, oculta sus formas previas">
+                            <input type="checkbox" id="hidePreEvos" onchange="window.pokedex.renderDexResults(true)" class="w-4 h-4 accent-[#2563EB]">
                             Ocultar Pre-evoluciones
                         </label>
-                        <label class="flex items-center gap-1.5 text-xs text-os-muted cursor-pointer select-none" title="Si ya capturaste la pre-evolución, oculta sus evoluciones para enfocarte en capturables fáciles">
-                            <input type="checkbox" id="hidePostEvos" onchange="window.pokedex.renderDexResults(true)" class="w-4 h-4 accent-os-blue">
+                        <label class="flex items-center gap-1.5 text-[13px] text-[#5F5A4D] dark:text-[#A8A594] cursor-pointer select-none font-sans" title="Si ya capturaste la pre-evolución, oculta sus evoluciones para enfocarte en capturables fáciles">
+                            <input type="checkbox" id="hidePostEvos" onchange="window.pokedex.renderDexResults(true)" class="w-4 h-4 accent-[#2563EB]">
                             Ocultar Post-evoluciones
                         </label>
-                        <label class="flex items-center gap-1.5 text-xs text-os-muted cursor-pointer select-none">
-                            <input type="checkbox" id="hideUnassigned" checked onchange="window.pokedex.renderDexResults(true)" class="w-4 h-4 accent-os-blue">
+                        <label class="flex items-center gap-1.5 text-[13px] text-[#5F5A4D] dark:text-[#A8A594] cursor-pointer select-none font-sans">
+                            <input type="checkbox" id="hideUnassigned" checked onchange="window.pokedex.renderDexResults(true)" class="w-4 h-4 accent-[#2563EB]">
                             Solo con Ruta
                         </label>
                     </div>
                 </div>
 
-                <!-- Progress Bar -->
-                <div class="panel p-3 flex items-center gap-4">
-                    <div class="text-[13px] font-mono text-os-muted w-36 uppercase tracking-widest">Progreso Región: <span id="dexProgressText" class="text-os-green font-bold text-xs ml-1">0 / 0</span></div>
-                    <div class="flex-grow bg-os-bg h-1.5 rounded-full overflow-hidden border border-os-border">
-                        <div id="dexProgressBar" class="bg-os-green h-full w-0 transition-all duration-500 shadow-[0_0_8px_#10B981]"></div>
+                <!-- Barra de Progreso de Despeje Regional Estilo Táctico Hardware (Consistente con Terminal) -->
+                <div class="w-full bg-[#FAF8F2] dark:bg-[#242420] border-2 border-[#2B2B2B] dark:border-[#35352E] rounded-xl p-3 md:p-4 shadow-[2px_3px_0px_#2B2B2B] dark:shadow-[2px_3px_0px_#000] flex flex-col gap-2.5 transition-colors">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="font-tech font-bold text-[13px] uppercase text-[#1C1C17] dark:text-[#F4F1E8] tracking-wide">Despeje de Capturas Regional</span>
+                            <span class="font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">(Registro Pokédex)</span>
+                        </div>
+                        <div class="flex items-center gap-2 font-mono text-[13px] font-bold">
+                            <span class="text-[#5F5A4D] dark:text-[#A8A594]">Objetivos completados:</span>
+                            <span id="dexProgressText" class="text-[#10B981] dark:text-[#10B981] font-black">0 / 0</span>
+                        </div>
+                    </div>
+                    <div class="h-6 w-full bg-[#181816] rounded-md p-0.5 border border-[#333] relative overflow-hidden flex items-center shadow-inner">
+                        <div id="dexProgressBar" class="h-full w-0 bg-gradient-to-r from-[#10B981] via-[#CDF14B] to-[#FFC800] rounded-l flex items-center justify-end pr-2 transition-all duration-500 shadow-[inset_0_2px_0_rgba(255,255,255,0.6)]">
+                            <span id="dexProgressPct" class="font-lcd text-xs font-black tracking-wider text-[#181816] drop-shadow-sm">0%</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- TOOLBAR: Buscador, Ordenador y Filtro de Horario estilo PokéMMO -->
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-3 bg-os-panel border border-os-border p-3 rounded-xl">
+                <!-- TOOLBAR: Buscador, Ordenador y Filtro de Horario estilo Táctico PokéMMO -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-3 bg-[#FAF8F2] dark:bg-[#242420] border-2 border-[#2B2B2B] dark:border-[#35352E] p-3.5 rounded-xl shadow-[2px_3px_0px_#2B2B2B] dark:shadow-[2px_3px_0px_#000]">
                     <div class="md:col-span-2 relative">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-os-muted">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#5F5A4D] dark:text-[#A8A594]">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                         </div>
-                        <input type="text" id="dexSearch" placeholder="Buscar Pokémon, Ruta (ej. Ruta 7) o Método..." oninput="window.pokedex.renderDexResults(true)" class="w-full pl-9 pr-3 py-2 text-xs bg-os-bg border border-os-border text-os-text rounded-lg focus:border-os-blue outline-none font-mono">
+                        <input type="text" id="dexSearch" placeholder="Buscar Pokémon, Ruta (ej. Ruta 7) o Método..." oninput="window.pokedex.renderDexResults(true)" class="w-full pl-9 pr-3 py-2 text-[13px] bg-[#EDE8DC] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] rounded-lg focus:border-[#FFC800] outline-none font-sans">
                     </div>
                     <div>
-                        <select id="dexSort" onchange="window.pokedex.renderDexResults(true)" class="w-full py-2 px-3 text-xs bg-os-bg border border-os-border text-os-text rounded-lg cursor-pointer font-mono">
+                        <select id="dexSort" onchange="window.pokedex.renderDexResults(true)" class="w-full py-2 px-3 text-[13px] bg-[#EDE8DC] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] rounded-lg cursor-pointer font-sans">
                             <option value="rate_desc" selected>Probabilidad (%)</option>
                             <option value="id_asc">N° Pokédex (#1 - #649)</option>
                             <option value="name_asc">Nombre (A - Z)</option>
                         </select>
                     </div>
                     <div>
-                        <select id="dexTimeFilter" onchange="window.pokedex.renderDexResults(true)" class="w-full py-2 px-3 text-xs bg-os-bg border border-os-border text-os-text rounded-lg cursor-pointer font-mono">
+                        <select id="dexTimeFilter" onchange="window.pokedex.renderDexResults(true)" class="w-full py-2 px-3 text-[13px] bg-[#EDE8DC] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] rounded-lg cursor-pointer font-sans">
                             <option value="all" selected>Horario: Todos</option>
                             <option value="morning">Mañana (04:00 - 10:00)</option>
                             <option value="day">Día (10:00 - 20:00)</option>
@@ -107,42 +118,42 @@ export function renderPokédexView() {
 export function renderCaughtModal() {
     return `
     <!-- MODAL: VENTANA DE POKÉMON CAPTURADOS -->
-    <div id="caughtModal" class="fixed inset-0 bg-[#090A0F]/95 hidden items-center justify-center z-50 p-4 backdrop-blur-md">
-        <div class="panel p-6 w-full max-w-4xl max-h-[90vh] flex flex-col border border-os-border shadow-2xl relative overflow-hidden rounded-2xl">
+    <div id="caughtModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4 backdrop-blur-sm">
+        <div class="bg-[#FAF8F2] dark:bg-[#242420] border-2 border-[#2B2B2B] dark:border-[#35352E] p-6 w-full max-w-4xl max-h-[90vh] flex flex-col shadow-[6px_8px_0px_#2B2B2B] dark:shadow-[6px_8px_0px_#000] relative overflow-hidden rounded-2xl">
             <!-- Header -->
-            <div class="flex flex-wrap items-center justify-between border-b border-os-border pb-4 mb-4 gap-3">
+            <div class="flex flex-wrap items-center justify-between border-b-2 border-[#2B2B2B] dark:border-[#35352E] pb-4 mb-4 gap-3">
                 <div class="flex items-center gap-3">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" class="w-7 h-7 pixelated" alt="Pokeball">
                     <div>
-                        <h2 class="text-base font-bold text-os-text flex items-center gap-2">
+                        <h2 class="text-lg font-tech font-bold text-[#1C1C17] dark:text-[#F4F1E8] flex items-center gap-2">
                             Registro de Capturas
                         </h2>
-                        <p class="text-xs font-mono text-os-muted">
-                            <span id="caughtSummaryText" class="text-os-green font-bold">0</span> de <span id="caughtTotalText">649</span> registrados (<span id="caughtPercentText" class="text-os-blue font-bold">0%</span> de la Pokédex Nacional)
+                        <p class="text-[13px] font-mono text-[#5F5A4D] dark:text-[#A8A594]">
+                            <span id="caughtSummaryText" class="text-[#10B981] font-black">0</span> de <span id="caughtTotalText">649</span> registrados (<span id="caughtPercentText" class="text-[#2563EB] dark:text-[#60A5FA] font-bold">0%</span> de la Pokédex Nacional)
                         </p>
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="window.pokedex.exportCaughtOnly()" class="border border-os-blue/40 text-os-blue hover:bg-os-blue hover:text-black px-3 py-1.5 text-xs font-mono uppercase transition rounded-lg flex items-center gap-1.5 cursor-pointer" title="Descargar solo el JSON de tus capturas">
+                    <button onclick="window.pokedex.exportCaughtOnly()" class="bg-[#EDE8DC] dark:bg-[#2E2E27] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#2563EB] px-3.5 py-1.5 text-[13px] font-tech font-bold uppercase transition rounded-lg flex items-center gap-1.5 cursor-pointer shadow-sm" title="Descargar solo el JSON de tus capturas">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                         <span>Exportar JSON</span>
                     </button>
-                    <button onclick="window.pokedex.copyCaughtListText()" class="border border-os-border hover:border-os-muted text-os-muted hover:text-white px-3 py-1.5 text-xs font-mono uppercase transition rounded-lg flex items-center gap-1.5 cursor-pointer" title="Copiar nombres al portapapeles">
+                    <button onclick="window.pokedex.copyCaughtListText()" class="bg-[#EDE8DC] dark:bg-[#2E2E27] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] px-3.5 py-1.5 text-[13px] font-tech font-bold uppercase transition rounded-lg flex items-center gap-1.5 cursor-pointer shadow-sm" title="Copiar nombres al portapapeles">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
                         <span>Copiar Lista</span>
                     </button>
-                    <button onclick="window.pokedex.closeCaughtModal()" class="text-os-muted hover:text-white p-1 rounded-md transition flex items-center justify-center cursor-pointer" title="Cerrar">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    <button onclick="window.pokedex.closeCaughtModal()" class="text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] p-1.5 rounded-lg transition flex items-center justify-center cursor-pointer" title="Cerrar">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                     </button>
                 </div>
             </div>
 
             <!-- Toolbar de Filtro dentro del modal -->
             <div class="mb-4 relative">
-                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-os-muted">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#5F5A4D] dark:text-[#A8A594]">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </div>
-                <input type="text" id="caughtSearchInput" placeholder="Filtrar capturas por nombre, número o región..." oninput="window.pokedex.renderCaughtGrid()" class="w-full pl-9 pr-3 py-2.5 text-xs bg-os-bg border border-os-border text-os-text rounded-lg focus:border-os-blue outline-none font-mono">
+                <input type="text" id="caughtSearchInput" placeholder="Filtrar capturas por nombre, número o región..." oninput="window.pokedex.renderCaughtGrid()" class="w-full pl-9 pr-3 py-2.5 text-[13px] bg-[#EDE8DC] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] rounded-lg focus:border-[#FFC800] outline-none font-sans">
             </div>
 
             <!-- Grid de Pokémon Capturados con Scroll -->
@@ -151,9 +162,9 @@ export function renderCaughtModal() {
             </div>
 
             <!-- Footer con Botón Cerrar -->
-            <div class="flex justify-between items-center mt-4 pt-3 border-t border-os-border">
-                <span class="text-[13px] font-mono text-os-muted">Toca "Liberar" en cualquier Pokémon para devolverlo a tu lista de búsqueda.</span>
-                <button onclick="window.pokedex.closeCaughtModal()" class="px-5 py-2 text-xs font-mono uppercase bg-os-panel border border-os-border hover:border-os-blue text-os-text hover:text-os-blue transition rounded-sm">
+            <div class="flex justify-between items-center mt-4 pt-3 border-t-2 border-[#2B2B2B] dark:border-[#35352E]">
+                <span class="text-[13px] font-mono text-[#5F5A4D] dark:text-[#A8A594]">Toca "Liberar" en cualquier Pokémon para devolverlo a tu lista de búsqueda.</span>
+                <button onclick="window.pokedex.closeCaughtModal()" class="px-5 py-2 text-[13px] font-tech font-bold uppercase bg-[#EDE8DC] dark:bg-[#2E2E27] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] transition rounded-lg cursor-pointer shadow-sm">
                     Cerrar
                 </button>
             </div>
@@ -265,10 +276,12 @@ export function updateDexProgress() {
     
     const pText = document.getElementById('dexProgressText');
     const pBar = document.getElementById('dexProgressBar');
+    const pPct = document.getElementById('dexProgressPct');
     const btnCount = document.getElementById('btnCaughtCount');
     
-    if (pText) pText.innerText = `${caught}/${total}`;
+    if (pText) pText.innerText = `${caught} / ${total}`;
     if (pBar) pBar.style.width = `${pct}%`;
+    if (pPct) pPct.innerText = `${pct}%`;
     if (btnCount) btnCount.innerText = dexCaughtList.length;
 }
 
@@ -318,7 +331,7 @@ export function renderCaughtGrid() {
 
     if (caughtMons.length === 0) {
         container.innerHTML = `
-            <div class="col-span-full py-12 text-center text-os-muted font-mono text-xs">
+            <div class="col-span-full py-12 text-center text-[#5F5A4D] dark:text-[#A8A594] font-sans text-[13px]">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" class="w-10 h-10 pixelated mx-auto mb-2 opacity-20">
                 ${dexCaughtList.length === 0 ? 'Aún no has marcado ningún Pokémon como capturado.' : 'No se encontraron capturas con ese filtro.'}
             </div>
@@ -332,15 +345,15 @@ export function renderCaughtGrid() {
     caughtMons.forEach(p => {
         const spriteUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`;
         html += `
-            <div class="bg-os-bg border border-os-border/70 hover:border-os-green/50 p-2.5 rounded-sm flex flex-col items-center justify-between text-center transition group">
-                <div class="w-full flex justify-between items-center text-[13px] font-mono text-os-muted">
+            <div class="bg-[#EDE8DC] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#10B981] p-3 rounded-xl flex flex-col items-center justify-between text-center transition group shadow-sm">
+                <div class="w-full flex justify-between items-center text-[13px] font-mono text-[#5F5A4D] dark:text-[#A8A594]">
                     <span>#${p.id.toString().padStart(3, '0')}</span>
-                    <span class="text-os-blue">${p.region}</span>
+                    <span class="text-[#2563EB] dark:text-[#60A5FA] font-bold">${p.region}</span>
                 </div>
                 <img src="${spriteUrl}" class="w-14 h-14 pixelated object-contain group-hover:scale-110 transition-transform my-1" onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'">
-                <span class="font-bold text-xs text-os-text truncate w-full mb-1">${p.name}</span>
-                <button onclick="window.pokedex.uncatchFromModal(${p.id})" class="w-full text-[13px] font-mono py-1 px-1.5 bg-os-panel border border-os-border text-os-muted hover:text-os-red hover:border-os-red/40 transition rounded-md flex items-center justify-center gap-1 cursor-pointer" title="Desmarcar y volver a buscar">
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                <span class="font-sans font-bold text-[13px] text-[#1C1C17] dark:text-[#F4F1E8] truncate w-full mb-1.5">${p.name}</span>
+                <button onclick="window.pokedex.uncatchFromModal(${p.id})" class="w-full text-[13px] font-tech font-bold uppercase py-1 px-1.5 bg-[#FAF8F2] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E] text-[#7A131C] dark:text-[#FFB4AB] hover:bg-[#E63946] hover:text-white transition rounded-lg flex items-center justify-center gap-1 cursor-pointer shadow-sm" title="Desmarcar y volver a buscar">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                     <span>Liberar</span>
                 </button>
             </div>
@@ -390,7 +403,7 @@ export function setRegion(region) {
         if(r === region) {
             btn.className = "px-3.5 py-1.5 text-xs font-tech font-bold uppercase tracking-wider bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] rounded-lg border border-[#2B2B2B] dark:border-[#35352E] shadow-sm transition cursor-pointer";
         } else {
-            btn.className = "px-3.5 py-1.5 text-xs font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer";
+            btn.className = "px-3.5 py-1.5 text-[13px] font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer";
         }
     });
     dexCurrentPage = 1;
@@ -404,10 +417,69 @@ export function changeDexPage(delta) {
     window.scrollTo({ top: 150, behavior: 'smooth' });
 }
 
+export function translateMethod(m) {
+    if (!m) return 'Pasto';
+    return m
+        .replace(/\bSuper Rod\b/gi, 'Súper Caña')
+        .replace(/\bGood Rod\b/gi, 'Buena Caña')
+        .replace(/\bOld Rod\b/gi, 'Caña Vieja')
+        .replace(/Dark GrassX(\d+)/gi, 'Pasto OscuroX$1')
+        .replace(/\bDark Grass\b/gi, 'Pasto Oscuro')
+        .replace(/\bHoney Tree\b/gi, 'Árbol de Miel')
+        .replace(/Sweet ScentX(\d+)/gi, 'Dulce AromaX$1')
+        .replace(/\bSweet Scent\b/gi, 'Dulce Aroma')
+        .replace(/\bDust Cloud\b/gi, 'Nube de Polvo')
+        .replace(/GrassX(\d+)/gi, 'PastoX$1')
+        .replace(/\bGrass\b/gi, 'Pasto')
+        .replace(/CaveX(\d+)/gi, 'CuevaX$1')
+        .replace(/\bCave\b/gi, 'Cueva')
+        .replace(/RocksX(\d+)/gi, 'RocasX$1')
+        .replace(/\bRocks\b/gi, 'Rocas')
+        .replace(/WaterX(\d+)/gi, 'AguaX$1')
+        .replace(/\bWater\b/gi, 'Agua')
+        .replace(/InsideX(\d+)/gi, 'InteriorX$1')
+        .replace(/\bInside\b/gi, 'Interior')
+        .replace(/\bHeadbutt\b/gi, 'Golpe Cabeza')
+        .replace(/\bShadow\b/gi, 'Sombra')
+        .replace(/\bFishing\b/gi, 'Pesca')
+        .replace(/\bLure\b/gi, 'Señuelo')
+        .replace(/\bTree\b/gi, 'Árbol');
+}
+
+export function translateLocation(loc) {
+    if (!loc) return 'Sin Ruta';
+    return loc
+        .replace('Parada: ', '')
+        .replace(/\(Northeast Area\)/gi, '(Área Noreste)')
+        .replace(/\(Northwest Area\)/gi, '(Área Noroeste)')
+        .replace(/\(Southeast Area\)/gi, '(Área Sureste)')
+        .replace(/\(Southwest Area\)/gi, '(Área Suroeste)')
+        .replace(/\(North Area\)/gi, '(Área Norte)')
+        .replace(/\(South Area\)/gi, '(Área Sur)')
+        .replace(/\(East Area\)/gi, '(Área Este)')
+        .replace(/\(West Area\)/gi, '(Área Oeste)')
+        .replace(/\(Center Area\)/gi, '(Área Central)')
+        .replace(/\(Central Area\)/gi, '(Área Central)')
+        .replace(/\(Area (\d+)\)/gi, '(Área $1)')
+        .replace(/\(North\)/gi, '(Norte)')
+        .replace(/\(South\)/gi, '(Sur)')
+        .replace(/\(East\)/gi, '(Este)')
+        .replace(/\(West\)/gi, '(Oeste)')
+        .replace(/Abundant Shrine/gi, 'Santuario Abundancia')
+        .replace(/Cherrygrove Ciudad/gi, 'Ciudad Cerezo')
+        .replace(/Cianwood Ciudad/gi, 'Ciudad Orquídea')
+        .replace(/Dark Cueva/gi, 'Cueva Oscura')
+        .replace(/Great Marsh/gi, 'Gran Pantanal')
+        .replace(/Complejo Area/gi, 'Complejo Industrial')
+        .replace(/Five Isle Meadow/gi, 'Prado Isla Quíntupla')
+        .replace(/Undella Bay/gi, 'Bahía Arenisca');
+}
+
 function parsePokemonData(p) {
     const hint = p.hint || '';
-    const method = p.method || 'Hierba';
-    const location = (p.location || '').replace('Parada: ', '').trim();
+    const rawMethod = p.method || 'Hierba';
+    const methodTranslated = translateMethod(rawMethod);
+    const locationTranslated = translateLocation(p.location || '');
     
     const rateMatch = hint.match(/(\d+)%/);
     let rate = rateMatch ? parseInt(rateMatch[1]) : (p.rate ? parseInt(p.rate) : 0);
@@ -415,7 +487,7 @@ function parsePokemonData(p) {
     const starterIds = [1,2,3,4,5,6,7,8,9,152,153,154,155,156,157,158,159,160,252,253,254,255,256,257,258,259,260,387,388,389,390,391,392,393,394,395,495,496,497,498,499,500,501,502,503];
     const isLure = hint.toLowerCase().includes('lure') || 
                    hint.toLowerCase().includes('señuelo') || 
-                   method.toLowerCase().includes('lure') ||
+                   rawMethod.toLowerCase().includes('lure') ||
                    starterIds.includes(p.id);
 
     if (isLure && rate === 0) rate = 5;
@@ -453,10 +525,12 @@ function parsePokemonData(p) {
 
     return {
         ...p,
+        method: methodTranslated,
+        rawMethod: rawMethod,
         rate: rate,
         level: level,
         isLure: isLure,
-        locationClean: location,
+        locationClean: locationTranslated,
         morning: morning,
         day: day,
         night: night
@@ -539,7 +613,7 @@ export function renderDexResults(resetPage = false) {
         parsedList = parsedList.filter(p => {
             const matchName = p.name.toLowerCase().includes(query);
             const matchLoc = p.locationClean.toLowerCase().includes(query);
-            const matchMethod = (p.method || '').toLowerCase().includes(query);
+            const matchMethod = (p.method || '').toLowerCase().includes(query) || (p.rawMethod || '').toLowerCase().includes(query);
             const matchId = p.id.toString() === query;
             return matchName || matchLoc || matchMethod || matchId;
         });
@@ -575,35 +649,44 @@ export function renderDexResults(resetPage = false) {
     const pageItems = parsedList.slice(startIndex, startIndex + dexPageSize);
 
     let htmlStr = `
-        <div class="panel border-2 border-[#2B2B2B] dark:border-[#35352E] bg-[#FAF8F2] dark:bg-[#242420] overflow-hidden rounded-xl shadow-lg">
-            <!-- Barra de Paginación Superior -->
-            <div class="bg-[#EDE8DC] dark:bg-[#181816] border-b-2 border-[#2B2B2B] dark:border-[#35352E] px-4 py-3 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
-                <span class="text-[#5F5A4D] dark:text-[#A8A594]">
-                    Mostrando <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${startIndex + 1} - ${Math.min(startIndex + dexPageSize, totalItems)}</strong> de <strong class="text-[#2563EB] dark:text-[#60A5FA]">${totalItems} Pokémon</strong>
-                </span>
+        <div class="w-full bg-[#FAF8F2] dark:bg-[#242420] border-2 border-[#2B2B2B] dark:border-[#35352E] rounded-2xl shadow-[4px_5px_0px_#2B2B2B] dark:shadow-[4px_5px_0px_#000] relative overflow-hidden flex flex-col transition-colors">
+            <!-- Remaches Industriales Esquineros -->
+            <div class="absolute top-2.5 left-2.5 w-2.5 h-2.5 rounded-full bg-[#D8D4C7] dark:bg-[#3E3E36] border border-[#2B2B2B] dark:border-[#35352E] flex items-center justify-center pointer-events-none z-10">
+                <div class="w-1.5 h-0.5 bg-[#2B2B2B] dark:bg-[#20201C]"></div>
+            </div>
+            <div class="absolute top-2.5 right-2.5 w-2.5 h-2.5 rounded-full bg-[#D8D4C7] dark:bg-[#3E3E36] border border-[#2B2B2B] dark:border-[#35352E] flex items-center justify-center pointer-events-none z-10">
+                <div class="w-1.5 h-0.5 bg-[#2B2B2B] dark:bg-[#20201C]"></div>
+            </div>
+
+            <!-- Barra Superior de Control y Paginación (Superficie Elevada Nivel 3) -->
+            <div class="bg-[#EDE8DC] dark:bg-[#2E2E27] border-b-2 border-[#2B2B2B] dark:border-[#35352E] px-4 md:px-6 py-3 flex flex-wrap items-center justify-between gap-3 text-[13px] font-mono">
+                <div class="flex items-center gap-2 pl-3">
+                    <span class="font-tech font-bold text-sm uppercase text-[#1C1C17] dark:text-[#F4F1E8] tracking-wider">Registro de Encuentros</span>
+                    <span class="text-[#5F5A4D] dark:text-[#A8A594]">• Mostrando <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${startIndex + 1} - ${Math.min(startIndex + dexPageSize, totalItems)}</strong> de <strong class="text-[#10B981]">${totalItems} Pokémon</strong></span>
+                </div>
                 <div class="flex items-center gap-1.5">
-                    <button onclick="window.pokedex.changeDexPage(-1)" ${dexCurrentPage === 1 ? 'disabled class="px-3 py-1 bg-[#D8D4C7] dark:bg-[#242420] text-[#81765F] dark:text-[#666] border border-[#2B2B2B]/40 dark:border-[#35352E] cursor-not-allowed rounded-md"' : 'class="px-3 py-1 bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#FFC800] transition rounded-md cursor-pointer"'}>Anterior</button>
-                    <span class="px-2 text-[#5F5A4D] dark:text-[#A8A594]">Pág. <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${dexCurrentPage}</strong> / ${totalPages}</span>
-                    <button onclick="window.pokedex.changeDexPage(1)" ${dexCurrentPage >= totalPages ? 'disabled class="px-3 py-1 bg-[#D8D4C7] dark:bg-[#242420] text-[#81765F] dark:text-[#666] border border-[#2B2B2B]/40 dark:border-[#35352E] cursor-not-allowed rounded-md"' : 'class="px-3 py-1 bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#FFC800] transition rounded-md cursor-pointer"'}>Siguiente</button>
+                    <button onclick="window.pokedex.changeDexPage(-1)" ${dexCurrentPage === 1 ? 'disabled class="px-3 py-1.5 bg-[#D8D4C7] dark:bg-[#242420] text-[#81765F] dark:text-[#666] border border-[#2B2B2B]/40 dark:border-[#35352E] cursor-not-allowed rounded-lg font-tech font-bold text-[13px]"' : 'class="px-3 py-1.5 bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#FFC800] transition rounded-lg cursor-pointer shadow-sm"'}>Anterior</button>
+                    <span class="px-2 text-[#5F5A4D] dark:text-[#A8A594] font-mono">Pág. <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${dexCurrentPage}</strong> / ${totalPages}</span>
+                    <button onclick="window.pokedex.changeDexPage(1)" ${dexCurrentPage >= totalPages ? 'disabled class="px-3 py-1.5 bg-[#D8D4C7] dark:bg-[#242420] text-[#81765F] dark:text-[#666] border border-[#2B2B2B]/40 dark:border-[#35352E] cursor-not-allowed rounded-lg font-tech font-bold text-[13px]"' : 'class="px-3 py-1.5 bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#FFC800] transition rounded-lg cursor-pointer shadow-sm"'}>Siguiente</button>
                 </div>
             </div>
 
             <!-- Tabla Oficial de Encuentros PokéMMO -->
             <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse text-xs">
+                <table class="w-full text-left border-collapse text-[13px] font-sans">
                     <thead>
-                        <tr class="bg-[#E5E0D0] dark:bg-[#161614] border-b-2 border-[#2B2B2B] dark:border-[#35352E] text-[13px] font-tech font-bold text-[#1C1C17] dark:text-[#F4F1E8] uppercase tracking-wider">
-                            <th class="py-3 px-3">Especie</th>
-                            <th class="py-3 px-3">Tipo / Método</th>
-                            <th class="py-3 px-3">Niveles</th>
-                            <th class="py-3 px-3">Ruta / Parada</th>
-                            <th class="py-3 px-2 text-center">Mañana</th>
-                            <th class="py-3 px-2 text-center">Día</th>
-                            <th class="py-3 px-2 text-center">Noche</th>
-                            <th class="py-3 px-3 text-center">Estado</th>
+                        <tr class="bg-[#EDE8DC] dark:bg-[#2E2E27] border-b-2 border-[#2B2B2B] dark:border-[#35352E] text-[13px] font-tech font-bold text-[#1C1C17] dark:text-[#F4F1E8] uppercase tracking-wider select-none">
+                            <th class="py-3.5 px-4">Especie</th>
+                            <th class="py-3.5 px-3">Método de Captura</th>
+                            <th class="py-3.5 px-3">Nivel</th>
+                            <th class="py-3.5 px-4">Ruta / Zona</th>
+                            <th class="py-3.5 px-2 text-center">Mañana</th>
+                            <th class="py-3.5 px-2 text-center">Día</th>
+                            <th class="py-3.5 px-2 text-center">Noche</th>
+                            <th class="py-3.5 px-4 text-center">Estado</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-[#2B2B2B]/20 dark:divide-[#3A3A34] font-mono">
+                    <tbody class="divide-y divide-[#2B2B2B]/20 dark:divide-[#35352E]">
     `;
 
     pageItems.forEach(p => {
@@ -615,47 +698,47 @@ export function renderDexResults(resetPage = false) {
 
         const formatRateSlot = (val) => {
             if (val === 'Señuelo') {
-                return `<span class="px-2 py-0.5 rounded text-[13px] font-bold bg-[#FFDF92] dark:bg-[#473200] text-[#755B00] dark:text-[#FFC800] border border-[#755B00]/40">Señuelo</span>`;
+                return `<span class="px-2 py-0.5 rounded-lg text-[13px] font-bold bg-[#FFDF92] dark:bg-[#473200] text-[#755B00] dark:text-[#FFC800] border border-[#755B00]/40 font-sans">Señuelo</span>`;
             } else if (val !== '--') {
                 const num = parseInt(val);
                 const color = num >= 50 ? 'text-[#1B5E20] dark:text-[#34D399] font-black' : (num >= 20 ? 'text-[#2E7D32] dark:text-[#4ADE80] font-bold' : 'text-[#2563EB] dark:text-[#60A5FA] font-bold');
-                return `<span class="${color}">${val}</span>`;
+                return `<span class="${color} font-mono">${val}</span>`;
             }
-            return `<span class="text-[#81765F] dark:text-[#666]">--</span>`;
+            return `<span class="text-[#81765F] dark:text-[#666] font-mono">--</span>`;
         };
 
         htmlStr += `
-            <tr class="bg-[#FAF8F2] dark:bg-[#242420] hover:bg-[#F0ECE1] dark:hover:bg-[#282824] transition-colors group ${isCaught ? 'opacity-70 hover:opacity-100' : ''}">
-                <td class="py-2.5 px-3">
-                    <div class="flex items-center gap-2.5">
+            <tr class="bg-[#FAF8F2] dark:bg-[#242420] hover:bg-[#F0ECE1] dark:hover:bg-[#2A2A25] transition-colors group ${isCaught ? 'opacity-70 hover:opacity-100' : ''}">
+                <td class="py-3 px-4">
+                    <div class="flex items-center gap-3">
                         ${pokeballIcon}
-                        <div class="w-9 h-9 rounded-lg bg-[#EDE8DC] dark:bg-[#181816] border border-[#2B2B2B] dark:border-[#35352E] flex items-center justify-center flex-shrink-0 shadow-inner">
+                        <div class="w-10 h-10 rounded-lg bg-[#EDE8DC] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] flex items-center justify-center flex-shrink-0 shadow-inner">
                             <img src="${spriteUrl}" class="w-8 h-8 pixelated object-contain group-hover:scale-110 transition-transform" onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'" alt="${p.name}">
                         </div>
                         <div>
-                            <span class="font-tech font-bold text-sm text-[#1C1C17] dark:text-[#F4F1E8] block leading-tight">${p.name}</span>
+                            <span class="font-sans font-bold text-[14px] text-[#1C1C17] dark:text-[#F4F1E8] block leading-tight">${p.name}</span>
                             <span class="text-[13px] font-mono text-[#5F5A4D] dark:text-[#A8A594]">#${p.id.toString().padStart(3, '0')}</span>
                         </div>
                     </div>
                 </td>
-                <td class="py-2.5 px-3">
-                    <span class="px-2 py-0.5 bg-[#EDE8DC] dark:bg-[#181816] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] text-[13px] uppercase rounded-md inline-block font-mono font-bold">
+                <td class="py-3 px-3">
+                    <span class="px-2.5 py-1 bg-[#EDE8DC] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] text-[13px] font-sans font-medium rounded-lg inline-block">
                         ${p.method}
                     </span>
-                    ${p.isLure ? '<span class="ml-1 text-[13px] text-[#755B00] dark:text-[#FFC800] bg-[#FFDF92] dark:bg-[#473200] px-1.5 py-0.5 border border-[#755B00]/40 rounded font-bold uppercase font-mono">Lure</span>' : ''}
+                    ${p.isLure ? '<span class="ml-1.5 text-[13px] text-[#755B00] dark:text-[#FFC800] bg-[#FFDF92] dark:bg-[#473200] px-2 py-0.5 border border-[#755B00]/40 rounded-lg font-bold uppercase font-sans">Señuelo</span>' : ''}
                 </td>
-                <td class="py-2.5 px-3 text-[#1C1C17] dark:text-[#F4F1E8] font-mono text-xs font-bold">
+                <td class="py-3 px-3 text-[#1C1C17] dark:text-[#F4F1E8] font-mono text-[13px] font-bold">
                     ${p.level}
                 </td>
-                <td class="py-2.5 px-3 font-mono">
-                    <span class="text-[#2563EB] dark:text-[#60A5FA] font-bold text-xs">${p.locationClean || 'Sin Ruta'}</span>
-                    <button onclick="window.pokedex.promptSuggestion(${p.id}, '${p.name}')" class="ml-2 text-[13px] text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#2563EB] dark:hover:text-[#60A5FA] border-b border-transparent hover:border-[#2563EB] transition-colors font-mono">Sugerir</button>
+                <td class="py-3 px-4 font-sans">
+                    <span class="text-[#2563EB] dark:text-[#60A5FA] font-medium text-[13px]">${p.locationClean || 'Sin Ruta'}</span>
+                    <button onclick="window.pokedex.promptSuggestion(${p.id}, '${p.name}')" class="ml-2 text-[13px] text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#2563EB] dark:hover:text-[#60A5FA] border-b border-transparent hover:border-[#2563EB] transition-colors font-sans cursor-pointer">Sugerir</button>
                 </td>
-                <td class="py-2.5 px-2 text-center font-mono font-bold">${formatRateSlot(p.morning)}</td>
-                <td class="py-2.5 px-2 text-center font-mono font-bold">${formatRateSlot(p.day)}</td>
-                <td class="py-2.5 px-2 text-center font-mono font-bold">${formatRateSlot(p.night)}</td>
-                <td class="py-2.5 px-3 text-center">
-                    <button onclick="window.pokedex.catchPokemon(${p.id})" class="px-3 py-1.5 text-xs font-tech uppercase tracking-wider rounded-lg transition font-bold cursor-pointer ${isCaught ? 'bg-[#EDE8DC] dark:bg-[#2E2E27] border border-[#2B2B2B] dark:border-[#35352E] text-[#7A131C] dark:text-[#FFB4AB] hover:bg-[#E63946] hover:text-white' : 'bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#10B981] hover:text-[#10B981] border border-[#2B2B2B] dark:border-[#35352E] shadow-sm'}">
+                <td class="py-3 px-2 text-center font-mono font-bold text-[13px]">${formatRateSlot(p.morning)}</td>
+                <td class="py-3 px-2 text-center font-mono font-bold text-[13px]">${formatRateSlot(p.day)}</td>
+                <td class="py-3 px-2 text-center font-mono font-bold text-[13px]">${formatRateSlot(p.night)}</td>
+                <td class="py-3 px-4 text-center">
+                    <button onclick="window.pokedex.catchPokemon(${p.id})" class="px-3.5 py-1.5 text-[13px] font-tech font-bold uppercase tracking-wider rounded-lg transition cursor-pointer ${isCaught ? 'bg-[#EDE8DC] dark:bg-[#2E2E27] border border-[#2B2B2B] dark:border-[#35352E] text-[#7A131C] dark:text-[#FFB4AB] hover:bg-[#E63946] hover:text-white' : 'bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#10B981] hover:text-[#10B981] border border-[#2B2B2B] dark:border-[#35352E] shadow-sm'}">
                         ${isCaught ? 'Liberar' : 'Capturar'}
                     </button>
                 </td>
@@ -668,12 +751,12 @@ export function renderDexResults(resetPage = false) {
                 </table>
             </div>
 
-            <!-- Barra de Páginación Inferior -->
-            <div class="bg-os-bg/90 border-t border-os-border px-4 py-3 flex items-center justify-between text-xs font-mono">
-                <span class="text-os-muted">Página <strong>${dexCurrentPage}</strong> de <strong>${totalPages}</strong></span>
+            <!-- Barra de Paginación Inferior (Superficie Elevada Nivel 3) -->
+            <div class="bg-[#EDE8DC] dark:bg-[#2E2E27] border-t-2 border-[#2B2B2B] dark:border-[#35352E] px-4 md:px-6 py-3 flex items-center justify-between text-[13px] font-mono">
+                <span class="text-[#5F5A4D] dark:text-[#A8A594]">Página <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${dexCurrentPage}</strong> de <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${totalPages}</strong></span>
                 <div class="flex items-center gap-2">
-                    <button onclick="window.pokedex.changeDexPage(-1)" ${dexCurrentPage === 1 ? 'disabled class="px-3 py-1 bg-os-panel text-os-muted/40 border border-os-border cursor-not-allowed rounded-md"' : 'class="px-3 py-1 bg-os-panel text-os-text border border-os-border hover:border-os-blue hover:text-os-blue transition rounded-md cursor-pointer"'}>Anterior</button>
-                    <button onclick="window.pokedex.changeDexPage(1)" ${dexCurrentPage >= totalPages ? 'disabled class="px-3 py-1 bg-os-panel text-os-muted/40 border border-os-border cursor-not-allowed rounded-md"' : 'class="px-3 py-1 bg-os-panel text-os-text border border-os-border hover:border-os-blue hover:text-os-blue transition rounded-md cursor-pointer"'}>Siguiente</button>
+                    <button onclick="window.pokedex.changeDexPage(-1)" ${dexCurrentPage === 1 ? 'disabled class="px-3 py-1.5 bg-[#D8D4C7] dark:bg-[#242420] text-[#81765F] dark:text-[#666] border border-[#2B2B2B]/40 dark:border-[#35352E] cursor-not-allowed rounded-lg font-tech font-bold text-[13px]"' : 'class="px-3 py-1.5 bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#FFC800] transition rounded-lg cursor-pointer shadow-sm"'}>Anterior</button>
+                    <button onclick="window.pokedex.changeDexPage(1)" ${dexCurrentPage >= totalPages ? 'disabled class="px-3 py-1.5 bg-[#D8D4C7] dark:bg-[#242420] text-[#81765F] dark:text-[#666] border border-[#2B2B2B]/40 dark:border-[#35352E] cursor-not-allowed rounded-lg font-tech font-bold text-[13px]"' : 'class="px-3 py-1.5 bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#FFC800] transition rounded-lg cursor-pointer shadow-sm"'}>Siguiente</button>
                 </div>
             </div>
         </div>
