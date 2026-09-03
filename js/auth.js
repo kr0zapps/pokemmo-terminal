@@ -137,17 +137,26 @@ export function renderAuthUI(onSuccess) {
         <form id="auth-form" class="space-y-4">
           <div id="auth-error" class="hidden p-3 text-xs rounded-lg bg-os-red/10 border border-os-red/30 text-os-red font-mono"></div>
           
+          <!-- AVISO DE SEGURIDAD ANTI-PHISHING OBLIGATORIO PARA FOROS -->
+          <div class="p-3 rounded-lg bg-[#FFDF92]/30 dark:bg-[#473200]/50 border border-[#755B00]/40 dark:border-[#FFDF92]/30 text-[13px] text-[#5C3800] dark:text-[#FFDF92] font-sans leading-relaxed">
+            <strong class="font-bold flex items-center gap-1.5 text-[#755B00] dark:text-[#FFC800] mb-1">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+              AVISO DE SEGURIDAD
+            </strong>
+            Esta es una herramienta fan-made complementaria. <strong>NUNCA uses la contraseña de tu cuenta del juego PokéMMO aquí</strong>. Usa una contraseña diferente o continúa en <strong>Modo Invitado</strong> sin registrarte.
+          </div>
+
           <div>
             <label class="block text-xs font-mono text-os-muted mb-1 uppercase font-semibold">Usuario o Correo</label>
             <input type="text" id="auth-email" required autocomplete="username"
-              class="w-full px-3.5 py-2.5 rounded-lg text-xs font-mono bg-os-bg border border-os-border text-os-text focus:outline-none focus:border-os-blue focus:ring-2 focus:ring-os-blue/20 transition" placeholder="zedsuaj o entrenador@pokemmo.com" />
-            <p class="text-[13px] text-os-muted mt-1 font-mono">Usa el mismo usuario en tu PC y móvil para sincronizar todo.</p>
+              class="w-full px-3.5 py-2.5 rounded-lg text-xs font-mono bg-os-bg border border-os-border text-os-text focus:outline-none focus:border-os-blue focus:ring-2 focus:ring-os-blue/20 transition" placeholder="Ej. RedKanto o tu@correo.com" />
+            <p class="text-[13px] text-os-muted mt-1 font-mono">Usa el mismo usuario en tu PC y móvil para sincronizar tu progreso.</p>
           </div>
           
           <div>
-            <label class="block text-xs font-mono text-os-muted mb-1 uppercase font-semibold">Contraseña</label>
+            <label class="block text-xs font-mono text-os-muted mb-1 uppercase font-semibold">Contraseña para esta web</label>
             <input type="password" id="auth-password" required
-              class="w-full px-3.5 py-2.5 rounded-lg text-xs font-mono bg-os-bg border border-os-border text-os-text focus:outline-none focus:border-os-blue focus:ring-2 focus:ring-os-blue/20 transition" placeholder="••••••••" />
+              class="w-full px-3.5 py-2.5 rounded-lg text-xs font-mono bg-os-bg border border-os-border text-os-text focus:outline-none focus:border-os-blue focus:ring-2 focus:ring-os-blue/20 transition" placeholder="Contraseña única (NO la del juego)" />
           </div>
 
           <div class="flex items-center pt-1">
