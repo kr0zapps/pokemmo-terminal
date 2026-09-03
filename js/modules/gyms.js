@@ -283,15 +283,150 @@ export function initGyms() {
     setInterval(updateTimers, 1000);
 }
 
+export let focusedRegion = localStorage.getItem('pokemmo_focused_region') || 'Kanto';
+
+export function setFocusedRegion(regionName) {
+    if (!GYM_DATA[regionName]) return;
+    focusedRegion = regionName;
+    localStorage.setItem('pokemmo_focused_region', regionName);
+    renderGyms();
+    updateTimers();
+    
+    // Suave desplazamiento hacia la tarjeta grande
+    const container = document.getElementById('kantoDeckContainer');
+    if (container) {
+        container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+}
+window.setFocusedRegion = setFocusedRegion;
+
+export function getRegionCode(name) {
+    if (name.includes('Kanto')) return 'R-01';
+    if (name.includes('Teselia') || name.includes('Unova')) return 'R-02';
+    if (name.includes('Sinnoh')) return 'R-03';
+    if (name.includes('Hoenn')) return 'R-04';
+    if (name.includes('Johto')) return 'R-05';
+    return 'R-00';
+}
+
+export const OPTIMAL_ROUTES = {
+    "Kanto": "Azulona > Azafrán > Carmín > Celeste > Fucsia",
+    "Teselia / Unova": "Gres > Esmalte > Porcelana > Mayólica > Fayenza > Loza > Teja > Caolín",
+    "Sinnoh": "Pirita > Vetusta > Corazón > Rocavelo > Pradera > Canal > Puntaneva > Marina",
+    "Hoenn": "Férrica > Azuliza > Malvalona > Lavacalda > Petalia > Arborada > Algaria > Arrecípolis",
+    "Johto": "Malva > Azalea > Trigal > Iris > Orquídea > Olivo > Caoba > Endrino"
+};
+
 export function renderGyms() {
     const kantoContainer = document.getElementById('kantoDeckContainer');
     const subContainer = document.getElementById('subRegionsDeckContainer');
     if (!kantoContainer || !subContainer) return;
 
+    // Si la región en foco guardada no existe, volver a Kanto por defecto
+    if (!GYM_DATA[focusedRegion]) {
+        focusedRegion = 'Kanto';
+    }
+
+    // Actualizar texto de secuencia óptima de rutas según la región en foco
+    const optimalRouteEl = document.getElementById('gymOptimalRouteText');
+    if (optimalRouteEl) {
+        optimalRouteEl.textContent = OPTIMAL_ROUTES[focusedRegion] || OPTIMAL_ROUTES['Kanto'];
+    }
+
     kantoContainer.innerHTML = '';
     subContainer.innerHTML = '';
 
+    // 1. RENDERIZAR LA REGIÓN EN FOCO EN EL PANEL GRANDE (COCKPIT PRINCIPAL)
+    const focusedList = GYM_DATA[focusedRegion] || [];
+    const cleanFocusedRegion = focusedRegion.replace(/[^a-zA-Z]/g, '');
+    let focusedCompleted = 0;
+    focusedList.forEach((_, idx) => {
+        if (localStorage.getItem(`gym-${cleanFocusedRegion}-${idx}`) === 'true') focusedCompleted++;
+    });
+    const isFocusedCleared = focusedCompleted === focusedList.length;
+    const focusedProgressPct = Math.round((focusedCompleted / focusedList.length) * 100);
+    const focusedRegionNumber = getRegionCode(focusedRegion);
+
+    kantoContainer.innerHTML = `
+        <div class="w-full bg-[#FAF8F2] dark:bg-[#242420] border-[3px] border-[#2B2B2B] dark:border-[#35352E] rounded-2xl p-4 shadow-[4px_5px_0px_#2B2B2B] dark:shadow-[4px_5px_0px_#000] relative overflow-hidden flex flex-col justify-between transition-colors animate-fade-in">
+            <!-- Remaches Esquineros -->
+            <div class="absolute top-2 left-2 w-2.5 h-2.5 rounded-full bg-[#D8D4C7] dark:bg-[#3E3E36] border border-[#2B2B2B] dark:border-[#35352E] flex items-center justify-center">
+                <div class="w-1.5 h-0.5 bg-[#2B2B2B] dark:bg-[#20201C]"></div>
+            </div>
+            <div class="absolute top-2 right-2 w-2.5 h-2.5 rounded-full bg-[#D8D4C7] dark:bg-[#3E3E36] border border-[#2B2B2B] dark:border-[#35352E] flex items-center justify-center">
+                <div class="w-1.5 h-0.5 bg-[#2B2B2B] dark:bg-[#20201C]"></div>
+            </div>
+            
+            <!-- Sello Dinámico Físico Rotado -->
+            ${isFocusedCleared ? `
+                <div class="absolute right-4 sm:right-6 top-4 sm:top-6 z-20 pointer-events-none stamp-cleared bg-[#FAF8F2]/95 dark:bg-[#242420]/95 px-3 py-1 font-mono font-black text-xs md:text-sm tracking-widest shadow-sm">
+                    ★ COMPLETADO Y VERIFICADO ★
+                </div>
+            ` : `
+                <div class="absolute right-4 sm:right-6 top-4 sm:top-6 z-20 pointer-events-none stamp-progress bg-[#FAF8F2]/95 dark:bg-[#242420]/95 px-2.5 py-0.5 font-mono font-bold text-[13px] md:text-xs tracking-tight shadow-sm">
+                    PENDIENTE ${focusedList.length - focusedCompleted}/${focusedList.length}
+                </div>
+            `}
+
+            <!-- Encabezado de Región Principal en Foco -->
+            <div class="flex flex-wrap items-center justify-between border-b-2 border-[#2B2B2B] dark:border-[#35352E] pb-2 mb-3 gap-2">
+                <div class="flex items-center gap-2">
+                    <span class="bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] px-2 py-0.5 rounded border border-[#2B2B2B] dark:border-[#35352E]">${focusedRegionNumber}</span>
+                    <span class="font-tech font-black text-base md:text-lg text-[#1C1C17] dark:text-[#F4F1E8]">Liga de ${focusedRegion}</span>
+                    <span class="font-tech font-bold text-[13px] text-[#5C3800] dark:text-[#FFDF92] bg-[#FFDF92] dark:bg-[#473200] px-2 py-0.5 rounded">Circuito en foco</span>
+                </div>
+                <div class="flex items-center gap-1.5 z-10 mr-0 sm:mr-36 flex-wrap">
+                    <button data-region="${focusedRegion}" data-action="mark-all" class="text-[13px] font-tech uppercase bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#10B981] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-2 rounded-lg font-bold transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Marcar todos los líderes de esta región como completados">
+                        ${isFocusedCleared ? 'Completado ✓' : 'Completar circuito'}
+                    </button>
+                    <button data-region="${focusedRegion}" data-action="unmark-all" class="text-[13px] font-tech uppercase bg-[#E4DFD0] dark:bg-[#2E2E27] text-[#2B2B2B] dark:text-[#F4F1E8] hover:text-[#b7102a] dark:hover:text-[#FFA8A8] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-2 rounded-lg transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Reiniciar circuito de ${focusedRegion}">
+                        Reiniciar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Cuadrícula de los 8 Líderes en Vista Amplia Horizontal (Con nombres de gimnasio y ciudades) -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 z-10">
+                ${focusedList.map((gym, idx) => {
+                    const id = `gym-${cleanFocusedRegion}-${idx}`;
+                    const isChecked = localStorage.getItem(id) === 'true';
+                    const [city, leader] = gym.name.includes(':') ? gym.name.split(':') : [gym.name, ''];
+                    return `
+                        <div class="leader-tile ${isChecked ? 'bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B]/40 dark:border-[#35352E]' : 'bg-[#F0ECE1] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E]'} p-2.5 rounded-xl flex flex-col justify-between cursor-pointer hover:border-[#FFC800] transition select-none min-h-[76px]" data-gym-id="${id}">
+                            <div class="flex items-center justify-between">
+                                ${isChecked ? `
+                                    <span class="w-4 h-4 rounded-full bg-[#1B5E20]/15 dark:bg-[#C3F400]/20 text-[#1B5E20] dark:text-[#C3F400] text-[13px] font-bold flex items-center justify-center">✓</span>
+                                ` : `
+                                    <span class="w-4 h-4 rounded-full bg-[#2B2B2B] dark:bg-[#3E3E36] text-white text-[13px] font-black flex items-center justify-center">${idx + 1}</span>
+                                `}
+                                <span id="timer-${id}" class="font-mono text-[13px] ${isChecked ? 'text-[#5F5A4D] dark:text-[#A8A594] font-medium' : 'text-[#1B5E20] dark:text-[#C3F400] font-bold'}">
+                                    ${isChecked ? '--:--:--' : 'Listo'}
+                                </span>
+                            </div>
+                            <div class="mt-1.5 flex flex-col overflow-hidden">
+                                <span id="label-${id}" class="font-tech font-bold text-[14px] truncate leading-tight ${isChecked ? 'text-[#5F5A4D] dark:text-[#A8A594]' : 'text-[#1C1C17] dark:text-[#F4F1E8]'}">
+                                    ${leader ? leader.trim() : city.trim()}
+                                </span>
+                                <span class="font-sans text-[13px] text-[#5F5A4D] dark:text-[#A8A594] truncate leading-tight mt-0.5 font-medium" title="${city.trim()}">
+                                    ${city.replace(/\(.*?\)/, '').trim()}
+                                </span>
+                            </div>
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+
+            <!-- Barra Delgada de Progreso Integrada en el Borde Inferior -->
+            <div class="w-full bg-[#D8D4C7] dark:bg-[#1E1E1A] h-[3px] rounded-full overflow-hidden mt-3" title="Progreso del circuito: ${focusedProgressPct}%">
+                <div class="h-full bg-[#10B981] transition-all duration-300" style="width: ${focusedProgressPct}%"></div>
+            </div>
+        </div>
+    `;
+
+    // 2. RENDERIZAR LAS REGIONES SUBORDINADAS (TODAS EXCEPTO LA REGIÓN EN FOCO)
     for (const [regionName, list] of Object.entries(GYM_DATA)) {
+        if (regionName === focusedRegion) continue;
+
         const cleanRegion = regionName.replace(/[^a-zA-Z]/g, '');
         let completedInRegion = 0;
         list.forEach((_, idx) => {
@@ -299,25 +434,26 @@ export function renderGyms() {
         });
         const isRegionCleared = completedInRegion === list.length;
         const progressPct = Math.round((completedInRegion / list.length) * 100);
+        const regionNumber = getRegionCode(regionName);
 
-        // Determinación del botón dinámico de liga (Diferenciar empezar, seguir y completado)
+        // Botón dinámico que permite enfocar / continuar la región en el panel grande
         let actionBtnHtml = '';
         if (completedInRegion === 0) {
             actionBtnHtml = `
-                <button data-region="${regionName}" data-action="mark-all" class="text-[13px] font-tech uppercase bg-[#2B2B2B] dark:bg-[#3E3E36] text-white hover:bg-[#444] px-3 py-2 rounded-lg font-bold transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Marcar todos los líderes como completados">
-                    Completar todo
+                <button data-region="${regionName}" data-action="focus-region" class="text-[13px] font-tech uppercase bg-[#2B2B2B] dark:bg-[#3E3E36] text-white hover:bg-[#444] px-3 py-2 rounded-lg font-bold transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Ver esta región en grande arriba">
+                    Ver en grande
                 </button>
             `;
         } else if (completedInRegion < list.length) {
             actionBtnHtml = `
-                <button data-region="${regionName}" data-action="mark-all" class="text-[13px] font-tech uppercase bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-2 rounded-lg font-bold transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Continuar marcando los líderes restantes">
+                <button data-region="${regionName}" data-action="focus-region" class="text-[13px] font-tech uppercase bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-2 rounded-lg font-bold transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Ver esta región en grande arriba y continuar">
                     Continuar (${completedInRegion}/${list.length})
                 </button>
             `;
         } else {
             actionBtnHtml = `
-                <button data-region="${regionName}" data-action="mark-all" class="text-[13px] font-tech uppercase bg-[#1B5E20]/20 text-[#1B5E20] dark:text-[#C3F400] border border-[#1B5E20]/40 px-3 py-2 rounded-lg font-bold transition cursor-default opacity-80 min-h-[44px] flex items-center justify-center" disabled>
-                    Completado
+                <button data-region="${regionName}" data-action="focus-region" class="text-[13px] font-tech uppercase bg-[#1B5E20]/20 text-[#1B5E20] dark:text-[#C3F400] border border-[#1B5E20]/40 px-3 py-2 rounded-lg font-bold transition cursor-pointer min-h-[44px] flex items-center justify-center" title="Ver esta región en grande arriba">
+                    Ver en grande ★
                 </button>
             `;
         }
@@ -328,127 +464,54 @@ export function renderGyms() {
             </button>
         `;
 
-        if (regionName === 'Kanto') {
-            // Renderizado de la Liga de Kanto (Fila Horizontal de 8 Columnas)
-            kantoContainer.innerHTML = `
-                <div class="w-full bg-[#FAF8F2] dark:bg-[#242420] border-[3px] border-[#2B2B2B] dark:border-[#35352E] rounded-2xl p-4 shadow-[4px_5px_0px_#2B2B2B] dark:shadow-[4px_5px_0px_#000] relative overflow-hidden flex flex-col justify-between transition-colors">
-                    <!-- Remaches Esquineros -->
-                    <div class="absolute top-2 left-2 w-2.5 h-2.5 rounded-full bg-[#D8D4C7] dark:bg-[#3E3E36] border border-[#2B2B2B] dark:border-[#35352E] flex items-center justify-center">
-                        <div class="w-1.5 h-0.5 bg-[#2B2B2B] dark:bg-[#20201C]"></div>
-                    </div>
-                    <div class="absolute top-2 right-2 w-2.5 h-2.5 rounded-full bg-[#D8D4C7] dark:bg-[#3E3E36] border border-[#2B2B2B] dark:border-[#35352E] flex items-center justify-center">
-                        <div class="w-1.5 h-0.5 bg-[#2B2B2B] dark:bg-[#20201C]"></div>
-                    </div>
-                    
-                    <!-- Sello Dinámico Físico Rotado -->
-                    ${isRegionCleared ? `
-                        <div class="absolute right-4 sm:right-6 top-4 sm:top-6 z-20 pointer-events-none stamp-cleared bg-[#FAF8F2]/95 dark:bg-[#242420]/95 px-3 py-1 font-mono font-black text-xs md:text-sm tracking-widest shadow-sm">
-                            ★ COMPLETADO Y VERIFICADO ★
-                        </div>
-                    ` : `
-                        <div class="absolute right-4 sm:right-6 top-4 sm:top-6 z-20 pointer-events-none stamp-progress bg-[#FAF8F2]/95 dark:bg-[#242420]/95 px-2.5 py-0.5 font-mono font-bold text-[13px] md:text-xs tracking-tight shadow-sm">
-                            PENDIENTE ${list.length - completedInRegion}/${list.length}
-                        </div>
-                    `}
-
-                    <!-- Encabezado de Kanto -->
-                    <div class="flex flex-wrap items-center justify-between border-b-2 border-[#2B2B2B] dark:border-[#35352E] pb-2 mb-3 gap-2">
-                        <div class="flex items-center gap-2">
-                            <span class="bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] px-2 py-0.5 rounded border border-[#2B2B2B] dark:border-[#35352E]">R-01</span>
-                            <span class="font-tech font-black text-base md:text-lg text-[#1C1C17] dark:text-[#F4F1E8]">Liga de Kanto</span>
-                            <span class="font-tech font-bold text-[13px] text-[#5C3800] dark:text-[#FFDF92] bg-[#FFDF92] dark:bg-[#473200] px-2 py-0.5 rounded">Circuito local</span>
-                        </div>
-                        <div class="flex items-center gap-1.5 z-10 mr-0 sm:mr-36">
-                            ${actionBtnHtml}
-                            ${resetBtnHtml}
-                        </div>
-                    </div>
-
-                    <!-- Cuadrícula de los 8 Líderes en Fila Horizontal -->
-                    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 z-10">
-                        ${list.map((gym, idx) => {
-                            const id = `gym-${cleanRegion}-${idx}`;
-                            const isChecked = localStorage.getItem(id) === 'true';
-                            const [city, leader] = gym.name.includes(':') ? gym.name.split(':') : [gym.name, ''];
-                            return `
-                                <div class="leader-tile ${isChecked ? 'bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B]/40 dark:border-[#35352E]' : 'bg-[#F0ECE1] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E]'} p-2 rounded-lg flex flex-col justify-between cursor-pointer hover:border-[#FFC800] transition select-none" data-gym-id="${id}">
-                                    <div class="flex items-center justify-between">
-                                        ${isChecked ? `
-                                            <span class="w-4 h-4 rounded-full bg-[#1B5E20]/15 dark:bg-[#C3F400]/20 text-[#1B5E20] dark:text-[#C3F400] text-[13px] font-bold flex items-center justify-center">✓</span>
-                                        ` : `
-                                            <span class="w-4 h-4 rounded-full bg-[#2B2B2B] dark:bg-[#3E3E36] text-white text-[13px] font-black flex items-center justify-center">${idx + 1}</span>
-                                        `}
-                                        <span id="timer-${id}" class="font-mono text-[13px] ${isChecked ? 'text-[#5F5A4D] dark:text-[#A8A594] font-medium' : 'text-[#1B5E20] dark:text-[#C3F400] font-bold'}">
-                                            ${isChecked ? '--:--:--' : 'Listo'}
-                                        </span>
-                                    </div>
-                                    <span id="label-${id}" class="font-tech font-bold text-xs mt-1.5 truncate ${isChecked ? 'text-[#5F5A4D] dark:text-[#A8A594]' : 'text-[#1C1C17] dark:text-[#F4F1E8]'}">
-                                        ${leader ? leader.trim() : city.trim()}
-                                    </span>
-                                    <span class="font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594] truncate">${city.replace(/\(.*?\)/, '').trim()}</span>
-                                </div>
-                            `;
-                        }).join('')}
-                    </div>
-
-                    <!-- Barra Delgada de Progreso Integrada en el Borde Inferior -->
-                    <div class="w-full bg-[#D8D4C7] dark:bg-[#1E1E1A] h-[3px] rounded-full overflow-hidden mt-3" title="Progreso del circuito: ${progressPct}%">
-                        <div class="h-full bg-[#10B981] transition-all duration-300" style="width: ${progressPct}%"></div>
-                    </div>
+        const card = document.createElement('div');
+        card.className = "bg-[#F6F4EB] dark:bg-[#262622] border-2 border-[#2B2B2B] dark:border-[#35352E] rounded-xl p-3 sm:p-4 shadow-[2px_3px_0px_#2B2B2B] dark:shadow-[2px_3px_0px_#000] relative overflow-hidden flex flex-col justify-between transition-colors";
+        card.innerHTML = `
+            <div class="flex flex-wrap items-center justify-between border-b border-[#2B2B2B]/30 dark:border-[#35352E] pb-2 mb-3 gap-2">
+                <div class="flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition" data-region="${regionName}" data-action="focus-region" title="Clic para ver esta región en grande arriba">
+                    <span class="bg-[#E4DFD0] dark:bg-[#2E2E27] text-[#2B2B2B] dark:text-[#F4F1E8] font-tech font-bold text-[13px] px-2 py-0.5 rounded border border-[#2B2B2B] dark:border-[#35352E]">${regionNumber}</span>
+                    <span class="font-tech font-bold text-sm text-[#1C1C17] dark:text-[#F4F1E8] hover:underline">${regionName}</span>
                 </div>
-            `;
-        } else {
-            // Tarjetas de Regiones Subordinadas (Teselia, Sinnoh, Hoenn, Johto)
-            const regionNumber = regionName.includes('Teselia') ? 'R-02' : regionName.includes('Sinnoh') ? 'R-03' : regionName.includes('Hoenn') ? 'R-04' : 'R-05';
-            const card = document.createElement('div');
-            card.className = "bg-[#F6F4EB] dark:bg-[#262622] border-2 border-[#2B2B2B] dark:border-[#35352E] rounded-xl p-3 sm:p-4 shadow-[2px_3px_0px_#2B2B2B] dark:shadow-[2px_3px_0px_#000] relative overflow-hidden flex flex-col justify-between transition-colors";
-            card.innerHTML = `
-                <div class="flex flex-wrap items-center justify-between border-b border-[#2B2B2B]/30 dark:border-[#35352E] pb-2 mb-3 gap-2">
-                    <div class="flex items-center gap-1.5">
-                        <span class="bg-[#E4DFD0] dark:bg-[#2E2E27] text-[#2B2B2B] dark:text-[#F4F1E8] font-tech font-bold text-[13px] px-2 py-0.5 rounded border border-[#2B2B2B] dark:border-[#35352E]">${regionNumber}</span>
-                        <span class="font-tech font-bold text-sm text-[#1C1C17] dark:text-[#F4F1E8]">${regionName}</span>
-                    </div>
-                    <div class="flex items-center gap-1.5 z-10 flex-wrap">
-                        ${actionBtnHtml}
-                        ${resetBtnHtml}
-                    </div>
+                <div class="flex items-center gap-1.5 z-10 flex-wrap">
+                    ${actionBtnHtml}
+                    ${resetBtnHtml}
                 </div>
+            </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[13px] z-10">
-                    ${list.map((gym, idx) => {
-                        const id = `gym-${cleanRegion}-${idx}`;
-                        const isChecked = localStorage.getItem(id) === 'true';
-                        const [city, leader] = gym.name.includes(':') ? gym.name.split(':') : [gym.name, ''];
-                        return `
-                            <div class="leader-tile ${isChecked ? 'bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B]/30 dark:border-[#35352E]' : 'bg-[#EDE9DE] dark:bg-[#242420] border border-transparent'} px-3 py-2 rounded-lg flex justify-between items-center cursor-pointer hover:border-[#FFC800] transition select-none min-h-[44px]" data-gym-id="${id}">
-                                <div class="flex items-center gap-2 truncate mr-2">
-                                    ${isChecked ? `<span class="text-[#1B5E20] dark:text-[#C3F400] text-[13px] font-bold">✓</span>` : ''}
-                                    <span id="label-${id}" class="font-medium truncate text-[13px] ${isChecked ? 'text-[#5F5A4D] dark:text-[#A8A594]' : 'text-[#1C1C17] dark:text-[#F4F1E8]'}">
-                                        ${leader ? leader.trim() : city.trim()}
-                                    </span>
-                                </div>
-                                <span id="timer-${id}" class="font-mono text-[13px] font-bold flex-shrink-0 ${isChecked ? 'text-[#5F5A4D] dark:text-[#A8A594] font-medium' : 'text-[#1B5E20] dark:text-[#C3F400] font-bold'}">
-                                    ${isChecked ? '--:--:--' : 'Listo'}
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[13px] z-10">
+                ${list.map((gym, idx) => {
+                    const id = `gym-${cleanRegion}-${idx}`;
+                    const isChecked = localStorage.getItem(id) === 'true';
+                    const [city, leader] = gym.name.includes(':') ? gym.name.split(':') : [gym.name, ''];
+                    return `
+                        <div class="leader-tile ${isChecked ? 'bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B]/30 dark:border-[#35352E]' : 'bg-[#EDE9DE] dark:bg-[#242420] border border-transparent'} px-3 py-2 rounded-lg flex justify-between items-center cursor-pointer hover:border-[#FFC800] transition select-none min-h-[44px]" data-gym-id="${id}">
+                            <div class="flex items-center gap-2 truncate mr-2">
+                                ${isChecked ? `<span class="text-[#1B5E20] dark:text-[#C3F400] text-[13px] font-bold">✓</span>` : ''}
+                                <span id="label-${id}" class="font-medium truncate text-[13px] ${isChecked ? 'text-[#5F5A4D] dark:text-[#A8A594]' : 'text-[#1C1C17] dark:text-[#F4F1E8]'}">
+                                    ${leader ? leader.trim() : city.trim()}
                                 </span>
                             </div>
-                        `;
-                    }).join('')}
-                </div>
+                            <span id="timer-${id}" class="font-mono text-[13px] font-bold flex-shrink-0 ${isChecked ? 'text-[#5F5A4D] dark:text-[#A8A594] font-medium' : 'text-[#1B5E20] dark:text-[#C3F400] font-bold'}">
+                                ${isChecked ? '--:--:--' : 'Listo'}
+                            </span>
+                        </div>
+                    `;
+                }).join('')}
+            </div>
 
-                <!-- Barra Delgada de Progreso Integrada en el Borde Inferior -->
-                <div class="w-full bg-[#D8D4C7] dark:bg-[#1E1E1A] h-[3px] rounded-full overflow-hidden mt-3" title="Progreso del circuito: ${progressPct}%">
-                    <div class="h-full bg-[#10B981] transition-all duration-300" style="width: ${progressPct}%"></div>
-                </div>
+            <!-- Barra Delgada de Progreso Integrada en el Borde Inferior -->
+            <div class="w-full bg-[#D8D4C7] dark:bg-[#1E1E1A] h-[3px] rounded-full overflow-hidden mt-3" title="Progreso del circuito: ${progressPct}%">
+                <div class="h-full bg-[#10B981] transition-all duration-300" style="width: ${progressPct}%"></div>
+            </div>
 
-                <div class="mt-2 pt-2 border-t border-[#D8D4C7]/40 dark:border-[#33332D] flex items-center justify-between font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">
-                    <span>${completedInRegion}/${list.length} completados</span>
-                    <span class="${isRegionCleared ? 'text-[#10B981] font-black' : 'text-[#5F5A4D] dark:text-[#A8A594] font-bold'}">
-                        ${isRegionCleared ? '★ Circuito Completado' : 'Circuito activo'}
-                    </span>
-                </div>
-            `;
-            subContainer.appendChild(card);
-        }
+            <div class="mt-2 pt-2 border-t border-[#D8D4C7]/40 dark:border-[#33332D] flex items-center justify-between font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">
+                <span>${completedInRegion}/${list.length} completados</span>
+                <span class="${isRegionCleared ? 'text-[#10B981] font-black' : 'text-[#5F5A4D] dark:text-[#A8A594] font-bold'}">
+                    ${isRegionCleared ? '★ Circuito Completado' : 'Circuito activo'}
+                </span>
+            </div>
+        `;
+        subContainer.appendChild(card);
     }
 
     // Vincular controladores de clics a las tarjetas de líderes
@@ -457,6 +520,17 @@ export function renderGyms() {
             const gymId = tile.dataset.gymId;
             const currentlyChecked = localStorage.getItem(gymId) === 'true';
             toggleGymState(gymId, !currentlyChecked);
+        });
+    });
+
+    // Vincular controladores para cambiar la región en foco (Ver en grande / Continuar)
+    document.querySelectorAll('[data-action="focus-region"]').forEach(el => {
+        el.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const targetRegion = el.dataset.region;
+            if (targetRegion) {
+                setFocusedRegion(targetRegion);
+            }
         });
     });
 
