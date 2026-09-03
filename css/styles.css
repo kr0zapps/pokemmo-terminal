@@ -1,20 +1,37 @@
-/* css/styles.css - PokéMMO Terminal v3.0 Stitch & Pokémon HUD Design System */
+/* css/styles.css - PokéMMO Terminal v4.9 Rotom-Phone Tactical Cockpit Edition */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Rubik:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
-    --os-bg: #090C12;
-    --os-panel: #101522;
-    --os-surface: #101522;
-    --os-elevated: #171E2E;
-    --os-border: #1F293D;
-    --os-border-subtle: #161D2B;
-    --os-border-strong: #2F3C54;
-    --os-text: #F1F5F9;
-    --os-muted: #8493A8;
-    --os-red: #EF4444;
-    --os-green: #10B981;
-    --os-blue: #38BDF8;
-    --os-gold: #F59E0B;
-    --os-indigo: #6366F1;
+    --rotom-outer-bg: #242422;
+    --rotom-chassis: #F4F1E8;
+    --rotom-surface-deck: #EDE8DC;
+    --rotom-surface-card: #FAF8F2;
+    --rotom-border: #2B2B2B;
+    --rotom-yellow: #FFC800;
+    --rotom-yellow-soft: #FFDF92;
+    --rotom-amber: #755B00;
+    --rotom-lcd-bg: #9BBC0F;
+    --rotom-lcd-fg: #0F380F;
+    --rotom-green: #526600;
+    --rotom-red: #E63946;
+    --rotom-red-soft: #FFDFDE;
+    --rotom-muted: #81765F;
+    --rotom-text: #1C1C17;
+
+    --os-bg: #F4F1E8;
+    --os-panel: #FAF8F2;
+    --os-surface: #EDE8DC;
+    --os-elevated: #E4DFD0;
+    --os-border: #2B2B2B;
+    --os-border-subtle: #D8D4C7;
+    --os-border-strong: #181816;
+    --os-text: #1C1C17;
+    --os-muted: #5F5A4D;
+    --os-red: #E63946;
+    --os-green: #526600;
+    --os-blue: #2563EB;
+    --os-gold: #755B00;
+    --os-indigo: #4F46E5;
 
     /* Pokémon Official Stat Palette */
     --stat-hp: #10B981;
@@ -23,6 +40,41 @@
     --stat-spa: #A855F7;
     --stat-spd: #F59E0B;
     --stat-spe: #EC4899;
+}
+
+/* Rotom Phone Hardware Molding & Industrial Classes */
+.chassis-groove {
+    background-image: repeating-linear-gradient(90deg, rgba(43,43,43,0.08) 0px, rgba(43,43,43,0.08) 2px, transparent 2px, transparent 6px);
+}
+.rotom-stripes {
+    background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.12) 0px, rgba(0,0,0,0.12) 2px, transparent 2px, transparent 8px);
+}
+.lcd-screen-gb {
+    background-color: var(--rotom-lcd-bg);
+    color: var(--rotom-lcd-fg);
+    box-shadow: inset 4px 4px 10px rgba(0,0,0,0.45), inset -2px -2px 6px rgba(255,255,255,0.25);
+    font-family: 'Space Mono', 'JetBrains Mono', monospace;
+}
+.stamp-cleared {
+    border: 3px dashed #1b7a2b;
+    color: #1b7a2b;
+    transform: rotate(-10deg);
+    text-shadow: 0 0 1px rgba(27,122,43,0.3);
+}
+.stamp-progress {
+    border: 2px dashed #b7102a;
+    color: #b7102a;
+    transform: rotate(11deg);
+    text-shadow: 0 0 1px rgba(183,16,42,0.3);
+}
+.rotom-polygon {
+    clip-path: polygon(14% 0%, 94% 0%, 100% 65%, 82% 100%, 0% 100%, 4% 30%);
+}
+.tab-notch {
+    clip-path: polygon(0% 100%, 8% 0%, 92% 0%, 100% 100%);
+}
+.circular-dial-track {
+    background: conic-gradient(#526600 0% 68%, #d8d4c7 68% 100%);
 }
 
 /* Pokemon Brand Font Accent */
@@ -40,9 +92,9 @@
 }
 
 body {
-    background-color: var(--os-bg);
-    color: var(--os-text);
-    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    background-color: var(--rotom-outer-bg);
+    color: var(--rotom-text);
+    font-family: 'Rubik', 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -62,16 +114,16 @@ body {
     background: var(--os-border-strong);
 }
 
-/* Stitch Tonal Surfaces & HUD Panels */
+/* Rotom Console Surfaces & Panels */
 .panel, .card-cockpit {
     background-color: var(--os-panel);
-    border: 1px solid var(--os-border);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.45);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    border: 2.5px solid var(--os-border);
+    border-radius: 14px;
+    box-shadow: 3px 4px 0px #2B2B2B;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 .panel:hover {
-    border-color: rgba(56, 189, 248, 0.25);
+    border-color: #181816;
 }
 
 .hud-stat-box {
@@ -96,7 +148,48 @@ body {
     font-variant-numeric: tabular-nums;
 }
 
-/* Nav Tab Pills (Poké-Terminal Navigation) */
+/* Nav Tab Pills & Rotom Physical Folder Organizer Tabs */
+.tab-notch {
+    clip-path: polygon(0% 100%, 6% 0%, 94% 0%, 100% 100%);
+    background-color: #E2DED0;
+    color: #4F4632;
+    border-top: 3px solid var(--rotom-border);
+    border-left: 3px solid var(--rotom-border);
+    border-right: 3px solid var(--rotom-border);
+    padding: 0.55rem 1.1rem 0.4rem 1.1rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.15s ease-out;
+    box-shadow: inset 0 2px 1px rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+.tab-notch:hover {
+    background-color: #EDE9DC;
+    transform: translateY(-2px);
+    color: #1C1C17;
+}
+.tab-notch.tab-active {
+    background-color: var(--rotom-yellow);
+    background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.08) 0px, rgba(0,0,0,0.08) 2px, transparent 2px, transparent 8px);
+    color: #241A00;
+    border-top: 4px solid var(--rotom-border);
+    border-left: 4px solid var(--rotom-border);
+    border-right: 4px solid var(--rotom-border);
+    font-weight: 900;
+    padding-top: 0.7rem;
+    padding-bottom: 0.55rem;
+    transform: translateY(1px);
+    box-shadow: 0 -4px 14px rgba(255, 200, 0, 0.45), inset 0 2px 2px rgba(255, 255, 255, 0.8);
+    z-index: 30;
+}
+
 .tab-pill {
     display: inline-flex;
     align-items: center;
@@ -157,34 +250,40 @@ body {
 
 /* Input & Select Controls */
 input, select, textarea {
-    background-color: #07090E !important;
-    border: 1px solid var(--os-border) !important;
-    color: var(--os-text) !important;
+    background-color: #EDE9DE !important;
+    border: 2px solid var(--os-border) !important;
+    color: #1C1C17 !important;
     border-radius: 8px !important;
+    font-family: 'JetBrains Mono', monospace !important;
     transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
 }
 input:focus, select:focus, textarea:focus {
-    border-color: var(--os-blue) !important;
+    border-color: #FFC800 !important;
     outline: none !important;
-    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25) !important;
+    box-shadow: 0 0 0 2px rgba(255, 200, 0, 0.4) !important;
 }
 
 /* Action Buttons */
 .btn-primary {
-    background: linear-gradient(180deg, #2563EB 0%, #1D4ED8 100%);
-    color: white;
+    background: #FFC800;
+    color: #241A00;
+    border: 2px solid #2B2B2B;
     border-radius: 8px;
-    font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
     padding: 0.55rem 1.1rem;
     transition: all 0.15s ease;
-    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
+    box-shadow: 2px 3px 0px #2B2B2B;
+    cursor: pointer;
 }
 .btn-primary:hover {
-    background: linear-gradient(180deg, #3B82F6 0%, #2563EB 100%);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.45);
+    background: #FFE066;
+    transform: translateY(-1px);
+    box-shadow: 3px 4px 0px #2B2B2B;
 }
 .btn-primary:active {
-    transform: scale(0.98);
+    transform: translateY(1px);
+    box-shadow: 1px 1px 0px #2B2B2B;
 }
 
 /* Subtle Fade In Animation */
