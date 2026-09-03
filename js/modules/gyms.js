@@ -89,10 +89,10 @@ export function renderGymView() {
                 <!-- CIFRA ULTRA DOMINANTE DE GANANCIAS -->
                 <div class="my-2 relative flex flex-col">
                     <div class="flex items-baseline gap-2 flex-wrap">
-                        <span class="font-tech font-black text-6xl sm:text-7xl lg:text-[84px] leading-none text-[#1C1C17] dark:text-[#F4F1E8] tracking-tight drop-shadow-[2px_2px_0px_rgba(255,255,255,0.8)] dark:drop-shadow-none" id="gymEarningsTotal">
+                        <span class="font-chicago font-bold text-6xl sm:text-7xl lg:text-[84px] leading-none text-[#1C1C17] dark:text-[#F4F1E8] tracking-normal drop-shadow-[2px_2px_0px_rgba(255,255,255,0.8)] dark:drop-shadow-none" id="gymEarningsTotal">
                             $0
                         </span>
-                        <span class="font-mono font-black text-2xl lg:text-3xl text-[#755B00] dark:text-[#FFC800] tracking-wider">
+                        <span class="font-chicago font-bold text-2xl lg:text-3xl text-[#755B00] dark:text-[#FFC800] tracking-wider">
                             Poké$
                         </span>
                     </div>

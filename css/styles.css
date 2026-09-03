@@ -1,5 +1,37 @@
-/* css/styles.css - PokéMMO Terminal v4.9 Rotom-Phone Tactical Cockpit Edition */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=VT323&display=swap');
+/* Authentic Retro Nintendo & Pokémon Webfonts (Locally Hosted) */
+@font-face {
+    font-family: 'Pokemon Solid';
+    src: url('../fonts/PokemonSolid.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Chicago';
+    src: url('../fonts/Chicago.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixel Operator';
+    src: url('../fonts/PixelOperator.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixel Operator 8';
+    src: url('../fonts/PixelOperator8.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 
 :root {
     /* Modo Claro (Por Defecto) */
@@ -86,18 +118,24 @@ html.dark, body.dark {
     --os-gold: #FBBF24;
 }
 
-/* Tipografías Técnicas */
-.font-tech {
-    font-family: 'Space Grotesk', sans-serif;
+/* Tipografías Auténticas de Consola Retro Nintendo & Pokémon */
+.font-tech, .font-chicago {
+    font-family: 'Chicago', 'Pixel Operator', sans-serif;
+    letter-spacing: 0.03em;
 }
 .font-body {
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'Pixel Operator', monospace, sans-serif;
+    font-size: 1.05rem;
+}
+.font-mono {
+    font-family: 'Pixel Operator', monospace;
+    font-size: 0.95rem;
 }
 .font-lcd {
-    font-family: 'VT323', monospace;
+    font-family: 'VT323', 'Pixel Operator 8', monospace;
 }
 .font-pixel {
-    font-family: 'Press Start 2P', monospace;
+    font-family: 'Pixel Operator 8', 'Press Start 2P', monospace;
 }
 
 /* Rotom Phone Hardware Molding & Industrial Classes */
@@ -111,7 +149,7 @@ html.dark, body.dark {
     background-color: var(--rotom-lcd-bg);
     color: var(--rotom-lcd-fg);
     box-shadow: inset 4px 4px 10px rgba(0,0,0,0.45), inset -2px -2px 6px rgba(255,255,255,0.25);
-    font-family: 'Space Mono', 'JetBrains Mono', monospace;
+    font-family: 'VT323', 'Pixel Operator 8', monospace;
 }
 .stamp-cleared {
     border: 3px dashed #1b7a2b;
@@ -137,11 +175,11 @@ html.dark, body.dark {
 
 /* Pokemon Brand Font Accent */
 .font-pokemon {
-    font-family: 'Pokemon Solid', sans-serif;
+    font-family: 'Pokemon Solid', 'Chicago', sans-serif;
     font-weight: normal;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     color: #FFCC00;
-    -webkit-text-stroke: 1px #253375;
+    -webkit-text-stroke: 1.5px #253375;
     text-shadow: 2px 2px 0 #182252;
 }
 
@@ -152,7 +190,8 @@ html.dark, body.dark {
 body {
     background-color: var(--rotom-outer-bg);
     color: var(--rotom-text);
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'Pixel Operator', monospace, sans-serif;
+    font-size: 16px;
     -webkit-font-smoothing: antialiased;
 }
 

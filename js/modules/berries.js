@@ -684,53 +684,53 @@ export function renderCrops() {
         const dbInfo = BERRY_DB[crop.type] || BERRY_DB.zanama;
         const card = document.createElement('div');
         card.id = `crop-card-${crop.id}`;
-        card.className = `panel p-5 flex flex-col justify-between transition-all duration-200 relative overflow-hidden rounded-xl hover:border-os-border-strong`;
+        card.className = `panel p-4 flex flex-col justify-between transition-all duration-200 relative overflow-hidden rounded-xl border-2 border-[#2B2B2B] dark:border-[#3A3A34] bg-[#FAF8F2] dark:bg-[#282824] shadow-[3px_4px_0px_#2B2B2B] dark:shadow-[3px_4px_0px_#000]`;
         
         card.innerHTML = `
             <div class="z-10 relative">
                 <div class="flex justify-between items-start mb-3">
                     <div class="flex items-center gap-3">
-                        <div class="berry-pedestal flex-shrink-0">
+                        <div class="berry-pedestal flex-shrink-0 bg-[#E5E0D0] dark:bg-[#20201C] border-2 border-[#2B2B2B] dark:border-[#3A3A34] rounded-lg p-1">
                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${dbInfo.sprite}.png" class="w-8 h-8 pokemon-sprite" onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'" alt="${dbInfo.name}">
                         </div>
                         <div>
-                            <h3 class="text-sm font-bold text-os-text">${dbInfo.name}</h3>
-                            <p class="text-[10px] text-os-muted font-mono"><span class="text-os-blue font-semibold">${crop.location}</span> &bull; <span class="text-os-green font-semibold">${dbInfo.yield || '5-7'} u.</span></p>
+                            <h3 class="font-tech text-sm sm:text-base font-bold text-[#1C1C17] dark:text-[#F4F1E8]">${dbInfo.name}</h3>
+                            <p class="font-mono text-xs text-[#5F5A4D] dark:text-[#B5B1A4]"><span class="text-[#2563EB] dark:text-[#60A5FA] font-bold">${crop.location}</span> &bull; <span class="text-[#1B5E20] dark:text-[#C3F400] font-bold">${dbInfo.yield || '5-7'} u.</span></p>
                         </div>
                     </div>
                     <div id="crop-badge-${crop.id}"></div>
                 </div>
 
                 <!-- Indicador de Fase / Etapa -->
-                <div id="crop-stage-${crop.id}" class="text-[10px] font-mono mb-2"></div>
+                <div id="crop-stage-${crop.id}" class="font-mono text-xs mb-2 text-[#5F5A4D] dark:text-[#B5B1A4]"></div>
 
-                <!-- Moisture status -->
-                <div class="bg-[#07090E] border border-os-border p-3 mb-3 rounded-xl">
-                    <div class="flex justify-between items-center text-[10px] font-mono mb-1.5">
-                        <span class="text-os-muted uppercase font-bold tracking-wider">Humedad de Suelo</span>
+                <!-- Estado de Humedad (Caja de Hardware Recesiva) -->
+                <div class="bg-[#2B2B2B] dark:bg-[#1E1E1A] border-2 border-[#181816] dark:border-[#33332D] p-3 mb-3 rounded-xl shadow-inner text-[#F4F1E8]">
+                    <div class="flex justify-between items-center text-xs font-mono mb-1.5">
+                        <span class="font-tech text-[10px] text-[#A8A495] uppercase font-bold tracking-wider">Humedad de Suelo</span>
                         <div id="crop-drops-${crop.id}"></div>
                     </div>
-                    <p id="crop-advice-${crop.id}" class="text-[10px] text-os-muted leading-tight font-mono">Calculando estado de hidratación...</p>
+                    <p id="crop-advice-${crop.id}" class="text-xs text-[#D8D4C7] leading-tight font-mono">Calculando estado de hidratación...</p>
                 </div>
 
                 <div class="grid grid-cols-2 gap-2 mb-3">
-                    <div class="bg-os-elevated border border-os-border p-2.5 rounded-lg text-center">
-                        <p id="crop-water-label-${crop.id}" class="text-[9px] text-os-muted uppercase tracking-wider mb-1 font-mono">Humedad Restante</p>
-                        <p id="crop-water-time-${crop.id}" class="font-mono text-xs font-bold text-os-text tabular-nums">--:--:--</p>
+                    <div class="bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#3A3A34] p-2 rounded-lg text-center shadow-sm">
+                        <p id="crop-water-label-${crop.id}" class="text-[10px] text-[#5F5A4D] dark:text-[#B5B1A4] uppercase tracking-wider mb-0.5 font-tech font-bold">Humedad Restante</p>
+                        <p id="crop-water-time-${crop.id}" class="font-lcd text-lg font-black text-[#1C1C17] dark:text-[#F4F1E8] tabular-nums tracking-wider">--:--:--</p>
                     </div>
-                    <div class="bg-os-elevated border border-os-border p-2.5 rounded-lg text-center">
-                        <p class="text-[9px] text-os-muted uppercase tracking-wider mb-1 font-mono">Cosecha Total</p>
-                        <p id="crop-harvest-time-${crop.id}" class="font-mono text-xs font-bold text-os-text tabular-nums">--:--:--</p>
+                    <div class="bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#3A3A34] p-2 rounded-lg text-center shadow-sm">
+                        <p class="text-[10px] text-[#5F5A4D] dark:text-[#B5B1A4] uppercase tracking-wider mb-0.5 font-tech font-bold">Cosecha Total</p>
+                        <p id="crop-harvest-time-${crop.id}" class="font-lcd text-lg font-black text-[#1C1C17] dark:text-[#F4F1E8] tabular-nums tracking-wider">--:--:--</p>
                     </div>
                 </div>
 
-                <div class="w-full bg-os-bg border border-os-border h-2 rounded-full overflow-hidden mb-2">
-                    <div id="crop-progress-${crop.id}" class="h-2 progress-bar-transition w-0 bg-os-green rounded-full"></div>
+                <div class="w-full bg-[#E5E0D0] dark:bg-[#22221D] border border-[#2B2B2B] dark:border-[#3A3A34] h-2.5 rounded-full overflow-hidden mb-2 shadow-inner">
+                    <div id="crop-progress-${crop.id}" class="h-2.5 progress-bar-transition w-0 bg-[#FFC800] rounded-full"></div>
                 </div>
             </div>
             <div class="flex gap-2 mt-auto z-10 relative pt-2">
-                <button id="btn-water-${crop.id}" class="flex-1 bg-os-blue/10 border border-os-blue/40 text-os-blue hover:bg-os-blue hover:text-black py-2 px-2 text-xs font-mono uppercase font-semibold transition rounded-lg cursor-pointer">Regar</button>
-                <button id="btn-harvest-${crop.id}" class="flex-1 bg-os-bg border border-os-border text-os-muted hover:border-os-red/40 hover:text-os-red py-2 px-2 text-xs font-mono uppercase transition rounded-lg cursor-pointer">Cancelar</button>
+                <button id="btn-water-${crop.id}" class="flex-1 bg-[#FFC800] hover:bg-[#FFE066] border-2 border-[#2B2B2B] text-[#241A00] py-2 px-2 text-xs font-tech font-bold uppercase transition rounded-lg shadow-[1px_2px_0px_#2B2B2B] cursor-pointer">Regar</button>
+                <button id="btn-harvest-${crop.id}" class="flex-1 bg-[#E4DFD0] dark:bg-[#33332D] border-2 border-[#2B2B2B] dark:border-[#4A4A42] text-[#2B2B2B] dark:text-[#F4F1E8] hover:text-[#E63946] py-2 px-2 text-xs font-tech font-bold uppercase transition rounded-lg cursor-pointer">Cancelar</button>
             </div>
         `;
         container.appendChild(card);
