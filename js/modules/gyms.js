@@ -123,16 +123,12 @@ export function renderGymView() {
                     <div class="w-1.5 h-0.5 bg-[#888] rotate-90"></div>
                 </div>
 
-                <div class="flex items-center justify-between mb-1.5 px-1">
-                    <span class="font-mono text-[13px] uppercase font-bold text-[#A8A495] tracking-wider flex items-center gap-1.5">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/amulet-coin.png" class="w-4 h-4 pokemon-sprite" alt="">
-                        Telemetría de Moneda Amuleto
+                <div class="flex items-center justify-between mb-2 px-1">
+                    <span class="font-tech text-[14px] uppercase font-bold text-[#1C1C17] dark:text-[#F4F1E8] tracking-wider flex items-center gap-2">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/amulet-coin.png" class="w-5 h-5 pokemon-sprite" alt="">
+                        Cronómetro de Moneda Amuleto
                     </span>
-                    <div class="flex items-center gap-1">
-                        <span class="text-[13px] font-mono text-[#A8A495]">Comp:</span>
-                        <input type="number" id="gymCompHours" value="0" min="0" max="18" step="0.5" class="w-10 p-0.5 text-[13px] text-center bg-[#1C1C17] border border-[#444] text-[#9BBC0F] font-mono rounded" title="Horas de compensación previa">
-                        <span class="text-[13px] font-mono text-[#A8A495]">h</span>
-                    </div>
+                    <span class="font-mono text-[13px] text-[#1B5E20] dark:text-[#10B981] font-bold">1 HORA</span>
                 </div>
 
                 <!-- Pantalla LCD Verde Fósforo (Siempre activa con el mismo brillo retro) -->
@@ -493,9 +489,7 @@ export function renderGyms() {
 export function toggleGymState(id, isChecked) {
     const label = document.getElementById(`label-${id}`);
     const timerEl = document.getElementById(`timer-${id}`);
-    const compHours = parseFloat(document.getElementById('gymCompHours')?.value) || 0;
-    const compMs = compHours * 60 * 60 * 1000;
-    const targetTimestamp = Date.now() - compMs;
+    const targetTimestamp = Date.now();
 
     if (isChecked) {
         localStorage.setItem(id, 'true');
@@ -522,9 +516,7 @@ export function toggleGymState(id, isChecked) {
 export function toggleWholeRegion(regionName, checkAll) {
     const list = GYM_DATA[regionName] || [];
     const cleanRegion = regionName.replace(/[^a-zA-Z]/g, '');
-    const compHours = parseFloat(document.getElementById('gymCompHours')?.value) || 0;
-    const compMs = compHours * 60 * 60 * 1000;
-    const targetTime = Date.now() - compMs;
+    const targetTime = Date.now();
     const completedAt = checkAll ? new Date(targetTime).toISOString() : null;
 
     list.forEach((_, index) => {
