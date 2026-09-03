@@ -8,6 +8,7 @@ import { switchTab, initRouter } from './router.js';
 import * as gyms from './modules/gyms.js';
 import * as berries from './modules/berries.js';
 import * as pokedex from './modules/pokedex.js';
+import { getPokeMMOClock } from './utils/pokemmo-time.js';
 
 // Attach UI functions to window for inline HTML onclick handlers
 window.switchTab = switchTab;
@@ -155,21 +156,52 @@ async function updateHeaderAuth() {
     } else {
         authArea.innerHTML = '';
     }
+}
 
-    // Start UTC Clock for footer
-    function updateClock() {
-        const el = document.getElementById('clock-server-footer');
-        if (el) {
-            const now = new Date();
-            el.textContent = now.toUTCString().slice(17, 25) + ' UTC';
+export function initPokeMMOClock() {
+    function tick() {
+        const clock = getPokeMMOClock();
+        
+        // Reloj digital en juego en el encabezado
+        const clockEl = document.getElementById('headerInGameClock');
+        if (clockEl) clockEl.textContent = clock.timeStr;
+
+        // Badge de Fase del Día (Mañana / Día / Noche)
+        const phaseBadge = document.getElementById('headerDayPhaseBadge');
+        const phaseIcon = document.getElementById('headerDayPhaseIcon');
+        const phaseText = document.getElementById('headerDayPhaseText');
+        if (phaseBadge && phaseText) {
+            phaseBadge.className = `flex items-center gap-1 font-tech text-[10px] font-bold px-2 py-0.5 rounded shadow-sm ${clock.phaseBadgeClass}`;
+            if (phaseIcon) phaseIcon.innerHTML = clock.phaseIconSvg;
+            phaseText.textContent = clock.phase;
+            phaseBadge.title = `Fase en PokéMMO: ${clock.phase}`;
+        }
+
+        // Badge de Estación Oficial (Primavera / Verano / Otoño / Invierno)
+        const seasonBadge = document.getElementById('headerSeasonBadge');
+        const seasonIcon = document.getElementById('headerSeasonIcon');
+        const seasonText = document.getElementById('headerSeasonText');
+        if (seasonBadge && seasonText) {
+            seasonBadge.className = `flex items-center gap-1 font-tech text-[10px] font-bold px-2 py-0.5 rounded shadow-sm ${clock.seasonBadgeClass}`;
+            if (seasonIcon) seasonIcon.innerHTML = clock.seasonIconSvg;
+            seasonText.textContent = clock.season;
+            seasonBadge.title = `Estación en PokéMMO: ${clock.season} (${clock.seasonDesc})`;
+        }
+
+        // Temporizador de reinicio de ciclo de 6 horas en el pie de página
+        const footerReset = document.getElementById('footerResetTimer');
+        if (footerReset) {
+            footerReset.textContent = clock.timeUntilResetStr;
         }
     }
-    updateClock();
-    setInterval(updateClock, 1000);
+
+    tick();
+    setInterval(tick, 1000);
 }
 
 async function main() {
     initTheme();
+    initPokeMMOClock();
     const session = await getSession();
     if (!session && !isGuestMode()) {
         renderAuthUI(initApp);
