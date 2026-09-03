@@ -14,6 +14,16 @@ export async function switchTab(tabId) {
   setState('preferences', prefs);
   savePreferences({ active_tab: tabId }).catch(console.error);
 
+  const mobileSelect = document.getElementById('mobileTabSelect');
+  if (mobileSelect && mobileSelect.value !== tabId) {
+    mobileSelect.value = tabId;
+  }
+  const mobileIcon = document.getElementById('mobileTabIcon');
+  const activeTabObj = TABS.find(t => t.id === tabId);
+  if (mobileIcon && activeTabObj) {
+    mobileIcon.src = activeTabObj.icon;
+  }
+
   TABS.forEach(t => {
     const view = $(`#view-${t.id}`);
     const btn = $(`#nav-${t.id}`);

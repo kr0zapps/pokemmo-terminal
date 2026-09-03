@@ -426,3 +426,31 @@ html.dark .btn-primary {
 .animate-fade-in {
     animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* ==========================================
+   DISEÑO RESPONSIVE Y RESTRICCIONES MÓVILES (< 600px)
+   ========================================== */
+
+/* PROHIBICIÓN ESTRICTA DE SCROLL HORIZONTAL EN LA PÁGINA */
+html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    width: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Área táctil mínima de 44x44px en móviles para todos los controles interactivos */
+@media (max-width: 639px) {
+    button, 
+    select, 
+    input[type="button"], 
+    input[type="submit"], 
+    .touch-target,
+    .leader-tile {
+        min-height: 44px;
+    }
+}
+

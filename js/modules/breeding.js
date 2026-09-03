@@ -132,11 +132,11 @@ export function renderBreedingView() {
         <!-- Diagrama -->
         <div class="lg:col-span-3">
             <div class="panel p-5 rounded-xl border border-os-border min-h-[600px] overflow-auto relative">
-                <div class="flex justify-between items-center mb-4 border-b-2 border-[#2B2B2B] dark:border-[#35352E] pb-3">
+                <div class="flex justify-between items-center mb-4 border-b-2 border-[#2B2B2B] dark:border-[#35352E] pb-3 flex-wrap gap-2">
                     <h2 class="text-xs font-tech font-bold text-[#1C1C17] dark:text-[#F4F1E8] uppercase tracking-wider">Diagrama Genético (Bottom-Up)</h2>
-                    <button id="btn-update-tree" class="px-3.5 py-1.5 bg-[#EDE8DC] dark:bg-[#2E2E27] hover:border-[#FFC800] text-[#1C1C17] dark:text-[#F4F1E8] border border-[#2B2B2B] dark:border-[#35352E] text-[13px] font-tech font-bold rounded-lg transition shadow-sm cursor-pointer">Actualizar Árbol</button>
+                    <button id="btn-update-tree" class="min-h-[44px] px-4 py-2 bg-[#EDE8DC] dark:bg-[#2E2E27] hover:border-[#FFC800] text-[#1C1C17] dark:text-[#F4F1E8] border border-[#2B2B2B] dark:border-[#35352E] text-[13px] font-tech font-bold rounded-lg transition shadow-sm cursor-pointer flex items-center justify-center">Actualizar Árbol</button>
                 </div>
-                <div id="mermaid-container" class="w-full flex justify-center mt-4 bg-[#FAF8F2] dark:bg-[#161614] p-3 rounded-xl border-2 border-[#2B2B2B]/30 dark:border-[#35352E] shadow-inner">
+                <div id="mermaid-container" class="w-full max-w-full overflow-x-auto flex justify-center mt-4 bg-[#FAF8F2] dark:bg-[#161614] p-3 rounded-xl border-2 border-[#2B2B2B]/30 dark:border-[#35352E] shadow-inner">
                     <div class="text-[#5F5A4D] dark:text-[#A8A594] text-xs font-mono mt-10">Selecciona entre 2 y 6 IVs para generar el árbol...</div>
                 </div>
             </div>

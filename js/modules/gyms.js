@@ -86,16 +86,16 @@ export function renderGymView() {
                     </label>
                 </div>
                 <!-- CIFRA ULTRA DOMINANTE DE GANANCIAS -->
-                <div class="my-2 relative flex flex-col">
+                <div class="my-2 relative flex flex-col overflow-hidden">
                     <div class="flex items-baseline gap-2 flex-wrap">
-                        <span class="font-tech font-black text-6xl sm:text-7xl lg:text-[84px] leading-none text-[#1C1C17] dark:text-[#F4F1E8] tracking-tight" id="gymEarningsTotal">
+                        <span class="font-tech font-black text-4xl xs:text-5xl sm:text-7xl lg:text-[84px] leading-none text-[#1C1C17] dark:text-[#F4F1E8] tracking-tight" id="gymEarningsTotal">
                             $0
                         </span>
                         <span class="font-tech font-extrabold text-2xl lg:text-3xl text-[#755B00] dark:text-[#FFC800] tracking-wide">
                             Poké$
                         </span>
                     </div>
-                    <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#5F5A4D] dark:text-[#A8A594] mt-1 flex-wrap">
+                    <div class="flex items-center gap-2 text-[13px] font-mono font-bold text-[#5F5A4D] dark:text-[#A8A594] mt-1 flex-wrap">
                         <span class="bg-[#E4DFD0] dark:bg-[#242420] px-2 py-0.5 rounded border border-[#81765F]/30 dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8]" id="payoutBaseText">Base: $0</span>
                         <span class="text-[#2B2B2B] dark:text-[#F4F1E8] font-black">+</span>
                         <span class="bg-[#FFDF92] dark:bg-[#473200] text-[#5C3800] dark:text-[#FFDF92] px-2 py-0.5 rounded border border-[#755B00]/40 font-black" id="payoutBonusText">Bono: +$0</span>
@@ -139,7 +139,7 @@ export function renderGymView() {
                     </div>
                     <div class="flex items-baseline justify-between my-2">
                         <span id="amuletTimerText" class="text-4xl font-black tracking-widest leading-none font-lcd">60:00</span>
-                        <span class="text-xs font-bold uppercase tracking-wider">+50% BONO</span>
+                        <span class="text-[13px] font-bold uppercase tracking-wider font-tech">+50% BONO</span>
                     </div>
                     <div class="flex justify-between text-[13px] font-bold opacity-75 pt-1 border-t border-[#0F380F]/30">
                         <span>RECARGA: CICLO 18H</span>
@@ -147,12 +147,12 @@ export function renderGymView() {
                     </div>
                 </div>
 
-                <!-- Botones de Control -->
+                <!-- Botones de Control con touch target mínimo 44px -->
                 <div class="flex items-center justify-between mt-2 pt-1 gap-2">
-                    <button id="amuletBtnStart" class="flex-1 py-1.5 bg-[#FFC800] text-[#241A00] hover:bg-[#FFE066] border-2 border-[#181816] font-tech font-black text-xs uppercase tracking-wider rounded shadow-[1px_2px_0px_#181816] active:translate-y-0.5 cursor-pointer">
+                    <button id="amuletBtnStart" class="flex-1 min-h-[44px] py-2 px-3 bg-[#FFC800] text-[#241A00] hover:bg-[#FFE066] border-2 border-[#181816] font-tech font-black text-[13px] uppercase tracking-wider rounded-lg shadow-[1px_2px_0px_#181816] active:translate-y-0.5 cursor-pointer flex items-center justify-center">
                         Iniciar cronómetro
                     </button>
-                    <button id="amuletBtnReset" class="px-3 py-1.5 bg-[#3B3B3B] text-[#A8A495] hover:text-white border-2 border-[#181816] font-mono text-xs rounded hover:bg-[#4B4B4B] cursor-pointer" title="Reiniciar cronómetro">
+                    <button id="amuletBtnReset" class="min-h-[44px] px-3.5 py-2 bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] border-2 border-[#2B2B2B] dark:border-[#35352E] font-tech font-bold text-[13px] rounded-lg cursor-pointer flex items-center justify-center shadow-sm" title="Reiniciar cronómetro">
                         Reiniciar
                     </button>
                 </div>
@@ -304,26 +304,26 @@ export function renderGyms() {
         let actionBtnHtml = '';
         if (completedInRegion === 0) {
             actionBtnHtml = `
-                <button data-region="${regionName}" data-action="mark-all" class="text-[13px] font-mono uppercase bg-[#2B2B2B] dark:bg-[#3E3E36] text-white hover:bg-[#444] px-2.5 py-1 rounded font-bold transition cursor-pointer" title="Marcar todos los líderes como completados">
+                <button data-region="${regionName}" data-action="mark-all" class="text-[13px] font-tech uppercase bg-[#2B2B2B] dark:bg-[#3E3E36] text-white hover:bg-[#444] px-3 py-2 rounded-lg font-bold transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Marcar todos los líderes como completados">
                     Completar todo
                 </button>
             `;
         } else if (completedInRegion < list.length) {
             actionBtnHtml = `
-                <button data-region="${regionName}" data-action="mark-all" class="text-[13px] font-mono uppercase bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] px-2.5 py-1 rounded font-black transition cursor-pointer shadow-sm" title="Continuar marcando los líderes restantes">
+                <button data-region="${regionName}" data-action="mark-all" class="text-[13px] font-tech uppercase bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-2 rounded-lg font-bold transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Continuar marcando los líderes restantes">
                     Continuar (${completedInRegion}/${list.length})
                 </button>
             `;
         } else {
             actionBtnHtml = `
-                <button data-region="${regionName}" data-action="mark-all" class="text-[13px] font-mono uppercase bg-[#1B5E20]/20 text-[#1B5E20] dark:text-[#C3F400] border border-[#1B5E20]/40 px-2.5 py-1 rounded font-bold transition cursor-default opacity-80" disabled>
+                <button data-region="${regionName}" data-action="mark-all" class="text-[13px] font-tech uppercase bg-[#1B5E20]/20 text-[#1B5E20] dark:text-[#C3F400] border border-[#1B5E20]/40 px-3 py-2 rounded-lg font-bold transition cursor-default opacity-80 min-h-[44px] flex items-center justify-center" disabled>
                     Completado
                 </button>
             `;
         }
 
         const resetBtnHtml = `
-            <button data-region="${regionName}" data-action="unmark-all" class="text-[13px] font-mono uppercase bg-[#E4DFD0] dark:bg-[#2E2E27] text-[#2B2B2B] dark:text-[#F4F1E8] hover:text-[#b7102a] dark:hover:text-[#FFA8A8] border border-[#2B2B2B] dark:border-[#35352E] px-2 py-1 rounded transition cursor-pointer" title="Reiniciar circuito">
+            <button data-region="${regionName}" data-action="unmark-all" class="text-[13px] font-tech uppercase bg-[#E4DFD0] dark:bg-[#2E2E27] text-[#2B2B2B] dark:text-[#F4F1E8] hover:text-[#b7102a] dark:hover:text-[#FFA8A8] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-2 rounded-lg transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Reiniciar circuito">
                 Reiniciar
             </button>
         `;
@@ -401,44 +401,33 @@ export function renderGyms() {
             // Tarjetas de Regiones Subordinadas (Teselia, Sinnoh, Hoenn, Johto)
             const regionNumber = regionName.includes('Teselia') ? 'R-02' : regionName.includes('Sinnoh') ? 'R-03' : regionName.includes('Hoenn') ? 'R-04' : 'R-05';
             const card = document.createElement('div');
-            card.className = "bg-[#F6F4EB] dark:bg-[#262622] border-2 border-[#2B2B2B] dark:border-[#35352E] rounded-xl p-3 shadow-[2px_3px_0px_#2B2B2B] dark:shadow-[2px_3px_0px_#000] relative overflow-hidden flex flex-col justify-between transition-colors";
+            card.className = "bg-[#F6F4EB] dark:bg-[#262622] border-2 border-[#2B2B2B] dark:border-[#35352E] rounded-xl p-3 sm:p-4 shadow-[2px_3px_0px_#2B2B2B] dark:shadow-[2px_3px_0px_#000] relative overflow-hidden flex flex-col justify-between transition-colors";
             card.innerHTML = `
-                <!-- Sello Dinámico -->
-                ${isRegionCleared ? `
-                    <div class="absolute -right-2 top-6 z-20 pointer-events-none stamp-cleared bg-[#F6F4EB]/95 dark:bg-[#262622]/95 px-2 py-0.5 font-mono font-bold text-[13px] tracking-tight shadow-sm">
-                        ★ COMPLETADO ★
-                    </div>
-                ` : `
-                    <div class="absolute -right-2 top-6 z-20 pointer-events-none stamp-progress bg-[#F6F4EB]/90 dark:bg-[#262622]/90 px-2 py-0.5 font-mono font-bold text-[13px] tracking-tight shadow-sm">
-                        PENDIENTE ${list.length - completedInRegion}/${list.length}
-                    </div>
-                `}
-
-                <div class="flex items-center justify-between border-b border-[#2B2B2B]/30 dark:border-[#35352E] pb-1.5 mb-2">
+                <div class="flex flex-wrap items-center justify-between border-b border-[#2B2B2B]/30 dark:border-[#35352E] pb-2 mb-3 gap-2">
                     <div class="flex items-center gap-1.5">
-                        <span class="bg-[#E4DFD0] dark:bg-[#2E2E27] text-[#2B2B2B] dark:text-[#F4F1E8] font-tech font-bold text-[13px] px-1.5 py-0.5 rounded border border-[#2B2B2B] dark:border-[#35352E]">${regionNumber}</span>
-                        <span class="font-tech font-bold text-xs text-[#1C1C17] dark:text-[#F4F1E8]">${regionName}</span>
+                        <span class="bg-[#E4DFD0] dark:bg-[#2E2E27] text-[#2B2B2B] dark:text-[#F4F1E8] font-tech font-bold text-[13px] px-2 py-0.5 rounded border border-[#2B2B2B] dark:border-[#35352E]">${regionNumber}</span>
+                        <span class="font-tech font-bold text-sm text-[#1C1C17] dark:text-[#F4F1E8]">${regionName}</span>
                     </div>
-                    <div class="flex items-center gap-1 z-10 mr-16">
+                    <div class="flex items-center gap-1.5 z-10 flex-wrap">
                         ${actionBtnHtml}
                         ${resetBtnHtml}
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-1.5 text-[13px] z-10">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[13px] z-10">
                     ${list.map((gym, idx) => {
                         const id = `gym-${cleanRegion}-${idx}`;
                         const isChecked = localStorage.getItem(id) === 'true';
                         const [city, leader] = gym.name.includes(':') ? gym.name.split(':') : [gym.name, ''];
                         return `
-                            <div class="leader-tile ${isChecked ? 'bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B]/30 dark:border-[#35352E]' : 'bg-[#EDE9DE] dark:bg-[#242420] border border-transparent'} p-1.5 rounded flex justify-between items-center cursor-pointer hover:border-[#FFC800] transition select-none" data-gym-id="${id}">
-                                <div class="flex items-center gap-1 truncate mr-1">
+                            <div class="leader-tile ${isChecked ? 'bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B]/30 dark:border-[#35352E]' : 'bg-[#EDE9DE] dark:bg-[#242420] border border-transparent'} px-3 py-2 rounded-lg flex justify-between items-center cursor-pointer hover:border-[#FFC800] transition select-none min-h-[44px]" data-gym-id="${id}">
+                                <div class="flex items-center gap-2 truncate mr-2">
                                     ${isChecked ? `<span class="text-[#1B5E20] dark:text-[#C3F400] text-[13px] font-bold">✓</span>` : ''}
                                     <span id="label-${id}" class="font-medium truncate text-[13px] ${isChecked ? 'text-[#5F5A4D] dark:text-[#A8A594]' : 'text-[#1C1C17] dark:text-[#F4F1E8]'}">
                                         ${leader ? leader.trim() : city.trim()}
                                     </span>
                                 </div>
-                                <span id="timer-${id}" class="font-mono text-[13px] ${isChecked ? 'text-[#5F5A4D] dark:text-[#A8A594] font-medium' : 'text-[#1B5E20] dark:text-[#C3F400] font-bold'}">
+                                <span id="timer-${id}" class="font-mono text-[13px] font-bold flex-shrink-0 ${isChecked ? 'text-[#5F5A4D] dark:text-[#A8A594] font-medium' : 'text-[#1B5E20] dark:text-[#C3F400] font-bold'}">
                                     ${isChecked ? '--:--:--' : 'Listo'}
                                 </span>
                             </div>
@@ -447,13 +436,15 @@ export function renderGyms() {
                 </div>
 
                 <!-- Barra Delgada de Progreso Integrada en el Borde Inferior -->
-                <div class="w-full bg-[#D8D4C7] dark:bg-[#1E1E1A] h-[3px] rounded-full overflow-hidden mt-2.5" title="Progreso del circuito: ${progressPct}%">
+                <div class="w-full bg-[#D8D4C7] dark:bg-[#1E1E1A] h-[3px] rounded-full overflow-hidden mt-3" title="Progreso del circuito: ${progressPct}%">
                     <div class="h-full bg-[#10B981] transition-all duration-300" style="width: ${progressPct}%"></div>
                 </div>
 
-                <div class="mt-1.5 pt-1 border-t border-[#D8D4C7]/40 dark:border-[#33332D] flex items-center justify-between font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">
+                <div class="mt-2 pt-2 border-t border-[#D8D4C7]/40 dark:border-[#33332D] flex items-center justify-between font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">
                     <span>${completedInRegion}/${list.length} completados</span>
-                    <span class="text-[#1B5E20] dark:text-[#C3F400] font-bold">Circuito activo</span>
+                    <span class="${isRegionCleared ? 'text-[#10B981] font-black' : 'text-[#5F5A4D] dark:text-[#A8A594] font-bold'}">
+                        ${isRegionCleared ? '★ Circuito Completado' : 'Circuito activo'}
+                    </span>
                 </div>
             `;
             subContainer.appendChild(card);

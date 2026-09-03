@@ -89,22 +89,22 @@ export function initTheme() {
 }
 
 export function applyTheme(theme) {
-    const sunIcon = document.getElementById('themeIconSun');
-    const moonIcon = document.getElementById('themeIconMoon');
-    const themeText = document.getElementById('themeToggleText');
+    const sunIcons = document.querySelectorAll('.theme-icon-sun');
+    const moonIcons = document.querySelectorAll('.theme-icon-moon');
+    const themeTexts = document.querySelectorAll('.theme-toggle-text');
     
     if (theme === 'dark') {
         document.documentElement.classList.add('dark');
         document.body.classList.add('dark');
-        if (sunIcon) sunIcon.classList.remove('hidden');
-        if (moonIcon) moonIcon.classList.add('hidden');
-        if (themeText) themeText.textContent = 'Claro';
+        sunIcons.forEach(el => el.classList.remove('hidden'));
+        moonIcons.forEach(el => el.classList.add('hidden'));
+        themeTexts.forEach(el => el.textContent = 'Claro');
     } else {
         document.documentElement.classList.remove('dark');
         document.body.classList.remove('dark');
-        if (sunIcon) sunIcon.classList.add('hidden');
-        if (moonIcon) moonIcon.classList.remove('hidden');
-        if (themeText) themeText.textContent = 'Oscuro';
+        sunIcons.forEach(el => el.classList.add('hidden'));
+        moonIcons.forEach(el => el.classList.remove('hidden'));
+        themeTexts.forEach(el => el.textContent = 'Oscuro');
     }
     localStorage.setItem('pokemmo_theme', theme);
     document.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
@@ -125,22 +125,23 @@ async function updateHeaderAuth() {
         const userDisplay = rawEmail.includes('@pokemmo.app') ? rawEmail.split('@')[0] : rawEmail;
 
         authArea.innerHTML = `
-            <div class="flex items-center gap-2 bg-[#EDE8DC] dark:bg-[#2E2E27] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-1 rounded-lg shadow-inner">
-                <span class="font-tech font-bold text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">ID Entrenador:</span>
-                <span class="font-mono font-bold text-[13px] text-[#1C1C17] dark:text-[#F4F1E8] tracking-wider bg-[#F4F1E8] dark:bg-[#1A1A16] px-2 py-0.5 rounded border border-[#81765F]/40 dark:border-[#35352E]">${userDisplay}</span>
-                <span class="text-[#81765F] dark:text-[#666] text-[13px]">|</span>
-                <button onclick="logout()" class="font-tech font-bold text-[13px] text-[#b7102a] dark:text-[#FFA8A8] hover:underline uppercase cursor-pointer" title="Cerrar sesión">Cerrar sesión</button>
+            <div class="w-full sm:w-auto flex flex-wrap items-center justify-between sm:justify-start gap-2 bg-[#FAF8F2] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-1.5 rounded-xl shadow-inner min-h-[44px]">
+                <div class="flex items-center gap-1.5">
+                    <span class="font-tech font-bold text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">ID:</span>
+                    <span class="font-mono font-bold text-[13px] text-[#1C1C17] dark:text-[#F4F1E8] tracking-wider bg-[#EDE8DC] dark:bg-[#1A1A16] px-2 py-0.5 rounded border border-[#81765F]/40 dark:border-[#35352E] max-w-[140px] truncate">${userDisplay}</span>
+                </div>
+                <button onclick="logout()" class="min-h-[44px] px-2 flex items-center font-tech font-bold text-[13px] text-[#b7102a] dark:text-[#FFA8A8] hover:underline uppercase cursor-pointer" title="Cerrar sesión">Cerrar sesión</button>
             </div>
         `;
     } else if (isGuestMode()) {
         authArea.innerHTML = `
-            <div class="flex items-center gap-2">
-                <div class="flex items-center gap-1.5 bg-[#EDE8DC] dark:bg-[#2E2E27] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-1 rounded-lg shadow-inner">
+            <div class="w-full sm:w-auto flex flex-wrap items-center justify-between sm:justify-start gap-2">
+                <div class="flex items-center gap-1.5 bg-[#FAF8F2] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-1.5 rounded-xl shadow-inner min-h-[44px]">
                     <span class="font-tech font-bold text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">Modo:</span>
                     <span class="font-mono font-bold text-[13px] text-[#5C3800] dark:text-[#FFDF92] bg-[#FFDF92] dark:bg-[#473200] px-2 py-0.5 rounded border border-[#755B00]/40">Invitado</span>
                 </div>
-                <button onclick="window.showAuthModal()" class="text-[13px] text-[#1C1C17] dark:text-[#F4F1E8] bg-[#EDE8DC] dark:bg-[#2E2E27] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-1 rounded-lg font-tech uppercase font-bold flex items-center gap-1.5 cursor-pointer transition shadow-sm" title="Inicia sesión para sincronizar tu progreso entre PC y móvil">
-                    <svg class="w-3.5 h-3.5 text-[#5F5A4D] dark:text-[#A8A594]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                <button onclick="window.showAuthModal()" class="min-h-[44px] text-[13px] text-[#1C1C17] dark:text-[#F4F1E8] bg-[#FAF8F2] dark:bg-[#242420] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] px-3.5 py-1.5 rounded-xl font-tech uppercase font-bold flex items-center gap-1.5 cursor-pointer transition shadow-sm" title="Inicia sesión para sincronizar tu progreso entre PC y móvil">
+                    <svg class="w-4 h-4 text-[#5F5A4D] dark:text-[#A8A594]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
                     <span>Sincronizar</span>
                 </button>
             </div>

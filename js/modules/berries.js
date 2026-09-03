@@ -216,12 +216,12 @@ export function renderBerryView() {
                     </section>
 
                     <!-- PLANT BERRY -->
-                    <section class="panel p-5 rounded-xl">
-                        <h2 class="text-xs font-mono text-os-muted uppercase tracking-wider mb-4 font-semibold">Plantación de Bayas</h2>
-                        <div class="grid grid-cols-2 gap-3 mb-4">
+                    <section class="panel p-4 sm:p-5 rounded-xl">
+                        <h2 class="text-xs font-tech text-os-muted uppercase tracking-wider mb-4 font-bold">Plantación de Bayas</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
                             <div>
                                 <label class="block text-[13px] uppercase text-os-muted mb-1 font-mono">Especie</label>
-                                <select id="berryType" class="w-full p-2 text-sm cursor-pointer">
+                                <select id="berryType" class="w-full p-2.5 text-sm cursor-pointer min-h-[44px]">
                                     <option value="zanama" selected>Zanama (Leppa) / 20h (PP)</option>
                                     <option value="basicas">Básicas (Oran, Cheri...) / 16h</option>
                                     <option value="curativas">Ziuela (Lum) / Zidra (Sitrus) / 44h</option>
@@ -232,18 +232,18 @@ export function renderBerryView() {
                             </div>
                             <div>
                                 <label class="block text-[13px] uppercase text-os-muted mb-1 font-mono">Coordenadas / Parcela</label>
-                                <input type="text" id="berryLocation" placeholder="Ej. Ruta 104, Loza..." class="w-full p-2 text-sm">
+                                <input type="text" id="berryLocation" placeholder="Ej. Ruta 104, Loza..." class="w-full p-2.5 text-sm min-h-[44px]">
                             </div>
                             <div>
                                 <label class="block text-[13px] uppercase text-os-green mb-1 font-mono font-bold">Duración 2 Gotas Base (Hrs)</label>
-                                <input type="number" id="berryWaterHours" value="4.0" min="0.5" max="44" step="0.5" class="w-full p-2 text-sm text-center border-os-green/40 font-mono text-os-green" title="Horas antes de que las 2 gotas iniciales se consuman por completo">
+                                <input type="number" id="berryWaterHours" value="4.0" min="0.5" max="44" step="0.5" class="w-full p-2.5 text-sm text-center border-os-green/40 font-mono text-os-green min-h-[44px]" title="Horas antes de que las 2 gotas iniciales se consuman por completo">
                             </div>
                             <div>
                                 <label class="block text-[13px] uppercase text-os-muted mb-1 font-mono">Tiempo Ya Transcurrido (Hrs)</label>
-                                <input type="number" id="berryElapsed" placeholder="0 (recién plantada)" min="0" step="0.5" class="w-full p-2 text-sm">
+                                <input type="number" id="berryElapsed" placeholder="0 (recién plantada)" min="0" step="0.5" class="w-full p-2.5 text-sm min-h-[44px]">
                             </div>
                         </div>
-                        <button id="btnPlantBerry" class="w-full border border-os-green text-os-green hover:bg-os-green hover:text-white transition py-2 text-sm uppercase tracking-wide">
+                        <button id="btnPlantBerry" class="w-full min-h-[44px] border border-os-green text-os-green hover:bg-os-green hover:text-white transition py-2.5 text-sm uppercase tracking-wide font-tech font-bold rounded-lg cursor-pointer flex items-center justify-center">
                             Iniciar Monitoreo
                         </button>
                     </section>
