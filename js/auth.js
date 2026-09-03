@@ -131,7 +131,7 @@ export function renderAuthUI(onSuccess) {
             <span class="text-3xl font-pokemon tracking-wide text-[#FFCC00]">PokéMMO</span>
             <span class="text-xs font-mono tracking-wider uppercase px-2 py-0.5 rounded bg-os-elevated border border-os-border text-os-blue font-semibold">Terminal v3.0</span>
           </div>
-          <p class="text-xs text-os-muted mt-1">Cockpit de control táctico para entrenadores</p>
+          <p class="text-xs text-os-muted mt-1">Panel de herramientas para entrenadores de PokéMMO</p>
         </div>
         
         <form id="auth-form" class="space-y-4">

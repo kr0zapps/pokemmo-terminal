@@ -116,14 +116,14 @@ export function renderBreedingView() {
                     <h2 class="text-xs font-mono font-semibold text-os-blue mb-3 uppercase tracking-wider border-b border-os-border pb-2 flex items-center justify-between">
                         <span class="flex items-center gap-1.5">
                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/coin-case.png" class="w-4 h-4 pokemon-sprite" alt="GTL">
-                            <span>Insumos GTL</span>
+                            <span>Objetos y Costos (GTL)</span>
                         </span>
-                        <span class="text-[13px] text-os-muted font-normal">Precios de Mercado</span>
+                        <span class="text-[13px] text-os-muted font-normal">Precios GTL</span>
                     </h2>
                     <div id="shopping-list" class="space-y-2 font-mono text-xs text-os-text"></div>
                 </div>
                 <div class="mt-6 pt-4 border-t border-os-border text-right">
-                    <div class="text-os-muted mb-1 text-[13px] uppercase font-mono font-semibold tracking-wider">Presupuesto Estimado</div>
+                    <div class="text-os-muted mb-1 text-[13px] uppercase font-mono font-semibold tracking-wider">Costo Estimado</div>
                     <div id="cost-total-pokeyen" class="text-2xl font-mono font-bold text-amber-400 tabular-nums">$0</div>
                 </div>
             </div>
@@ -133,7 +133,7 @@ export function renderBreedingView() {
         <div class="lg:col-span-3">
             <div class="panel p-5 rounded-xl border border-os-border min-h-[600px] overflow-auto relative">
                 <div class="flex justify-between items-center mb-4 border-b-2 border-[#2B2B2B] dark:border-[#35352E] pb-3 flex-wrap gap-2">
-                    <h2 class="text-xs font-tech font-bold text-[#1C1C17] dark:text-[#F4F1E8] uppercase tracking-wider">Diagrama Genético (Bottom-Up)</h2>
+                    <h2 class="text-xs font-tech font-bold text-[#1C1C17] dark:text-[#F4F1E8] uppercase tracking-wider">Árbol de Crianza de IVs</h2>
                     <button id="btn-update-tree" class="min-h-[44px] px-4 py-2 bg-[#EDE8DC] dark:bg-[#2E2E27] hover:border-[#FFC800] text-[#1C1C17] dark:text-[#F4F1E8] border border-[#2B2B2B] dark:border-[#35352E] text-[13px] font-tech font-bold rounded-lg transition shadow-sm cursor-pointer flex items-center justify-center">Actualizar Árbol</button>
                 </div>
                 <div id="mermaid-container" class="w-full max-w-full overflow-x-auto flex justify-center mt-4 bg-[#FAF8F2] dark:bg-[#161614] p-3 rounded-xl border-2 border-[#2B2B2B]/30 dark:border-[#35352E] shadow-inner">

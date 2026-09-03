@@ -175,7 +175,7 @@ export function renderBerryView() {
                     </div>
                     
                     <button id="btnCalculateInventory" class="w-full btn-primary py-2.5 text-xs font-mono uppercase tracking-wider mb-4 cursor-pointer">
-                        Procesar Rendimiento
+                        Calcular Producción
                     </button>
                     
                     <div id="inventoryResults" class="grid grid-cols-2 gap-3 hidden border-t border-os-border pt-4">
@@ -244,7 +244,7 @@ export function renderBerryView() {
                             </div>
                         </div>
                         <button id="btnPlantBerry" class="w-full min-h-[44px] border border-os-green text-os-green hover:bg-os-green hover:text-white transition py-2.5 text-sm uppercase tracking-wide font-tech font-bold rounded-lg cursor-pointer flex items-center justify-center">
-                            Iniciar Monitoreo
+                            Plantar Baya
                         </button>
                     </section>
                 </div>

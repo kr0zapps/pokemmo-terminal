@@ -66,13 +66,13 @@ export function renderGymView() {
                 <!-- Línea Técnica con Título en Español -->
                 <div class="w-full h-1 bg-[#D8D4C7] dark:bg-[#3A3A34] border-b border-white/20 mb-3 flex items-center justify-between">
                     <div class="w-16 h-1 bg-[#2B2B2B] dark:bg-[#FFC800]"></div>
-                    <span class="font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594] font-bold tracking-wide bg-[#F4F1E8] dark:bg-[#1A1A16] px-2">Estimación de ganancias de circuito</span>
+                    <span class="font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594] font-bold tracking-wide bg-[#F4F1E8] dark:bg-[#1A1A16] px-2">Ganancias del Gym Run</span>
                     <div class="w-28 h-1 bg-[#FFC800]"></div>
                 </div>
                 <!-- Fila de Encabezado con Interruptor Deslizante -->
                 <div class="flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-2">
-                        <span class="font-tech font-bold text-xs tracking-wide text-[#5F5A4D] dark:text-[#A8A594]">Estimado de ingresos</span>
+                        <span class="font-tech font-bold text-xs tracking-wide text-[#5F5A4D] dark:text-[#A8A594]">Total estimado</span>
                     </div>
                     <!-- Interruptor Deslizante Mecánico: Moneda Amuleto +50% activa -->
                     <label class="flex items-center gap-2 bg-[#E2DDCF] dark:bg-[#242420] border-2 border-[#2B2B2B] dark:border-[#35352E] px-3 py-1.5 rounded-lg shadow-sm cursor-pointer select-none">
@@ -163,10 +163,10 @@ export function renderGymView() {
         <section class="w-full bg-[#E5E0D0] dark:bg-[#242420] border-2 border-[#2B2B2B] dark:border-[#35352E] rounded-xl p-3 md:p-4 shadow-[2px_3px_0px_#2B2B2B] dark:shadow-[2px_3px_0px_#000] flex flex-col gap-2.5 mb-6 transition-colors">
             <div class="flex flex-wrap items-center justify-between gap-2">
                 <div class="flex items-center gap-2">
-                    <span class="font-tech font-bold text-sm text-[#1C1C17] dark:text-[#F4F1E8] tracking-wide">Despeje total de gimnasios (ciclo diario 24h)</span>
+                    <span class="font-tech font-bold text-sm text-[#1C1C17] dark:text-[#F4F1E8] tracking-wide">Progreso general de gimnasios (reinicio cada 18h)</span>
                 </div>
                 <div class="flex items-center gap-3 font-mono font-bold text-xs">
-                    <span class="text-[#2B2B2B] dark:text-[#F4F1E8]">Combate activo: <strong id="gymsReadyCount" class="text-[#1B5E20] dark:text-[#C3F400]">40</strong> / 40 listos</span>
+                    <span class="text-[#2B2B2B] dark:text-[#F4F1E8]">Gimnasios listos: <strong id="gymsReadyCount" class="text-[#1B5E20] dark:text-[#C3F400]">40</strong> / 40</span>
                     <span id="gymsCooldownBadge" class="bg-[#D2CDBC] dark:bg-[#2E2E27] px-2 py-0.5 rounded border border-[#2B2B2B]/40 dark:border-[#35352E] text-[#5F5A4D] dark:text-[#A8A594]">0 en enfriamiento</span>
                 </div>
             </div>
@@ -188,7 +188,7 @@ export function renderGymView() {
             <div class="flex flex-wrap items-center justify-between text-[13px] font-mono text-[#5F5A4D] dark:text-[#A8A594] pt-0.5">
                 <span class="flex items-center gap-1.5">
                     <svg class="w-3.5 h-3.5 text-[#755B00] dark:text-[#FFC800]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
-                    Secuencia óptima de rutas: <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">Azulona &gt; Azafrán &gt; Carmín &gt; Celeste &gt; Fucsia</strong>
+                    Ruta recomendada: <strong class="text-[#1C1C17] dark:text-[#F4F1E8]" id="gymOptimalRouteText">Azulona &gt; Azafrán &gt; Carmín &gt; Celeste &gt; Fucsia</strong>
                 </span>
                 <button id="btn-reset-gyms" class="font-bold text-[#b7102a] dark:text-[#FFA8A8] hover:underline cursor-pointer uppercase text-[13px] tracking-wider">
                     [ Reiniciar todos los gimnasios ]
@@ -196,17 +196,16 @@ export function renderGymView() {
             </div>
         </section>
 
-        <!-- MAZO DE CIRCUITOS REGIONALES -->
+        <!-- RUTAS DE GIMNASIOS POR REGIÓN -->
         <div class="flex flex-col gap-4">
             <div class="flex items-center justify-between px-1">
                 <div class="flex items-center gap-2">
-                    <span class="font-tech font-black text-base text-[#1C1C17] dark:text-[#F4F1E8] tracking-wide">Mazo de circuitos regionales</span>
-                    <span class="font-mono text-[13px] bg-[#E2DDCF] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E] px-1.5 py-0.5 rounded font-bold text-[#5F5A4D] dark:text-[#A8A594]">Carga asimétrica</span>
+                    <span class="font-tech font-black text-base text-[#1C1C17] dark:text-[#F4F1E8] tracking-wide">Rutas de Gimnasios por Región</span>
                 </div>
-                <span class="font-mono text-xs font-bold text-[#1B5E20] dark:text-[#C3F400]">VS-Buscador sincronizado</span>
+                <span class="font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">Reinicio de líderes: 18 horas</span>
             </div>
 
-            <!-- Tarjeta Principal de Kanto -->
+            <!-- Tarjeta Principal de Región en Foco -->
             <div id="kantoDeckContainer"></div>
 
             <!-- Regiones Subordinadas -->
@@ -360,7 +359,7 @@ export function renderGyms() {
             <!-- Sello Dinámico Físico Rotado -->
             ${isFocusedCleared ? `
                 <div class="absolute right-4 sm:right-6 top-4 sm:top-6 z-20 pointer-events-none stamp-cleared bg-[#FAF8F2]/95 dark:bg-[#242420]/95 px-3 py-1 font-mono font-black text-xs md:text-sm tracking-widest shadow-sm">
-                    ★ COMPLETADO Y VERIFICADO ★
+                    ★ REGIÓN COMPLETADA ★
                 </div>
             ` : `
                 <div class="absolute right-4 sm:right-6 top-4 sm:top-6 z-20 pointer-events-none stamp-progress bg-[#FAF8F2]/95 dark:bg-[#242420]/95 px-2.5 py-0.5 font-mono font-bold text-[13px] md:text-xs tracking-tight shadow-sm">
@@ -373,13 +372,13 @@ export function renderGyms() {
                 <div class="flex items-center gap-2">
                     <span class="bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] px-2 py-0.5 rounded border border-[#2B2B2B] dark:border-[#35352E]">${focusedRegionNumber}</span>
                     <span class="font-tech font-black text-base md:text-lg text-[#1C1C17] dark:text-[#F4F1E8]">Liga de ${focusedRegion}</span>
-                    <span class="font-tech font-bold text-[13px] text-[#5C3800] dark:text-[#FFDF92] bg-[#FFDF92] dark:bg-[#473200] px-2 py-0.5 rounded">Circuito en foco</span>
+                    <span class="font-tech font-bold text-[13px] text-[#5C3800] dark:text-[#FFDF92] bg-[#FFDF92] dark:bg-[#473200] px-2 py-0.5 rounded">Región activa</span>
                 </div>
                 <div class="flex items-center gap-1.5 z-10 mr-0 sm:mr-36 flex-wrap">
                     <button data-region="${focusedRegion}" data-action="mark-all" class="text-[13px] font-tech uppercase bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#10B981] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-2 rounded-lg font-bold transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Marcar todos los líderes de esta región como completados">
-                        ${isFocusedCleared ? 'Completado ✓' : 'Completar circuito'}
+                        ${isFocusedCleared ? 'Completado ✓' : 'Completar región'}
                     </button>
-                    <button data-region="${focusedRegion}" data-action="unmark-all" class="text-[13px] font-tech uppercase bg-[#E4DFD0] dark:bg-[#2E2E27] text-[#2B2B2B] dark:text-[#F4F1E8] hover:text-[#b7102a] dark:hover:text-[#FFA8A8] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-2 rounded-lg transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Reiniciar circuito de ${focusedRegion}">
+                    <button data-region="${focusedRegion}" data-action="unmark-all" class="text-[13px] font-tech uppercase bg-[#E4DFD0] dark:bg-[#2E2E27] text-[#2B2B2B] dark:text-[#F4F1E8] hover:text-[#b7102a] dark:hover:text-[#FFA8A8] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-2 rounded-lg transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Reiniciar región de ${focusedRegion}">
                         Reiniciar
                     </button>
                 </div>
@@ -417,7 +416,7 @@ export function renderGyms() {
             </div>
 
             <!-- Barra Delgada de Progreso Integrada en el Borde Inferior -->
-            <div class="w-full bg-[#D8D4C7] dark:bg-[#1E1E1A] h-[3px] rounded-full overflow-hidden mt-3" title="Progreso del circuito: ${focusedProgressPct}%">
+            <div class="w-full bg-[#D8D4C7] dark:bg-[#1E1E1A] h-[3px] rounded-full overflow-hidden mt-3" title="Progreso de la región: ${focusedProgressPct}%">
                 <div class="h-full bg-[#10B981] transition-all duration-300" style="width: ${focusedProgressPct}%"></div>
             </div>
         </div>
@@ -459,7 +458,7 @@ export function renderGyms() {
         }
 
         const resetBtnHtml = `
-            <button data-region="${regionName}" data-action="unmark-all" class="text-[13px] font-tech uppercase bg-[#E4DFD0] dark:bg-[#2E2E27] text-[#2B2B2B] dark:text-[#F4F1E8] hover:text-[#b7102a] dark:hover:text-[#FFA8A8] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-2 rounded-lg transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Reiniciar circuito">
+            <button data-region="${regionName}" data-action="unmark-all" class="text-[13px] font-tech uppercase bg-[#E4DFD0] dark:bg-[#2E2E27] text-[#2B2B2B] dark:text-[#F4F1E8] hover:text-[#b7102a] dark:hover:text-[#FFA8A8] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-2 rounded-lg transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Reiniciar región">
                 Reiniciar
             </button>
         `;
@@ -500,14 +499,14 @@ export function renderGyms() {
             </div>
 
             <!-- Barra Delgada de Progreso Integrada en el Borde Inferior -->
-            <div class="w-full bg-[#D8D4C7] dark:bg-[#1E1E1A] h-[3px] rounded-full overflow-hidden mt-3" title="Progreso del circuito: ${progressPct}%">
+            <div class="w-full bg-[#D8D4C7] dark:bg-[#1E1E1A] h-[3px] rounded-full overflow-hidden mt-3" title="Progreso de la región: ${progressPct}%">
                 <div class="h-full bg-[#10B981] transition-all duration-300" style="width: ${progressPct}%"></div>
             </div>
 
             <div class="mt-2 pt-2 border-t border-[#D8D4C7]/40 dark:border-[#33332D] flex items-center justify-between font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">
-                <span>${completedInRegion}/${list.length} completados</span>
+                <span>${completedInRegion}/${list.length} líderes derrotados</span>
                 <span class="${isRegionCleared ? 'text-[#10B981] font-black' : 'text-[#5F5A4D] dark:text-[#A8A594] font-bold'}">
-                    ${isRegionCleared ? '★ Circuito Completado' : 'Circuito activo'}
+                    ${isRegionCleared ? '★ Región completada' : 'En progreso'}
                 </span>
             </div>
         `;

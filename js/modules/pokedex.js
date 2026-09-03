@@ -65,11 +65,11 @@ export function renderPokédexView() {
                 <div class="w-full bg-[#FAF8F2] dark:bg-[#242420] border-2 border-[#2B2B2B] dark:border-[#35352E] rounded-xl p-3 md:p-4 shadow-[2px_3px_0px_#2B2B2B] dark:shadow-[2px_3px_0px_#000] flex flex-col gap-2.5 transition-colors">
                     <div class="flex flex-wrap items-center justify-between gap-2">
                         <div class="flex items-center gap-2">
-                            <span class="font-tech font-bold text-[13px] uppercase text-[#1C1C17] dark:text-[#F4F1E8] tracking-wide">Despeje de Capturas Regional</span>
-                            <span class="font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">(Registro Pokédex)</span>
+                            <span class="font-tech font-bold text-[13px] uppercase text-[#1C1C17] dark:text-[#F4F1E8] tracking-wide">Progreso de la Pokédex</span>
+                            <span class="font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">(Pokémon registrados)</span>
                         </div>
                         <div class="flex items-center gap-2 font-mono text-[13px] font-bold">
-                            <span class="text-[#5F5A4D] dark:text-[#A8A594]">Objetivos completados:</span>
+                            <span class="text-[#5F5A4D] dark:text-[#A8A594]">Capturados:</span>
                             <span id="dexProgressText" class="text-[#10B981] dark:text-[#10B981] font-black">0 / 0</span>
                         </div>
                     </div>
@@ -661,7 +661,7 @@ export function renderDexResults(resetPage = false) {
             <!-- Barra Superior de Control y Paginación (Superficie Elevada Nivel 3) -->
             <div class="bg-[#EDE8DC] dark:bg-[#2E2E27] border-b-2 border-[#2B2B2B] dark:border-[#35352E] px-4 md:px-6 py-3 flex flex-wrap items-center justify-between gap-3 text-[13px] font-mono">
                 <div class="flex items-center gap-2 pl-3">
-                    <span class="font-tech font-bold text-sm uppercase text-[#1C1C17] dark:text-[#F4F1E8] tracking-wider">Registro de Encuentros</span>
+                    <span class="font-tech font-bold text-sm uppercase text-[#1C1C17] dark:text-[#F4F1E8] tracking-wider">Encuentros y Rutas de Captura</span>
                     <span class="text-[#5F5A4D] dark:text-[#A8A594]">• Mostrando <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${startIndex + 1} - ${Math.min(startIndex + dexPageSize, totalItems)}</strong> de <strong class="text-[#10B981]">${totalItems} Pokémon</strong></span>
                 </div>
                 <div class="flex items-center gap-1.5">

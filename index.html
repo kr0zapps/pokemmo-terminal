@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PokéMMO Terminal — Rotom-Phone Cockpit</title>
+    <title>PokéMMO Rotom-Phone — Terminal de Entrenador</title>
     
     <!-- Scripts CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -91,17 +91,17 @@
 
         <!-- 1A. SELECTOR MÓVIL DE MÓDULOS (< 640px) — Cero scroll horizontal o cortes de texto -->
         <div class="w-full px-1 sm:hidden z-30 mb-2">
-            <label for="mobileTabSelect" class="sr-only">Seleccionar Módulo del Terminal</label>
+            <label for="mobileTabSelect" class="sr-only">Seleccionar sección</label>
             <div class="flex items-center bg-[#FAF8F2] dark:bg-[#242420] border-2 border-[#2B2B2B] dark:border-[#35352E] rounded-xl shadow-[2px_3px_0px_#2B2B2B] dark:shadow-[2px_3px_0px_#000] p-1.5 min-h-[44px]">
                 <div class="w-9 h-9 rounded-lg bg-[#EDE8DC] dark:bg-[#2E2E27] border border-[#2B2B2B] dark:border-[#35352E] flex items-center justify-center flex-shrink-0 mr-2 shadow-inner">
                     <img id="mobileTabIcon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/vs-seeker.png" alt="" class="w-5 h-5 pokemon-sprite">
                 </div>
                 <div class="relative flex-grow flex items-center">
                     <select id="mobileTabSelect" onchange="switchTab(this.value)" class="w-full bg-transparent text-[13px] font-tech font-bold uppercase text-[#1C1C17] dark:text-[#F4F1E8] outline-none cursor-pointer min-h-[44px] pr-6 appearance-none">
-                        <option value="gyms">TERMINAL // GIMNASIOS</option>
-                        <option value="berries">HIDRO-POD // BAYAS</option>
-                        <option value="pokedex">RADAR // POKÉDEX</option>
-                        <option value="breeding">GENÉTICA // CRIANZA</option>
+                        <option value="gyms">GIMNASIOS</option>
+                        <option value="berries">CULTIVO DE BAYAS</option>
+                        <option value="pokedex">POKÉDEX</option>
+                        <option value="breeding">CRIANZA E IVS</option>
                     </select>
                     <div class="pointer-events-none absolute right-1 text-[#5F5A4D] dark:text-[#A8A594]">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -115,19 +115,19 @@
             <div class="flex items-end gap-1.5 md:gap-2.5">
                 <button id="nav-gyms" onclick="switchTab('gyms')" class="tab-notch">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/vs-seeker.png" alt="" class="w-4 h-4 pokemon-sprite">
-                    <span>TERMINAL // GIMNASIOS</span>
+                    <span>GIMNASIOS</span>
                 </button>
                 <button id="nav-berries" onclick="switchTab('berries')" class="tab-notch">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/wailmer-pail.png" alt="" class="w-4 h-4 pokemon-sprite">
-                    <span>HIDRO-POD // BAYAS</span>
+                    <span>CULTIVO DE BAYAS</span>
                 </button>
                 <button id="nav-pokedex" onclick="switchTab('pokedex')" class="tab-notch">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/town-map.png" alt="" class="w-4 h-4 pokemon-sprite">
-                    <span>RADAR // POKÉDEX</span>
+                    <span>POKÉDEX</span>
                 </button>
                 <button id="nav-breeding" onclick="switchTab('breeding')" class="tab-notch">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/egg.png" alt="" class="w-4 h-4 pokemon-sprite">
-                    <span>GENÉTICA // CRIANZA</span>
+                    <span>CRIANZA E IVS</span>
                 </button>
             </div>
         </div>
