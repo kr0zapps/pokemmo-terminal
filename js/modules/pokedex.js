@@ -19,7 +19,7 @@ export function renderPokédexView() {
                         <span class="text-xl font-chicago font-bold text-[#1C1C17] dark:text-[#F4F1E8]">Radar Pokédex</span>
                         <span class="text-[10px] font-tech uppercase bg-[#FFDF92] dark:bg-[#473200] border border-[#755B00]/40 text-[#5C3800] dark:text-[#FFDF92] px-2 py-0.5 rounded font-bold">Rutas de Encuentro</span>
                     </div>
-                    <p class="text-xs text-[#5F5A4D] dark:text-[#B5B1A4] mt-1 font-mono">Ruteo geográfico secuencial y optimización de captura salvaje en tiempo real.</p>
+                    <p class="text-xs text-[#5F5A4D] dark:text-[#B5B1A4] mt-1 font-mono">Ruteo geográfico secuencial y optimización de captura salvaje por región.</p>
                 </div>
                 <div class="flex flex-wrap items-center gap-2">
                     <button onclick="window.pokedex.openCaughtModal()" class="border-2 border-[#2B2B2B] dark:border-[#3A3A34] bg-[#FAF8F2] dark:bg-[#20201C] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] px-3.5 py-1.5 text-xs font-tech font-bold transition flex items-center gap-2 rounded-lg shadow-sm cursor-pointer">

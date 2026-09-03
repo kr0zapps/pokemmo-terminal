@@ -66,14 +66,13 @@ export function renderGymView() {
                 <!-- Línea Técnica con Título en Español -->
                 <div class="w-full h-1 bg-[#D8D4C7] dark:bg-[#3A3A34] border-b border-white/20 mb-3 flex items-center justify-between">
                     <div class="w-16 h-1 bg-[#2B2B2B] dark:bg-[#FFC800]"></div>
-                    <span class="font-mono text-[10px] text-[#5F5A4D] dark:text-[#B5B1A4] font-bold tracking-wide bg-[#F4F1E8] dark:bg-[#1A1A16] px-2">Protocolo de arbitraje — rendimiento</span>
+                    <span class="font-mono text-[10px] text-[#5F5A4D] dark:text-[#B5B1A4] font-bold tracking-wide bg-[#F4F1E8] dark:bg-[#1A1A16] px-2">Estimación de ganancias de circuito</span>
                     <div class="w-28 h-1 bg-[#FFC800]"></div>
                 </div>
                 <!-- Fila de Encabezado con Interruptor Deslizante -->
                 <div class="flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-2">
                         <span class="font-tech font-bold text-xs tracking-wide text-[#5F5A4D] dark:text-[#B5B1A4]">Estimado de ingresos</span>
-                        <span class="w-2 h-2 rounded-full bg-[#1B5E20] dark:bg-[#C3F400]"></span>
                     </div>
                     <!-- Interruptor Deslizante Mecánico: Moneda Amuleto +50% activa -->
                     <label class="flex items-center gap-2 bg-[#E2DDCF] dark:bg-[#282824] border-2 border-[#2B2B2B] dark:border-[#4A4A42] px-3 py-1.5 rounded-lg shadow-sm cursor-pointer select-none">
@@ -89,10 +88,10 @@ export function renderGymView() {
                 <!-- CIFRA ULTRA DOMINANTE DE GANANCIAS -->
                 <div class="my-2 relative flex flex-col">
                     <div class="flex items-baseline gap-2 flex-wrap">
-                        <span class="font-chicago font-bold text-6xl sm:text-7xl lg:text-[84px] leading-none text-[#1C1C17] dark:text-[#F4F1E8] tracking-normal drop-shadow-[2px_2px_0px_rgba(255,255,255,0.8)] dark:drop-shadow-none" id="gymEarningsTotal">
+                        <span class="font-tech font-black text-6xl sm:text-7xl lg:text-[84px] leading-none text-[#1C1C17] dark:text-[#F4F1E8] tracking-tight" id="gymEarningsTotal">
                             $0
                         </span>
-                        <span class="font-chicago font-bold text-2xl lg:text-3xl text-[#755B00] dark:text-[#FFC800] tracking-wider">
+                        <span class="font-tech font-extrabold text-2xl lg:text-3xl text-[#755B00] dark:text-[#FFC800] tracking-wide">
                             Poké$
                         </span>
                     </div>
@@ -100,7 +99,6 @@ export function renderGymView() {
                         <span class="bg-[#E4DFD0] dark:bg-[#282824] px-2 py-0.5 rounded border border-[#81765F]/30 dark:border-[#4A4A42] text-[#1C1C17] dark:text-[#F4F1E8]" id="payoutBaseText">Base: $0</span>
                         <span class="text-[#2B2B2B] dark:text-[#F4F1E8] font-black">+</span>
                         <span class="bg-[#FFDF92] dark:bg-[#473200] text-[#5C3800] dark:text-[#FFDF92] px-2 py-0.5 rounded border border-[#755B00]/40 font-black" id="payoutBonusText">Bono: +$0</span>
-                        <span class="text-[#1B5E20] dark:text-[#C3F400] font-black tracking-wide ml-auto">● Registro automático en tiempo real</span>
                     </div>
                 </div>
                 <!-- Barra Recesiva de Progreso -->
@@ -149,7 +147,7 @@ export function renderGymView() {
                     </div>
                     <div class="flex justify-between text-[9px] font-bold opacity-75 pt-1 border-t border-[#0F380F]/30">
                         <span>RECARGA: CICLO 18H</span>
-                        <span>BUS SILPH: SINCRONIZADO</span>
+                        <span>ESTADO: LISTO</span>
                     </div>
                 </div>
 
