@@ -1,4 +1,4 @@
-import { state } from '../state.js';
+import { state, subscribe } from '../state.js';
 import { formatTime } from '../utils/format.js';
 import { toggleGym, resetAllGyms } from '../db.js';
 export const GYM_DATA = {
@@ -214,8 +214,7 @@ export function renderGymView() {
     `;
 }
 
-export function initGyms() {
-    // 1. Sync from state.gyms (which loadInitialState fetched from Supabase)
+export function syncGymsFromState() {
     if (state.gyms && Array.isArray(state.gyms) && state.gyms.length > 0) {
         state.gyms.forEach(g => {
             const key = g.gym_id.startsWith('gym-') ? g.gym_id : `gym-${g.gym_id}`;
@@ -230,9 +229,16 @@ export function initGyms() {
             }
         });
     }
-
     renderGyms();
     updateGymStats();
+}
+
+subscribe('gyms', () => {
+    syncGymsFromState();
+});
+
+export function initGyms() {
+    syncGymsFromState();
     updateAmuletUI();
     
     document.getElementById('btn-reset-gyms')?.addEventListener('click', resetGyms);

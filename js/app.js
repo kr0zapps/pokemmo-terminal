@@ -29,55 +29,64 @@ async function initApp() {
     isAppInitializing = true;
 
     try {
-        await migrateLocalStorage();
-        await loadInitialState();
+        const main = document.getElementById('app-main');
+        if (!main) return;
+        
+        // 1. RENDERIZADO INMEDIATO (< 50ms): Montar vistas de inmediato desde la caché local
+        let viewsHtml = '';
+        if (gyms.renderGymView) viewsHtml += `<div id="view-gyms" class="block animate-fade-in">${gyms.renderGymView()}</div>`;
+        if (berries.renderBerryView) viewsHtml += berries.renderBerryView();
+        if (pokedex.renderPokédexView) viewsHtml += pokedex.renderPokédexView();
+        
+        // Carga dinámica del módulo de crianza
+        let breedingModule = null;
+        try {
+            const breeding = await import('./modules/breeding.js');
+            if (breeding.renderBreedingView) {
+                viewsHtml += breeding.renderBreedingView();
+            }
+            Object.assign(window, breeding);
+            if (breeding.renderEggGroupModal) {
+                document.querySelectorAll('#eggGroupModal').forEach(el => el.remove());
+                document.body.insertAdjacentHTML('beforeend', breeding.renderEggGroupModal());
+            }
+            breedingModule = breeding;
+        } catch(e) {
+            console.warn('Breeding module not yet available', e);
+            viewsHtml += `<div id="view-breeding" class="hidden animate-fade-in"><div class="panel p-6 text-center text-os-muted">Módulo de Crianza en construcción...</div></div>`;
+        }
 
-    const main = document.getElementById('app-main');
-    
-    // Inject views
-    let viewsHtml = '';
-    if (gyms.renderGymView) viewsHtml += `<div id="view-gyms" class="block animate-fade-in">${gyms.renderGymView()}</div>`;
-    if (berries.renderBerryView) viewsHtml += berries.renderBerryView();
-    if (pokedex.renderPokédexView) viewsHtml += pokedex.renderPokédexView();
-    
-    // Attempt dynamic breeding import
-    let breedingModule = null;
-    try {
-        const breeding = await import('./modules/breeding.js');
-        if (breeding.renderBreedingView) {
-            viewsHtml += breeding.renderBreedingView();
-        }
-        Object.assign(window, breeding);
-        if (breeding.renderEggGroupModal) {
-            document.body.insertAdjacentHTML('beforeend', breeding.renderEggGroupModal());
-        }
-        breedingModule = breeding;
-    } catch(e) {
-        console.warn('Breeding module not yet available', e);
-        viewsHtml += `<div id="view-breeding" class="hidden animate-fade-in"><div class="panel p-6 text-center text-os-muted">Módulo de Crianza en construcción...</div></div>`;
+        main.innerHTML = viewsHtml;
+
+        // Inyectar modales
+        document.querySelectorAll('#waterPreviewModal, #caughtModal').forEach(el => el.remove());
+        if (berries.renderWaterModal) document.body.insertAdjacentHTML('beforeend', berries.renderWaterModal());
+        if (pokedex.renderCaughtModal) document.body.insertAdjacentHTML('beforeend', pokedex.renderCaughtModal());
+
+        // Inicializar router, cabecera y módulos al instante con datos locales
+        initRouter();
+        updateHeaderAuth();
+        if (gyms.initGyms) gyms.initGyms();
+        if (berries.initBerries) berries.initBerries();
+        if (pokedex.initPokédex) pokedex.initPokédex();
+        if (breedingModule && breedingModule.initBreeding) breedingModule.initBreeding();
+
+        isAppInitialized = true;
+
+        // 2. EN SEGUNDO PLANO (NON-BLOCKING): Sincronizar con Supabase y migrar si es primera vez
+        (async () => {
+            try {
+                await migrateLocalStorage();
+                await loadInitialState();
+            } catch (err) {
+                console.warn('Background sync notice:', err);
+            }
+            initRealtimeSync();
+        })();
+
+    } finally {
+        isAppInitializing = false;
     }
-
-    main.innerHTML = viewsHtml;
-
-    // Inject modals
-    if (berries.renderWaterModal) document.body.insertAdjacentHTML('beforeend', berries.renderWaterModal());
-    if (pokedex.renderCaughtModal) document.body.insertAdjacentHTML('beforeend', pokedex.renderCaughtModal());
-
-    // Initialize modules
-    if (gyms.initGyms) gyms.initGyms();
-    if (berries.initBerries) berries.initBerries();
-    if (pokedex.initPokédex) pokedex.initPokédex();
-    if (breedingModule && breedingModule.initBreeding) breedingModule.initBreeding();
-
-    initRouter();
-    initRealtimeSync();
-
-    // Update Header
-    updateHeaderAuth();
-    isAppInitialized = true;
-  } finally {
-    isAppInitializing = false;
-  }
 }
 
 // Theme Manager (Modo Claro / Modo Oscuro)

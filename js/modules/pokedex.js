@@ -1,5 +1,20 @@
-import { state, setState } from '../state.js';
+import { state, setState, subscribe } from '../state.js';
 import { catchPokemon as dbCatchPokemon, uncatchPokemon as dbUncatchPokemon } from '../db.js';
+
+subscribe('caught', (serverCaught) => {
+    if (Array.isArray(serverCaught) && serverCaught.length > 0) {
+        const merged = Array.from(new Set([...dexCaughtList, ...serverCaught]));
+        if (merged.length !== dexCaughtList.length) {
+            dexCaughtList = merged;
+            localStorage.setItem('pokemmo_dex_caught', JSON.stringify(dexCaughtList));
+            updateDexProgress();
+            renderDexResults(false);
+            if (document.getElementById('caughtModal') && !document.getElementById('caughtModal').classList.contains('hidden')) {
+                renderCaughtGrid();
+            }
+        }
+    }
+});
 let POKEDEX_DB = [];
 let dexCaughtList = [];
 let currentDexRegion = 'Kanto';

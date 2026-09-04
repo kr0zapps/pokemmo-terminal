@@ -23,19 +23,26 @@ export function setState(key, value) {
 
 export async function loadInitialState() {
   try {
-    const [gyms, crops, caught, prefs] = await Promise.all([
-      getGymProgress(),
-      getCrops(),
-      getCaughtPokemon(),
-      getPreferences()
+    const timeoutPromise = new Promise((_, reject) => 
+      setTimeout(() => reject(new Error('Supabase request timeout')), 5000)
+    );
+
+    const [gyms, crops, caught, prefs] = await Promise.race([
+      Promise.all([
+        getGymProgress(),
+        getCrops(),
+        getCaughtPokemon(),
+        getPreferences()
+      ]),
+      timeoutPromise
     ]);
     
-    setState('gyms', gyms);
-    setState('crops', crops);
-    setState('caught', caught);
-    setState('preferences', prefs);
+    setState('gyms', gyms || []);
+    setState('crops', crops || []);
+    setState('caught', caught || []);
+    setState('preferences', prefs || {});
   } catch (err) {
-    console.error('Failed to load initial state:', err);
+    console.warn('Initial state loaded with fallback:', err.message);
   }
 }
 

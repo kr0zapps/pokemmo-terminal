@@ -28,6 +28,22 @@ export async function toggleGym(gymId, completed, customCompletedAt = null) {
   return data[0];
 }
 
+export async function batchToggleGyms(gymEntries) {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session || !gymEntries || gymEntries.length === 0) return;
+  const user_id = session.user.id;
+  const rows = gymEntries.map(g => ({
+    user_id,
+    gym_id: g.gymId,
+    completed: g.completed,
+    completed_at: g.completedAt || new Date().toISOString()
+  }));
+  const { error } = await supabase
+    .from('gym_progress')
+    .upsert(rows, { onConflict: 'user_id, gym_id' });
+  if (error) console.warn('Batch gym toggle error:', error);
+}
+
 export async function resetAllGyms() {
   const { data: { session } } = await supabase.auth.getSession();
   if (!session) return;
@@ -152,6 +168,17 @@ export async function catchPokemon(pokemonId) {
     .select();
   if (error) throw error;
   return data[0];
+}
+
+export async function batchCatchPokemon(pokemonIds) {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session || !pokemonIds || pokemonIds.length === 0) return;
+  const user_id = session.user.id;
+  const rows = pokemonIds.map(pid => ({ user_id, pokemon_id: pid }));
+  const { error } = await supabase
+    .from('pokemon_caught')
+    .upsert(rows, { onConflict: 'user_id, pokemon_id' });
+  if (error) console.warn('Batch catch error:', error);
 }
 
 export async function uncatchPokemon(pokemonId) {

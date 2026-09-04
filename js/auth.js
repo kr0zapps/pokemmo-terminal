@@ -1,4 +1,4 @@
-import { supabase, addCrop, catchPokemon, savePreferences, toggleGym } from './db.js';
+import { supabase, addCrop, catchPokemon, savePreferences, toggleGym, batchCatchPokemon, batchToggleGyms } from './db.js';
 import { safeHTML, h, text, $ } from './utils/dom.js';
 
 export function normalizeAuthInput(input) {
@@ -42,8 +42,13 @@ export async function migrateLocalStorage() {
   const session = await getSession();
   if (!session) return;
 
+  const migrationKey = `pokemmo_migrated_${session.user.id}`;
+  if (localStorage.getItem(migrationKey) === 'true') {
+    return; // Ya migrado anteriormente para este usuario, omisión instantánea
+  }
+
   try {
-    // 1. Migrate preferences
+    // 1. Migrar preferencias
     try {
       const prefs = {
         active_tab: localStorage.getItem('pokemmo_active_tab') || 'gyms',
@@ -58,45 +63,42 @@ export async function migrateLocalStorage() {
       console.warn('Preferences migration error:', e);
     }
 
-    // 2. Migrate caught pokemon
+    // 2. Migrar Pokémon capturados en una sola llamada batch
     try {
       const dexCaught = localStorage.getItem('pokemmo_dex_caught');
       if (dexCaught) {
         const caughtList = JSON.parse(dexCaught);
-        if (Array.isArray(caughtList)) {
-          for (const pid of caughtList) {
-            await catchPokemon(pid).catch(() => {});
-          }
+        if (Array.isArray(caughtList) && caughtList.length > 0) {
+          await batchCatchPokemon(caughtList);
         }
       }
     } catch(e) {
       console.warn('Caught pokemon migration error:', e);
     }
 
-    // 3. Migrate crops
+    // 3. Migrar cultivos de bayas en paralelo
     try {
       const crops = localStorage.getItem('pokemmo_crops');
       if (crops) {
         const cropsList = JSON.parse(crops);
-        if (Array.isArray(cropsList)) {
-          for (const c of cropsList) {
-            await addCrop({
-              type: c.type || 'Unknown',
-              location: c.location || 'Unknown',
-              plantedAt: c.plantedAt ? new Date(c.plantedAt).toISOString() : new Date().toISOString(),
-              waterCount: c.waterCount || 0,
-              wateredAt: c.lastWateredAt ? new Date(c.lastWateredAt).toISOString() : null,
-              harvested: c.harvested || false
-            }).catch(() => {});
-          }
+        if (Array.isArray(cropsList) && cropsList.length > 0) {
+          await Promise.all(cropsList.map(c => addCrop({
+            type: c.type || 'Unknown',
+            location: c.location || 'Unknown',
+            plantedAt: c.plantedAt ? new Date(c.plantedAt).toISOString() : new Date().toISOString(),
+            waterCount: c.waterCount || 0,
+            wateredAt: c.lastWateredAt ? new Date(c.lastWateredAt).toISOString() : null,
+            harvested: c.harvested || false
+          }).catch(() => {})));
         }
       }
     } catch(e) {
       console.warn('Crops migration error:', e);
     }
 
-    // 4. Migrate gyms
+    // 4. Migrar progreso de gimnasios en una sola llamada batch
     try {
+      const gymEntries = [];
       for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         if (key && key.startsWith('gym-')) {
@@ -104,13 +106,19 @@ export async function migrateLocalStorage() {
           if (completed) {
             const savedTime = localStorage.getItem(`time-${key}`);
             const completedAt = savedTime ? new Date(parseInt(savedTime)).toISOString() : new Date().toISOString();
-            await toggleGym(key, true, completedAt).catch(() => {});
+            gymEntries.push({ gymId: key, completed: true, completedAt });
           }
         }
+      }
+      if (gymEntries.length > 0) {
+        await batchToggleGyms(gymEntries);
       }
     } catch(e) {
       console.warn('Gyms migration error:', e);
     }
+
+    // Marcar como migrado para no volver a ejecutar en futuros arranques
+    localStorage.setItem(migrationKey, 'true');
   } catch (err) {
     console.error('Error during migration:', err);
   }
