@@ -2,7 +2,7 @@
 
 > All-in-one companion web tool for MMO trainers. Zero login required, 100% offline/local storage enabled, and cross-device synchronization.
 
-Live Web App: **[https://pokemmo-terminal.vercel.app](https://pokemmo-terminal.vercel.app)**  
+Live Web App: **[https://rotom-terminal.vercel.app](https://rotom-terminal.vercel.app)**  
 Support the project: **[https://buymeacoffee.com/kr0za](https://buymeacoffee.com/kr0za)**
 
 ---
@@ -29,5 +29,5 @@ Support the project: **[https://buymeacoffee.com/kr0za](https://buymeacoffee.com
 ## Community & Feedback
 
 Found a bug or want to suggest a feature?
-- Open an issue on GitHub: [Issues](https://github.com/kr0zapps/pokemmo-terminal/issues)
+- Open an issue on GitHub: [Issues](https://github.com/kr0zapps/rotom-terminal/issues)
 - Support development: [Buy Me a Coffee](https://buymeacoffee.com/kr0za)
