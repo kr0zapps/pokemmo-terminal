@@ -1,6 +1,6 @@
 import { state, setState, subscribe } from '../state.js';
 import { addCrop, updateCrop, removeCrop, getCrops } from '../db.js';
-import { formatTime } from '../utils/format.js';
+import { formatTime, formatMoney } from '../utils/format.js';
 // We're importing DOM functions if they existed, but we'll manipulate directly for now
 
 export const BERRY_DB = {
@@ -124,6 +124,190 @@ export const RECIPES = {
     rawst: { name: 'Safre (Rawst)', reqs: [{ id: 'amarga', qty: 1, name: 'Semilla Amarga', color: 'bg-green-500' }]},
     aspear: { name: 'Perasi (Aspear)', reqs: [{ id: 'acida', qty: 1, name: 'Semilla Ácida', color: 'bg-yellow-400' }]}
 };
+
+export const SEED_NAMES = {
+    picante: 'Semilla Picante',
+    dulce: 'Semilla Dulce',
+    seca: 'Semilla Seca',
+    amarga: 'Semilla Amarga',
+    acida: 'Semilla Ácida',
+    v_picante: 'Semilla Muy Picante',
+    v_dulce: 'Semilla Muy Dulce',
+    v_seca: 'Semilla Muy Seca',
+    v_amarga: 'Semilla Muy Amarga',
+    v_acida: 'Semilla Muy Ácida'
+};
+
+export const SEED_COLORS = {
+    picante: 'text-red-500 dark:text-red-400',
+    dulce: 'text-pink-500 dark:text-pink-400',
+    seca: 'text-blue-500 dark:text-blue-400',
+    amarga: 'text-green-600 dark:text-green-400',
+    acida: 'text-yellow-600 dark:text-yellow-400',
+    v_picante: 'text-red-600 dark:text-red-300 font-bold',
+    v_dulce: 'text-pink-600 dark:text-pink-300 font-bold',
+    v_seca: 'text-blue-600 dark:text-blue-300 font-bold',
+    v_amarga: 'text-green-700 dark:text-green-300 font-bold',
+    v_acida: 'text-yellow-700 dark:text-yellow-300 font-bold'
+};
+
+export const DEFAULT_SEED_PRICES = {
+    picante: 750,
+    dulce: 750,
+    seca: 750,
+    amarga: 750,
+    acida: 750,
+    v_picante: 1800,
+    v_dulce: 1200,
+    v_seca: 1200,
+    v_amarga: 1200,
+    v_acida: 1200
+};
+
+export const DEFAULT_BERRY_PRICES = {
+    leppa: 1050,
+    lum: 1500,
+    sitrus: 1300,
+    pomeg: 950,
+    kelpsy: 950,
+    qualot: 950,
+    hondew: 950,
+    grepa: 950,
+    tamato: 950,
+    cheri: 550,
+    pecha: 550,
+    rawst: 550,
+    chesto: 550,
+    aspear: 550
+};
+
+export const EXTRACTION_PROFILES = {
+    leppa: {
+        picante: 0.26,
+        v_picante: 0.12,
+        dulce: 0.30,
+        v_dulce: 0.05,
+        amarga: 0.23,
+        v_amarga: 0.04
+    },
+    lum: {
+        seca: 0.23,
+        v_seca: 0.10,
+        picante: 0.23,
+        v_picante: 0.10,
+        dulce: 0.24,
+        v_dulce: 0.10
+    },
+    sitrus: {
+        dulce: 0.23,
+        v_dulce: 0.10,
+        amarga: 0.23,
+        v_amarga: 0.10,
+        acida: 0.24,
+        v_acida: 0.10
+    },
+    pomeg: {
+        picante: 0.38,
+        v_picante: 0.15,
+        amarga: 0.37,
+        v_amarga: 0.10
+    },
+    kelpsy: {
+        seca: 0.38,
+        v_seca: 0.15,
+        acida: 0.37,
+        v_acida: 0.10
+    },
+    qualot: {
+        dulce: 0.38,
+        v_dulce: 0.15,
+        picante: 0.37,
+        v_picante: 0.10
+    },
+    hondew: {
+        amarga: 0.38,
+        v_amarga: 0.15,
+        seca: 0.37,
+        v_seca: 0.10
+    },
+    grepa: {
+        acida: 0.38,
+        v_acida: 0.15,
+        dulce: 0.37,
+        v_dulce: 0.10
+    },
+    tamato: {
+        picante: 0.38,
+        v_picante: 0.15,
+        seca: 0.37,
+        v_seca: 0.10
+    },
+    cheri: {
+        picante: 0.70,
+        v_picante: 0.30
+    },
+    pecha: {
+        dulce: 0.70,
+        v_dulce: 0.30
+    },
+    rawst: {
+        amarga: 0.70,
+        v_amarga: 0.30
+    },
+    chesto: {
+        seca: 0.70,
+        v_seca: 0.30
+    },
+    aspear: {
+        acida: 0.70,
+        v_acida: 0.30
+    }
+};
+
+export const BERRY_GROWTH_HOURS = {
+    leppa: 20,
+    lum: 44,
+    sitrus: 44,
+    pomeg: 44,
+    kelpsy: 44,
+    qualot: 44,
+    hondew: 44,
+    grepa: 44,
+    tamato: 44,
+    cheri: 16,
+    pecha: 16,
+    rawst: 16,
+    chesto: 16,
+    aspear: 16
+};
+
+export function getSavedGTLPrices() {
+    try {
+        const saved = localStorage.getItem('pokemmo_berry_gtl_prices');
+        if (saved) return { ...DEFAULT_SEED_PRICES, ...JSON.parse(saved) };
+    } catch(e) {}
+    return { ...DEFAULT_SEED_PRICES };
+}
+
+export function saveGTLPrices(prices) {
+    try {
+        localStorage.setItem('pokemmo_berry_gtl_prices', JSON.stringify(prices));
+    } catch(e) {}
+}
+
+export function getSavedBerryPrices() {
+    try {
+        const saved = localStorage.getItem('pokemmo_berry_raw_prices');
+        if (saved) return { ...DEFAULT_BERRY_PRICES, ...JSON.parse(saved) };
+    } catch(e) {}
+    return { ...DEFAULT_BERRY_PRICES };
+}
+
+export function saveBerryPrices(prices) {
+    try {
+        localStorage.setItem('pokemmo_berry_raw_prices', JSON.stringify(prices));
+    } catch(e) {}
+}
 
 let harvestCounter = 0;
 let pendingWaterCropId = null;
@@ -252,6 +436,9 @@ export function renderBerryView() {
                 </div>
             </div>
 
+            <!-- CALCULADORA DE RENTABILIDAD GTL -->
+            ${renderProfitCalculatorHTML()}
+
             <!-- ACTIVE CROPS -->
             <div id="berriesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
@@ -294,6 +481,650 @@ export function renderWaterModal() {
             </div>
         </div>
     `;
+}
+
+// ==========================================
+// CALCULADORA DE RENTABILIDAD GTL (Trituración vs Venta)
+// ==========================================
+export function renderProfitCalculatorHTML() {
+    return `
+        <section id="panel-berry-profit" class="panel p-5 sm:p-6 rounded-xl border-2 border-[#2B2B2B] dark:border-[#35352E] bg-[#FAF8F2] dark:bg-[#242420] shadow-[3px_4px_0px_#2B2B2B] dark:shadow-[3px_4px_0px_#000] mb-8">
+            <!-- Header -->
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-5 pb-3 border-b border-[#2B2B2B]/20 dark:border-[#35352E]">
+                <div class="flex items-center gap-2.5">
+                    <div class="p-2 rounded-lg bg-[#EDE8DC] dark:bg-[#2E2E27] border border-[#2B2B2B] dark:border-[#35352E]">
+                        <svg class="w-5 h-5 text-[#D97706] dark:text-[#F59E0B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-sm sm:text-base font-tech font-bold uppercase tracking-wider text-[#1C1C17] dark:text-[#F4F1E8]">
+                            Rentabilidad de Semillas y Bayas (Calculadora GTL)
+                        </h2>
+                        <p class="text-xs font-sans text-[#5F5A4D] dark:text-[#A8A594]">
+                            Simulador económico de trituración ($350/herramienta), reserva de semillas para replantar y venta de excedentes en el mercado.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs font-mono uppercase bg-[#10B981]/10 border border-[#10B981]/30 text-[#10B981] px-2.5 py-1 rounded-md font-bold">
+                        Módulo Económico
+                    </span>
+                </div>
+            </div>
+
+            <!-- Parámetros Principales de Cultivo -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
+                <!-- Especie de Baya -->
+                <div>
+                    <label class="block text-[13px] font-mono uppercase font-bold text-[#5F5A4D] dark:text-[#A8A594] mb-1">
+                        Especie de Baya
+                    </label>
+                    <select id="profitBerrySelect" class="w-full p-2.5 text-xs font-mono rounded-lg bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] min-h-[42px] cursor-pointer">
+                        <optgroup label="Más Populares / Lucrativas">
+                            <option value="leppa" selected>Zanama (Leppa) - PP / 20h</option>
+                            <option value="lum">Ziuela (Lum) - Estados / 44h</option>
+                            <option value="sitrus">Zidra (Sitrus) - PS / 44h</option>
+                        </optgroup>
+                        <optgroup label="Reductoras de EVs (44h)">
+                            <option value="pomeg">Grana (Pomeg) - HP</option>
+                            <option value="kelpsy">Algama (Kelpsy) - Ataque</option>
+                            <option value="qualot">Ispero (Qualot) - Defensa</option>
+                            <option value="hondew">Meluce (Hondew) - Atq. Esp.</option>
+                            <option value="grepa">Uva (Grepa) - Def. Esp.</option>
+                            <option value="tamato">Tamate (Tamato) - Velocidad</option>
+                        </optgroup>
+                        <optgroup label="Básicas (16h)">
+                            <option value="cheri">Zreza (Cheri) - Picante</option>
+                            <option value="pecha">Meloc (Pecha) - Dulce</option>
+                            <option value="rawst">Safre (Rawst) - Amarga</option>
+                            <option value="chesto">Atania (Chesto) - Seca</option>
+                            <option value="aspear">Perasi (Aspear) - Ácida</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <!-- Parcelas Sembradas con Presets -->
+                <div>
+                    <div class="flex justify-between items-center mb-1">
+                        <label class="text-[13px] font-mono uppercase font-bold text-[#5F5A4D] dark:text-[#A8A594]">
+                            Parcelas
+                        </label>
+                        <div class="flex gap-1">
+                            <button type="button" onclick="window.setProfitPlots(156)" class="text-[11px] font-tech font-bold uppercase px-2 py-0.5 rounded bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] cursor-pointer shadow-sm">
+                                156 Loza
+                            </button>
+                            <button type="button" onclick="window.setProfitPlots(84)" class="text-[11px] font-tech font-bold uppercase px-2 py-0.5 rounded bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] cursor-pointer shadow-sm">
+                                84 Hoenn
+                            </button>
+                        </div>
+                    </div>
+                    <input type="number" id="profitPlots" value="156" min="1" max="2000" class="w-full p-2.5 text-xs font-mono text-center rounded-lg bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] min-h-[42px]">
+                </div>
+
+                <!-- Rendimiento Promedio -->
+                <div>
+                    <label class="block text-[13px] font-mono uppercase font-bold text-[#5F5A4D] dark:text-[#A8A594] mb-1">
+                        Rendimiento (Bayas/Planta)
+                    </label>
+                    <select id="profitYieldSelect" class="w-full p-2.5 text-xs font-mono rounded-lg bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] min-h-[42px] cursor-pointer">
+                        <option value="5.0">5.0 bayas (Mínimo sin regar)</option>
+                        <option value="5.5">5.5 bayas (Riego moderado)</option>
+                        <option value="6.0" selected>6.0 bayas (Promedio normal regado)</option>
+                        <option value="6.5">6.5 bayas (Riego regular constante)</option>
+                        <option value="7.0">7.0 bayas (Máximo perfecto)</option>
+                    </select>
+                </div>
+
+                <!-- Costos Operativos -->
+                <div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-[13px] font-mono uppercase font-bold text-[#5F5A4D] dark:text-[#A8A594] mb-1 truncate" title="Costo por cada herramienta de extracción en floristerías NPC">
+                                Herramienta ($)
+                            </label>
+                            <input type="number" id="profitToolCost" value="350" min="0" step="10" class="w-full p-2 text-xs font-mono text-center rounded-lg bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] min-h-[42px]">
+                        </div>
+                        <div>
+                            <label class="block text-[13px] font-mono uppercase font-bold text-[#5F5A4D] dark:text-[#A8A594] mb-1 truncate" title="Comisión o retención de venta en el GTL">
+                                Tasa GTL (%)
+                            </label>
+                            <input type="number" id="profitGTLFee" value="5" min="0" max="20" step="1" class="w-full p-2 text-xs font-mono text-center rounded-lg bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] min-h-[42px]">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fila de Precios de Mercado GTL para las Semillas y la Baya -->
+            <div class="bg-[#EDE8DC] dark:bg-[#1E1E1A] border border-[#2B2B2B] dark:border-[#33332D] p-4 rounded-xl mb-5 shadow-inner">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <span class="text-xs font-tech font-bold uppercase tracking-wider text-[#1C1C17] dark:text-[#F4F1E8] flex items-center gap-1.5">
+                        <span>Precios de Mercado en el GTL (Valores Editables)</span>
+                    </span>
+                    <button type="button" id="btnResetGTLPrices" class="text-[11px] font-mono text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#E63946] underline cursor-pointer">
+                        Restablecer Precios Sugeridos
+                    </button>
+                </div>
+                
+                <div id="seedPricesInputsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2.5">
+                    <!-- Se inyecta dinámicamente según la baya seleccionada -->
+                </div>
+            </div>
+
+            <!-- Contenedor Dinámico de Resultados -->
+            <div id="profitResultsContainer">
+                <!-- Se inyectan métricas, veredicto y desglose financiero -->
+            </div>
+        </section>
+    `;
+}
+
+export function renderSeedPriceInputs(berryKey) {
+    const container = document.getElementById('seedPricesInputsGrid');
+    if (!container) return;
+
+    const recipe = RECIPES[berryKey];
+    const extraction = EXTRACTION_PROFILES[berryKey] || EXTRACTION_PROFILES.leppa;
+    const savedSeedPrices = getSavedGTLPrices();
+    const savedBerryPrices = getSavedBerryPrices();
+
+    const berryPrice = savedBerryPrices[berryKey] || DEFAULT_BERRY_PRICES[berryKey] || 1000;
+
+    // Semillas involucradas (las necesarias para replantar + las producidas al triturar)
+    const seedIds = Array.from(new Set([
+        ...(recipe ? recipe.reqs.map(r => r.id) : []),
+        ...Object.keys(extraction)
+    ]));
+
+    let html = `
+        <!-- Baya Cruda en GTL -->
+        <div class="bg-[#FAF8F2] dark:bg-[#242420] p-2.5 rounded-lg border border-[#2B2B2B]/30 dark:border-[#35352E]">
+            <label class="block text-[11px] font-mono uppercase font-bold text-[#D97706] dark:text-[#F59E0B] mb-1 truncate" title="Precio estimado de venta por unidad de baya cruda en el GTL">
+                ${recipe ? recipe.name.split(' ')[0] : 'Baya'} (GTL)
+            </label>
+            <div class="relative">
+                <span class="absolute left-2 top-1 text-xs font-mono text-[#5F5A4D]">$</span>
+                <input type="number" id="price_berry_${berryKey}" value="${berryPrice}" min="10" step="50"
+                    class="w-full pl-5 pr-1 py-1 text-xs font-mono text-center rounded bg-[#EDE8DC] dark:bg-[#1E1E1A] border border-[#2B2B2B]/40 dark:border-[#33332D] text-[#1C1C17] dark:text-[#F4F1E8]">
+            </div>
+        </div>
+    `;
+
+    seedIds.forEach(id => {
+        const name = SEED_NAMES[id] || id;
+        const color = SEED_COLORS[id] || 'text-[#1C1C17]';
+        const price = savedSeedPrices[id] || DEFAULT_SEED_PRICES[id] || 750;
+
+        html += `
+            <div class="bg-[#FAF8F2] dark:bg-[#242420] p-2.5 rounded-lg border border-[#2B2B2B]/30 dark:border-[#35352E]">
+                <label class="block text-[11px] font-mono uppercase font-bold mb-1 truncate ${color}" title="${name}">
+                    ${name.replace('Semilla ', '')}
+                </label>
+                <div class="relative">
+                    <span class="absolute left-2 top-1 text-xs font-mono text-[#5F5A4D]">$</span>
+                    <input type="number" id="price_seed_${id}" value="${price}" min="10" step="50"
+                        class="w-full pl-5 pr-1 py-1 text-xs font-mono text-center rounded bg-[#EDE8DC] dark:bg-[#1E1E1A] border border-[#2B2B2B]/40 dark:border-[#33332D] text-[#1C1C17] dark:text-[#F4F1E8]">
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+
+    container.querySelectorAll('input').forEach(input => {
+        input.addEventListener('input', calculateProfitability);
+    });
+}
+
+export function calculateProfitability() {
+    const berryKey = document.getElementById('profitBerrySelect')?.value || 'leppa';
+    const plots = parseInt(document.getElementById('profitPlots')?.value) || 156;
+    const avgYield = parseFloat(document.getElementById('profitYieldSelect')?.value) || 6.0;
+    const toolCost = parseFloat(document.getElementById('profitToolCost')?.value) || 350;
+    const gtlFeePercent = parseFloat(document.getElementById('profitGTLFee')?.value) || 5;
+
+    const recipe = RECIPES[berryKey];
+    if (!recipe) return;
+
+    const extraction = EXTRACTION_PROFILES[berryKey] || EXTRACTION_PROFILES.leppa;
+    const growthHours = BERRY_GROWTH_HOURS[berryKey] || 20;
+
+    // Leer precios vigentes de los inputs
+    const savedSeedPrices = getSavedGTLPrices();
+    const savedBerryPrices = getSavedBerryPrices();
+
+    const berryInput = document.getElementById(`price_berry_${berryKey}`);
+    const currentBerryPrice = berryInput ? (parseFloat(berryInput.value) || 1000) : (savedBerryPrices[berryKey] || 1000);
+    savedBerryPrices[berryKey] = currentBerryPrice;
+    saveBerryPrices(savedBerryPrices);
+
+    const currentSeedPrices = { ...savedSeedPrices };
+    Object.keys(extraction).forEach(seedId => {
+        const inputEl = document.getElementById(`price_seed_${seedId}`);
+        if (inputEl) {
+            currentSeedPrices[seedId] = parseFloat(inputEl.value) || savedSeedPrices[seedId] || 750;
+        }
+    });
+    recipe.reqs.forEach(req => {
+        const inputEl = document.getElementById(`price_seed_${req.id}`);
+        if (inputEl) {
+            currentSeedPrices[req.id] = parseFloat(inputEl.value) || savedSeedPrices[req.id] || 750;
+        }
+    });
+    saveGTLPrices(currentSeedPrices);
+
+    // 1. Total de bayas cosechadas
+    const totalBerries = Math.round(plots * avgYield);
+
+    // 2. Costo de triturar todas las bayas con herramientas ($350 c/u)
+    const totalToolExpense = totalBerries * toolCost;
+
+    // 3. Semillas necesarias para replantar el 100% de las parcelas
+    const seedsNeeded = {};
+    recipe.reqs.forEach(req => {
+        seedsNeeded[req.id] = req.qty * plots;
+    });
+
+    // 4. Semillas producidas al triturar todas las bayas
+    const seedsProduced = {};
+    Object.keys(extraction).forEach(seedId => {
+        seedsProduced[seedId] = Math.round(totalBerries * extraction[seedId]);
+    });
+
+    // 5. Balance de semillas: Excedentes vendibles vs Faltantes para replantar
+    const seedBalance = {};
+    const allRelevantSeeds = Array.from(new Set([...Object.keys(seedsNeeded), ...Object.keys(seedsProduced)]));
+    
+    let gtlSurplusRevenue = 0;
+    let missingSeedsCost = 0;
+
+    allRelevantSeeds.forEach(seedId => {
+        const needed = seedsNeeded[seedId] || 0;
+        const produced = seedsProduced[seedId] || 0;
+        const diff = produced - needed;
+        const price = currentSeedPrices[seedId] || 750;
+
+        seedBalance[seedId] = {
+            needed,
+            produced,
+            diff,
+            price,
+            value: diff * price
+        };
+
+        if (diff > 0) {
+            gtlSurplusRevenue += diff * price;
+        } else if (diff < 0) {
+            missingSeedsCost += Math.abs(diff) * price;
+        }
+    });
+
+    const feeMultiplier = (1 - gtlFeePercent / 100);
+
+    // ESTRATEGIA A: Triturar todo con herramientas ($350) + Replantar parcelas + Vender semillas excedentes
+    const netRevenueGTL_A = Math.round(gtlSurplusRevenue * feeMultiplier);
+    const totalCosts_A = totalToolExpense + missingSeedsCost;
+    const netProfit_A = Math.round(netRevenueGTL_A - totalCosts_A);
+    const roi_A = totalCosts_A > 0 ? ((netProfit_A / totalCosts_A) * 100).toFixed(1) : 0;
+    const profitPerHour_A = Math.round(netProfit_A / growthHours);
+    const profitPerPlot_A = Math.round(netProfit_A / plots);
+
+    // ESTRATEGIA B: Venta directa de bayas crudas en GTL (sin triturar)
+    const grossBerryRevenue_B = Math.round((totalBerries * currentBerryPrice) * feeMultiplier);
+    let totalReplantCost_B = 0;
+    recipe.reqs.forEach(req => {
+        const price = currentSeedPrices[req.id] || 750;
+        totalReplantCost_B += req.qty * plots * price;
+    });
+    const netProfit_B = Math.round(grossBerryRevenue_B - totalReplantCost_B);
+    const roi_B = totalReplantCost_B > 0 ? ((netProfit_B / totalReplantCost_B) * 100).toFixed(1) : 0;
+    const profitPerHour_B = Math.round(netProfit_B / growthHours);
+    const profitPerPlot_B = Math.round(netProfit_B / plots);
+
+    // Comparativa
+    const profitDifference = netProfit_A - netProfit_B;
+    const isCrushingBetter = profitDifference > 0;
+
+    renderProfitResults({
+        berryKey,
+        recipeName: recipe.name,
+        plots,
+        avgYield,
+        totalBerries,
+        toolCost,
+        totalToolExpense,
+        seedBalance,
+        gtlSurplusRevenue,
+        missingSeedsCost,
+        netRevenueGTL_A,
+        totalCosts_A,
+        netProfit_A,
+        roi_A,
+        profitPerHour_A,
+        profitPerPlot_A,
+        currentBerryPrice,
+        grossBerryRevenue_B,
+        totalReplantCost_B,
+        netProfit_B,
+        roi_B,
+        profitPerHour_B,
+        profitPerPlot_B,
+        profitDifference,
+        isCrushingBetter,
+        growthHours
+    });
+}
+
+export function renderProfitResults(data) {
+    const container = document.getElementById('profitResultsContainer');
+    if (!container) return;
+
+    const {
+        plots,
+        avgYield,
+        totalBerries,
+        toolCost,
+        totalToolExpense,
+        seedBalance,
+        missingSeedsCost,
+        netRevenueGTL_A,
+        netProfit_A,
+        roi_A,
+        profitPerHour_A,
+        profitPerPlot_A,
+        currentBerryPrice,
+        grossBerryRevenue_B,
+        totalReplantCost_B,
+        netProfit_B,
+        profitDifference,
+        isCrushingBetter,
+        growthHours
+    } = data;
+
+    // 1. Banner de Veredicto Inteligente
+    let verdictHtml = '';
+    if (netProfit_A <= 0 && netProfit_B <= 0) {
+        verdictHtml = `
+            <div class="p-4 rounded-xl border-2 border-red-500/50 bg-red-500/10 text-red-500 mb-5">
+                <div class="flex items-center gap-2 font-tech font-bold uppercase text-sm">
+                    <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+                    <span>Alerta: Operación en Pérdida</span>
+                </div>
+                <p class="text-xs font-sans mt-1 text-[#1C1C17] dark:text-[#F4F1E8]">
+                    A los precios actuales del GTL, el costo de las herramientas ($${formatMoney(totalToolExpense)}) supera los ingresos de venta. Te recomendamos no triturar hasta que suban los precios de las semillas.
+                </p>
+            </div>
+        `;
+    } else if (isCrushingBetter) {
+        verdictHtml = `
+            <div class="p-4 rounded-xl border-2 border-[#10B981]/50 bg-[#10B981]/10 text-[#10B981] mb-5">
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                    <div class="flex items-center gap-2 font-tech font-bold uppercase text-sm sm:text-base">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        <span>Estrategia Rentable: Triturar y Vender Semillas Excedentes</span>
+                    </div>
+                    <span class="text-xs font-mono font-bold bg-[#10B981] text-black px-2.5 py-1 rounded shadow-sm">
+                        +${formatMoney(profitDifference)} extra vs Venta Cruda
+                    </span>
+                </div>
+                <p class="text-xs font-sans mt-1.5 text-[#1C1C17] dark:text-[#F4F1E8]">
+                    Triturar las <strong>${totalBerries} bayas</strong> con herramientas de $${toolCost} y vender las semillas excedentes te genera <strong>${formatMoney(netProfit_A)}</strong> limpios (un <strong>${roi_A}% de ROI</strong>), superando la venta directa de bayas crudas.
+                </p>
+            </div>
+        `;
+    } else {
+        verdictHtml = `
+            <div class="p-4 rounded-xl border-2 border-[#D97706]/50 bg-[#D97706]/10 text-[#D97706] dark:text-[#F59E0B] mb-5">
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                    <div class="flex items-center gap-2 font-tech font-bold uppercase text-sm sm:text-base">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                        <span>Recomendación: Vender Bayas Crudas en el GTL</span>
+                    </div>
+                    <span class="text-xs font-mono font-bold bg-[#D97706] text-black px-2.5 py-1 rounded shadow-sm">
+                        +${formatMoney(Math.abs(profitDifference))} extra vs Triturar
+                    </span>
+                </div>
+                <p class="text-xs font-sans mt-1.5 text-[#1C1C17] dark:text-[#F4F1E8]">
+                    El costo de $${toolCost} por herramienta es alto comparado con las semillas. Vendiendo las bayas crudas a <strong>${formatMoney(currentBerryPrice)}</strong> y comprando las semillas para replantar obtienes <strong>${formatMoney(netProfit_B)}</strong> limpios.
+                </p>
+            </div>
+        `;
+    }
+
+    // 2. Tarjetas de métricas
+    const metricsHtml = `
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+            <div class="bg-[#EDE8DC] dark:bg-[#1E1E1A] p-3 rounded-xl border border-[#2B2B2B] dark:border-[#35352E] text-center shadow-sm">
+                <p class="text-[11px] font-mono text-[#5F5A4D] dark:text-[#A8A594] uppercase font-bold">Cosecha Estimada</p>
+                <p class="text-lg sm:text-xl font-mono font-bold text-[#1C1C17] dark:text-[#F4F1E8]">${totalBerries} <span class="text-xs font-normal text-[#5F5A4D]">bayas</span></p>
+                <p class="text-[10px] font-mono text-[#5F5A4D] mt-0.5">${plots} parcelas &times; ${avgYield} prom.</p>
+            </div>
+
+            <div class="bg-[#EDE8DC] dark:bg-[#1E1E1A] p-3 rounded-xl border border-[#2B2B2B] dark:border-[#35352E] text-center shadow-sm">
+                <p class="text-[11px] font-mono text-[#5F5A4D] dark:text-[#A8A594] uppercase font-bold">Gasto Herramientas</p>
+                <p class="text-lg sm:text-xl font-mono font-bold text-[#E63946]">-${formatMoney(totalToolExpense)}</p>
+                <p class="text-[10px] font-mono text-[#5F5A4D] mt-0.5">${totalBerries} herram. &times; $${toolCost}</p>
+            </div>
+
+            <div class="bg-[#EDE8DC] dark:bg-[#1E1E1A] p-3 rounded-xl border border-[#2B2B2B] dark:border-[#35352E] text-center shadow-sm">
+                <p class="text-[11px] font-mono text-[#5F5A4D] dark:text-[#A8A594] uppercase font-bold">Ganancia Neta (Triturar)</p>
+                <p class="text-lg sm:text-xl font-mono font-bold ${netProfit_A >= 0 ? 'text-[#10B981]' : 'text-[#E63946]'}">${formatMoney(netProfit_A)}</p>
+                <p class="text-[10px] font-mono text-[#5F5A4D] mt-0.5">ROI: <strong>${roi_A}%</strong></p>
+            </div>
+
+            <div class="bg-[#EDE8DC] dark:bg-[#1E1E1A] p-3 rounded-xl border border-[#2B2B2B] dark:border-[#35352E] text-center shadow-sm">
+                <p class="text-[11px] font-mono text-[#5F5A4D] dark:text-[#A8A594] uppercase font-bold">Rendimiento Temporal</p>
+                <p class="text-lg sm:text-xl font-mono font-bold text-[#2563EB] dark:text-[#60A5FA]">${formatMoney(profitPerHour_A)}<span class="text-xs font-normal text-[#5F5A4D]">/h</span></p>
+                <p class="text-[10px] font-mono text-[#5F5A4D] mt-0.5">${formatMoney(profitPerPlot_A)} por parcela (${growthHours}h)</p>
+            </div>
+        </div>
+    `;
+
+    // 3. Tabla de balance de semillas
+    let seedRowsHtml = '';
+    Object.keys(seedBalance).forEach(seedId => {
+        const item = seedBalance[seedId];
+        const name = SEED_NAMES[seedId] || seedId;
+        const color = SEED_COLORS[seedId] || 'text-[#1C1C17]';
+
+        let surplusCol = '';
+        if (item.diff > 0) {
+            surplusCol = `
+                <span class="font-mono font-bold text-[#10B981] bg-[#10B981]/10 px-2 py-0.5 rounded text-xs">
+                    +${item.diff} excedentes
+                </span>
+            `;
+        } else if (item.diff < 0) {
+            surplusCol = `
+                <span class="font-mono font-bold text-[#E63946] bg-[#E63946]/10 px-2 py-0.5 rounded text-xs" title="Faltan para cubrir el 100% de la siembra">
+                    ${item.diff} (comprar en GTL)
+                </span>
+            `;
+        } else {
+            surplusCol = `<span class="font-mono text-[#5F5A4D] text-xs">Exacto (0)</span>`;
+        }
+
+        let valueCol = '';
+        if (item.diff > 0) {
+            valueCol = `<span class="font-mono font-bold text-[#10B981]">+${formatMoney(item.value)}</span>`;
+        } else if (item.diff < 0) {
+            valueCol = `<span class="font-mono font-bold text-[#E63946]">-${formatMoney(Math.abs(item.value))}</span>`;
+        } else {
+            valueCol = `<span class="font-mono text-[#5F5A4D]">$0</span>`;
+        }
+
+        seedRowsHtml += `
+            <tr class="border-b border-[#2B2B2B]/10 dark:border-[#35352E]/40 hover:bg-[#EDE8DC]/50 dark:hover:bg-[#2A2A24] transition text-xs">
+                <td class="py-2.5 px-3 font-tech font-bold ${color}">
+                    ${name}
+                </td>
+                <td class="py-2.5 px-3 text-center font-mono">
+                    ${item.produced} u.
+                </td>
+                <td class="py-2.5 px-3 text-center font-mono text-[#5F5A4D] dark:text-[#A8A594]">
+                    ${item.needed > 0 ? `${item.needed} u.` : '--'}
+                </td>
+                <td class="py-2.5 px-3 text-center">
+                    ${surplusCol}
+                </td>
+                <td class="py-2.5 px-3 text-center font-mono text-[#5F5A4D] dark:text-[#A8A594]">
+                    $${item.price}
+                </td>
+                <td class="py-2.5 px-3 text-right">
+                    ${valueCol}
+                </td>
+            </tr>
+        `;
+    });
+
+    const balanceTableHtml = `
+        <div class="mb-5">
+            <h3 class="text-xs font-tech font-bold uppercase tracking-wider text-[#1C1C17] dark:text-[#F4F1E8] mb-2 flex items-center justify-between">
+                <span>Balance de Semillas (Trituración vs Replantación Autosuficiente)</span>
+                <span class="text-[11px] font-mono text-[#5F5A4D] font-normal">Replantado 100% cubierto</span>
+            </h3>
+            <div class="overflow-x-auto rounded-xl border border-[#2B2B2B] dark:border-[#35352E] bg-[#FAF8F2] dark:bg-[#1E1E1A]">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-[#EDE8DC] dark:bg-[#2E2E27] border-b border-[#2B2B2B] dark:border-[#35352E] text-[11px] font-mono uppercase text-[#5F5A4D] dark:text-[#A8A594]">
+                            <th class="py-2 px-3">Semilla</th>
+                            <th class="py-2 px-3 text-center">Trituradas</th>
+                            <th class="py-2 px-3 text-center">Reservadas Replantar</th>
+                            <th class="py-2 px-3 text-center">Excedente Vendible</th>
+                            <th class="py-2 px-3 text-center">Precio GTL</th>
+                            <th class="py-2 px-3 text-right">Subtotal GTL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${seedRowsHtml}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    `;
+
+    // 4. Comparativa detallada lado a lado
+    const comparisonHtml = `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Estrategia A -->
+            <div class="p-4 rounded-xl border-2 ${isCrushingBetter ? 'border-[#10B981] shadow-[2px_2px_0px_#10B981]' : 'border-[#2B2B2B] dark:border-[#35352E]'} bg-[#EDE8DC] dark:bg-[#20201C]">
+                <div class="flex items-center justify-between mb-2">
+                    <h4 class="font-tech font-bold uppercase text-xs text-[#1C1C17] dark:text-[#F4F1E8] flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full ${isCrushingBetter ? 'bg-[#10B981]' : 'bg-[#5F5A4D]'}"></span>
+                        <span>Estrategia A: Triturar + Vender Semillas</span>
+                    </h4>
+                    ${isCrushingBetter ? '<span class="text-[10px] font-mono font-bold bg-[#10B981] text-black px-1.5 py-0.5 rounded uppercase">Recomendada</span>' : ''}
+                </div>
+                <div class="space-y-1.5 text-xs font-mono">
+                    <div class="flex justify-between text-[#5F5A4D] dark:text-[#A8A594]">
+                        <span>Venta Semillas Excedentes:</span>
+                        <span class="text-[#10B981] font-bold">+${formatMoney(netRevenueGTL_A)}</span>
+                    </div>
+                    <div class="flex justify-between text-[#5F5A4D] dark:text-[#A8A594]">
+                        <span>Herramientas de extracción ($${toolCost}):</span>
+                        <span class="text-[#E63946]">-${formatMoney(totalToolExpense)}</span>
+                    </div>
+                    ${missingSeedsCost > 0 ? `
+                    <div class="flex justify-between text-[#5F5A4D] dark:text-[#A8A594]">
+                        <span>Comprar Semillas Faltantes en GTL:</span>
+                        <span class="text-[#E63946]">-${formatMoney(missingSeedsCost)}</span>
+                    </div>` : ''}
+                    <div class="flex justify-between text-[#5F5A4D] dark:text-[#A8A594]">
+                        <span>Semillas para Replantar el Huerto:</span>
+                        <span class="text-[#10B981] font-bold">100% Cubiertas ($0)</span>
+                    </div>
+                    <div class="pt-2 border-t border-[#2B2B2B]/20 dark:border-[#35352E] flex justify-between items-baseline font-bold text-sm">
+                        <span class="font-tech uppercase text-[#1C1C17] dark:text-[#F4F1E8]">Ganancia Neta:</span>
+                        <span class="${netProfit_A >= 0 ? 'text-[#10B981]' : 'text-[#E63946]'} text-base">${formatMoney(netProfit_A)}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estrategia B -->
+            <div class="p-4 rounded-xl border-2 ${!isCrushingBetter ? 'border-[#D97706] shadow-[2px_2px_0px_#D97706]' : 'border-[#2B2B2B] dark:border-[#35352E]'} bg-[#EDE8DC] dark:bg-[#20201C]">
+                <div class="flex items-center justify-between mb-2">
+                    <h4 class="font-tech font-bold uppercase text-xs text-[#1C1C17] dark:text-[#F4F1E8] flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full ${!isCrushingBetter ? 'bg-[#D97706]' : 'bg-[#5F5A4D]'}"></span>
+                        <span>Estrategia B: Venta Directa de Bayas</span>
+                    </h4>
+                    ${!isCrushingBetter ? '<span class="text-[10px] font-mono font-bold bg-[#D97706] text-black px-1.5 py-0.5 rounded uppercase">Recomendada</span>' : ''}
+                </div>
+                <div class="space-y-1.5 text-xs font-mono">
+                    <div class="flex justify-between text-[#5F5A4D] dark:text-[#A8A594]">
+                        <span>Venta de ${totalBerries} bayas @ ${formatMoney(currentBerryPrice)}:</span>
+                        <span class="text-[#10B981] font-bold">+${formatMoney(grossBerryRevenue_B)}</span>
+                    </div>
+                    <div class="flex justify-between text-[#5F5A4D] dark:text-[#A8A594]">
+                        <span>Herramientas de extracción:</span>
+                        <span class="text-[#5F5A4D]">$0 (Sin triturar)</span>
+                    </div>
+                    <div class="flex justify-between text-[#5F5A4D] dark:text-[#A8A594]">
+                        <span>Comprar Semillas para Replantar GTL:</span>
+                        <span class="text-[#E63946]">-${formatMoney(totalReplantCost_B)}</span>
+                    </div>
+                    <div class="pt-2 border-t border-[#2B2B2B]/20 dark:border-[#35352E] flex justify-between items-baseline font-bold text-sm">
+                        <span class="font-tech uppercase text-[#1C1C17] dark:text-[#F4F1E8]">Ganancia Neta:</span>
+                        <span class="${netProfit_B >= 0 ? 'text-[#10B981]' : 'text-[#E63946]'} text-base">${formatMoney(netProfit_B)}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    container.innerHTML = `
+        ${verdictHtml}
+        ${metricsHtml}
+        ${balanceTableHtml}
+        ${comparisonHtml}
+    `;
+}
+
+export function initProfitCalculator() {
+    const berrySelect = document.getElementById('profitBerrySelect');
+    const plotsInput = document.getElementById('profitPlots');
+    const yieldSelect = document.getElementById('profitYieldSelect');
+    const toolCostInput = document.getElementById('profitToolCost');
+    const feeInput = document.getElementById('profitGTLFee');
+    const btnReset = document.getElementById('btnResetGTLPrices');
+
+    if (berrySelect) {
+        berrySelect.addEventListener('change', () => {
+            renderSeedPriceInputs(berrySelect.value);
+            calculateProfitability();
+        });
+    }
+
+    [plotsInput, yieldSelect, toolCostInput, feeInput].forEach(el => {
+        if (el) {
+            el.addEventListener('input', calculateProfitability);
+            el.addEventListener('change', calculateProfitability);
+        }
+    });
+
+    if (btnReset) {
+        btnReset.addEventListener('click', () => {
+            localStorage.removeItem('pokemmo_berry_gtl_prices');
+            localStorage.removeItem('pokemmo_berry_raw_prices');
+            const currentBerry = berrySelect ? berrySelect.value : 'leppa';
+            renderSeedPriceInputs(currentBerry);
+            calculateProfitability();
+        });
+    }
+
+    if (typeof window !== 'undefined') {
+        window.setProfitPlots = (num) => {
+            const input = document.getElementById('profitPlots');
+            if (input) {
+                input.value = num;
+                calculateProfitability();
+            }
+        };
+        window.calculateProfitability = calculateProfitability;
+    }
+
+    const currentBerry = berrySelect ? berrySelect.value : 'leppa';
+    renderSeedPriceInputs(currentBerry);
+    calculateProfitability();
 }
 
 // ==========================================
@@ -355,6 +1186,7 @@ export function initBerries() {
 
     // Initial renders
     renderCrops();
+    initProfitCalculator();
     
     if (timerInterval) clearInterval(timerInterval);
     timerInterval = setInterval(updateTimers, 1000);
