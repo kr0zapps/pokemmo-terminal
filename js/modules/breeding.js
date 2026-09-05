@@ -48,7 +48,7 @@ export function renderBreedingView() {
     <div class="flex flex-wrap justify-between items-center mb-6 pb-4 border-b border-os-border gap-4">
         <div>
             <div class="flex items-center gap-2.5">
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/egg.png" class="w-6 h-6 pokemon-sprite" alt="Crianza">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/egg.png" class="w-6 h-6 pokemon-sprite" alt="${currentLang === 'en' ? 'Breeding' : 'Crianza'}">
                 <span class="text-xl font-pokemon text-amber-400">${t('breeding_title')}</span>
                 <span class="text-[13px] font-mono uppercase bg-os-elevated border border-os-border text-os-blue px-2 py-0.5 rounded font-semibold">${t('breeding_iv_sim')}</span>
             </div>
@@ -65,7 +65,7 @@ export function renderBreedingView() {
                     <label class="block text-xs font-mono text-os-muted mb-2">${t('breeding_target')}</label>
                     <div class="flex gap-2">
                         <input type="text" id="breeding-target" list="pokedex-list-breeding" class="w-full bg-os-bg border border-os-border text-xs p-2.5 rounded-lg text-os-text focus:border-os-blue outline-none font-mono" placeholder="${currentLang === 'en' ? 'e.g. Garchomp' : 'Ej. Garchomp'}">
-                        <button id="btn-fetch-pokemon" class="px-3 bg-os-elevated hover:bg-os-blue hover:text-black border border-os-border text-os-text rounded-lg transition cursor-pointer flex items-center justify-center" title="Buscar especie">
+                        <button id="btn-fetch-pokemon" class="px-3 bg-os-elevated hover:bg-os-blue hover:text-black border border-os-border text-os-text rounded-lg transition cursor-pointer flex items-center justify-center" title="${currentLang === 'en' ? 'Search species' : 'Buscar especie'}">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                         </button>
                     </div>
@@ -172,7 +172,7 @@ export function renderEggGroupModal() {
         </button>
         <div class="p-5 border-b border-os-border flex-shrink-0 bg-os-border/10 rounded-t-xl">
             <h3 class="text-base font-bold text-white flex items-center gap-2">
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/egg.png" class="w-5 h-5 pokemon-sprite" alt="Huevo">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/egg.png" class="w-5 h-5 pokemon-sprite" alt="${currentLang === 'en' ? 'Egg' : 'Huevo'}">
                 <span>${currentLang === 'en' ? 'Egg Group:' : 'Grupo Huevo:'} <span id="egg-group-modal-title" class="text-os-blue uppercase"></span></span>
             </h3>
             <p class="text-xs text-os-muted mt-1 mb-3">${currentLang === 'en' ? 'Click any Pokémon to select as breeding target.' : 'Toca cualquier Pokémon para seleccionarlo como objetivo de crianza.'}</p>
@@ -326,7 +326,7 @@ export async function fetchPokemonData() {
     const eggGroupSpan = $('#target-egg-group');
     const genderCostSpan = $('#target-gender-cost');
 
-    if (eggGroupSpan) eggGroupSpan.innerHTML = '<span class="text-os-muted font-mono animate-pulse">Buscando...</span>';
+    if (eggGroupSpan) eggGroupSpan.innerHTML = `<span class="text-os-muted font-mono animate-pulse">${currentLang === 'en' ? 'Searching...' : 'Buscando...'}</span>`;
     if (infoDiv) {
         infoDiv.classList.remove('hidden');
         infoDiv.classList.add('flex');
@@ -402,7 +402,7 @@ export async function fetchPokemonData() {
         generateBreedingTree();
     } catch (e) {
         console.error('Error in fetchPokemonData:', e);
-        if (eggGroupSpan) eggGroupSpan.innerHTML = '<span class="text-os-red font-mono">No encontrado</span>';
+        if (eggGroupSpan) eggGroupSpan.innerHTML = `<span class="text-os-red font-mono">${currentLang === 'en' ? 'Not found' : 'No encontrado'}</span>`;
         if (genderCostSpan) genderCostSpan.innerText = '-';
         currentGenderCost = 0;
         currentEggGroup = "";
@@ -423,8 +423,8 @@ export async function generateBreedingTree() {
     if (!container || !listContainer) return;
 
     if (targetStats.length < 2) {
-        container.innerHTML = '<div class="text-os-muted text-sm mt-10">Debes seleccionar al menos 2 IVs para criar.</div>';
-        listContainer.innerHTML = '<div class="text-os-muted">Sin datos.</div>';
+        container.innerHTML = `<div class="text-os-muted text-sm mt-10">${currentLang === 'en' ? 'You must select at least 2 IVs to breed.' : 'Debes seleccionar al menos 2 IVs para criar.'}</div>`;
+        listContainer.innerHTML = `<div class="text-os-muted">${currentLang === 'en' ? 'No data.' : 'Sin datos.'}</div>`;
         if(costTotalEl) costTotalEl.innerText = '$0';
         return;
     }
@@ -451,7 +451,7 @@ export async function generateBreedingTree() {
              const ownN = parseInt(parts[0]);
              const ownNat = parts[1] === 'true';
              if (stats.length === ownN && hasNature === ownNat) {
-                 let label = `Propio: ${stats.length}x31${hasNature ? ' + Nat' : ''}`;
+                 let label = `${currentLang === 'en' ? 'Owned' : 'Propio'}: ${stats.length}x31${hasNature ? ' + Nat' : ''}`;
                  addBreeder(label);
                  ownedUsed = true;
                  return;
@@ -511,7 +511,7 @@ export async function generateBreedingTree() {
         htmlList += `
             <div class="flex items-center justify-between border-b border-os-border/50 pb-2">
                 <span class="flex items-center gap-2">
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/everstone.png" class="w-4 h-4 pokemon-sprite" alt="Piedraeterna">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/everstone.png" class="w-4 h-4 pokemon-sprite" alt="${currentLang === 'en' ? 'Everstone' : 'Piedraeterna'}">
                     <span>${everstones}x ${currentLang === 'en' ? 'Everstone' : 'Piedraeterna'}</span>
                 </span>
                 <span class="text-amber-300 font-bold tabular-nums">~${(everstones*5).toLocaleString()}k</span>
@@ -594,8 +594,8 @@ export async function generateBreedingTree() {
             let child1 = buildGraph(stats, false);
             let child2 = buildGraph(overlap, true);
             
-            mGraph += `${child1} -->|"${BRACER_NAMES[forcedStat]}"| ${currentId}\n`;
-            mGraph += `${child2} -->|"Piedraeterna"| ${currentId}\n`;
+            mGraph += `${child1} -->|"${getBracerName(forcedStat)}"| ${currentId}\n`;
+            mGraph += `${child2} -->|"${currentLang === 'en' ? 'Everstone' : 'Piedraeterna'}"| ${currentId}\n`;
         } else {
             let overlap = stats.slice(0, stats.length - 2);
             let f1 = stats[stats.length - 2];
@@ -604,8 +604,8 @@ export async function generateBreedingTree() {
             let child1 = buildGraph(overlap.concat([f1]), false);
             let child2 = buildGraph(overlap.concat([f2]), false);
             
-            mGraph += `${child1} -->|"${BRACER_NAMES[f1]}"| ${currentId}\n`;
-            mGraph += `${child2} -->|"${BRACER_NAMES[f2]}"| ${currentId}\n`;
+            mGraph += `${child1} -->|"${getBracerName(f1)}"| ${currentId}\n`;
+            mGraph += `${child2} -->|"${getBracerName(f2)}"| ${currentId}\n`;
         }
         
         return currentId;
@@ -694,7 +694,7 @@ export async function generateBreedingTree() {
         }
     } catch (e) {
         console.error('Mermaid render error:', e);
-        container.innerHTML = `<div class="text-[#E63946] p-4 bg-[#FFDFDE] dark:bg-[#381E20] rounded-lg border-2 border-[#E63946] text-xs font-mono font-bold">Error renderizando el diagrama: ${e.message || e}</div>`;
+        container.innerHTML = `<div class="text-[#E63946] p-4 bg-[#FFDFDE] dark:bg-[#381E20] rounded-lg border-2 border-[#E63946] text-xs font-mono font-bold">${currentLang === 'en' ? 'Error rendering diagram' : 'Error renderizando el diagrama'}: ${e.message || e}</div>`;
     }
 }
 
@@ -718,7 +718,7 @@ export function renderEggGroupFiltered(filter = '') {
     }
 
     content.innerHTML = filtered.map(name => 
-        `<button type="button" data-pokename="${name}" class="btn-select-egg-pokemon bg-os-border/20 hover:bg-os-blue/30 hover:border-os-blue/60 border border-os-border/50 px-2 py-2.5 rounded text-os-text capitalize text-center cursor-pointer transition-colors text-xs flex items-center justify-center min-h-[38px] break-words active:scale-95" title="Seleccionar ${name}">
+        `<button type="button" data-pokename="${name}" class="btn-select-egg-pokemon bg-os-border/20 hover:bg-os-blue/30 hover:border-os-blue/60 border border-os-border/50 px-2 py-2.5 rounded text-os-text capitalize text-center cursor-pointer transition-colors text-xs flex items-center justify-center min-h-[38px] break-words active:scale-95" title="${currentLang === 'en' ? 'Select' : 'Seleccionar'} ${name}">
             ${name.replace(/-/g, ' ')}
         </button>`
     ).join('');
@@ -755,7 +755,7 @@ export async function showEggGroupModal(groupName) {
         renderEggGroupFiltered('');
         if (searchInput) searchInput.focus();
     } catch (e) {
-        if (content) content.innerHTML = '<div class="col-span-full text-center text-red-400 py-8 text-xs">Error de red al obtener datos de PokeAPI.</div>';
+        if (content) content.innerHTML = `<div class="col-span-full text-center text-red-400 py-8 text-xs">${currentLang === 'en' ? 'Network error fetching data from PokeAPI.' : 'Error de red al obtener datos de PokeAPI.'}</div>`;
     }
 }
 
