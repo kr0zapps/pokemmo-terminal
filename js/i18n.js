@@ -45,9 +45,9 @@ export const DICT = {
         app_title: 'ROTOM-PHONE',
         app_subtitle: 'Operations Terminal',
         // Auth Modal & Security
-        auth_terminal_subtitle: 'PokéMMO Trainer Companion & Operations Panel',
+        auth_terminal_subtitle: 'Trainer Companion & Operations Panel',
         auth_security_title: 'SECURITY WARNING',
-        auth_security_body: 'This is an unofficial fan-made companion tool. NEVER use your actual PokéMMO game password here. Use a unique password or continue in Guest Mode without registering.',
+        auth_security_body: 'This is an unofficial fan-made companion tool. NEVER use your actual game password here. Use a unique password or continue in Guest Mode without registering.',
         auth_email_label: 'Username or Email',
         auth_email_placeholder: 'e.g. RedKanto or your@email.com',
         auth_email_hint: 'Use the same username on PC & mobile to sync your progress.',
@@ -66,10 +66,10 @@ export const DICT = {
         theme_mode: 'Theme',
         theme_light: 'Light',
         theme_dark: 'Dark',
-        server_clock: 'POKÉMMO SERVER TIME',
+        server_clock: 'SERVER CLOCK',
         server_clock_desc: '• 1h real = 4h in-game • 24h Day = 6h real',
         next_reset: 'Next 6h reset:',
-        footer_disclaimer: 'Unofficial, open-source companion tool. Pokémon and PokéMMO belong to their respective creators.',
+        footer_disclaimer: 'Unofficial, open-source trainer companion tool. Pokémon belongs to its respective creators.',
         footer_github: 'Open Source (GitHub)',
         footer_coffee: 'Buy Me a Coffee',
         footer_feedback: 'Feedback Welcome',
@@ -349,9 +349,9 @@ export const DICT = {
         app_title: 'ROTOM-PHONE',
         app_subtitle: 'Terminal de Operaciones',
         // Modal de Autenticación y Seguridad
-        auth_terminal_subtitle: 'Panel de herramientas para entrenadores de PokéMMO',
+        auth_terminal_subtitle: 'Panel de herramientas para entrenadores',
         auth_security_title: 'AVISO DE SEGURIDAD',
-        auth_security_body: 'Esta es una herramienta fan-made complementaria. NUNCA uses la contraseña de tu cuenta del juego PokéMMO aquí. Usa una contraseña diferente o continúa en Modo Invitado sin registrarte.',
+        auth_security_body: 'Esta es una herramienta fan-made complementaria. NUNCA uses la contraseña de tu cuenta del juego aquí. Usa una contraseña diferente o continúa en Modo Invitado sin registrarte.',
         auth_email_label: 'Usuario o Correo',
         auth_email_placeholder: 'Ej. RedKanto o tu@correo.com',
         auth_email_hint: 'Usa el mismo usuario en tu PC y móvil para sincronizar tu progreso.',
@@ -370,10 +370,10 @@ export const DICT = {
         theme_mode: 'Modo',
         theme_light: 'Claro',
         theme_dark: 'Oscuro',
-        server_clock: 'HORARIO SERVIDOR POKÉMMO',
+        server_clock: 'HORARIO DEL SERVIDOR',
         server_clock_desc: '• 1h real = 4h en juego • Día 24h = 6h reales',
         next_reset: 'Próximo reinicio (6h):',
-        footer_disclaimer: 'Herramienta complementaria no oficial y de código abierto. Pokémon y PokéMMO pertenecen a sus respectivos creadores.',
+        footer_disclaimer: 'Herramienta complementaria no oficial y de código abierto para entrenadores. Pokémon pertenece a sus respectivos creadores.',
         footer_github: 'Código Abierto (GitHub)',
         footer_coffee: 'Buy Me a Coffee',
         footer_feedback: 'Feedback bienvenido',
@@ -663,7 +663,7 @@ export function t(key, fallback = '') {
 
 export function updateI18nDOM() {
     // 0. Título de la pestaña
-    document.title = currentLang === 'en' ? 'PokéMMO Rotom-Phone — Trainer Operations Terminal' : 'PokéMMO Rotom-Phone — Terminal de Entrenador';
+    document.title = currentLang === 'en' ? 'Rotom-Phone — Trainer Operations Terminal' : 'Rotom-Phone — Terminal de Operaciones';
 
     // 1. Textos con data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -702,7 +702,7 @@ export function updateI18nDOM() {
     if (nextResetLabel) nextResetLabel.textContent = t('next_reset');
 
     const footerDisclaimer = document.querySelector('#footerDisclaimer');
-    if (footerDisclaimer) footerDisclaimer.textContent = t('footer_disclaimer', 'Herramienta complementaria no oficial y de código abierto. Pokémon y PokéMMO pertenecen a sus respectivos creadores.');
+    if (footerDisclaimer) footerDisclaimer.textContent = t('footer_disclaimer', 'Herramienta complementaria no oficial y de código abierto para entrenadores. Pokémon pertenece a sus respectivos creadores.');
 
     const footerGithubText = document.querySelector('#footerGithubText');
     if (footerGithubText) footerGithubText.textContent = t('footer_github', 'Código Abierto (GitHub)');

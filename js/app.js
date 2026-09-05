@@ -232,7 +232,7 @@ export function initPokeMMOClock() {
             phaseBadge.className = `flex items-center gap-1 font-tech text-[13px] font-bold px-2.5 py-0.5 rounded shadow-sm ${clock.phaseBadgeClass}`;
             if (phaseIcon) phaseIcon.innerHTML = clock.phaseIconSvg;
             phaseText.textContent = clock.phase;
-            phaseBadge.title = `Fase en PokéMMO: ${clock.phase}`;
+            phaseBadge.title = `Fase del servidor: ${clock.phase}`;
         }
 
         // Badge de Estación Oficial (Primavera / Verano / Otoño / Invierno)
@@ -243,7 +243,7 @@ export function initPokeMMOClock() {
             seasonBadge.className = `flex items-center gap-1 font-tech text-[13px] font-bold px-2.5 py-0.5 rounded shadow-sm ${clock.seasonBadgeClass}`;
             if (seasonIcon) seasonIcon.innerHTML = clock.seasonIconSvg;
             seasonText.textContent = clock.season;
-            seasonBadge.title = `Estación en PokéMMO: ${clock.season} (${clock.seasonDesc})`;
+            seasonBadge.title = `Estación del servidor: ${clock.season} (${clock.seasonDesc})`;
         }
 
         // Temporizador de reinicio de ciclo de 6 horas en el pie de página

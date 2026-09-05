@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PokéMMO Rotom-Phone — Terminal de Entrenador</title>
+    <title>Rotom-Phone — Terminal de Operaciones</title>
     
-    <meta name="description" content="PokéMMO Rotom-Phone Operations Terminal — Gym Reruns, Berry Farming, GTL Calculator, Seed Crusher & IV Breeding Planner.">
+    <meta name="description" content="Rotom-Phone Operations Terminal — Gym Reruns, Berry Farming, GTL Calculator, Seed Crusher & IV Breeding Planner.">
     <link rel="canonical" href="https://pokemmo-terminal.vercel.app/">
-    <meta property="og:title" content="PokéMMO Rotom-Phone — Trainer Operations Terminal">
-    <meta property="og:description" content="All-in-one companion web tool for PokéMMO trainers: Gym rerun routes, moisture timers, seed profit simulator, and breeding trees.">
+    <meta property="og:title" content="Rotom-Phone — Trainer Operations Terminal">
+    <meta property="og:description" content="All-in-one companion web tool for MMO trainers: Gym rerun routes, moisture timers, seed profit simulator, and breeding trees.">
     <meta property="og:url" content="https://pokemmo-terminal.vercel.app/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png">
@@ -173,7 +173,7 @@
                             </div>
                             <div class="flex flex-col whitespace-nowrap leading-tight">
                                 <div class="flex items-baseline gap-1 sm:gap-1.5">
-                                    <span class="hidden xs:inline font-tech text-base sm:text-lg font-bold tracking-wider text-[#241A00]">PokéMMO</span>
+                                    <span class="hidden xs:inline font-tech text-base sm:text-lg font-bold tracking-wider text-[#241A00]">ROTOM-OS</span>
                                     <span class="font-tech font-extrabold text-sm sm:text-base tracking-wider text-[#241A00]">ROTOM-PHONE</span>
                                 </div>
                                 <span id="appSubtitleText" class="font-mono text-[13px] text-[#594400] font-bold tracking-normal hidden sm:block">Operations Terminal</span>
@@ -204,7 +204,7 @@
                 <div class="flex items-center justify-between sm:justify-end gap-2 sm:gap-3 z-10 w-full sm:w-auto flex-wrap">
                     <!-- Informador de Hora en Juego y Estación Oficial de PokéMMO -->
                     <div id="pokemmoClockWidget" class="w-full sm:w-auto flex items-center justify-between sm:justify-start gap-2 bg-[#20201C] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-1.5 rounded-xl shadow-inner min-h-[44px]">
-                        <div class="flex items-center gap-1.5" title="Hora dentro de PokéMMO (1h real = 4h en juego)">
+                        <div class="flex items-center gap-1.5" title="Hora dentro del juego (1h real = 4h en juego)">
                             <span class="w-2.5 h-2.5 rounded-full bg-[#9BBC0F] animate-pulse"></span>
                             <span id="headerInGameClock" class="font-lcd text-lg sm:text-xl font-black tracking-widest text-[#9BBC0F] leading-none">--:--:--</span>
                         </div>
@@ -263,7 +263,7 @@
                         <div class="w-1.5 h-4 bg-[#2B2B2B]/40 dark:bg-white/20 rounded-full"></div>
                     </div>
                     <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-                        <span id="serverTimeTitle" class="font-tech text-[13px] font-bold text-[#1C1C17] dark:text-[#F4F1E8]">HORARIO SERVIDOR POKÉMMO</span>
+                        <span id="serverTimeTitle" class="font-tech text-[13px] font-bold text-[#1C1C17] dark:text-[#F4F1E8]">HORARIO DEL SERVIDOR</span>
                         <span id="serverTimeDesc" class="font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">• 1h real = 4h en juego • Día 24h = 6h reales</span>
                     </div>
                 </div>
@@ -276,7 +276,7 @@
 
                 <!-- Fan disclaimer y Acciones Comunitarias -->
                 <div class="w-full pt-3 mt-1 border-t border-[#2B2B2B]/20 dark:border-[#35352E] flex flex-col md:flex-row items-center justify-between gap-3 text-[13px] font-sans">
-                    <span id="footerDisclaimer" class="text-[#5F5A4D] dark:text-[#A8A594] text-center md:text-left">Herramienta complementaria no oficial y de código abierto. Pokémon y PokéMMO pertenecen a sus respectivos creadores.</span>
+                    <span id="footerDisclaimer" class="text-[#5F5A4D] dark:text-[#A8A594] text-center md:text-left">Herramienta complementaria no oficial y de código abierto para entrenadores. Pokémon pertenece a sus respectivos creadores.</span>
                     
                     <div class="flex items-center gap-3 flex-wrap justify-center md:justify-end">
                         <!-- Feedback es Bienvenido -->

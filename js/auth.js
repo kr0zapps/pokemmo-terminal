@@ -137,10 +137,10 @@ export function renderAuthUI(onSuccess) {
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Pokeball" class="w-7 h-7 pokemon-sprite">
           </div>
           <div class="flex items-baseline justify-center gap-2 mb-1">
-            <span class="text-3xl font-pokemon tracking-wide text-[#FFCC00]">PokéMMO</span>
+            <span class="text-3xl font-pokemon tracking-wide text-[#FFCC00]">ROTOM-OS</span>
             <span class="text-xs font-mono tracking-wider uppercase px-2 py-0.5 rounded bg-os-elevated border border-os-border text-os-blue font-semibold">Terminal v3.0</span>
           </div>
-          <p class="text-xs text-os-muted mt-1">${t('auth_terminal_subtitle', 'Panel de herramientas para entrenadores de PokéMMO')}</p>
+          <p class="text-xs text-os-muted mt-1">${t('auth_terminal_subtitle', 'Panel de herramientas para entrenadores')}</p>
         </div>
         
         <form id="auth-form" class="space-y-4">
@@ -152,7 +152,7 @@ export function renderAuthUI(onSuccess) {
               <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
               ${t('auth_security_title', 'AVISO DE SEGURIDAD')}
             </strong>
-            ${t('auth_security_body', 'Esta es una herramienta fan-made complementaria. NUNCA uses la contraseña de tu cuenta del juego PokéMMO aquí. Usa una contraseña diferente o continúa en Modo Invitado sin registrarte.')}
+            ${t('auth_security_body', 'Esta es una herramienta fan-made complementaria. NUNCA uses la contraseña de tu cuenta del juego aquí. Usa una contraseña diferente o continúa en Modo Invitado sin registrarte.')}
           </div>
 
           <div>
