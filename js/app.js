@@ -7,6 +7,7 @@ import { initRealtimeSync } from './sync.js';
 import { switchTab, initRouter } from './router.js';
 import * as gyms from './modules/gyms.js';
 import * as berries from './modules/berries.js';
+import * as extraction from './modules/extraction.js';
 import * as pokedex from './modules/pokedex.js';
 import { getPokeMMOClock } from './utils/pokemmo-time.js';
 
@@ -19,7 +20,7 @@ window.showAuthModal = () => {
     isAppInitializing = false;
     renderAuthUI(initApp);
 };
-Object.assign(window, gyms, berries, pokedex);
+Object.assign(window, gyms, berries, extraction, pokedex);
 
 let isAppInitialized = false;
 let isAppInitializing = false;
@@ -36,6 +37,7 @@ async function initApp() {
         let viewsHtml = '';
         if (gyms.renderGymView) viewsHtml += `<div id="view-gyms" class="block animate-fade-in">${gyms.renderGymView()}</div>`;
         if (berries.renderBerryView) viewsHtml += berries.renderBerryView();
+        if (extraction.renderExtractionView) viewsHtml += extraction.renderExtractionView();
         if (pokedex.renderPokédexView) viewsHtml += pokedex.renderPokédexView();
         
         // Carga dinámica del módulo de crianza
@@ -68,6 +70,7 @@ async function initApp() {
         updateHeaderAuth();
         if (gyms.initGyms) gyms.initGyms();
         if (berries.initBerries) berries.initBerries();
+        if (extraction.initExtraction) extraction.initExtraction();
         if (pokedex.initPokédex) pokedex.initPokédex();
         if (breedingModule && breedingModule.initBreeding) breedingModule.initBreeding();
 
