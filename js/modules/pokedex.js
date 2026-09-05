@@ -106,14 +106,14 @@ export function renderPokédexView() {
                     </div>
                     <div>
                         <select id="dexSort" onchange="window.pokedex.renderDexResults(true)" class="w-full py-2 px-3 text-[13px] bg-[#EDE8DC] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] rounded-lg cursor-pointer font-sans">
-                            <option value="rate_desc" selected>Probabilidad (%)</option>
+                            <option value="rate_desc" selected>${currentLang === 'en' ? 'Catch Rate (%)' : 'Probabilidad (%)'}</option>
                             <option value="id_asc">${currentLang === 'en' ? 'Pokédex No. (#1 - #649)' : 'N° Pokédex (#1 - #649)'}</option>
-                            <option value="name_asc">Nombre (A - Z)</option>
+                            <option value="name_asc">${currentLang === 'en' ? 'Name (A - Z)' : 'Nombre (A - Z)'}</option>
                         </select>
                     </div>
                     <div>
                         <select id="dexTimeFilter" onchange="window.pokedex.renderDexResults(true)" class="w-full py-2 px-3 text-[13px] bg-[#EDE8DC] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] rounded-lg cursor-pointer font-sans">
-                            <option value="all" selected>Horario: Todos</option>
+                            <option value="all" selected>${currentLang === 'en' ? 'Time: All' : 'Horario: Todos'}</option>
                             <option value="morning">${t('phase_morning')} (04:00 - 10:00)</option>
                             <option value="day">${t('phase_day')} (10:00 - 20:00)</option>
                             <option value="night">${t('phase_night')} (20:00 - 04:00)</option>
@@ -145,20 +145,20 @@ export function renderCaughtModal() {
                             Registro de Capturas
                         </h2>
                         <p class="text-[13px] font-mono text-[#5F5A4D] dark:text-[#A8A594]">
-                            <span id="caughtSummaryText" class="text-[#10B981] font-black">0</span> de <span id="caughtTotalText">649</span> registrados (<span id="caughtPercentText" class="text-[#2563EB] dark:text-[#60A5FA] font-bold">0%</span> de la Pokédex Nacional)
+                            <span id="caughtSummaryText" class="text-[#10B981] font-black">0</span> ${currentLang === 'en' ? 'of' : 'de'} <span id="caughtTotalText">649</span> ${currentLang === 'en' ? 'registered' : 'registrados'} (<span id="caughtPercentText" class="text-[#2563EB] dark:text-[#60A5FA] font-bold">0%</span> ${currentLang === 'en' ? 'of National Pokédex' : 'de la Pokédex Nacional'})
                         </p>
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="window.pokedex.exportCaughtOnly()" class="bg-[#EDE8DC] dark:bg-[#2E2E27] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#2563EB] px-3.5 py-1.5 text-[13px] font-tech font-bold uppercase transition rounded-lg flex items-center gap-1.5 cursor-pointer shadow-sm" title="Descargar solo el JSON de tus capturas">
+                    <button onclick="window.pokedex.exportCaughtOnly()" class="bg-[#EDE8DC] dark:bg-[#2E2E27] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#2563EB] px-3.5 py-1.5 text-[13px] font-tech font-bold uppercase transition rounded-lg flex items-center gap-1.5 cursor-pointer shadow-sm" title="${currentLang === 'en' ? 'Download JSON of caught Pokémon' : 'Descargar solo el JSON de tus capturas'}">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                        <span>Exportar JSON</span>
+                        <span>${currentLang === 'en' ? 'Export JSON' : 'Exportar JSON'}</span>
                     </button>
-                    <button onclick="window.pokedex.copyCaughtListText()" class="bg-[#EDE8DC] dark:bg-[#2E2E27] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] px-3.5 py-1.5 text-[13px] font-tech font-bold uppercase transition rounded-lg flex items-center gap-1.5 cursor-pointer shadow-sm" title="Copiar nombres al portapapeles">
+                    <button onclick="window.pokedex.copyCaughtListText()" class="bg-[#EDE8DC] dark:bg-[#2E2E27] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] px-3.5 py-1.5 text-[13px] font-tech font-bold uppercase transition rounded-lg flex items-center gap-1.5 cursor-pointer shadow-sm" title="${currentLang === 'en' ? 'Copy names to clipboard' : 'Copiar nombres al portapapeles'}">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
-                        <span>Copiar Lista</span>
+                        <span>${currentLang === 'en' ? 'Copy List' : 'Copiar Lista'}</span>
                     </button>
-                    <button onclick="window.pokedex.closeCaughtModal()" class="text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] p-1.5 rounded-lg transition flex items-center justify-center cursor-pointer" title="Cerrar">
+                    <button onclick="window.pokedex.closeCaughtModal()" class="text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] p-1.5 rounded-lg transition flex items-center justify-center cursor-pointer" title="${currentLang === 'en' ? 'Close' : 'Cerrar'}">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                     </button>
                 </div>
@@ -179,7 +179,7 @@ export function renderCaughtModal() {
 
             <!-- Footer con Botón Cerrar -->
             <div class="flex justify-between items-center mt-4 pt-3 border-t-2 border-[#2B2B2B] dark:border-[#35352E]">
-                <span class="text-[13px] font-mono text-[#5F5A4D] dark:text-[#A8A594]">Toca "Liberar" en cualquier Pokémon para devolverlo a tu lista de búsqueda.</span>
+                <span class="text-[13px] font-mono text-[#5F5A4D] dark:text-[#A8A594]">${currentLang === 'en' ? 'Click "Release" on any Pokémon to return it to your hunt list.' : 'Toca "Liberar" en cualquier Pokémon para devolverlo a tu lista de búsqueda.'}</span>
                 <button onclick="window.pokedex.closeCaughtModal()" class="px-5 py-2 text-[13px] font-tech font-bold uppercase bg-[#EDE8DC] dark:bg-[#2E2E27] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] transition rounded-lg cursor-pointer shadow-sm">
                     Cerrar
                 </button>
@@ -368,9 +368,9 @@ export function renderCaughtGrid() {
                 </div>
                 <img src="${spriteUrl}" class="w-14 h-14 pixelated object-contain group-hover:scale-110 transition-transform my-1" onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'">
                 <span class="font-sans font-bold text-[13px] text-[#1C1C17] dark:text-[#F4F1E8] truncate w-full mb-1.5">${p.name}</span>
-                <button onclick="window.pokedex.uncatchFromModal(${p.id})" class="w-full text-[13px] font-tech font-bold uppercase py-1 px-1.5 bg-[#FAF8F2] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E] text-[#7A131C] dark:text-[#FFB4AB] hover:bg-[#E63946] hover:text-white transition rounded-lg flex items-center justify-center gap-1 cursor-pointer shadow-sm" title="Desmarcar y volver a buscar">
+                <button onclick="window.pokedex.uncatchFromModal(${p.id})" class="w-full text-[13px] font-tech font-bold uppercase py-1 px-1.5 bg-[#FAF8F2] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E] text-[#7A131C] dark:text-[#FFB4AB] hover:bg-[#E63946] hover:text-white transition rounded-lg flex items-center justify-center gap-1 cursor-pointer shadow-sm" title="${currentLang === 'en' ? 'Unmark and return to hunt list' : 'Desmarcar y volver a buscar'}">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                    <span>Liberar</span>
+                    <span>${currentLang === 'en' ? 'Release' : 'Liberar'}</span>
                 </button>
             </div>
         `;
@@ -434,7 +434,27 @@ export function changeDexPage(delta) {
 }
 
 export function translateMethod(m) {
-    if (!m) return 'Pasto';
+    if (!m) return (typeof currentLang !== 'undefined' && currentLang === 'en') ? 'Grass' : 'Pasto';
+    if (typeof currentLang !== 'undefined' && currentLang === 'en') {
+        return m
+            .replace(/Pasto Oscuro/gi, 'Dark Grass')
+            .replace(/Pasto/gi, 'Grass')
+            .replace(/Cueva/gi, 'Cave')
+            .replace(/Rocas/gi, 'Rocks')
+            .replace(/Agua/gi, 'Water')
+            .replace(/Interior/gi, 'Inside')
+            .replace(/Golpe Cabeza/gi, 'Headbutt')
+            .replace(/Sombra/gi, 'Shadow')
+            .replace(/Pesca/gi, 'Fishing')
+            .replace(/Señuelo/gi, 'Lure')
+            .replace(/Árbol de Miel/gi, 'Honey Tree')
+            .replace(/Árbol/gi, 'Tree')
+            .replace(/Dulce Aroma/gi, 'Sweet Scent')
+            .replace(/Nube de Polvo/gi, 'Dust Cloud')
+            .replace(/Súper Caña|Super Caña/gi, 'Super Rod')
+            .replace(/Buena Caña/gi, 'Good Rod')
+            .replace(/Caña Vieja/gi, 'Old Rod');
+    }
     return m
         .replace(/\bSuper Rod\b/gi, 'Súper Caña')
         .replace(/\bGood Rod\b/gi, 'Buena Caña')
@@ -463,7 +483,53 @@ export function translateMethod(m) {
 }
 
 export function translateLocation(loc) {
-    if (!loc) return 'Sin Ruta';
+    if (!loc) return (typeof currentLang !== 'undefined' && currentLang === 'en') ? 'No Route' : 'Sin Ruta';
+    if (typeof currentLang !== 'undefined' && currentLang === 'en') {
+        return loc
+            .replace('Parada: ', '')
+            .replace(/Diglett'S Cueva/gi, "Diglett's Cave")
+            .replace(/Lost Cueva/gi, 'Lost Cave')
+            .replace(/Dark Cueva/gi, 'Dark Cave')
+            .replace(/Cueva Celeste/gi, 'Cerulean Cave')
+            .replace(/Bosque Baya/gi, 'Berry Forest')
+            .replace(/Puente Villa/gi, 'Village Bridge')
+            .replace(/Cerulean Ciudad/gi, 'Cerulean City')
+            .replace(/Cinnabar Isla/gi, 'Cinnabar Island')
+            .replace(/Pokémon Torre/gi, 'Pokémon Tower')
+            .replace(/Torre Pokémon/gi, 'Pokémon Tower')
+            .replace(/Torre Bellsprout/gi, 'Sprout Tower')
+            .replace(/Torre/gi, 'Tower')
+            .replace(/Cueva/gi, 'Cave')
+            .replace(/Bosque/gi, 'Forest')
+            .replace(/Isla/gi, 'Island')
+            .replace(/Ciudad/gi, 'City')
+            .replace(/Pueblo/gi, 'Town')
+            .replace(/Sótano (\d+)/gi, 'B$1F')
+            .replace(/Piso (\d+)/gi, '$1F')
+            .replace(/Ruta/gi, 'Route')
+            .replace(/Área Noreste/gi, 'Northeast Area')
+            .replace(/Área Noroeste/gi, 'Northwest Area')
+            .replace(/Área Sureste/gi, 'Southeast Area')
+            .replace(/Área Suroeste/gi, 'Southwest Area')
+            .replace(/Área Norte/gi, 'North Area')
+            .replace(/Área Sur/gi, 'South Area')
+            .replace(/Área Este/gi, 'East Area')
+            .replace(/Área Oeste/gi, 'West Area')
+            .replace(/Área Central/gi, 'Central Area')
+            .replace(/Área (\d+)/gi, 'Area $1')
+            .replace(/\(Norte\)/gi, '(North)')
+            .replace(/\(Sur\)/gi, '(South)')
+            .replace(/\(Este\)/gi, '(East)')
+            .replace(/\(Oeste\)/gi, '(West)')
+            .replace(/Santuario Abundancia/gi, 'Abundant Shrine')
+            .replace(/Ciudad Cerezo/gi, 'Cherrygrove City')
+            .replace(/Ciudad Orquídea/gi, 'Cianwood City')
+            .replace(/Gran Pantanal/gi, 'Great Marsh')
+            .replace(/Complejo Industrial/gi, 'Virbank Complex')
+            .replace(/Complejo Area/gi, 'Virbank Complex')
+            .replace(/Prado Isla Quíntupla/gi, 'Five Isle Meadow')
+            .replace(/Bahía Arenisca/gi, 'Undella Bay');
+    }
     return loc
         .replace('Parada: ', '')
         .replace(/\(Northeast Area\)/gi, '(Área Noreste)')
@@ -681,9 +747,9 @@ export function renderDexResults(resetPage = false) {
                     <span class="text-[#5F5A4D] dark:text-[#A8A594]">• ${currentLang === 'en' ? 'Showing' : 'Mostrando'} <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${startIndex + 1} - ${Math.min(startIndex + dexPageSize, totalItems)}</strong> ${currentLang === 'en' ? 'of' : 'de'} <strong class="text-[#10B981]">${totalItems} Pokémon</strong></span>
                 </div>
                 <div class="flex items-center gap-1.5">
-                    <button onclick="window.pokedex.changeDexPage(-1)" ${dexCurrentPage === 1 ? 'disabled class="px-3.5 py-2 min-h-[44px] bg-[#D8D4C7] dark:bg-[#242420] text-[#81765F] dark:text-[#666] border border-[#2B2B2B]/40 dark:border-[#35352E] cursor-not-allowed rounded-lg font-tech font-bold text-[13px] flex items-center justify-center"' : 'class="px-3.5 py-2 min-h-[44px] bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#FFC800] transition rounded-lg cursor-pointer shadow-sm flex items-center justify-center"'}>Anterior</button>
+                    <button onclick="window.pokedex.changeDexPage(-1)" ${dexCurrentPage === 1 ? 'disabled class="px-3.5 py-2 min-h-[44px] bg-[#D8D4C7] dark:bg-[#242420] text-[#81765F] dark:text-[#666] border border-[#2B2B2B]/40 dark:border-[#35352E] cursor-not-allowed rounded-lg font-tech font-bold text-[13px] flex items-center justify-center"' : 'class="px-3.5 py-2 min-h-[44px] bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#FFC800] transition rounded-lg cursor-pointer shadow-sm flex items-center justify-center"'}>${currentLang === 'en' ? 'Previous' : 'Anterior'}</button>
                     <span class="px-2 text-[#5F5A4D] dark:text-[#A8A594] font-mono">${currentLang === 'en' ? 'Page' : 'Pág.'} <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${dexCurrentPage}</strong> / ${totalPages}</span>
-                    <button onclick="window.pokedex.changeDexPage(1)" ${dexCurrentPage >= totalPages ? 'disabled class="px-3.5 py-2 min-h-[44px] bg-[#D8D4C7] dark:bg-[#242420] text-[#81765F] dark:text-[#666] border border-[#2B2B2B]/40 dark:border-[#35352E] cursor-not-allowed rounded-lg font-tech font-bold text-[13px] flex items-center justify-center"' : 'class="px-3.5 py-2 min-h-[44px] bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#FFC800] transition rounded-lg cursor-pointer shadow-sm flex items-center justify-center"'}>Siguiente</button>
+                    <button onclick="window.pokedex.changeDexPage(1)" ${dexCurrentPage >= totalPages ? 'disabled class="px-3.5 py-2 min-h-[44px] bg-[#D8D4C7] dark:bg-[#242420] text-[#81765F] dark:text-[#666] border border-[#2B2B2B]/40 dark:border-[#35352E] cursor-not-allowed rounded-lg font-tech font-bold text-[13px] flex items-center justify-center"' : 'class="px-3.5 py-2 min-h-[44px] bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#FFC800] transition rounded-lg cursor-pointer shadow-sm flex items-center justify-center"'}>${currentLang === 'en' ? 'Next' : 'Siguiente'}</button>
                 </div>
             </div>
 
@@ -709,12 +775,12 @@ export function renderDexResults(resetPage = false) {
         const isCaught = dexCaughtList.includes(p.id);
         const spriteUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`;
         const pokeballIcon = isCaught 
-            ? `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" class="w-4 h-4 pixelated inline-block" title="Capturado">`
-            : `<span class="w-4 h-4 rounded-full border-2 border-[#2B2B2B]/40 dark:border-[#555] inline-block opacity-40" title="Pendiente"></span>`;
+            ? `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" class="w-4 h-4 pixelated inline-block" title="${currentLang === 'en' ? 'Caught' : 'Capturado'}">`
+            : `<span class="w-4 h-4 rounded-full border-2 border-[#2B2B2B]/40 dark:border-[#555] inline-block opacity-40" title="${currentLang === 'en' ? 'Pending' : 'Pendiente'}"></span>`;
 
         const formatRateSlot = (val) => {
             if (val === 'Señuelo' || val === 'Lure') {
-                return `<span class="px-2 py-0.5 rounded-lg text-[13px] font-bold bg-[#FFDF92] dark:bg-[#473200] text-[#755B00] dark:text-[#FFC800] border border-[#755B00]/40 font-sans">Señuelo</span>`;
+                return `<span class="px-2 py-0.5 rounded-lg text-[13px] font-bold bg-[#FFDF92] dark:bg-[#473200] text-[#755B00] dark:text-[#FFC800] border border-[#755B00]/40 font-sans">${currentLang === 'en' ? 'Lure' : 'Señuelo'}</span>`;
             } else if (val !== '--') {
                 const num = parseInt(val);
                 const color = num >= 50 ? 'text-[#1B5E20] dark:text-[#34D399] font-black' : (num >= 20 ? 'text-[#2E7D32] dark:text-[#4ADE80] font-bold' : 'text-[#2563EB] dark:text-[#60A5FA] font-bold');
@@ -741,14 +807,14 @@ export function renderDexResults(resetPage = false) {
                     <span class="px-2.5 py-1 bg-[#EDE8DC] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] text-[13px] font-sans font-medium rounded-lg inline-block">
                         ${p.method}
                     </span>
-                    ${p.isLure ? '<span class="ml-1.5 text-[13px] text-[#755B00] dark:text-[#FFC800] bg-[#FFDF92] dark:bg-[#473200] px-2 py-0.5 border border-[#755B00]/40 rounded-lg font-bold uppercase font-sans">Señuelo</span>' : ''}
+                    ${p.isLure ? `<span class="ml-1.5 text-[13px] text-[#755B00] dark:text-[#FFC800] bg-[#FFDF92] dark:bg-[#473200] px-2 py-0.5 border border-[#755B00]/40 rounded-lg font-bold uppercase font-sans">${currentLang === 'en' ? 'Lure' : 'Señuelo'}</span>` : ''}
                 </td>
                 <td class="py-3 px-3 text-[#1C1C17] dark:text-[#F4F1E8] font-mono text-[13px] font-bold">
                     ${p.level}
                 </td>
                 <td class="py-3 px-4 font-sans">
-                    <span class="text-[#2563EB] dark:text-[#60A5FA] font-medium text-[13px]">${p.locationClean || 'Sin Ruta'}</span>
-                    <button onclick="window.pokedex.promptSuggestion(${p.id}, '${p.name}')" class="ml-2 text-[13px] text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#2563EB] dark:hover:text-[#60A5FA] border-b border-transparent hover:border-[#2563EB] transition-colors font-sans cursor-pointer">Sugerir</button>
+                    <span class="text-[#2563EB] dark:text-[#60A5FA] font-medium text-[13px]">${p.locationClean || (currentLang === 'en' ? 'No Route' : 'Sin Ruta')}</span>
+                    <button onclick="window.pokedex.promptSuggestion(${p.id}, '${p.name}')" class="ml-2 text-[13px] text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#2563EB] dark:hover:text-[#60A5FA] border-b border-transparent hover:border-[#2563EB] transition-colors font-sans cursor-pointer">${currentLang === 'en' ? 'Suggest' : 'Sugerir'}</button>
                 </td>
                 <td class="py-3 px-2 text-center font-mono font-bold text-[13px]">${formatRateSlot(p.morning)}</td>
                 <td class="py-3 px-2 text-center font-mono font-bold text-[13px]">${formatRateSlot(p.day)}</td>
@@ -771,8 +837,8 @@ export function renderDexResults(resetPage = false) {
             <div class="bg-[#EDE8DC] dark:bg-[#2E2E27] border-t-2 border-[#2B2B2B] dark:border-[#35352E] px-4 md:px-6 py-3 flex items-center justify-between text-[13px] font-mono">
                 <span class="text-[#5F5A4D] dark:text-[#A8A594]">${currentLang === 'en' ? 'Page' : 'Página'} <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${dexCurrentPage}</strong> ${currentLang === 'en' ? 'of' : 'de'} <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${totalPages}</strong></span>
                 <div class="flex items-center gap-2">
-                    <button onclick="window.pokedex.changeDexPage(-1)" ${dexCurrentPage === 1 ? 'disabled class="px-3.5 py-2 min-h-[44px] bg-[#D8D4C7] dark:bg-[#242420] text-[#81765F] dark:text-[#666] border border-[#2B2B2B]/40 dark:border-[#35352E] cursor-not-allowed rounded-lg font-tech font-bold text-[13px] flex items-center justify-center"' : 'class="px-3.5 py-2 min-h-[44px] bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#FFC800] transition rounded-lg cursor-pointer shadow-sm flex items-center justify-center"'}>Anterior</button>
-                    <button onclick="window.pokedex.changeDexPage(1)" ${dexCurrentPage >= totalPages ? 'disabled class="px-3.5 py-2 min-h-[44px] bg-[#D8D4C7] dark:bg-[#242420] text-[#81765F] dark:text-[#666] border border-[#2B2B2B]/40 dark:border-[#35352E] cursor-not-allowed rounded-lg font-tech font-bold text-[13px] flex items-center justify-center"' : 'class="px-3.5 py-2 min-h-[44px] bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#FFC800] transition rounded-lg cursor-pointer shadow-sm flex items-center justify-center"'}>Siguiente</button>
+                    <button onclick="window.pokedex.changeDexPage(-1)" ${dexCurrentPage === 1 ? 'disabled class="px-3.5 py-2 min-h-[44px] bg-[#D8D4C7] dark:bg-[#242420] text-[#81765F] dark:text-[#666] border border-[#2B2B2B]/40 dark:border-[#35352E] cursor-not-allowed rounded-lg font-tech font-bold text-[13px] flex items-center justify-center"' : 'class="px-3.5 py-2 min-h-[44px] bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#FFC800] transition rounded-lg cursor-pointer shadow-sm flex items-center justify-center"'}>${currentLang === 'en' ? 'Previous' : 'Anterior'}</button>
+                    <button onclick="window.pokedex.changeDexPage(1)" ${dexCurrentPage >= totalPages ? 'disabled class="px-3.5 py-2 min-h-[44px] bg-[#D8D4C7] dark:bg-[#242420] text-[#81765F] dark:text-[#666] border border-[#2B2B2B]/40 dark:border-[#35352E] cursor-not-allowed rounded-lg font-tech font-bold text-[13px] flex items-center justify-center"' : 'class="px-3.5 py-2 min-h-[44px] bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#FFC800] transition rounded-lg cursor-pointer shadow-sm flex items-center justify-center"'}>${currentLang === 'en' ? 'Next' : 'Siguiente'}</button>
                 </div>
             </div>
         </div>
