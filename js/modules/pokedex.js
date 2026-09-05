@@ -60,19 +60,19 @@ export function renderPokédexView() {
                     <div class="flex flex-wrap items-center gap-3">
                         <label class="flex items-center gap-1.5 text-[13px] text-[#5F5A4D] dark:text-[#A8A594] cursor-pointer select-none font-sans">
                             <input type="checkbox" id="hideCaught" onchange="window.pokedex.renderDexResults(true)" class="w-4 h-4 accent-[#2563EB]">
-                            Ocultar Capturados
+                            ${currentLang === 'en' ? 'Hide Caught' : 'Ocultar Capturados'}
                         </label>
-                        <label class="flex items-center gap-1.5 text-[13px] text-[#5F5A4D] dark:text-[#A8A594] cursor-pointer select-none font-sans" title="Si ya capturaste una evolución superior, oculta sus formas previas">
+                        <label class="flex items-center gap-1.5 text-[13px] text-[#5F5A4D] dark:text-[#A8A594] cursor-pointer select-none font-sans" title="${currentLang === 'en' ? 'If you already caught an evolution, hides pre-evolutions' : 'Si ya capturaste una evolución superior, oculta sus formas previas'}">
                             <input type="checkbox" id="hidePreEvos" onchange="window.pokedex.renderDexResults(true)" class="w-4 h-4 accent-[#2563EB]">
-                            Ocultar Pre-evoluciones
+                            ${currentLang === 'en' ? 'Hide Pre-evolutions' : 'Ocultar Pre-evoluciones'}
                         </label>
-                        <label class="flex items-center gap-1.5 text-[13px] text-[#5F5A4D] dark:text-[#A8A594] cursor-pointer select-none font-sans" title="Si ya capturaste la pre-evolución, oculta sus evoluciones para enfocarte en capturables fáciles">
+                        <label class="flex items-center gap-1.5 text-[13px] text-[#5F5A4D] dark:text-[#A8A594] cursor-pointer select-none font-sans" title="${currentLang === 'en' ? 'If you already caught the base form, hides evolutions to focus on easy catches' : 'Si ya capturaste la pre-evolución, oculta sus evoluciones para enfocarte en capturables fáciles'}">
                             <input type="checkbox" id="hidePostEvos" onchange="window.pokedex.renderDexResults(true)" class="w-4 h-4 accent-[#2563EB]">
-                            Ocultar Post-evoluciones
+                            ${currentLang === 'en' ? 'Hide Evolutions' : 'Ocultar Post-evoluciones'}
                         </label>
                         <label class="flex items-center gap-1.5 text-[13px] text-[#5F5A4D] dark:text-[#A8A594] cursor-pointer select-none font-sans">
                             <input type="checkbox" id="hideUnassigned" checked onchange="window.pokedex.renderDexResults(true)" class="w-4 h-4 accent-[#2563EB]">
-                            Solo con Ruta
+                            ${currentLang === 'en' ? 'Only with Route' : 'Solo con Ruta'}
                         </label>
                     </div>
                 </div>
