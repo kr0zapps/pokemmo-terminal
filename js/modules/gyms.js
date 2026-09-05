@@ -55,6 +55,74 @@ export const GYM_DATA = {
     ]
 };
 
+
+export const GYM_DATA_EN = {
+    "Teselia / Unova": [
+        { city: "Striaton City", leader: "Cilan / Chili / Cress" },
+        { city: "Nacrene City", leader: "Lenora" },
+        { city: "Castelia City", leader: "Burgh" },
+        { city: "Nimbasa City", leader: "Elesa" },
+        { city: "Driftveil City", leader: "Clay" },
+        { city: "Mistralton City", leader: "Skyla" },
+        { city: "Icirrus City", leader: "Brycen" },
+        { city: "Opelucid City", leader: "Drayden / Iris" }
+    ],
+    "Kanto": [
+        { city: "Pewter City", leader: "Brock" },
+        { city: "Cerulean City", leader: "Misty" },
+        { city: "Vermilion City", leader: "Lt. Surge" },
+        { city: "Celadon City", leader: "Erika" },
+        { city: "Fuchsia City", leader: "Koga / Janine" },
+        { city: "Saffron City", leader: "Sabrina" },
+        { city: "Cinnabar Island", leader: "Blaine" },
+        { city: "Viridian City", leader: "Giovanni / Blue" }
+    ],
+    "Sinnoh": [
+        { city: "Oreburgh City", leader: "Roark" },
+        { city: "Eterna City", leader: "Gardenia" },
+        { city: "Hearthome City", leader: "Fantina" },
+        { city: "Veilstone City", leader: "Maylene" },
+        { city: "Pastoria City", leader: "Crasher Wake" },
+        { city: "Canalave City", leader: "Byron" },
+        { city: "Snowpoint City", leader: "Candice" },
+        { city: "Sunyshore City", leader: "Volkner" }
+    ],
+    "Hoenn": [
+        { city: "Rustboro City", leader: "Roxanne" },
+        { city: "Dewford Town", leader: "Brawly" },
+        { city: "Mauville City", leader: "Wattson" },
+        { city: "Lavaridge Town", leader: "Flannery" },
+        { city: "Petalburg City", leader: "Norman" },
+        { city: "Fortree City", leader: "Winona" },
+        { city: "Mossdeep City", leader: "Tate & Liza" },
+        { city: "Sootopolis City", leader: "Wallace / Juan" }
+    ],
+    "Johto": [
+        { city: "Violet City", leader: "Falkner" },
+        { city: "Azalea Town", leader: "Bugsy" },
+        { city: "Goldenrod City", leader: "Whitney" },
+        { city: "Ecruteak City", leader: "Morty" },
+        { city: "Cianwood City", leader: "Chuck" },
+        { city: "Olivine City", leader: "Jasmine" },
+        { city: "Mahogany Town", leader: "Pryce" },
+        { city: "Blackthorn City", leader: "Clair" }
+    ]
+};
+
+export function getGymDisplay(regionName, idx, gym) {
+    if (typeof currentLang !== 'undefined' && currentLang === 'en') {
+        const enItem = GYM_DATA_EN[regionName] && GYM_DATA_EN[regionName][idx];
+        if (enItem) {
+            return { city: enItem.city, leader: enItem.leader };
+        }
+    }
+    const [city, leader] = gym.name.includes(':') ? gym.name.split(':') : [gym.name, ''];
+    return {
+        city: city.replace(/\(.*?\)/, '').trim(),
+        leader: leader ? leader.trim() : city.trim()
+    };
+}
+
 export const COOLDOWN_GYM_MS = 18 * 60 * 60 * 1000;
 const AMULET_DURATION_MS = 60 * 60 * 1000;
 
@@ -404,8 +472,7 @@ export function renderGyms() {
                 ${focusedList.map((gym, idx) => {
                     const id = `gym-${cleanFocusedRegion}-${idx}`;
                     const isChecked = localStorage.getItem(id) === 'true';
-                    const gymDisplayName = (currentLang === 'en' && gym.nameEn) ? gym.nameEn : gym.name;
-                    const [city, leader] = gymDisplayName.includes(':') ? gymDisplayName.split(':') : [gymDisplayName, ''];
+                    const { city, leader } = getGymDisplay(focusedRegion, idx, gym);
                     return `
                         <div class="leader-tile ${isChecked ? 'bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B]/40 dark:border-[#35352E]' : 'bg-[#F0ECE1] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E]'} p-2.5 rounded-xl flex flex-col justify-between cursor-pointer hover:border-[#FFC800] transition select-none min-h-[76px]" data-gym-id="${id}">
                             <div class="flex items-center justify-between">
@@ -420,10 +487,10 @@ export function renderGyms() {
                             </div>
                             <div class="mt-1.5 flex flex-col overflow-hidden">
                                 <span id="label-${id}" class="font-tech font-bold text-[14px] truncate leading-tight ${isChecked ? 'text-[#5F5A4D] dark:text-[#A8A594]' : 'text-[#1C1C17] dark:text-[#F4F1E8]'}">
-                                    ${leader ? leader.trim() : city.trim()}
+                                    ${leader}
                                 </span>
-                                <span class="font-sans text-[13px] text-[#5F5A4D] dark:text-[#A8A594] truncate leading-tight mt-0.5 font-medium" title="${city.trim()}">
-                                    ${city.replace(/\(.*?\)/, '').trim()}
+                                <span class="font-sans text-[13px] text-[#5F5A4D] dark:text-[#A8A594] truncate leading-tight mt-0.5 font-medium" title="${city}">
+                                    ${city}
                                 </span>
                             </div>
                         </div>
@@ -455,27 +522,27 @@ export function renderGyms() {
         let actionBtnHtml = '';
         if (completedInRegion === 0) {
             actionBtnHtml = `
-                <button data-region="${regionName}" data-action="focus-region" class="text-[13px] font-tech uppercase bg-[#2B2B2B] dark:bg-[#3E3E36] text-white hover:bg-[#444] px-3 py-2 rounded-lg font-bold transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Ver esta región en grande arriba">
-                    Ver en grande
+                <button data-region="${regionName}" data-action="focus-region" class="text-[13px] font-tech uppercase bg-[#2B2B2B] dark:bg-[#3E3E36] text-white hover:bg-[#444] px-3 py-2 rounded-lg font-bold transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="${currentLang === 'en' ? 'Focus this region above' : 'Ver esta región en grande arriba'}">
+                    ${currentLang === 'en' ? 'Focus View' : 'Ver en grande'}
                 </button>
             `;
         } else if (completedInRegion < list.length) {
             actionBtnHtml = `
-                <button data-region="${regionName}" data-action="focus-region" class="text-[13px] font-tech uppercase bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-2 rounded-lg font-bold transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Ver esta región en grande arriba y continuar">
-                    Continuar (${completedInRegion}/${list.length})
+                <button data-region="${regionName}" data-action="focus-region" class="text-[13px] font-tech uppercase bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-2 rounded-lg font-bold transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="${currentLang === 'en' ? 'Focus this region above and continue' : 'Ver esta región en grande arriba y continuar'}">
+                    ${currentLang === 'en' ? 'Continue' : 'Continuar'} (${completedInRegion}/${list.length})
                 </button>
             `;
         } else {
             actionBtnHtml = `
-                <button data-region="${regionName}" data-action="focus-region" class="text-[13px] font-tech uppercase bg-[#1B5E20]/20 text-[#1B5E20] dark:text-[#C3F400] border border-[#1B5E20]/40 px-3 py-2 rounded-lg font-bold transition cursor-pointer min-h-[44px] flex items-center justify-center" title="Ver esta región en grande arriba">
-                    Ver en grande ★
+                <button data-region="${regionName}" data-action="focus-region" class="text-[13px] font-tech uppercase bg-[#1B5E20]/20 text-[#1B5E20] dark:text-[#C3F400] border border-[#1B5E20]/40 px-3 py-2 rounded-lg font-bold transition cursor-pointer min-h-[44px] flex items-center justify-center" title="${currentLang === 'en' ? 'Focus this region above' : 'Ver esta región en grande arriba'}">
+                    ${currentLang === 'en' ? 'Focus View ★' : 'Ver en grande ★'}
                 </button>
             `;
         }
 
         const resetBtnHtml = `
-            <button data-region="${regionName}" data-action="unmark-all" class="text-[13px] font-tech uppercase bg-[#E4DFD0] dark:bg-[#2E2E27] text-[#2B2B2B] dark:text-[#F4F1E8] hover:text-[#b7102a] dark:hover:text-[#FFA8A8] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-2 rounded-lg transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Reiniciar región">
-                Reiniciar
+            <button data-region="${regionName}" data-action="unmark-all" class="text-[13px] font-tech uppercase bg-[#E4DFD0] dark:bg-[#2E2E27] text-[#2B2B2B] dark:text-[#F4F1E8] hover:text-[#b7102a] dark:hover:text-[#FFA8A8] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-2 rounded-lg transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="${currentLang === 'en' ? 'Reset region' : 'Reiniciar región'}">
+                ${currentLang === 'en' ? 'Reset' : 'Reiniciar'}
             </button>
         `;
 
@@ -497,7 +564,7 @@ export function renderGyms() {
                 ${list.map((gym, idx) => {
                     const id = `gym-${cleanRegion}-${idx}`;
                     const isChecked = localStorage.getItem(id) === 'true';
-                    const [city, leader] = gym.name.includes(':') ? gym.name.split(':') : [gym.name, ''];
+                    const { city, leader } = getGymDisplay(regionName, idx, gym);
                     return `
                         <div class="leader-tile ${isChecked ? 'bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B]/30 dark:border-[#35352E]' : 'bg-[#EDE9DE] dark:bg-[#242420] border border-transparent'} px-3 py-2 rounded-lg flex justify-between items-center cursor-pointer hover:border-[#FFC800] transition select-none min-h-[44px]" data-gym-id="${id}">
                             <div class="flex items-center gap-2 truncate mr-2">
