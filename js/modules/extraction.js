@@ -200,7 +200,7 @@ export function renderExtractionView() {
                                 </p>
                             </div>
                             <span id="crusherDropsSavedTag" class="text-[11px] font-mono text-[#10B981] bg-[#10B981]/10 border border-[#10B981]/30 px-2 py-0.5 rounded font-medium">
-                                Guardado automático
+                                ${currentLang === 'en' ? 'Auto-saved' : 'Guardado automático'}
                             </span>
                         </div>
 
@@ -213,10 +213,10 @@ export function renderExtractionView() {
                     <!-- Resumen de Drops Obtenidos -->
                     <div class="pt-3 border-t border-[#2B2B2B]/20 dark:border-[#35352E] flex flex-wrap justify-between items-center gap-2 text-xs font-mono">
                         <div class="text-[#5F5A4D] dark:text-[#A8A594]">
-                            Total semillas recolectadas: <span id="crusherTotalSeedsGathered" class="font-bold text-[#1C1C17] dark:text-[#F4F1E8]">0 u.</span>
+                            ${t('ext_total_gathered', 'Total seeds gathered:')} <span id="crusherTotalSeedsGathered" class="font-bold text-[#1C1C17] dark:text-[#F4F1E8]">0 u.</span>
                         </div>
                         <div class="text-[#5F5A4D] dark:text-[#A8A594]">
-                            Valor bruto GTL: <span id="crusherGrossSeedValue" class="font-bold text-[#10B981]">$0</span>
+                            ${t('ext_gross_val', 'Gross GTL value:')} <span id="crusherGrossSeedValue" class="font-bold text-[#10B981]">$0</span>
                         </div>
                     </div>
                 </section>
@@ -233,14 +233,14 @@ export function renderExtractionView() {
                     <div>
                         <h2 class="text-sm font-tech font-bold uppercase tracking-wider text-[#1C1C17] dark:text-[#F4F1E8] flex items-center gap-2">
                             <svg class="w-4 h-4 text-[#D97706]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                            <span>Bitácora de Lotes Triturados</span>
+                            <span>${t('ext_history_title', 'Crushed Batches Ledger')}</span>
                         </h2>
                         <p class="text-xs font-sans text-[#5F5A4D] dark:text-[#A8A594]">
-                            Historial permanente de sesiones trituradas para auditar tu rendimiento económico acumulado.
+                            ${t('ext_history_desc', 'Permanent ledger of crushed sessions to audit cumulative economic performance.')}
                         </p>
                     </div>
                     <button type="button" id="btnClearCrusherHistory" class="text-[11px] font-mono text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#E63946] underline cursor-pointer">
-                        Vaciar Bitácora
+                        ${t('btn_clear_history', 'Clear Ledger')}
                     </button>
                 </div>
 
@@ -472,7 +472,7 @@ function renderVerdict(data) {
                 ${verdictBadge}
                 <button type="button" id="btnSaveBatchToHistory" class="px-3.5 py-2 rounded-lg font-tech font-bold text-xs uppercase tracking-wider bg-[#1C1C17] dark:bg-[#F4F1E8] text-white dark:text-black hover:bg-[#FFC800] hover:text-black transition shadow-sm cursor-pointer flex items-center gap-1.5">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path></svg>
-                    <span>Guardar en Bitácora</span>
+                    <span>${t('btn_save_batch', 'Save to Ledger')}</span>
                 </button>
             </div>
         </div>
@@ -480,31 +480,31 @@ function renderVerdict(data) {
         <!-- Métricas Financieras Desglosadas -->
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
             <div class="bg-[#FAF8F2] dark:bg-[#20201C] p-3 rounded-lg border border-[#2B2B2B]/20 dark:border-[#35352E]">
-                <p class="text-[11px] font-mono uppercase text-[#5F5A4D] dark:text-[#A8A594] font-semibold">Gasto Herramientas</p>
+                <p class="text-[11px] font-mono uppercase text-[#5F5A4D] dark:text-[#A8A594] font-semibold">${t('tool_expenses', 'Tool Expenses')}</p>
                 <p class="text-base sm:text-lg font-mono font-bold text-[#E63946] tabular-nums">-${formatMoney(data.totalToolExpense)}</p>
                 <p class="text-[10px] font-mono text-[#5F5A4D] dark:text-[#A8A594]">${data.toolsCount} tools @ $${data.toolCost}</p>
             </div>
 
             <div class="bg-[#FAF8F2] dark:bg-[#20201C] p-3 rounded-lg border border-[#2B2B2B]/20 dark:border-[#35352E]">
-                <p class="text-[11px] font-mono uppercase text-[#5F5A4D] dark:text-[#A8A594] font-semibold">Venta Semillas (Neto)</p>
+                <p class="text-[11px] font-mono uppercase text-[#5F5A4D] dark:text-[#A8A594] font-semibold">${currentLang === 'en' ? 'Seed Sales (Net)' : 'Venta Semillas (Neto)'}</p>
                 <p class="text-base sm:text-lg font-mono font-bold text-[#10B981] tabular-nums">+${formatMoney(data.netSeedRevenue)}</p>
-                <p class="text-[10px] font-mono text-[#5F5A4D] dark:text-[#A8A594]">Descontado ${data.gtlFeePercent}% GTL</p>
+                <p class="text-[10px] font-mono text-[#5F5A4D] dark:text-[#A8A594]">${currentLang === 'en' ? `After ${data.gtlFeePercent}% GTL fee` : `Descontado ${data.gtlFeePercent}% GTL`}</p>
             </div>
 
             <div class="bg-[#FAF8F2] dark:bg-[#20201C] p-3 rounded-lg border border-[#2B2B2B]/20 dark:border-[#35352E]">
-                <p class="text-[11px] font-mono uppercase text-[#5F5A4D] dark:text-[#A8A594] font-semibold">Ganancia Neta Limpia</p>
+                <p class="text-[11px] font-mono uppercase text-[#5F5A4D] dark:text-[#A8A594] font-semibold">${currentLang === 'en' ? 'Clean Net Profit' : 'Ganancia Neta Limpia'}</p>
                 <p class="text-lg sm:text-2xl font-mono font-extrabold ${data.netProfit >= 0 ? 'text-[#10B981]' : 'text-[#E63946]'} tabular-nums">
                     ${data.netProfit >= 0 ? '+' : ''}${formatMoney(data.netProfit)}
                 </p>
-                <p class="text-[10px] font-mono text-[#5F5A4D] dark:text-[#A8A594]">Beneficio total</p>
+                <p class="text-[10px] font-mono text-[#5F5A4D] dark:text-[#A8A594]">${currentLang === 'en' ? 'Total net gain' : 'Beneficio total'}</p>
             </div>
 
             <div class="bg-[#FAF8F2] dark:bg-[#20201C] p-3 rounded-lg border border-[#2B2B2B]/20 dark:border-[#35352E]">
-                <p class="text-[11px] font-mono uppercase text-[#5F5A4D] dark:text-[#A8A594] font-semibold">Retorno / Tool</p>
+                <p class="text-[11px] font-mono uppercase text-[#5F5A4D] dark:text-[#A8A594] font-semibold">${currentLang === 'en' ? 'Return / Tool' : 'Retorno / Tool'}</p>
                 <p class="text-base sm:text-lg font-mono font-bold ${data.netProfitPerTool >= 0 ? 'text-[#10B981]' : 'text-[#E63946]'} tabular-nums">
                     ${data.netProfitPerTool >= 0 ? '+' : ''}${formatMoney(data.netProfitPerTool)}
                 </p>
-                <p class="text-[10px] font-mono text-[#5F5A4D] dark:text-[#A8A594]">Por cada $350 gastados</p>
+                <p class="text-[10px] font-mono text-[#5F5A4D] dark:text-[#A8A594]">${currentLang === 'en' ? `Per $${data.toolCost} spent` : `Por cada $${data.toolCost} gastados`}</p>
             </div>
         </div>
     `;

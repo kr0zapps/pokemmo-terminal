@@ -4,6 +4,45 @@ import { formatTime, formatMoney } from '../utils/format.js';
 import { t, currentLang } from '../i18n.js';
 // We're importing DOM functions if they existed, but we'll manipulate directly for now
 
+export function getBerryName(type) {
+    const dbInfo = BERRY_DB[type] || BERRY_DB.zanama;
+    if (typeof currentLang !== 'undefined' && currentLang === 'en') {
+        const names = {
+            zanama: 'Leppa Berry',
+            basicas: 'Basic Berries (Oran, Cheri...)',
+            curativas: 'Lum / Sitrus Berries',
+            ev: 'EV-Reducing Berries',
+            resistencias: 'Type Resist Berries',
+            raras: 'Pinnacle / Rare Berries'
+        };
+        return names[type] || dbInfo.name;
+    }
+    return dbInfo.name;
+}
+
+export function getRecipeName(key) {
+    if (typeof currentLang !== 'undefined' && currentLang === 'en') {
+        const enNames = {
+            leppa: 'Leppa Berry',
+            lum: 'Lum Berry',
+            sitrus: 'Sitrus Berry',
+            pomeg: 'Pomeg Berry',
+            kelpsy: 'Kelpsy Berry',
+            qualot: 'Qualot Berry',
+            hondew: 'Hondew Berry',
+            grepa: 'Grepa Berry',
+            tamato: 'Tamato Berry',
+            pecha: 'Pecha Berry',
+            cheri: 'Cheri Berry',
+            chesto: 'Chesto Berry',
+            rawst: 'Rawst Berry',
+            aspear: 'Aspear Berry'
+        };
+        if (enNames[key]) return enNames[key];
+    }
+    return RECIPES[key]?.name || key;
+}
+
 export const BERRY_DB = {
     zanama: { 
         name: 'Zanama (Leppa)', 
@@ -401,7 +440,7 @@ export function renderBerryView() {
                     </div>
                     
                     <button id="btnCalculateInventory" class="w-full btn-primary py-2.5 text-xs font-mono uppercase tracking-wider mb-4 cursor-pointer">
-                        Calcular Producción
+                        ${t('btn_calc_inventory', 'Calculate Seeds')}
                     </button>
                     
                     <div id="inventoryResults" class="grid grid-cols-2 gap-3 hidden border-t border-os-border pt-4">
@@ -437,7 +476,7 @@ export function renderBerryView() {
                             </optgroup>
                         </select>
                         <div id="recipeResult" class="bg-os-bg border border-os-border p-3 text-xs font-mono text-os-muted min-h-[80px] flex items-center justify-center rounded-lg">
-                            Selecciona una baya para ver sus semillas requeridas
+                            ${currentLang === 'en' ? 'Select a berry to view required seeds' : 'Selecciona una baya para ver sus semillas requeridas'}
                         </div>
                     </section>
 
@@ -497,8 +536,8 @@ export function renderWaterModal() {
                     <div class="flex items-center gap-2.5">
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/wailmer-pail.png" class="w-7 h-7 pokemon-sprite" alt="Cubo Wailmer">
                         <div>
-                            <h2 class="text-sm font-bold text-os-text" id="waterSimTitle">Confirmación de Riego</h2>
-                            <p class="text-[13px] font-mono text-os-muted" id="waterSimSubtitle">Análisis de hidratación del suelo</p>
+                            <h2 class="text-sm font-bold text-os-text" id="waterSimTitle">${currentLang === 'en' ? 'Watering Confirmation' : 'Confirmación de Riego'}</h2>
+                            <p class="text-[13px] font-mono text-os-muted" id="waterSimSubtitle">${currentLang === 'en' ? 'Soil moisture analysis' : 'Análisis de hidratación del suelo'}</p>
                         </div>
                     </div>
                     <button id="btnCloseWaterPreview1" class="text-os-muted hover:text-white p-1 rounded-md transition flex items-center justify-center cursor-pointer" title="Cerrar">
@@ -594,10 +633,10 @@ export function renderProfitCalculatorHTML() {
                         </label>
                         <div class="flex gap-1">
                             <button type="button" onclick="window.setProfitPlots(156)" class="text-[11px] font-tech font-bold uppercase px-2 py-0.5 rounded bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] cursor-pointer shadow-sm">
-                                156 Loza
+                                ${t('preset_loza', '156 Mistralton')}
                             </button>
                             <button type="button" onclick="window.setProfitPlots(84)" class="text-[11px] font-tech font-bold uppercase px-2 py-0.5 rounded bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] cursor-pointer shadow-sm">
-                                84 Hoenn
+                                ${t('preset_hoenn', '84 Hoenn')}
                             </button>
                         </div>
                     </div>
@@ -650,10 +689,10 @@ export function renderProfitCalculatorHTML() {
                     </div>
                     <div class="flex items-center gap-2">
                         <button type="button" id="btnSaveGTLPrices" class="text-[11px] font-tech font-bold uppercase tracking-wider text-[#10B981] hover:bg-[#10B981] hover:text-black border border-[#10B981]/40 px-2.5 py-1 rounded transition cursor-pointer">
-                            Guardar Precios
+                            ${t('btn_save_gtl_prices', 'Save Prices')}
                         </button>
                         <button type="button" id="btnResetGTLPrices" class="text-[11px] font-mono text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#E63946] underline cursor-pointer">
-                            Restablecer Precios Sugeridos
+                            ${t('btn_reset_gtl_prices', 'Reset Suggested Prices')}
                         </button>
                     </div>
                 </div>
@@ -704,8 +743,8 @@ export function renderSeedPriceInputs(berryKey) {
     let html = `
         <!-- Baya Cruda en GTL -->
         <div class="bg-[#FAF8F2] dark:bg-[#242420] p-2.5 rounded-lg border border-[#2B2B2B]/30 dark:border-[#35352E]">
-            <label class="block text-[11px] font-mono uppercase font-bold text-[#D97706] dark:text-[#F59E0B] mb-1 truncate" title="Precio estimado de venta por unidad de baya cruda en el GTL">
-                ${recipe ? recipe.name.split(' ')[0] : 'Baya'} (GTL)
+            <label class="block text-[11px] font-mono uppercase font-bold text-[#D97706] dark:text-[#F59E0B] mb-1 truncate" title="${currentLang === 'en' ? 'Estimated selling price per raw berry on GTL' : 'Precio estimado de venta por unidad de baya cruda en el GTL'}">
+                ${recipe ? (currentLang === 'en' ? (berryKey.charAt(0).toUpperCase() + berryKey.slice(1)) : recipe.name.split(' ')[0]) : 'Berry'} (GTL)
             </label>
             <div class="relative">
                 <span class="absolute left-2 top-1 text-xs font-mono text-[#5F5A4D]">$</span>
@@ -716,14 +755,14 @@ export function renderSeedPriceInputs(berryKey) {
     `;
 
     seedIds.forEach(id => {
-        const name = SEED_NAMES[id] || id;
+        const name = (typeof getSeedName === 'function' ? getSeedName(id) : (SEED_NAMES[id] || id));
         const color = SEED_COLORS[id] || 'text-[#1C1C17]';
         const price = savedSeedPrices[id] !== undefined ? savedSeedPrices[id] : (DEFAULT_SEED_PRICES[id] || 750);
 
         html += `
             <div class="bg-[#FAF8F2] dark:bg-[#242420] p-2.5 rounded-lg border border-[#2B2B2B]/30 dark:border-[#35352E]">
                 <label class="block text-[11px] font-mono uppercase font-bold mb-1 truncate ${color}" title="${name}">
-                    ${name.replace('Semilla ', '')}
+                    ${currentLang === 'en' ? name.replace(' Seed', '').replace('Plain ', '') : name.replace('Semilla ', '')}
                 </label>
                 <div class="relative">
                     <span class="absolute left-2 top-1 text-xs font-mono text-[#5F5A4D]">$</span>
@@ -1004,24 +1043,24 @@ export function renderProfitResults(data) {
     let seedRowsHtml = '';
     Object.keys(seedBalance).forEach(seedId => {
         const item = seedBalance[seedId];
-        const name = SEED_NAMES[seedId] || seedId;
+        const name = (typeof getSeedName === 'function' ? getSeedName(seedId) : (SEED_NAMES[seedId] || seedId));
         const color = SEED_COLORS[seedId] || 'text-[#1C1C17]';
 
         let surplusCol = '';
         if (item.diff > 0) {
             surplusCol = `
                 <span class="font-mono font-bold text-[#10B981] bg-[#10B981]/10 px-2 py-0.5 rounded text-xs">
-                    +${item.diff} excedentes
+                    +${item.diff} ${t('surplus_tag', 'surplus')}
                 </span>
             `;
         } else if (item.diff < 0) {
             surplusCol = `
                 <span class="font-mono font-bold text-[#E63946] bg-[#E63946]/10 px-2 py-0.5 rounded text-xs" title="Faltan para cubrir el 100% de la siembra">
-                    ${item.diff} (comprar en GTL)
+                    ${item.diff} (${t('missing_tag', 'buy on GTL')})
                 </span>
             `;
         } else {
-            surplusCol = `<span class="font-mono text-[#5F5A4D] text-xs">Exacto (0)</span>`;
+            surplusCol = `<span class="font-mono text-[#5F5A4D] text-xs">${t('exact_zero', 'Exact (0)')}</span>`;
         }
 
         let valueCol = '';
@@ -1039,10 +1078,10 @@ export function renderProfitResults(data) {
                     ${name}
                 </td>
                 <td class="py-2.5 px-3 text-center font-mono">
-                    ${item.produced} u.
+                    ${item.produced} ${currentLang === 'en' ? 'qty' : 'u.'}
                 </td>
                 <td class="py-2.5 px-3 text-center font-mono text-[#5F5A4D] dark:text-[#A8A594]">
-                    ${item.needed > 0 ? `${item.needed} u.` : '--'}
+                    ${item.needed > 0 ? `${item.needed} ${currentLang === 'en' ? 'qty' : 'u.'}` : '--'}
                 </td>
                 <td class="py-2.5 px-3 text-center">
                     ${surplusCol}
@@ -1097,24 +1136,24 @@ export function renderProfitResults(data) {
                 </div>
                 <div class="space-y-1.5 text-xs font-mono">
                     <div class="flex justify-between text-[#5F5A4D] dark:text-[#A8A594]">
-                        <span>Venta Semillas Excedentes:</span>
+                        <span>${currentLang === 'en' ? 'Surplus Seed Sales:' : 'Venta Semillas Excedentes:'}</span>
                         <span class="text-[#10B981] font-bold">+${formatMoney(netRevenueGTL_A)}</span>
                     </div>
                     <div class="flex justify-between text-[#5F5A4D] dark:text-[#A8A594]">
-                        <span>Herramientas de extracción ($${toolCost}):</span>
+                        <span>${currentLang === 'en' ? `Extraction Tools (${toolCost}):` : `Herramientas de extracción (${toolCost}):`}</span>
                         <span class="text-[#E63946]">-${formatMoney(totalToolExpense)}</span>
                     </div>
                     ${missingSeedsCost > 0 ? `
                     <div class="flex justify-between text-[#5F5A4D] dark:text-[#A8A594]">
-                        <span>Comprar Semillas Faltantes en GTL:</span>
+                        <span>${currentLang === 'en' ? 'Buy Missing Seeds on GTL:' : 'Comprar Semillas Faltantes en GTL:'}</span>
                         <span class="text-[#E63946]">-${formatMoney(missingSeedsCost)}</span>
                     </div>` : ''}
                     <div class="flex justify-between text-[#5F5A4D] dark:text-[#A8A594]">
-                        <span>Semillas para Replantar el Huerto:</span>
-                        <span class="text-[#10B981] font-bold">100% Cubiertas ($0)</span>
+                        <span>${currentLang === 'en' ? 'Replanting Seeds Kept:' : 'Semillas para Replantar el Huerto:'}</span>
+                        <span class="text-[#10B981] font-bold">${currentLang === 'en' ? '100% Covered ($0)' : '100% Cubiertas ($0)'}</span>
                     </div>
                     <div class="pt-2 border-t border-[#2B2B2B]/20 dark:border-[#35352E] flex justify-between items-baseline font-bold text-sm">
-                        <span class="font-tech uppercase text-[#1C1C17] dark:text-[#F4F1E8]">Ganancia Neta:</span>
+                        <span class="font-tech uppercase text-[#1C1C17] dark:text-[#F4F1E8]">${t('net_profit_label', 'Net Profit:')}</span>
                         <span class="${netProfit_A >= 0 ? 'text-[#10B981]' : 'text-[#E63946]'} text-base">${formatMoney(netProfit_A)}</span>
                     </div>
                 </div>
@@ -1131,15 +1170,15 @@ export function renderProfitResults(data) {
                 </div>
                 <div class="space-y-1.5 text-xs font-mono">
                     <div class="flex justify-between text-[#5F5A4D] dark:text-[#A8A594]">
-                        <span>Venta de ${totalBerries} bayas @ ${formatMoney(currentBerryPrice)}:</span>
+                        <span>${currentLang === 'en' ? `Sale of ${totalBerries} berries @ ${formatMoney(currentBerryPrice)}:` : `Venta de ${totalBerries} bayas @ ${formatMoney(currentBerryPrice)}:`}</span>
                         <span class="text-[#10B981] font-bold">+${formatMoney(grossBerryRevenue_B)}</span>
                     </div>
                     <div class="flex justify-between text-[#5F5A4D] dark:text-[#A8A594]">
-                        <span>Herramientas de extracción:</span>
-                        <span class="text-[#5F5A4D]">$0 (Sin triturar)</span>
+                        <span>${currentLang === 'en' ? 'Extraction Tools:' : 'Herramientas de extracción:'}</span>
+                        <span class="text-[#5F5A4D]">${currentLang === 'en' ? '$0 (No crushing)' : '$0 (Sin triturar)'}</span>
                     </div>
                     <div class="flex justify-between text-[#5F5A4D] dark:text-[#A8A594]">
-                        <span>Comprar Semillas para Replantar GTL:</span>
+                        <span>${currentLang === 'en' ? 'Buy Replanting Seeds on GTL:' : 'Comprar Semillas para Replantar GTL:'}</span>
                         <span class="text-[#E63946]">-${formatMoney(totalReplantCost_B)}</span>
                     </div>
                     <div class="pt-2 border-t border-[#2B2B2B]/20 dark:border-[#35352E] flex justify-between items-baseline font-bold text-sm">
@@ -1302,14 +1341,14 @@ export function showRecipe() {
     if (!key || !RECIPES[key]) return;
     
     const reqs = RECIPES[key].reqs;
-    let html = '<div class="w-full"><div class="text-sm text-gray-300 mb-3 border-b border-gray-700 pb-2">Debes plantar exactamente estas semillas en un solo hueco:</div><div class="flex flex-col gap-2">';
+    let html = `<div class="w-full"><div class="text-sm text-gray-300 mb-3 border-b border-gray-700 pb-2">${currentLang === 'en' ? 'Plant exactly these seeds in a single plot:' : 'Debes plantar exactamente estas semillas en un solo hueco:'}</div><div class="flex flex-col gap-2">`;
     
     reqs.forEach(r => {
         html += `
             <div class="flex items-center gap-3 bg-gray-800 p-2 rounded border border-gray-700">
                 <span class="w-4 h-4 rounded-full ${r.color} shadow-sm border border-gray-900"></span>
                 <span class="font-bold text-gray-200">${r.qty}x</span>
-                <span class="text-gray-300">${r.name}</span>
+                <span class="text-gray-300">${typeof getSeedName === 'function' ? getSeedName(r.id) : r.name}</span>
             </div>
         `;
     });
@@ -1369,7 +1408,7 @@ export function calculateInventory() {
                     <div>
                         <p class="text-sm text-gray-300 font-bold mb-1">${recipe.name}</p>
                         <p class="text-2xl font-black text-purple-400">x${maxCrafts}</p>
-                        <p class="text-[13px] text-gray-500 uppercase mt-1 mb-1">Plantas</p>
+                        <p class="text-[13px] text-gray-500 uppercase mt-1 mb-1">${currentLang === 'en' ? 'Plants' : 'Plantas'}</p>
                     </div>
                     ${seedsHtml}
                 </div>
@@ -1463,7 +1502,7 @@ export function openWaterPreviewModal(id) {
     const content = document.getElementById('waterSimContent');
     const btnConfirm = document.getElementById('btnConfirmWater');
 
-    subTitle.innerText = `${dbInfo.name} | ${crop.location} | Cosecha en ${formatTime(remainingHarvestMs)}`;
+    subTitle.innerText = `${getBerryName(crop.type)} | ${crop.location} | ${currentLang === 'en' ? 'Harvest in' : 'Cosecha en'} ${formatTime(remainingHarvestMs)}`;
 
     // ¿Regar ahora cubre completamente hasta la cosecha?
     if (remainingHarvestMs <= fullMoistureMs) {
@@ -1665,8 +1704,8 @@ export function renderCrops() {
                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${dbInfo.sprite}.png" class="w-8 h-8 pokemon-sprite" onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'" alt="${dbInfo.name}">
                         </div>
                         <div>
-                            <h3 class="font-tech text-sm sm:text-base font-bold text-[#1C1C17] dark:text-[#F4F1E8]">${dbInfo.name}</h3>
-                            <p class="font-mono text-xs text-[#5F5A4D] dark:text-[#A8A594]"><span class="text-[#2563EB] dark:text-[#60A5FA] font-bold">${crop.location}</span> &bull; <span class="text-[#1B5E20] dark:text-[#C3F400] font-bold">${dbInfo.yield || '5-7'} u.</span></p>
+                            <h3 class="font-tech text-sm sm:text-base font-bold text-[#1C1C17] dark:text-[#F4F1E8]">${getBerryName(crop.type)}</h3>
+                            <p class="font-mono text-xs text-[#5F5A4D] dark:text-[#A8A594]"><span class="text-[#2563EB] dark:text-[#60A5FA] font-bold">${crop.location}</span> &bull; <span class="text-[#1B5E20] dark:text-[#C3F400] font-bold">${dbInfo.yield || '5-7'} ${currentLang === 'en' ? 'berries' : 'u.'}</span></p>
                         </div>
                     </div>
                     <div id="crop-badge-${crop.id}"></div>
@@ -1681,7 +1720,7 @@ export function renderCrops() {
                         <span class="font-tech text-[13px] text-[#A8A495] uppercase font-bold tracking-wider">${t('moisture_remaining')}</span>
                         <div id="crop-drops-${crop.id}"></div>
                     </div>
-                    <p id="crop-advice-${crop.id}" class="text-xs text-[#D8D4C7] leading-tight font-mono">Calculando estado de hidratación...</p>
+                    <p id="crop-advice-${crop.id}" class="text-xs text-[#D8D4C7] leading-tight font-mono">${currentLang === 'en' ? 'Calculating hydration state...' : 'Calculando estado de hidratación...'}</p>
                 </div>
 
                 <div class="grid grid-cols-2 gap-2 mb-3">
@@ -1747,15 +1786,15 @@ export function updateTimers() {
         // Calcular etapa actual de PokéMMO (1 a 4)
         if (stageText) {
             if (isHarvestReady) {
-                stageText.innerHTML = `<span class="text-xs font-mono font-bold text-os-green uppercase tracking-wide">Cosecha Lista (${progressPercent.toFixed(0)}%)</span>`;
+                stageText.innerHTML = `<span class="text-xs font-mono font-bold text-os-green uppercase tracking-wide">${currentLang === 'en' ? 'Harvest Ready' : 'Cosecha Lista'} (${progressPercent.toFixed(0)}%)</span>`;
             } else if (progressPercent < 25) {
-                stageText.innerHTML = `<span class="text-xs font-mono text-os-muted">Fase 1/4: Semilla (${progressPercent.toFixed(0)}%)</span>`;
+                stageText.innerHTML = `<span class="text-xs font-mono text-os-muted">${currentLang === 'en' ? 'Stage 1/4: Seed' : 'Fase 1/4: Semilla'} (${progressPercent.toFixed(0)}%)</span>`;
             } else if (progressPercent < 50) {
-                stageText.innerHTML = `<span class="text-xs font-mono text-emerald-400">Fase 2/4: Brote (${progressPercent.toFixed(0)}%)</span>`;
+                stageText.innerHTML = `<span class="text-xs font-mono text-emerald-400">${currentLang === 'en' ? 'Stage 2/4: Sprout' : 'Fase 2/4: Brote'} (${progressPercent.toFixed(0)}%)</span>`;
             } else if (progressPercent < 75) {
-                stageText.innerHTML = `<span class="text-xs font-mono text-blue-400">Fase 3/4: Crecimiento (${progressPercent.toFixed(0)}%)</span>`;
+                stageText.innerHTML = `<span class="text-xs font-mono text-blue-400">${currentLang === 'en' ? 'Stage 3/4: Taller' : 'Fase 3/4: Crecimiento'} (${progressPercent.toFixed(0)}%)</span>`;
             } else {
-                stageText.innerHTML = `<span class="text-xs font-mono text-pink-400">Fase 4/4: Floración (${progressPercent.toFixed(0)}%)</span>`;
+                stageText.innerHTML = `<span class="text-xs font-mono text-pink-400">${currentLang === 'en' ? 'Stage 4/4: Bloom' : 'Fase 4/4: Floración'} (${progressPercent.toFixed(0)}%)</span>`;
             }
         }
 
@@ -1764,16 +1803,16 @@ export function updateTimers() {
             const remainingWiltMs = wiltingWindowMs - timeSinceReady;
 
             if (harvestTimeText) {
-                harvestTimeText.innerText = '¡LISTO!';
+                harvestTimeText.innerText = currentLang === 'en' ? 'READY!' : '¡LISTO!';
                 harvestTimeText.className = 'font-mono text-xs font-bold text-os-green animate-pulse';
             }
 
-            if (waterLabel) waterLabel.innerText = 'Tiempo Marchitar';
-            if (badge) badge.innerHTML = `<span class="text-[13px] font-mono text-os-green bg-os-green/10 border border-os-green/30 px-2 py-0.5 rounded font-semibold uppercase">Listo</span>`;
+            if (waterLabel) waterLabel.innerText = currentLang === 'en' ? 'Wilts In' : 'Tiempo Marchitar';
+            if (badge) badge.innerHTML = `<span class="text-[13px] font-mono text-os-green bg-os-green/10 border border-os-green/30 px-2 py-0.5 rounded font-semibold uppercase">${currentLang === 'en' ? 'Ready' : 'Listo'}</span>`;
 
             if (remainingWiltMs <= 0) {
                 if (waterTimeText) {
-                    waterTimeText.innerText = '¡MARCHITO!';
+                    waterTimeText.innerText = currentLang === 'en' ? 'WITHERED!' : '¡MARCHITO!';
                     waterTimeText.className = 'font-mono text-xs font-bold text-os-red';
                 }
                 if (dropsText) dropsText.innerHTML = `<span class="text-xs font-mono text-os-red font-bold">${currentLang === 'en' ? 'Withered Crop (Exceeded 8h)' : 'Planta Marchita (Excedió 8h)'}</span>`;
@@ -1786,23 +1825,23 @@ export function updateTimers() {
                     waterTimeText.innerText = formatTime(remainingWiltMs);
                     waterTimeText.className = remainingWiltMs < (2 * 3600 * 1000) ? 'font-mono text-xs font-bold text-os-red animate-pulse' : 'font-mono text-xs font-bold text-amber-400';
                 }
-                if (dropsText) dropsText.innerHTML = '<span class="text-xs font-mono text-os-green font-bold">Frutos Listos (' + (dbInfo.yield || '5-7') + ' u.)</span>';
+                if (dropsText) dropsText.innerHTML = `<span class="text-xs font-mono text-os-green font-bold">${currentLang === 'en' ? 'Berries Ready (' + (dbInfo.yield || '5-7') + ')' : 'Frutos Listos (' + (dbInfo.yield || '5-7') + ' u.)'}</span>`;
                 if (adviceText) {
-                    adviceText.innerText = `Cosecha lista. Tienes ${formatTime(remainingWiltMs)} antes de que empiece a marchitarse.`;
+                    adviceText.innerText = currentLang === 'en' ? `Crop ready. You have ${formatTime(remainingWiltMs)} before it begins to wither.` : `Cosecha lista. Tienes ${formatTime(remainingWiltMs)} antes de que empiece a marchitarse.`;
                     adviceText.className = 'text-[13px] text-os-green font-medium';
                 }
             }
 
             if (btnWater) {
                 btnWater.className = 'flex-1 py-2 px-2 text-xs font-mono uppercase bg-os-green text-black font-bold border border-os-green transition rounded-lg cursor-pointer';
-                btnWater.innerText = 'Cosechar';
+                btnWater.innerText = currentLang === 'en' ? 'Harvest' : 'Cosechar';
                 btnWater.disabled = false;
                 btnWater.onclick = () => harvestCrop(crop.id);
             }
             if (btnHarvest) {
                 card.className = "panel p-5 flex flex-col justify-between transition-all duration-200 relative overflow-hidden rounded-xl border border-os-green/50";
                 btnHarvest.className = "flex-1 border border-os-border text-os-muted hover:border-os-red/40 hover:text-os-red py-2 px-2 text-xs font-mono uppercase transition rounded-lg cursor-pointer";
-                btnHarvest.innerText = "Eliminar";
+                btnHarvest.innerText = currentLang === 'en' ? "Delete" : "Eliminar";
             }
             return;
         }
@@ -1829,51 +1868,51 @@ export function updateTimers() {
         const isMoistureCoveringHarvest = timeToZeroDropsMs >= remainingHarvestMs;
 
         if (currentDrops === 0) {
-            if (waterLabel) waterLabel.innerText = 'Suelo Seco';
-            if (badge) badge.innerHTML = `<span class="text-[13px] font-mono text-os-red bg-os-red/10 border border-os-red/40 px-2 py-0.5 rounded font-bold uppercase animate-pulse">Seco (0/5)</span>`;
+            if (waterLabel) waterLabel.innerText = currentLang === 'en' ? 'Dry Soil' : 'Suelo Seco';
+            if (badge) badge.innerHTML = `<span class="text-[13px] font-mono text-os-red bg-os-red/10 border border-os-red/40 px-2 py-0.5 rounded font-bold uppercase animate-pulse">${currentLang === 'en' ? 'Dry (0/5)' : 'Seco (0/5)'}</span>`;
             if (dropsText) dropsText.innerHTML = renderMoistureGauge(crop.id, 0, 5);
             if (adviceText) {
                 adviceText.innerText = currentLang === 'en' ? 'Soil is dry. Water with Wailmer Pail or click drops above to sync moisture.' : 'Suelo seco. Riega con el Cubo Wailmer o haz clic en las gotas de arriba para sincronizar con el juego si aún tiene agua.';
                 adviceText.className = 'text-[13px] text-os-red font-semibold';
             }
             if (waterTimeText) {
-                waterTimeText.innerText = '¡REGAR YA!';
+                waterTimeText.innerText = currentLang === 'en' ? 'WATER NOW!' : '¡REGAR YA!';
                 waterTimeText.className = 'font-mono text-xs font-bold text-os-red animate-pulse';
             }
             if (btnWater) {
                 btnWater.className = 'flex-1 py-2 px-2 text-xs font-mono uppercase bg-os-red text-white font-bold border border-os-red rounded-lg transition cursor-pointer';
-                btnWater.innerText = 'Regar (5 Gotas)';
+                btnWater.innerText = currentLang === 'en' ? 'Water (5 Drops)' : 'Regar (5 Gotas)';
                 btnWater.disabled = false;
                 btnWater.onclick = () => openWaterPreviewModal(crop.id);
             }
         }
         else if (isMoistureCoveringHarvest) {
-            if (waterLabel) waterLabel.innerText = 'Estado Riego';
+            if (waterLabel) waterLabel.innerText = currentLang === 'en' ? 'Water Status' : 'Estado Riego';
             if (badge) badge.innerHTML = `<span class="text-[13px] font-mono text-os-green bg-os-green/10 border border-os-green/30 px-2 py-0.5 rounded font-bold uppercase">Protegido</span>`;
             if (dropsText) dropsText.innerHTML = renderMoistureGauge(crop.id, currentDrops, 5);
             if (adviceText) {
-                adviceText.innerText = `Las ${currentDrops} gotas duran ${formatTime(timeToZeroDropsMs)} y cosechas en ${formatTime(remainingHarvestMs)}. No requiere más agua.`;
+                adviceText.innerText = currentLang === 'en' ? `The ${currentDrops} drops last ${formatTime(timeToZeroDropsMs)} and harvest is in ${formatTime(remainingHarvestMs)}. No more water needed.` : `Las ${currentDrops} gotas duran ${formatTime(timeToZeroDropsMs)} y cosechas en ${formatTime(remainingHarvestMs)}. No requiere más agua.`;
                 adviceText.className = 'text-[13px] text-os-green font-medium';
             }
             if (waterTimeText) {
-                waterTimeText.innerText = 'PROTEGIDO';
+                waterTimeText.innerText = currentLang === 'en' ? 'PROTECTED' : 'PROTEGIDO';
                 waterTimeText.className = 'font-mono text-xs font-bold text-os-green';
             }
             if (btnWater) {
                 btnWater.className = 'flex-1 py-2 px-2 text-xs font-mono uppercase bg-os-elevated text-os-muted cursor-not-allowed border border-os-border rounded-lg';
-                btnWater.innerText = 'Protegido';
+                btnWater.innerText = currentLang === 'en' ? 'Protected' : 'Protegido';
                 btnWater.disabled = true;
             }
         }
         else {
             const isCritical = currentDrops === 1;
-            if (waterLabel) waterLabel.innerText = isCritical ? 'Riego Urgente en' : 'Humedad Restante';
+            if (waterLabel) waterLabel.innerText = currentLang === 'en' ? (isCritical ? 'Urgent Water In' : 'Moisture Left') : (isCritical ? 'Riego Urgente en' : 'Humedad Restante');
             
             if (badge) {
                 if (!crop.watered) {
-                    badge.innerHTML = `<span class="text-[13px] font-mono text-os-blue bg-os-blue/10 border border-os-blue/30 px-2 py-0.5 rounded font-semibold uppercase">2 Gotas Base</span>`;
+                    badge.innerHTML = `<span class="text-[13px] font-mono text-os-blue bg-os-blue/10 border border-os-blue/30 px-2 py-0.5 rounded font-semibold uppercase">${currentLang === 'en' ? '2 Base Drops' : '2 Gotas Base'}</span>`;
                 } else {
-                    badge.innerHTML = `<span class="text-[13px] font-mono ${isCritical ? 'text-amber-400 bg-amber-400/10 border border-amber-400/30' : 'text-os-blue bg-os-blue/10 border border-os-blue/30'} px-2 py-0.5 rounded font-semibold uppercase">Hidratado (${currentDrops}/5)</span>`;
+                    badge.innerHTML = `<span class="text-[13px] font-mono ${isCritical ? 'text-amber-400 bg-amber-400/10 border border-amber-400/30' : 'text-os-blue bg-os-blue/10 border border-os-blue/30'} px-2 py-0.5 rounded font-semibold uppercase">${currentLang === 'en' ? 'Hydrated' : 'Hidratado'} (${currentDrops}/5)</span>`;
                 }
             }
 
@@ -1899,7 +1938,7 @@ export function updateTimers() {
 
             if (btnWater) {
                 btnWater.className = 'flex-1 bg-os-blue/10 border border-os-blue/40 text-os-blue hover:bg-os-blue hover:text-black py-2 px-2 text-xs font-mono uppercase font-semibold transition rounded-lg cursor-pointer';
-                btnWater.innerText = 'Regar';
+                btnWater.innerText = currentLang === 'en' ? 'Water' : 'Regar';
                 btnWater.disabled = false;
                 btnWater.onclick = () => openWaterPreviewModal(crop.id);
             }
@@ -1907,7 +1946,7 @@ export function updateTimers() {
 
         if (btnHarvest) {
             btnHarvest.className = "flex-1 border border-os-border text-os-muted hover:border-os-red hover:text-os-red py-1.5 px-2 text-xs font-mono uppercase transition";
-            btnHarvest.innerText = "Cancelar";
+            btnHarvest.innerText = currentLang === 'en' ? "Cancel" : "Cancelar";
             btnHarvest.onclick = () => harvestCrop(crop.id);
         }
     });
