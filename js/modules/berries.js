@@ -1378,7 +1378,7 @@ export function calculateInventory() {
     });
 
     if (!hasResults) {
-        resultsDiv.innerHTML = '<div class="col-span-full text-center text-gray-400 py-4">${currentLang === 'en' ? 'You do not have enough seeds to plant any of the listed berries.' : 'No tienes suficientes semillas para plantar ningúna de las bayas listadas.'}</div>';
+        resultsDiv.innerHTML = `<div class="col-span-full text-center text-gray-400 py-4">${currentLang === 'en' ? 'You do not have enough seeds to plant any of the listed berries.' : 'No tienes suficientes semillas para plantar ningúna de las bayas listadas.'}</div>`;
     }
 }
 
