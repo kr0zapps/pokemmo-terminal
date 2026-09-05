@@ -1776,7 +1776,7 @@ export function updateTimers() {
                     waterTimeText.innerText = '¡MARCHITO!';
                     waterTimeText.className = 'font-mono text-xs font-bold text-os-red';
                 }
-                if (dropsText) dropsText.innerHTML = '<span class="text-xs font-mono text-os-red font-bold">${currentLang === 'en' ? 'Withered Crop (Exceeded 8h)' : 'Planta Marchita (Excedió 8h)'}</span>';
+                if (dropsText) dropsText.innerHTML = `<span class="text-xs font-mono text-os-red font-bold">${currentLang === 'en' ? 'Withered Crop (Exceeded 8h)' : 'Planta Marchita (Excedió 8h)'}</span>`;
                 if (adviceText) {
                     adviceText.innerText = currentLang === 'en' ? 'More than 8 hours have passed since maturity. The crop has withered.' : 'Han pasado más de 8 horas desde la maduración. La planta se marchitó.';
                     adviceText.className = 'text-[13px] text-os-red font-semibold';

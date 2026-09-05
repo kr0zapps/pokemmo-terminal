@@ -430,7 +430,7 @@ export async function generateBreedingTree() {
     }
 
     if (targetStats.length > 6) {
-        container.innerHTML = '<div class="text-red-400 text-sm mt-10">${currentLang === 'en' ? 'Cannot select more than 6 IVs.' : 'No puedes seleccionar más de 6 IVs.'}</div>';
+        container.innerHTML = `<div class="text-red-400 text-sm mt-10">${currentLang === 'en' ? 'Cannot select more than 6 IVs.' : 'No puedes seleccionar más de 6 IVs.'}</div>`;
         return;
     }
 
@@ -713,7 +713,7 @@ export function renderEggGroupFiltered(filter = '') {
         : currentEggGroupSpecies;
 
     if (filtered.length === 0) {
-        content.innerHTML = '<div class="col-span-full text-center text-os-muted py-8 text-xs">${currentLang === 'en' ? 'No Pokémon found with that name in this egg group.' : 'No se encontraron Pokémon con ese nombre en este grupo.'}</div>';
+        content.innerHTML = `<div class="col-span-full text-center text-os-muted py-8 text-xs">${currentLang === 'en' ? 'No Pokémon found with that name in this egg group.' : 'No se encontraron Pokémon con ese nombre en este grupo.'}</div>`;
         return;
     }
 
@@ -745,7 +745,7 @@ export async function showEggGroupModal(groupName) {
     if (searchInput) searchInput.value = '';
     if (modal) modal.classList.remove('hidden');
     if (title) title.innerText = groupName;
-    if (content) content.innerHTML = '<div class="col-span-full text-center text-os-blue py-10 animate-pulse text-xs">${currentLang === 'en' ? 'Loading Pokémon from egg group...' : 'Cargando Pokémon del grupo huevo...'}</div>';
+    if (content) content.innerHTML = `<div class="col-span-full text-center text-os-blue py-10 animate-pulse text-xs">${currentLang === 'en' ? 'Loading Pokémon from egg group...' : 'Cargando Pokémon del grupo huevo...'}</div>`;
     
     try {
         const data = await fetchEggGroup(groupName);
