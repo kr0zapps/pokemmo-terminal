@@ -1,4 +1,4 @@
-# Rotom-Phone // Operations Terminal v3.0
+# Rotom Terminal // Operations Terminal v3.0
 
 > All-in-one companion web tool for MMO trainers. Zero login required, 100% offline/local storage enabled, and cross-device synchronization.
 

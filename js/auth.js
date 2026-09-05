@@ -137,7 +137,7 @@ export function renderAuthUI(onSuccess) {
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Pokeball" class="w-7 h-7 pokemon-sprite">
           </div>
           <div class="flex items-baseline justify-center gap-2 mb-1">
-            <span class="text-3xl font-pokemon tracking-wide text-[#FFCC00]">ROTOM-OS</span>
+            <span class="text-3xl font-pokemon tracking-wide text-[#FFCC00]">ROTOM TERMINAL</span>
             <span class="text-xs font-mono tracking-wider uppercase px-2 py-0.5 rounded bg-os-elevated border border-os-border text-os-blue font-semibold">Terminal v3.0</span>
           </div>
           <p class="text-xs text-os-muted mt-1">${t('auth_terminal_subtitle', 'Panel de herramientas para entrenadores')}</p>

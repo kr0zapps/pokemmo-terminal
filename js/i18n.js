@@ -1,4 +1,4 @@
-// js/i18n.js - PokéMMO Rotom-Phone Internationalization Engine
+// js/i18n.js - PokéMMO Rotom Terminal Internationalization Engine
 
 const STORAGE_LANG_KEY = 'pokemmo_lang';
 
@@ -42,7 +42,7 @@ export function toggleLanguage() {
 export const DICT = {
     en: {
         // App header & chasis
-        app_title: 'ROTOM-PHONE',
+        app_title: 'ROTOM TERMINAL',
         app_subtitle: 'Operations Terminal',
         // Auth Modal & Security
         auth_terminal_subtitle: 'Trainer Companion & Operations Panel',
@@ -346,7 +346,7 @@ export const DICT = {
     },
     es: {
         // App header & chasis
-        app_title: 'ROTOM-PHONE',
+        app_title: 'ROTOM TERMINAL',
         app_subtitle: 'Terminal de Operaciones',
         // Modal de Autenticación y Seguridad
         auth_terminal_subtitle: 'Panel de herramientas para entrenadores',
@@ -663,7 +663,7 @@ export function t(key, fallback = '') {
 
 export function updateI18nDOM() {
     // 0. Título de la pestaña
-    document.title = currentLang === 'en' ? 'Rotom-Phone — Trainer Operations Terminal' : 'Rotom-Phone — Terminal de Operaciones';
+    document.title = currentLang === 'en' ? 'Rotom Terminal — Trainer Operations Terminal' : 'Rotom Terminal — Terminal de Operaciones';
 
     // 1. Textos con data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -689,6 +689,9 @@ export function updateI18nDOM() {
     });
 
     // 4. Actualizar textos estáticos en HTML si existen
+    const appTitle = document.querySelector('#appTitleText');
+    if (appTitle) appTitle.textContent = t('app_title');
+
     const opTerm = document.querySelector('#appSubtitleText');
     if (opTerm) opTerm.textContent = t('app_subtitle');
 
