@@ -309,6 +309,27 @@ export function saveBerryPrices(prices) {
     } catch(e) {}
 }
 
+export function getSavedCalcConfig() {
+    try {
+        const saved = localStorage.getItem('pokemmo_berry_calc_config');
+        if (saved) return JSON.parse(saved);
+    } catch(e) {}
+    return {
+        berry: 'leppa',
+        plots: 156,
+        yield: 6.0,
+        toolCost: 350,
+        gtlFee: 5
+    };
+}
+
+export function saveCalcConfig(config) {
+    try {
+        const current = getSavedCalcConfig();
+        localStorage.setItem('pokemmo_berry_calc_config', JSON.stringify({ ...current, ...config }));
+    } catch(e) {}
+}
+
 let harvestCounter = 0;
 let pendingWaterCropId = null;
 let timerInterval = null;
@@ -598,12 +619,22 @@ export function renderProfitCalculatorHTML() {
             <!-- Fila de Precios de Mercado GTL para las Semillas y la Baya -->
             <div class="bg-[#EDE8DC] dark:bg-[#1E1E1A] border border-[#2B2B2B] dark:border-[#33332D] p-4 rounded-xl mb-5 shadow-inner">
                 <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                    <span class="text-xs font-tech font-bold uppercase tracking-wider text-[#1C1C17] dark:text-[#F4F1E8] flex items-center gap-1.5">
-                        <span>Precios de Mercado en el GTL (Valores Editables)</span>
-                    </span>
-                    <button type="button" id="btnResetGTLPrices" class="text-[11px] font-mono text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#E63946] underline cursor-pointer">
-                        Restablecer Precios Sugeridos
-                    </button>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-tech font-bold uppercase tracking-wider text-[#1C1C17] dark:text-[#F4F1E8] flex items-center gap-1.5">
+                            <span>Precios de Mercado en el GTL (Valores Editables)</span>
+                        </span>
+                        <span id="profitSaveStatus" class="text-[11px] font-mono text-[#10B981] bg-[#10B981]/10 border border-[#10B981]/30 px-2 py-0.5 rounded font-medium transition">
+                            Precios guardados en memoria
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" id="btnSaveGTLPrices" class="text-[11px] font-tech font-bold uppercase tracking-wider text-[#10B981] hover:bg-[#10B981] hover:text-black border border-[#10B981]/40 px-2.5 py-1 rounded transition cursor-pointer">
+                            Guardar Precios
+                        </button>
+                        <button type="button" id="btnResetGTLPrices" class="text-[11px] font-mono text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#E63946] underline cursor-pointer">
+                            Restablecer Precios Sugeridos
+                        </button>
+                    </div>
                 </div>
                 
                 <div id="seedPricesInputsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2.5">
@@ -619,6 +650,19 @@ export function renderProfitCalculatorHTML() {
     `;
 }
 
+export function showSaveIndicator(msg = 'Precios guardados en memoria') {
+    const status = document.getElementById('profitSaveStatus');
+    if (status) {
+        status.innerText = msg;
+        status.className = 'text-[11px] font-mono text-[#10B981] bg-[#10B981]/25 border border-[#10B981]/60 px-2 py-0.5 rounded font-bold transition';
+        if (status._timer) clearTimeout(status._timer);
+        status._timer = setTimeout(() => {
+            status.innerText = 'Precios guardados en memoria';
+            status.className = 'text-[11px] font-mono text-[#10B981] bg-[#10B981]/10 border border-[#10B981]/30 px-2 py-0.5 rounded font-medium transition';
+        }, 2200);
+    }
+}
+
 export function renderSeedPriceInputs(berryKey) {
     const container = document.getElementById('seedPricesInputsGrid');
     if (!container) return;
@@ -628,7 +672,7 @@ export function renderSeedPriceInputs(berryKey) {
     const savedSeedPrices = getSavedGTLPrices();
     const savedBerryPrices = getSavedBerryPrices();
 
-    const berryPrice = savedBerryPrices[berryKey] || DEFAULT_BERRY_PRICES[berryKey] || 1000;
+    const berryPrice = savedBerryPrices[berryKey] !== undefined ? savedBerryPrices[berryKey] : (DEFAULT_BERRY_PRICES[berryKey] || 1000);
 
     // Semillas involucradas (las necesarias para replantar + las producidas al triturar)
     const seedIds = Array.from(new Set([
@@ -644,7 +688,7 @@ export function renderSeedPriceInputs(berryKey) {
             </label>
             <div class="relative">
                 <span class="absolute left-2 top-1 text-xs font-mono text-[#5F5A4D]">$</span>
-                <input type="number" id="price_berry_${berryKey}" value="${berryPrice}" min="10" step="50"
+                <input type="number" id="price_berry_${berryKey}" value="${berryPrice}" min="1" step="1"
                     class="w-full pl-5 pr-1 py-1 text-xs font-mono text-center rounded bg-[#EDE8DC] dark:bg-[#1E1E1A] border border-[#2B2B2B]/40 dark:border-[#33332D] text-[#1C1C17] dark:text-[#F4F1E8]">
             </div>
         </div>
@@ -653,7 +697,7 @@ export function renderSeedPriceInputs(berryKey) {
     seedIds.forEach(id => {
         const name = SEED_NAMES[id] || id;
         const color = SEED_COLORS[id] || 'text-[#1C1C17]';
-        const price = savedSeedPrices[id] || DEFAULT_SEED_PRICES[id] || 750;
+        const price = savedSeedPrices[id] !== undefined ? savedSeedPrices[id] : (DEFAULT_SEED_PRICES[id] || 750);
 
         html += `
             <div class="bg-[#FAF8F2] dark:bg-[#242420] p-2.5 rounded-lg border border-[#2B2B2B]/30 dark:border-[#35352E]">
@@ -662,7 +706,7 @@ export function renderSeedPriceInputs(berryKey) {
                 </label>
                 <div class="relative">
                     <span class="absolute left-2 top-1 text-xs font-mono text-[#5F5A4D]">$</span>
-                    <input type="number" id="price_seed_${id}" value="${price}" min="10" step="50"
+                    <input type="number" id="price_seed_${id}" value="${price}" min="1" step="1"
                         class="w-full pl-5 pr-1 py-1 text-xs font-mono text-center rounded bg-[#EDE8DC] dark:bg-[#1E1E1A] border border-[#2B2B2B]/40 dark:border-[#33332D] text-[#1C1C17] dark:text-[#F4F1E8]">
                 </div>
             </div>
@@ -672,16 +716,27 @@ export function renderSeedPriceInputs(berryKey) {
     container.innerHTML = html;
 
     container.querySelectorAll('input').forEach(input => {
-        input.addEventListener('input', calculateProfitability);
+        ['input', 'change', 'blur'].forEach(evt => {
+            input.addEventListener(evt, () => calculateProfitability());
+        });
     });
 }
 
-export function calculateProfitability() {
+export function calculateProfitability(triggerSaveNotice = false) {
     const berryKey = document.getElementById('profitBerrySelect')?.value || 'leppa';
     const plots = parseInt(document.getElementById('profitPlots')?.value) || 156;
     const avgYield = parseFloat(document.getElementById('profitYieldSelect')?.value) || 6.0;
     const toolCost = parseFloat(document.getElementById('profitToolCost')?.value) || 350;
     const gtlFeePercent = parseFloat(document.getElementById('profitGTLFee')?.value) || 5;
+
+    // Guardar toda la configuración operativa de la calculadora
+    saveCalcConfig({
+        berry: berryKey,
+        plots,
+        yield: avgYield,
+        toolCost,
+        gtlFee: gtlFeePercent
+    });
 
     const recipe = RECIPES[berryKey];
     if (!recipe) return;
@@ -712,6 +767,10 @@ export function calculateProfitability() {
         }
     });
     saveGTLPrices(currentSeedPrices);
+
+    if (triggerSaveNotice) {
+        showSaveIndicator('¡Precios y configuración guardados!');
+    }
 
     // 1. Total de bayas cosechadas
     const totalBerries = Math.round(plots * avgYield);
@@ -1086,20 +1145,35 @@ export function initProfitCalculator() {
     const toolCostInput = document.getElementById('profitToolCost');
     const feeInput = document.getElementById('profitGTLFee');
     const btnReset = document.getElementById('btnResetGTLPrices');
+    const btnSave = document.getElementById('btnSaveGTLPrices');
+
+    // Restaurar configuración previamente guardada
+    const savedConfig = getSavedCalcConfig();
+    if (berrySelect && savedConfig.berry) berrySelect.value = savedConfig.berry;
+    if (plotsInput && savedConfig.plots) plotsInput.value = savedConfig.plots;
+    if (yieldSelect && savedConfig.yield) yieldSelect.value = savedConfig.yield;
+    if (toolCostInput && savedConfig.toolCost !== undefined) toolCostInput.value = savedConfig.toolCost;
+    if (feeInput && savedConfig.gtlFee !== undefined) feeInput.value = savedConfig.gtlFee;
 
     if (berrySelect) {
         berrySelect.addEventListener('change', () => {
             renderSeedPriceInputs(berrySelect.value);
-            calculateProfitability();
+            calculateProfitability(false);
         });
     }
 
     [plotsInput, yieldSelect, toolCostInput, feeInput].forEach(el => {
         if (el) {
-            el.addEventListener('input', calculateProfitability);
-            el.addEventListener('change', calculateProfitability);
+            el.addEventListener('input', () => calculateProfitability(false));
+            el.addEventListener('change', () => calculateProfitability(false));
         }
     });
+
+    if (btnSave) {
+        btnSave.addEventListener('click', () => {
+            calculateProfitability(true);
+        });
+    }
 
     if (btnReset) {
         btnReset.addEventListener('click', () => {
@@ -1107,7 +1181,8 @@ export function initProfitCalculator() {
             localStorage.removeItem('pokemmo_berry_raw_prices');
             const currentBerry = berrySelect ? berrySelect.value : 'leppa';
             renderSeedPriceInputs(currentBerry);
-            calculateProfitability();
+            calculateProfitability(false);
+            showSaveIndicator('Precios sugeridos restaurados');
         });
     }
 
@@ -1116,7 +1191,7 @@ export function initProfitCalculator() {
             const input = document.getElementById('profitPlots');
             if (input) {
                 input.value = num;
-                calculateProfitability();
+                calculateProfitability(true);
             }
         };
         window.calculateProfitability = calculateProfitability;
@@ -1124,7 +1199,7 @@ export function initProfitCalculator() {
 
     const currentBerry = berrySelect ? berrySelect.value : 'leppa';
     renderSeedPriceInputs(currentBerry);
-    calculateProfitability();
+    calculateProfitability(false);
 }
 
 // ==========================================
