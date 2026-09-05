@@ -478,10 +478,10 @@ export function renderBerryView() {
                 </div>
             </div>
 
-            <!-- CALCULADORA DE RENTABILIDAD GTL -->
-            ${renderProfitCalculatorHTML()}
-
             <!-- ACTIVE CROPS -->
+            <div class="flex items-center justify-between px-1 mb-2">
+                <span class="font-tech font-bold text-sm uppercase text-[#1C1C17] dark:text-[#F4F1E8] tracking-wider">${t('berry_active_plots', 'Active Berry Plots')}</span>
+            </div>
             <div id="berriesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
     `;

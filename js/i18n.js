@@ -56,6 +56,7 @@ export const DICT = {
         // Navigation tabs
         tab_gyms: 'GYM RERUNS',
         tab_berries: 'BERRY FARMING',
+        tab_market: 'GTL CALCULATOR',
         tab_extraction: 'SEED CRUSHER',
         tab_pokedex: 'POKÉDEX RADAR',
         tab_breeding: 'BREEDING LAB',
@@ -336,6 +337,7 @@ export const DICT = {
         // Navigation tabs
         tab_gyms: 'GIMNASIOS',
         tab_berries: 'CULTIVO DE BAYAS',
+        tab_market: 'CALCULADORA GTL',
         tab_extraction: 'EXTRACCIÓN',
         tab_pokedex: 'POKÉDEX',
         tab_breeding: 'CRIANZA E IVS',
@@ -656,6 +658,12 @@ export function updateI18nDOM() {
     const footerGithubText = document.querySelector('#footerGithubText');
     if (footerGithubText) footerGithubText.textContent = t('footer_github');
 
+    const footerCoffeeText = document.querySelector('#footerCoffeeText');
+    if (footerCoffeeText) footerCoffeeText.textContent = t('footer_coffee');
+
+    const footerFeedbackText = document.querySelector('#footerFeedbackText');
+    if (footerFeedbackText) footerFeedbackText.textContent = t('footer_feedback');
+
     // 5. Actualizar pestañas de navegación móvil y desktop
     updateNavTabsText();
 }
@@ -669,6 +677,7 @@ export function updateNavTabsText() {
             const val = options[i].value;
             if (val === 'gyms') options[i].textContent = t('tab_gyms');
             if (val === 'berries') options[i].textContent = t('tab_berries');
+            if (val === 'market') options[i].textContent = t('tab_market');
             if (val === 'extraction') options[i].textContent = t('tab_extraction');
             if (val === 'pokedex') options[i].textContent = t('tab_pokedex');
             if (val === 'breeding') options[i].textContent = t('tab_breeding');
@@ -681,6 +690,9 @@ export function updateNavTabsText() {
 
     const tabBerries = document.querySelector('#nav-berries span');
     if (tabBerries) tabBerries.textContent = t('tab_berries');
+
+    const tabMarket = document.querySelector('#nav-market span');
+    if (tabMarket) tabMarket.textContent = t('tab_market');
 
     const tabExtraction = document.querySelector('#nav-extraction span');
     if (tabExtraction) tabExtraction.textContent = t('tab_extraction');

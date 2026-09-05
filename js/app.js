@@ -7,6 +7,7 @@ import { initRealtimeSync } from './sync.js';
 import { switchTab, initRouter } from './router.js';
 import * as gyms from './modules/gyms.js';
 import * as berries from './modules/berries.js';
+import * as market from './modules/market.js';
 import * as extraction from './modules/extraction.js';
 import * as pokedex from './modules/pokedex.js';
 import { getPokeMMOClock } from './utils/pokemmo-time.js';
@@ -24,7 +25,7 @@ window.showAuthModal = () => {
     isAppInitializing = false;
     renderAuthUI(initApp);
 };
-Object.assign(window, gyms, berries, extraction, pokedex);
+Object.assign(window, gyms, berries, market, extraction, pokedex);
 
 let isAppInitialized = false;
 let isAppInitializing = false;
@@ -39,6 +40,7 @@ export function reRenderAllViews() {
     let viewsHtml = '';
     if (gyms.renderGymView) viewsHtml += `<div id="view-gyms" class="block animate-fade-in">${gyms.renderGymView()}</div>`;
     if (berries.renderBerryView) viewsHtml += berries.renderBerryView();
+    if (market.renderMarketView) viewsHtml += market.renderMarketView();
     if (extraction.renderExtractionView) viewsHtml += extraction.renderExtractionView();
     if (pokedex.renderPokédexView) viewsHtml += pokedex.renderPokédexView();
 
@@ -59,6 +61,7 @@ export function reRenderAllViews() {
     updateHeaderAuth();
     if (gyms.initGyms) gyms.initGyms();
     if (berries.initBerries) berries.initBerries();
+    if (market.initMarket) market.initMarket();
     if (extraction.initExtraction) extraction.initExtraction();
     if (pokedex.initPokédex) pokedex.initPokédex();
     if (breedingModule && breedingModule.initBreeding) breedingModule.initBreeding();
@@ -85,6 +88,7 @@ async function initApp() {
         let viewsHtml = '';
         if (gyms.renderGymView) viewsHtml += `<div id="view-gyms" class="block animate-fade-in">${gyms.renderGymView()}</div>`;
         if (berries.renderBerryView) viewsHtml += berries.renderBerryView();
+        if (market.renderMarketView) viewsHtml += market.renderMarketView();
         if (extraction.renderExtractionView) viewsHtml += extraction.renderExtractionView();
         if (pokedex.renderPokédexView) viewsHtml += pokedex.renderPokédexView();
         
@@ -118,6 +122,7 @@ async function initApp() {
         updateHeaderAuth();
         if (gyms.initGyms) gyms.initGyms();
         if (berries.initBerries) berries.initBerries();
+        if (market.initMarket) market.initMarket();
         if (extraction.initExtraction) extraction.initExtraction();
         if (pokedex.initPokédex) pokedex.initPokédex();
         if (breedingModule && breedingModule.initBreeding) breedingModule.initBreeding();

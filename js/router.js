@@ -5,6 +5,7 @@ import { $, safeHTML } from './utils/dom.js';
 const TABS = [
   { id: 'gyms', label: 'Gimnasios', icon: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/vs-seeker.png' },
   { id: 'berries', label: 'Bayas', icon: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/wailmer-pail.png' },
+  { id: 'market', label: 'Calculadora GTL', icon: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/coin-case.png' },
   { id: 'extraction', label: 'Extracción', icon: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/miracle-seed.png' },
   { id: 'pokedex', label: 'Pokédex', icon: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/town-map.png' },
   { id: 'breeding', label: 'Crianza', icon: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/egg.png' }
