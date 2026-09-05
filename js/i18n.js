@@ -44,6 +44,25 @@ export const DICT = {
         // App header & chasis
         app_title: 'ROTOM-PHONE',
         app_subtitle: 'Operations Terminal',
+        // Auth Modal & Security
+        auth_terminal_subtitle: 'PokéMMO Trainer Companion & Operations Panel',
+        auth_security_title: 'SECURITY WARNING',
+        auth_security_body: 'This is an unofficial fan-made companion tool. NEVER use your actual PokéMMO game password here. Use a unique password or continue in Guest Mode without registering.',
+        auth_email_label: 'Username or Email',
+        auth_email_placeholder: 'e.g. RedKanto or your@email.com',
+        auth_email_hint: 'Use the same username on PC & mobile to sync your progress.',
+        auth_password_label: 'Password for this tool',
+        auth_password_placeholder: 'Unique password (NOT your game password)',
+        auth_remember_me: 'Remember session',
+        auth_btn_login: 'Log In',
+        auth_btn_register: 'Register',
+        auth_or_guest: 'Or without registering',
+        auth_btn_guest: 'Continue as Guest (Local Save)',
+        auth_err_login: 'Error logging in',
+        auth_err_req_fields: 'Please enter username/email and password to register',
+        auth_msg_register_success: 'Registration successful. You can now log in.',
+        auth_err_register: 'Error registering',
+
         theme_mode: 'Theme',
         theme_light: 'Light',
         theme_dark: 'Dark',
@@ -329,6 +348,25 @@ export const DICT = {
         // App header & chasis
         app_title: 'ROTOM-PHONE',
         app_subtitle: 'Terminal de Operaciones',
+        // Modal de Autenticación y Seguridad
+        auth_terminal_subtitle: 'Panel de herramientas para entrenadores de PokéMMO',
+        auth_security_title: 'AVISO DE SEGURIDAD',
+        auth_security_body: 'Esta es una herramienta fan-made complementaria. NUNCA uses la contraseña de tu cuenta del juego PokéMMO aquí. Usa una contraseña diferente o continúa en Modo Invitado sin registrarte.',
+        auth_email_label: 'Usuario o Correo',
+        auth_email_placeholder: 'Ej. RedKanto o tu@correo.com',
+        auth_email_hint: 'Usa el mismo usuario en tu PC y móvil para sincronizar tu progreso.',
+        auth_password_label: 'Contraseña para esta web',
+        auth_password_placeholder: 'Contraseña única (NO la del juego)',
+        auth_remember_me: 'Recordar sesión',
+        auth_btn_login: 'Iniciar Sesión',
+        auth_btn_register: 'Registrarse',
+        auth_or_guest: 'O sin registrarte',
+        auth_btn_guest: 'Continuar como Invitado (Guardado Local)',
+        auth_err_login: 'Error al iniciar sesión',
+        auth_err_req_fields: 'Por favor ingrese correo y contraseña para registrarse',
+        auth_msg_register_success: 'Registro exitoso. Puede iniciar sesión.',
+        auth_err_register: 'Error al registrarse',
+
         theme_mode: 'Modo',
         theme_light: 'Claro',
         theme_dark: 'Oscuro',
@@ -624,6 +662,9 @@ export function t(key, fallback = '') {
 }
 
 export function updateI18nDOM() {
+    // 0. Título de la pestaña
+    document.title = currentLang === 'en' ? 'PokéMMO Rotom-Phone — Trainer Operations Terminal' : 'PokéMMO Rotom-Phone — Terminal de Entrenador';
+
     // 1. Textos con data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');

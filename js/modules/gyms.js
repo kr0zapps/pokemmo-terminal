@@ -151,7 +151,7 @@ export function renderGymView() {
                 <!-- Botones de Control con touch target mínimo 44px -->
                 <div class="flex items-center justify-between mt-2 pt-1 gap-2">
                     <button id="amuletBtnStart" class="flex-1 min-h-[44px] py-2 px-3 bg-[#FFC800] text-[#241A00] hover:bg-[#FFE066] border-2 border-[#181816] font-tech font-black text-[13px] uppercase tracking-wider rounded-lg shadow-[1px_2px_0px_#181816] active:translate-y-0.5 cursor-pointer flex items-center justify-center">
-                        Iniciar cronómetro
+                        ${t('btn_start_amulet', 'Start Stopwatch')}
                     </button>
                     <button id="amuletBtnReset" class="min-h-[44px] px-3.5 py-2 bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] border-2 border-[#2B2B2B] dark:border-[#35352E] font-tech font-bold text-[13px] rounded-lg cursor-pointer flex items-center justify-center shadow-sm" title="Reiniciar cronómetro">
                         Reiniciar
@@ -189,7 +189,7 @@ export function renderGymView() {
             <div class="flex flex-wrap items-center justify-between text-[13px] font-mono text-[#5F5A4D] dark:text-[#A8A594] pt-0.5">
                 <span class="flex items-center gap-1.5">
                     <svg class="w-3.5 h-3.5 text-[#755B00] dark:text-[#FFC800]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
-                    ${t('gym_recommended_route')} <strong class="text-[#1C1C17] dark:text-[#F4F1E8]" id="gymOptimalRouteText">Azulona &gt; Azafrán &gt; Carmín &gt; Celeste &gt; Fucsia</strong>
+                    ${t('gym_recommended_route')} <strong class="text-[#1C1C17] dark:text-[#F4F1E8]" id="gymOptimalRouteText">${currentLang === 'en' ? OPTIMAL_ROUTES_EN['Kanto'] : OPTIMAL_ROUTES['Kanto']}</strong>
                 </span>
                 <button id="btn-reset-gyms" class="font-bold text-[#b7102a] dark:text-[#FFA8A8] hover:underline cursor-pointer uppercase text-[13px] tracking-wider">
                     ${t('gym_reset_all_btn')}
@@ -507,7 +507,7 @@ export function renderGyms() {
                                 </span>
                             </div>
                             <span id="timer-${id}" class="font-mono text-[13px] font-bold flex-shrink-0 ${isChecked ? 'text-[#5F5A4D] dark:text-[#A8A594] font-medium' : 'text-[#1B5E20] dark:text-[#C3F400] font-bold'}">
-                                ${isChecked ? '--:--:--' : 'Listo'}
+                                ${isChecked ? '--:--:--' : (currentLang === 'en' ? 'Ready' : 'Listo')}
                             </span>
                         </div>
                     `;
@@ -520,9 +520,9 @@ export function renderGyms() {
             </div>
 
             <div class="mt-2 pt-2 border-t border-[#D8D4C7]/40 dark:border-[#33332D] flex items-center justify-between font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">
-                <span>${completedInRegion}/${list.length} líderes derrotados</span>
+                <span>${completedInRegion}/${list.length} ${currentLang === 'en' ? 'leaders defeated' : 'líderes derrotados'}</span>
                 <span class="${isRegionCleared ? 'text-[#10B981] font-black' : 'text-[#5F5A4D] dark:text-[#A8A594] font-bold'}">
-                    ${isRegionCleared ? '★ Región completada' : 'En progreso'}
+                    ${isRegionCleared ? (currentLang === 'en' ? '★ Region Cleared' : '★ Región completada') : (currentLang === 'en' ? 'In Progress' : 'En progreso')}
                 </span>
             </div>
         `;
@@ -666,7 +666,7 @@ export function updateGymStats() {
 }
 
 export function resetGyms() {
-    if (confirm('¿Reiniciar TODO el progreso de gimnasios?')) {
+    if (confirm(currentLang === 'en' ? 'Reset ALL gym rerun progress to zero?' : '¿Reiniciar TODO el progreso de gimnasios?')) {
         const keysToRemove = [];
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);

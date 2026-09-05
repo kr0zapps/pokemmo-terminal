@@ -107,17 +107,17 @@ export function renderPokédexView() {
                     <div>
                         <select id="dexSort" onchange="window.pokedex.renderDexResults(true)" class="w-full py-2 px-3 text-[13px] bg-[#EDE8DC] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] rounded-lg cursor-pointer font-sans">
                             <option value="rate_desc" selected>Probabilidad (%)</option>
-                            <option value="id_asc">N° Pokédex (#1 - #649)</option>
+                            <option value="id_asc">${currentLang === 'en' ? 'Pokédex No. (#1 - #649)' : 'N° Pokédex (#1 - #649)'}</option>
                             <option value="name_asc">Nombre (A - Z)</option>
                         </select>
                     </div>
                     <div>
                         <select id="dexTimeFilter" onchange="window.pokedex.renderDexResults(true)" class="w-full py-2 px-3 text-[13px] bg-[#EDE8DC] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] rounded-lg cursor-pointer font-sans">
                             <option value="all" selected>Horario: Todos</option>
-                            <option value="morning">Mañana (04:00 - 10:00)</option>
-                            <option value="day">Día (10:00 - 20:00)</option>
-                            <option value="night">Noche (20:00 - 04:00)</option>
-                            <option value="lure">Con Señuelo (Lure)</option>
+                            <option value="morning">${t('phase_morning')} (04:00 - 10:00)</option>
+                            <option value="day">${t('phase_day')} (10:00 - 20:00)</option>
+                            <option value="night">${t('phase_night')} (20:00 - 04:00)</option>
+                            <option value="lure">${currentLang === 'en' ? 'With Lure' : 'Con Señuelo (Lure)'}</option>
                         </select>
                     </div>
                 </div>
@@ -169,7 +169,7 @@ export function renderCaughtModal() {
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#5F5A4D] dark:text-[#A8A594]">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </div>
-                <input type="text" id="caughtSearchInput" placeholder="Filtrar capturas por nombre, número o región..." oninput="window.pokedex.renderCaughtGrid()" class="w-full pl-9 pr-3 py-2.5 text-[13px] bg-[#EDE8DC] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] rounded-lg focus:border-[#FFC800] outline-none font-sans">
+                <input type="text" id="caughtSearchInput" placeholder="${currentLang === 'en' ? 'Filter caught Pokémon by name, number or region...' : 'Filtrar capturas por nombre, número o región...'}" oninput="window.pokedex.renderCaughtGrid()" class="w-full pl-9 pr-3 py-2.5 text-[13px] bg-[#EDE8DC] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] rounded-lg focus:border-[#FFC800] outline-none font-sans">
             </div>
 
             <!-- Grid de Pokémon Capturados con Scroll -->
@@ -349,7 +349,7 @@ export function renderCaughtGrid() {
         container.innerHTML = `
             <div class="col-span-full py-12 text-center text-[#5F5A4D] dark:text-[#A8A594] font-sans text-[13px]">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" class="w-10 h-10 pixelated mx-auto mb-2 opacity-20">
-                ${dexCaughtList.length === 0 ? 'Aún no has marcado ningún Pokémon como capturado.' : 'No se encontraron capturas con ese filtro.'}
+                ${dexCaughtList.length === 0 ? (currentLang === 'en' ? 'You have not marked any Pokémon as caught yet.' : 'Aún no has marcado ningún Pokémon como capturado.') : (currentLang === 'en' ? 'No caught Pokémon matched this filter.' : 'No se encontraron capturas con ese filtro.')}
             </div>
         `;
         return;
@@ -407,7 +407,7 @@ export function copyCaughtListText() {
         return;
     }
     navigator.clipboard.writeText(caughtMons.join('\n')).then(() => {
-        alert(`Copiados ${caughtMons.length} Pokémon capturados al portapapeles.`);
+        alert(currentLang === 'en' ? `Copied ${caughtMons.length} caught Pokémon to clipboard.` : `Copiados ${caughtMons.length} Pokémon capturados al portapapeles.`);
     });
 }
 
@@ -651,7 +651,7 @@ export function renderDexResults(resetPage = false) {
             <div class="panel p-8 border-os-green/50 text-center relative overflow-hidden">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/town-map.png" class="absolute opacity-10 w-32 h-32 -top-10 -right-10 pixelated">
                 <h3 class="text-lg font-mono text-os-green mb-1">[ SIN OBJETIVOS ]</h3>
-                <p class="text-sm text-os-muted">No se encontraron Pokémon con los filtros y búsqueda seleccionados.</p>
+                <p class="text-sm text-os-muted">${currentLang === 'en' ? 'No Pokémon found matching the selected filters and search.' : 'No se encontraron Pokémon con los filtros y búsqueda seleccionados.'}</p>
             </div>`;
         return;
     }
@@ -693,12 +693,12 @@ export function renderDexResults(resetPage = false) {
                     <thead>
                         <tr class="bg-[#EDE8DC] dark:bg-[#2E2E27] border-b-2 border-[#2B2B2B] dark:border-[#35352E] text-[13px] font-tech font-bold text-[#1C1C17] dark:text-[#F4F1E8] uppercase tracking-wider select-none">
                             <th class="py-3.5 px-4">Especie</th>
-                            <th class="py-3.5 px-3">Método de Captura</th>
+                            <th class="py-3.5 px-3">${t('dex_th_method', 'Encounter Method')}</th>
                             <th class="py-3.5 px-3">Nivel</th>
                             <th class="py-3.5 px-4">Ruta / Zona</th>
-                            <th class="py-3.5 px-2 text-center">Mañana</th>
-                            <th class="py-3.5 px-2 text-center">Día</th>
-                            <th class="py-3.5 px-2 text-center">Noche</th>
+                            <th class="py-3.5 px-2 text-center">${t('phase_morning', 'Morning')}</th>
+                            <th class="py-3.5 px-2 text-center">${t('phase_day', 'Day')}</th>
+                            <th class="py-3.5 px-2 text-center">${t('phase_night', 'Night')}</th>
                             <th class="py-3.5 px-4 text-center">Estado</th>
                         </tr>
                     </thead>
@@ -713,7 +713,7 @@ export function renderDexResults(resetPage = false) {
             : `<span class="w-4 h-4 rounded-full border-2 border-[#2B2B2B]/40 dark:border-[#555] inline-block opacity-40" title="Pendiente"></span>`;
 
         const formatRateSlot = (val) => {
-            if (val === 'Señuelo') {
+            if (val === 'Señuelo' || val === 'Lure') {
                 return `<span class="px-2 py-0.5 rounded-lg text-[13px] font-bold bg-[#FFDF92] dark:bg-[#473200] text-[#755B00] dark:text-[#FFC800] border border-[#755B00]/40 font-sans">Señuelo</span>`;
             } else if (val !== '--') {
                 const num = parseInt(val);
@@ -769,7 +769,7 @@ export function renderDexResults(resetPage = false) {
 
             <!-- Barra de Paginación Inferior (Superficie Elevada Nivel 3) -->
             <div class="bg-[#EDE8DC] dark:bg-[#2E2E27] border-t-2 border-[#2B2B2B] dark:border-[#35352E] px-4 md:px-6 py-3 flex items-center justify-between text-[13px] font-mono">
-                <span class="text-[#5F5A4D] dark:text-[#A8A594]">Página <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${dexCurrentPage}</strong> de <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${totalPages}</strong></span>
+                <span class="text-[#5F5A4D] dark:text-[#A8A594]">${currentLang === 'en' ? 'Page' : 'Página'} <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${dexCurrentPage}</strong> ${currentLang === 'en' ? 'of' : 'de'} <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${totalPages}</strong></span>
                 <div class="flex items-center gap-2">
                     <button onclick="window.pokedex.changeDexPage(-1)" ${dexCurrentPage === 1 ? 'disabled class="px-3.5 py-2 min-h-[44px] bg-[#D8D4C7] dark:bg-[#242420] text-[#81765F] dark:text-[#666] border border-[#2B2B2B]/40 dark:border-[#35352E] cursor-not-allowed rounded-lg font-tech font-bold text-[13px] flex items-center justify-center"' : 'class="px-3.5 py-2 min-h-[44px] bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#FFC800] transition rounded-lg cursor-pointer shadow-sm flex items-center justify-center"'}>Anterior</button>
                     <button onclick="window.pokedex.changeDexPage(1)" ${dexCurrentPage >= totalPages ? 'disabled class="px-3.5 py-2 min-h-[44px] bg-[#D8D4C7] dark:bg-[#242420] text-[#81765F] dark:text-[#666] border border-[#2B2B2B]/40 dark:border-[#35352E] cursor-not-allowed rounded-lg font-tech font-bold text-[13px] flex items-center justify-center"' : 'class="px-3.5 py-2 min-h-[44px] bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#FFC800] transition rounded-lg cursor-pointer shadow-sm flex items-center justify-center"'}>Siguiente</button>

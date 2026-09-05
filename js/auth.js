@@ -1,5 +1,6 @@
 import { supabase, addCrop, catchPokemon, savePreferences, toggleGym, batchCatchPokemon, batchToggleGyms } from './db.js';
 import { safeHTML, h, text, $ } from './utils/dom.js';
+import { t } from './i18n.js';
 
 export function normalizeAuthInput(input) {
   const trimmed = (input || '').trim();
@@ -139,7 +140,7 @@ export function renderAuthUI(onSuccess) {
             <span class="text-3xl font-pokemon tracking-wide text-[#FFCC00]">PokéMMO</span>
             <span class="text-xs font-mono tracking-wider uppercase px-2 py-0.5 rounded bg-os-elevated border border-os-border text-os-blue font-semibold">Terminal v3.0</span>
           </div>
-          <p class="text-xs text-os-muted mt-1">Panel de herramientas para entrenadores de PokéMMO</p>
+          <p class="text-xs text-os-muted mt-1">${t('auth_terminal_subtitle', 'Panel de herramientas para entrenadores de PokéMMO')}</p>
         </div>
         
         <form id="auth-form" class="space-y-4">
@@ -149,47 +150,47 @@ export function renderAuthUI(onSuccess) {
           <div class="p-3 rounded-lg bg-[#FFDF92]/30 dark:bg-[#473200]/50 border border-[#755B00]/40 dark:border-[#FFDF92]/30 text-[13px] text-[#5C3800] dark:text-[#FFDF92] font-sans leading-relaxed">
             <strong class="font-bold flex items-center gap-1.5 text-[#755B00] dark:text-[#FFC800] mb-1">
               <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-              AVISO DE SEGURIDAD
+              ${t('auth_security_title', 'AVISO DE SEGURIDAD')}
             </strong>
-            Esta es una herramienta fan-made complementaria. <strong>NUNCA uses la contraseña de tu cuenta del juego PokéMMO aquí</strong>. Usa una contraseña diferente o continúa en <strong>Modo Invitado</strong> sin registrarte.
+            ${t('auth_security_body', 'Esta es una herramienta fan-made complementaria. NUNCA uses la contraseña de tu cuenta del juego PokéMMO aquí. Usa una contraseña diferente o continúa en Modo Invitado sin registrarte.')}
           </div>
 
           <div>
-            <label class="block text-xs font-mono text-os-muted mb-1 uppercase font-semibold">Usuario o Correo</label>
+            <label class="block text-xs font-mono text-os-muted mb-1 uppercase font-semibold">${t('auth_email_label', 'Usuario o Correo')}</label>
             <input type="text" id="auth-email" required autocomplete="username"
-              class="w-full px-3.5 py-2.5 rounded-lg text-xs font-mono bg-os-bg border border-os-border text-os-text focus:outline-none focus:border-os-blue focus:ring-2 focus:ring-os-blue/20 transition" placeholder="Ej. RedKanto o tu@correo.com" />
-            <p class="text-[13px] text-os-muted mt-1 font-mono">Usa el mismo usuario en tu PC y móvil para sincronizar tu progreso.</p>
+              class="w-full px-3.5 py-2.5 rounded-lg text-xs font-mono bg-os-bg border border-os-border text-os-text focus:outline-none focus:border-os-blue focus:ring-2 focus:ring-os-blue/20 transition" placeholder="${t('auth_email_placeholder', 'Ej. RedKanto o tu@correo.com')}" />
+            <p class="text-[13px] text-os-muted mt-1 font-mono">${t('auth_email_hint', 'Usa el mismo usuario en tu PC y móvil para sincronizar tu progreso.')}</p>
           </div>
           
           <div>
-            <label class="block text-xs font-mono text-os-muted mb-1 uppercase font-semibold">Contraseña para esta web</label>
+            <label class="block text-xs font-mono text-os-muted mb-1 uppercase font-semibold">${t('auth_password_label', 'Contraseña para esta web')}</label>
             <input type="password" id="auth-password" required
-              class="w-full px-3.5 py-2.5 rounded-lg text-xs font-mono bg-os-bg border border-os-border text-os-text focus:outline-none focus:border-os-blue focus:ring-2 focus:ring-os-blue/20 transition" placeholder="Contraseña única (NO la del juego)" />
+              class="w-full px-3.5 py-2.5 rounded-lg text-xs font-mono bg-os-bg border border-os-border text-os-text focus:outline-none focus:border-os-blue focus:ring-2 focus:ring-os-blue/20 transition" placeholder="${t('auth_password_placeholder', 'Contraseña única (NO la del juego)')}" />
           </div>
 
           <div class="flex items-center pt-1">
             <input type="checkbox" id="auth-remember" class="w-4 h-4 rounded border-os-border bg-os-bg accent-os-blue cursor-pointer">
-            <label for="auth-remember" class="ml-2 text-xs text-os-muted select-none cursor-pointer">Recordar sesión</label>
+            <label for="auth-remember" class="ml-2 text-xs text-os-muted select-none cursor-pointer">${t('auth_remember_me', 'Recordar sesión')}</label>
           </div>
           
           <div class="flex gap-3 pt-2">
             <button type="submit" id="btn-login" class="flex-1 py-2.5 px-4 rounded-lg font-semibold text-xs transition-colors hover:opacity-90 bg-blue-600 hover:bg-blue-500 text-white cursor-pointer shadow-sm">
-              Iniciar Sesión
+              ${t('auth_btn_login', 'Iniciar Sesión')}
             </button>
             <button type="button" id="btn-register" class="flex-1 py-2.5 px-4 rounded-lg font-semibold text-xs transition-colors hover:bg-os-elevated border border-os-border text-os-text cursor-pointer">
-              Registrarse
+              ${t('auth_btn_register', 'Registrarse')}
             </button>
           </div>
 
           <div class="relative flex py-2 items-center">
             <div class="flex-grow border-t border-os-border"></div>
-            <span class="flex-shrink mx-3 text-[13px] font-mono uppercase text-os-muted font-bold">O sin registrarte</span>
+            <span class="flex-shrink mx-3 text-[13px] font-mono uppercase text-os-muted font-bold">${t('auth_or_guest', 'O sin registrarte')}</span>
             <div class="flex-grow border-t border-os-border"></div>
           </div>
 
           <button type="button" id="btn-guest" class="w-full py-2.5 px-4 rounded-lg font-medium text-xs transition-all hover:bg-os-elevated border border-os-border hover:border-os-border-strong text-os-text flex items-center justify-center gap-2 cursor-pointer shadow-sm font-mono">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fame-checker.png" alt="Invitado" class="w-4 h-4 pokemon-sprite">
-            <span>Continuar como Invitado (Guardado Local)</span>
+            <span>${t('auth_btn_guest', 'Continuar como Invitado (Guardado Local)')}</span>
           </button>
         </form>
       </div>
@@ -217,25 +218,25 @@ export function renderAuthUI(onSuccess) {
       setGuestMode(false);
       if (onSuccess) onSuccess();
     } catch (err) {
-      showError(err.message || 'Error al iniciar sesión');
+      showError(err.message || t('auth_err_login', 'Error al iniciar sesión'));
     }
   });
 
   btnRegister.addEventListener('click', async () => {
     if (!emailInput.value || !passwordInput.value) {
-      showError('Por favor ingrese correo y contraseña para registrarse');
+      showError(t('auth_err_req_fields', 'Por favor ingrese correo y contraseña para registrarse'));
       return;
     }
     errorDiv.classList.add('hidden');
     try {
       await register(emailInput.value, passwordInput.value);
       setGuestMode(false);
-      showError('Registro exitoso. Puede iniciar sesión.');
+      showError(t('auth_msg_register_success', 'Registro exitoso. Puede iniciar sesión.'));
       errorDiv.style.color = 'var(--os-green, #10B981)';
       errorDiv.style.borderColor = 'var(--os-green, #10B981)';
       errorDiv.style.backgroundColor = 'rgba(16,185,129,0.1)';
     } catch (err) {
-      showError(err.message || 'Error al registrarse');
+      showError(err.message || t('auth_err_register', 'Error al registrarse'));
     }
   });
 

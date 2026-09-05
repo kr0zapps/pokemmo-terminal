@@ -387,17 +387,17 @@ export function renderBerryView() {
                     <h2 class="text-xs font-mono text-os-muted uppercase tracking-wider mb-4 font-semibold">${t('seed_inventory')}</h2>
                     
                     <div class="grid grid-cols-5 gap-2 mb-5">
-                        <div><label class="block text-[13px] uppercase text-os-muted mb-1 truncate">Picante</label><input type="number" id="inv_picante" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
-                        <div><label class="block text-[13px] uppercase text-os-muted mb-1 truncate">Dulce</label><input type="number" id="inv_dulce" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
-                        <div><label class="block text-[13px] uppercase text-os-muted mb-1 truncate">Seca</label><input type="number" id="inv_seca" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
-                        <div><label class="block text-[13px] uppercase text-os-muted mb-1 truncate">Amarga</label><input type="number" id="inv_amarga" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
-                        <div><label class="block text-[13px] uppercase text-os-muted mb-1 truncate">Ácida</label><input type="number" id="inv_acida" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
+                        <div><label class="block text-[13px] uppercase text-os-muted mb-1 truncate">${currentLang === 'en' ? 'Spicy' : 'Picante'}</label><input type="number" id="inv_picante" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
+                        <div><label class="block text-[13px] uppercase text-os-muted mb-1 truncate">${currentLang === 'en' ? 'Sweet' : 'Dulce'}</label><input type="number" id="inv_dulce" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
+                        <div><label class="block text-[13px] uppercase text-os-muted mb-1 truncate">${currentLang === 'en' ? 'Dry' : 'Seca'}</label><input type="number" id="inv_seca" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
+                        <div><label class="block text-[13px] uppercase text-os-muted mb-1 truncate">${currentLang === 'en' ? 'Bitter' : 'Amarga'}</label><input type="number" id="inv_amarga" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
+                        <div><label class="block text-[13px] uppercase text-os-muted mb-1 truncate">${currentLang === 'en' ? 'Sour' : 'Ácida'}</label><input type="number" id="inv_acida" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
                         
-                        <div><label class="block text-[13px] uppercase text-os-red mb-1 truncate font-bold">M. Picante</label><input type="number" id="inv_v_picante" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-os-red/40"></div>
-                        <div><label class="block text-[13px] uppercase text-pink-400 mb-1 truncate font-bold">M. Dulce</label><input type="number" id="inv_v_dulce" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-pink-500/40"></div>
-                        <div><label class="block text-[13px] uppercase text-blue-400 mb-1 truncate font-bold">M. Seca</label><input type="number" id="inv_v_seca" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-blue-500/40"></div>
-                        <div><label class="block text-[13px] uppercase text-green-400 mb-1 truncate font-bold">M. Amarga</label><input type="number" id="inv_v_amarga" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-green-500/40"></div>
-                        <div><label class="block text-[13px] uppercase text-yellow-400 mb-1 truncate font-bold">M. Ácida</label><input type="number" id="inv_v_acida" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-yellow-500/40"></div>
+                        <div><label class="block text-[13px] uppercase text-os-red mb-1 truncate font-bold">${currentLang === 'en' ? 'V. Spicy' : 'M. Picante'}</label><input type="number" id="inv_v_picante" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-os-red/40"></div>
+                        <div><label class="block text-[13px] uppercase text-pink-400 mb-1 truncate font-bold">${currentLang === 'en' ? 'V. Sweet' : 'M. Dulce'}</label><input type="number" id="inv_v_dulce" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-pink-500/40"></div>
+                        <div><label class="block text-[13px] uppercase text-blue-400 mb-1 truncate font-bold">${currentLang === 'en' ? 'V. Dry' : 'M. Seca'}</label><input type="number" id="inv_v_seca" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-blue-500/40"></div>
+                        <div><label class="block text-[13px] uppercase text-green-400 mb-1 truncate font-bold">${currentLang === 'en' ? 'V. Bitter' : 'M. Amarga'}</label><input type="number" id="inv_v_amarga" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-green-500/40"></div>
+                        <div><label class="block text-[13px] uppercase text-yellow-400 mb-1 truncate font-bold">${currentLang === 'en' ? 'V. Sour' : 'M. Ácida'}</label><input type="number" id="inv_v_acida" min="0" value="0" class="w-full p-2 text-xs text-center font-mono border-yellow-500/40"></div>
                     </div>
                     
                     <button id="btnCalculateInventory" class="w-full btn-primary py-2.5 text-xs font-mono uppercase tracking-wider mb-4 cursor-pointer">
@@ -415,7 +415,7 @@ export function renderBerryView() {
                         <h2 class="text-xs font-mono text-os-muted uppercase tracking-wider mb-4 font-semibold">${t('berry_recipes')}</h2>
                         <select id="recipeSelect" class="w-full p-2.5 text-xs mb-4 cursor-pointer rounded-lg bg-os-bg border border-os-border text-os-text font-mono">
                             <option value="" disabled selected>${t('berry_consult')}</option>
-                            <optgroup label="Más Rentables">
+                            <optgroup label="${currentLang === 'en' ? 'Most Profitable' : 'Más Rentables'}">
                                 <option value="leppa">Zanama (Leppa) - Restaura PP</option>
                                 <option value="lum">Ziuela (Lum) - Cura todo</option>
                                 <option value="sitrus">Zidra (Sitrus) - Cura PS</option>
@@ -428,7 +428,7 @@ export function renderBerryView() {
                                 <option value="grepa">Uva (Grepa) - Baja DefEsp</option>
                                 <option value="tamato">Tamate (Tamato) - Baja Vel</option>
                             </optgroup>
-                            <optgroup label="Básicas (Estados)">
+                            <optgroup label="${currentLang === 'en' ? 'Basic Status Berries' : 'Básicas (Estados)'}">
                                 <option value="cheri">Zreza (Cheri) - Parálisis</option>
                                 <option value="chesto">Atania (Chesto) - Sueño</option>
                                 <option value="pecha">Meloc (Pecha) - Veneno</option>
@@ -462,7 +462,7 @@ export function renderBerryView() {
                             </div>
                             <div>
                                 <label class="block text-[13px] uppercase text-os-muted mb-1 font-mono">Tiempo Ya Transcurrido (Hrs)</label>
-                                <input type="number" id="berryElapsed" placeholder="0 (recién plantada)" min="0" step="0.5" class="w-full p-2.5 text-sm min-h-[44px]" title="Si la plantaste hace algunas horas, ingresa cuántas horas han pasado">
+                                <input type="number" id="berryElapsed" placeholder="${currentLang === 'en' ? '0 (just planted)' : '0 (recién plantada)'}" min="0" step="0.5" class="w-full p-2.5 text-sm min-h-[44px]" title="${currentLang === 'en' ? 'If planted a few hours ago, enter elapsed hours' : 'Si la plantaste hace algunas horas, ingresa cuántas horas han pasado'}">
                             </div>
                             <div class="flex items-end">
                                 <label class="flex items-center gap-2.5 p-2.5 bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#35352E] rounded-lg cursor-pointer w-full min-h-[44px] select-none hover:border-[#FFC800] transition">
@@ -563,7 +563,7 @@ export function renderProfitCalculatorHTML() {
                         Especie de Baya
                     </label>
                     <select id="profitBerrySelect" class="w-full p-2.5 text-xs font-mono rounded-lg bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] min-h-[42px] cursor-pointer">
-                        <optgroup label="Más Populares / Lucrativas">
+                        <optgroup label="${currentLang === 'en' ? 'Most Popular / Lucrative' : 'Más Populares / Lucrativas'}">
                             <option value="leppa" selected>Zanama (Leppa) - PP / 20h</option>
                             <option value="lum">Ziuela (Lum) - Estados / 44h</option>
                             <option value="sitrus">Zidra (Sitrus) - PS / 44h</option>
@@ -576,7 +576,7 @@ export function renderProfitCalculatorHTML() {
                             <option value="grepa">Uva (Grepa) - Def. Esp.</option>
                             <option value="tamato">Tamate (Tamato) - Velocidad</option>
                         </optgroup>
-                        <optgroup label="Básicas (16h)">
+                        <optgroup label="${currentLang === 'en' ? 'Basic (16h)' : 'Básicas (16h)'}">
                             <option value="cheri">Zreza (Cheri) - Picante</option>
                             <option value="pecha">Meloc (Pecha) - Dulce</option>
                             <option value="rawst">Safre (Rawst) - Amarga</option>
@@ -790,7 +790,7 @@ export function calculateProfitability(triggerSaveNotice = false) {
     saveGTLPrices(currentSeedPrices);
 
     if (triggerSaveNotice) {
-        showSaveIndicator('¡Precios y configuración guardados!');
+        showSaveIndicator(currentLang === 'en' ? 'Prices & settings saved!' : '¡Precios y configuración guardados!');
     }
 
     // 1. Total de bayas cosechadas
@@ -1378,7 +1378,7 @@ export function calculateInventory() {
     });
 
     if (!hasResults) {
-        resultsDiv.innerHTML = '<div class="col-span-full text-center text-gray-400 py-4">No tienes suficientes semillas para plantar ningúna de las bayas listadas.</div>';
+        resultsDiv.innerHTML = '<div class="col-span-full text-center text-gray-400 py-4">${currentLang === 'en' ? 'You do not have enough seeds to plant any of the listed berries.' : 'No tienes suficientes semillas para plantar ningúna de las bayas listadas.'}</div>';
     }
 }
 
@@ -1394,7 +1394,7 @@ export async function plantBerry() {
     const typeEl = document.getElementById('berryType');
     if(!typeEl) return;
     const type = typeEl.value;
-    const location = (document.getElementById('berryLocation')?.value || '').trim() || 'Sin ubicación';
+    const location = (document.getElementById('berryLocation')?.value || '').trim() || (currentLang === 'en' ? 'No Location' : 'Sin ubicación');
     const elapsedHours = parseFloat(document.getElementById('berryElapsed')?.value) || 0;
     const isWateredAtPlant = document.getElementById('berryWateredAtPlant') ? document.getElementById('berryWateredAtPlant').checked : true;
     const dbInfo = BERRY_DB[type] || BERRY_DB.zanama;
@@ -1581,7 +1581,7 @@ export async function harvestCrop(id) {
 }
 
 export function resetHarvestCount() {
-    if(confirm('¿Reiniciar tu récord de cosechas a cero?')) {
+    if(confirm(currentLang === 'en' ? 'Reset your harvest record to zero?' : '¿Reiniciar tu récord de cosechas a cero?')) {
         harvestCounter = 0;
         const totalHarvestedEl = document.getElementById('totalHarvested');
         if (totalHarvestedEl) totalHarvestedEl.innerText = harvestCounter;
@@ -1776,9 +1776,9 @@ export function updateTimers() {
                     waterTimeText.innerText = '¡MARCHITO!';
                     waterTimeText.className = 'font-mono text-xs font-bold text-os-red';
                 }
-                if (dropsText) dropsText.innerHTML = '<span class="text-xs font-mono text-os-red font-bold">Planta Marchita (Excedió 8h)</span>';
+                if (dropsText) dropsText.innerHTML = '<span class="text-xs font-mono text-os-red font-bold">${currentLang === 'en' ? 'Withered Crop (Exceeded 8h)' : 'Planta Marchita (Excedió 8h)'}</span>';
                 if (adviceText) {
-                    adviceText.innerText = 'Han pasado más de 8 horas desde la maduración. La planta se marchitó.';
+                    adviceText.innerText = currentLang === 'en' ? 'More than 8 hours have passed since maturity. The crop has withered.' : 'Han pasado más de 8 horas desde la maduración. La planta se marchitó.';
                     adviceText.className = 'text-[13px] text-os-red font-semibold';
                 }
             } else {
@@ -1833,7 +1833,7 @@ export function updateTimers() {
             if (badge) badge.innerHTML = `<span class="text-[13px] font-mono text-os-red bg-os-red/10 border border-os-red/40 px-2 py-0.5 rounded font-bold uppercase animate-pulse">Seco (0/5)</span>`;
             if (dropsText) dropsText.innerHTML = renderMoistureGauge(crop.id, 0, 5);
             if (adviceText) {
-                adviceText.innerText = 'Suelo seco. Riega con el Cubo Wailmer o haz clic en las gotas de arriba para sincronizar con el juego si aún tiene agua.';
+                adviceText.innerText = currentLang === 'en' ? 'Soil is dry. Water with Wailmer Pail or click drops above to sync moisture.' : 'Suelo seco. Riega con el Cubo Wailmer o haz clic en las gotas de arriba para sincronizar con el juego si aún tiene agua.';
                 adviceText.className = 'text-[13px] text-os-red font-semibold';
             }
             if (waterTimeText) {

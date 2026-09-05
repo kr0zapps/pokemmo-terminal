@@ -113,12 +113,12 @@ export function renderExtractionView() {
                                     ${t('ext_crushed_berry')}
                                 </label>
                                 <select id="crusherBerrySelect" class="w-full p-2.5 text-xs font-mono rounded-lg bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] min-h-[42px] cursor-pointer">
-                                    <optgroup label="Más Comunes / Lucrativas">
+                                    <optgroup label="${currentLang === 'en' ? 'Most Common / Lucrative' : 'Más Comunes / Lucrativas'}">
                                         <option value="leppa" selected>Zanama (Leppa) - Picante, Dulce, Amarga</option>
                                         <option value="lum">Ziuela (Lum) - Seca, Picante, Dulce</option>
                                         <option value="sitrus">Zidra (Sitrus) - Dulce, Amarga, Ácida</option>
                                     </optgroup>
-                                    <optgroup label="Reductoras de EVs">
+                                    <optgroup label="${currentLang === 'en' ? 'EV-Reducing Berries' : 'Reductoras de EVs'}">
                                         <option value="pomeg">Grana (Pomeg) - Picante, Amarga</option>
                                         <option value="kelpsy">Algama (Kelpsy) - Seca, Ácida</option>
                                         <option value="qualot">Ispero (Qualot) - Dulce, Picante</option>
@@ -126,7 +126,7 @@ export function renderExtractionView() {
                                         <option value="grepa">Uva (Grepa) - Ácida, Dulce</option>
                                         <option value="tamato">Tamate (Tamato) - Picante, Seca</option>
                                     </optgroup>
-                                    <optgroup label="Básicas (Estados)">
+                                    <optgroup label="${currentLang === 'en' ? 'Basic Status Berries' : 'Básicas (Estados)'}">
                                         <option value="cheri">Zreza (Cheri) - Picante</option>
                                         <option value="pecha">Meloc (Pecha) - Dulce</option>
                                         <option value="rawst">Safre (Rawst) - Amarga</option>
@@ -140,7 +140,7 @@ export function renderExtractionView() {
                             <div>
                                 <div class="flex justify-between items-center mb-1">
                                     <label class="text-[12px] font-mono uppercase font-bold text-[#5F5A4D] dark:text-[#A8A594]">
-                                        Herramientas Compradas / Usadas
+                                        ${t('ext_tools_count', 'Herramientas Compradas / Usadas')}
                                     </label>
                                     <span class="text-[11px] font-mono text-[#D97706] dark:text-[#F59E0B]">1 tool = 1 baya</span>
                                 </div>
@@ -181,7 +181,7 @@ export function renderExtractionView() {
                             <span>${t('btn_fill_theoretical')}</span>
                         </button>
                         <button type="button" id="btnClearCrusherDrops" class="w-full py-2 px-3 rounded-lg text-[11px] font-mono text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#E63946] transition text-center cursor-pointer">
-                            Reiniciar Conteo a 0
+                            ${currentLang === 'en' ? 'Reset Count to 0' : 'Reiniciar Conteo a 0'}
                         </button>
                     </div>
                 </section>
@@ -193,10 +193,10 @@ export function renderExtractionView() {
                             <div>
                                 <h2 class="text-xs font-tech font-bold uppercase tracking-wider text-[#1C1C17] dark:text-[#F4F1E8] flex items-center gap-1.5">
                                     <span class="w-2.5 h-2.5 rounded-full bg-[#10B981]"></span>
-                                    <span>2. Semillas Dropeadas Reales</span>
+                                    <span>${t('ext_seed_drops', '2. Semillas Dropeadas Reales')}</span>
                                 </h2>
                                 <p class="text-[11px] font-sans text-[#5F5A4D] dark:text-[#A8A594]">
-                                    Ingresa la cantidad exacta de semillas que te arrojó el juego al triturar.
+                                    ${t('ext_seed_drops_desc', 'Ingresa la cantidad exacta de semillas que te arrojó el juego al triturar.')}
                                 </p>
                             </div>
                             <span id="crusherDropsSavedTag" class="text-[11px] font-mono text-[#10B981] bg-[#10B981]/10 border border-[#10B981]/30 px-2 py-0.5 rounded font-medium">
@@ -442,17 +442,17 @@ function renderVerdict(data) {
         verdictTheme = 'border-[#10B981] bg-[#10B981]/5 shadow-[3px_4px_0px_#10B981]';
         verdictTitle = currentLang === 'en' ? 'WORTH IT // PROFITABLE OPERATION' : 'ES A CUENTA // OPERACIÓN RENTABLE';
         verdictBadge = `<span class="text-xs font-mono font-bold uppercase bg-[#10B981] text-black px-2.5 py-1 rounded">${currentLang === 'en' ? 'Profitable' : 'Rentable'} (+ ${data.roi}% ROI)</span>`;
-        verdictSubtitle = `¡Operación provechosa! Obtuviste ${formatMoney(data.netSeedRevenue)} limpios en semillas tras pagar $350 por herramienta, logrando una ganancia neta de +${formatMoney(data.netProfit)} (${data.netProfitPerTool >= 0 ? '+' : ''}${formatMoney(data.netProfitPerTool)} limpios por cada herramienta usada).`;
+        verdictSubtitle = currentLang === 'en' ? `Profitable operation! You earned ${formatMoney(data.netSeedRevenue)} net in seeds after paying ${formatMoney(data.toolCost)} per tool, achieving a net profit of +${formatMoney(data.netProfit)} (${data.netProfitPerTool >= 0 ? '+' : ''}${formatMoney(data.netProfitPerTool)} net per tool used).` : `¡Operación provechosa! Obtuviste ${formatMoney(data.netSeedRevenue)} limpios en semillas tras pagar $350 por herramienta, logrando una ganancia neta de +${formatMoney(data.netProfit)} (${data.netProfitPerTool >= 0 ? '+' : ''}${formatMoney(data.netProfitPerTool)} limpios por cada herramienta usada).`;
     } else if (data.isBreakEven) {
         verdictTheme = 'border-[#FFC800] bg-[#FFC800]/5 shadow-[3px_4px_0px_#FFC800]';
         verdictTitle = currentLang === 'en' ? 'BREAK-EVEN // ZERO PROFIT/LOSS' : 'PUNTO DE EQUILIBRIO // NI GANANCIA NI PÉRDIDA';
         verdictBadge = `<span class="text-xs font-mono font-bold uppercase bg-[#FFC800] text-black px-2.5 py-1 rounded">${currentLang === 'en' ? 'Break-even' : 'Equilibrio'} (0% ROI)</span>`;
-        verdictSubtitle = `Recuperaste exactamente los ${formatMoney(data.totalToolExpense)} invertidos en herramientas.`;
+        verdictSubtitle = currentLang === 'en' ? `You broke even, recovering exactly the ${formatMoney(data.totalToolExpense)} invested in tools.` : `Recuperaste exactamente los ${formatMoney(data.totalToolExpense)} invertidos en herramientas.`;
     } else {
         verdictTheme = 'border-[#E63946] bg-[#E63946]/5 shadow-[3px_4px_0px_#E63946]';
-        verdictTitle = 'NO ES A CUENTA // OPERACIÓN EN PÉRDIDA';
+        verdictTitle = currentLang === 'en' ? 'NOT WORTH IT // LOSS DETECTED' : 'NO ES A CUENTA // OPERACIÓN EN PÉRDIDA';
         verdictBadge = `<span class="text-xs font-mono font-bold uppercase bg-[#E63946] text-white px-2.5 py-1 rounded">${currentLang === 'en' ? 'Loss' : 'Pérdida'} (${data.roi}% ROI)</span>`;
-        verdictSubtitle = `Alerta: Las semillas obtenidas (${formatMoney(data.netSeedRevenue)} limpios) no cubren los ${formatMoney(data.totalToolExpense)} gastados en herramientas. Estás perdiendo -${formatMoney(Math.abs(data.netProfit))} (${formatMoney(data.netProfitPerTool)} por herramienta).`;
+        verdictSubtitle = currentLang === 'en' ? `Loss warning: Seed proceeds (${formatMoney(data.netSeedRevenue)} net) do not cover the ${formatMoney(data.totalToolExpense)} spent on tools. You are losing -${formatMoney(Math.abs(data.netProfit))} (${formatMoney(data.netProfitPerTool)} per tool).` : `Alerta: Las semillas obtenidas (${formatMoney(data.netSeedRevenue)} limpios) no cubren los ${formatMoney(data.totalToolExpense)} gastados en herramientas. Estás perdiendo -${formatMoney(Math.abs(data.netProfit))} (${formatMoney(data.netProfitPerTool)} por herramienta).`;
     }
 
     container.className = `p-5 sm:p-6 rounded-xl border-2 ${verdictTheme} transition-all`;
@@ -548,7 +548,7 @@ export function saveCurrentBatchToHistory(data) {
     const btn = document.getElementById('btnSaveBatchToHistory');
     if (btn) {
         const oldHtml = btn.innerHTML;
-        btn.innerHTML = '<span>¡Lote Guardado en Bitácora!</span>';
+        btn.innerHTML = `<span>${currentLang === 'en' ? 'Batch Saved to Ledger!' : '¡Lote Guardado en Bitácora!'}</span>`;
         btn.className = 'px-3.5 py-2 rounded-lg font-tech font-bold text-xs uppercase tracking-wider bg-[#10B981] text-black transition shadow-sm';
         setTimeout(() => {
             btn.innerHTML = oldHtml;
@@ -566,7 +566,7 @@ export function deleteHistoryEntry(id) {
 }
 
 export function clearCrusherHistory() {
-    if (!confirm('¿Seguro que deseas vaciar toda la bitácora de lotes triturados?')) return;
+    if (!confirm(currentLang === 'en' ? 'Are you sure you want to clear the entire crusher batch ledger?' : '¿Seguro que deseas vaciar toda la bitácora de lotes triturados?')) return;
     saveCrusherHistory([]);
     renderCrusherHistory();
     updateCumulativeStats();
@@ -582,7 +582,7 @@ export function renderCrusherHistory() {
         tbody.innerHTML = `
             <tr>
                 <td colspan="9" class="py-8 text-center text-xs font-mono text-[#5F5A4D] dark:text-[#A8A594]">
-                    Aún no has registrado lotes en la bitácora. Completa una tanda arriba y pulsa "Guardar en Bitácora".
+                    ${currentLang === 'en' ? 'No batches recorded in the ledger yet. Complete a batch above and click "Save Batch to Ledger".' : 'Aún no has registrado lotes en la bitácora. Completa una tanda arriba y pulsa "Guardar en Bitácora".'}
                 </td>
             </tr>
         `;
@@ -597,7 +597,7 @@ export function renderCrusherHistory() {
             Object.keys(item.drops).forEach(seedId => {
                 const count = item.drops[seedId];
                 if (count > 0) {
-                    const shortName = (SEED_NAMES[seedId] || seedId).replace('Semilla ', '');
+                    const shortName = (getSeedName(seedId)).replace('Semilla ', '').replace(' Seed', '');
                     dropsSummary.push(`${count} ${shortName}`);
                 }
             });

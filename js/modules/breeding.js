@@ -114,16 +114,16 @@ export function renderBreedingView() {
                         <span class="text-xs font-mono text-amber-300 font-semibold">${t('breeding_inherit_nature')}</span>
                     </label>
                     
-                    <label class="block text-xs font-mono text-os-muted mb-2">Ahorro: Ya poseo en mi caja...</label>
+                    <label class="block text-xs font-mono text-os-muted mb-2">${currentLang === 'en' ? 'Pre-existing Breeder Savings:' : 'Ahorro: Ya poseo en mi caja...'}</label>
                     <select id="owned-breeder" class="w-full bg-os-bg border border-os-border text-xs p-2.5 rounded-lg text-os-text focus:border-os-blue outline-none cursor-pointer font-mono">
-                        <option value="none">Ninguno (Desde cero)</option>
-                        <option value="2_false">Un 2x31</option>
-                        <option value="2_true">Un 2x31 + Naturaleza</option>
-                        <option value="3_false">Un 3x31</option>
-                        <option value="3_true">Un 3x31 + Naturaleza</option>
-                        <option value="4_false">Un 4x31</option>
-                        <option value="4_true">Un 4x31 + Naturaleza</option>
-                        <option value="5_false">Un 5x31</option>
+                        <option value="none">${currentLang === 'en' ? 'None (From scratch)' : 'Ninguno (Desde cero)'}</option>
+                        <option value="2_false">${currentLang === 'en' ? 'One 2x31' : 'Un 2x31'}</option>
+                        <option value="2_true">${currentLang === 'en' ? 'One 2x31 + Nature' : 'Un 2x31 + Naturaleza'}</option>
+                        <option value="3_false">${currentLang === 'en' ? 'One 3x31' : 'Un 3x31'}</option>
+                        <option value="3_true">${currentLang === 'en' ? 'One 3x31 + Nature' : 'Un 3x31 + Naturaleza'}</option>
+                        <option value="4_false">${currentLang === 'en' ? 'One 4x31' : 'Un 4x31'}</option>
+                        <option value="4_true">${currentLang === 'en' ? 'One 4x31 + Nature' : 'Un 4x31 + Naturaleza'}</option>
+                        <option value="5_false">${currentLang === 'en' ? 'One 5x31' : 'Un 5x31'}</option>
                     </select>
                 </div>
             </div>
@@ -133,14 +133,14 @@ export function renderBreedingView() {
                     <h2 class="text-xs font-mono font-semibold text-os-blue mb-3 uppercase tracking-wider border-b border-os-border pb-2 flex items-center justify-between">
                         <span class="flex items-center gap-1.5">
                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/coin-case.png" class="w-4 h-4 pokemon-sprite" alt="GTL">
-                            <span>Objetos y Costos (GTL)</span>
+                            <span>${currentLang === 'en' ? 'Items & Costs (GTL)' : 'Objetos y Costos (GTL)'}</span>
                         </span>
-                        <span class="text-[13px] text-os-muted font-normal">Precios GTL</span>
+                        <span class="text-[13px] text-os-muted font-normal">${currentLang === 'en' ? 'GTL Prices' : 'Precios GTL'}</span>
                     </h2>
                     <div id="shopping-list" class="space-y-2 font-mono text-xs text-os-text"></div>
                 </div>
                 <div class="mt-6 pt-4 border-t border-os-border text-right">
-                    <div class="text-os-muted mb-1 text-[13px] uppercase font-mono font-semibold tracking-wider">Costo Estimado</div>
+                    <div class="text-os-muted mb-1 text-[13px] uppercase font-mono font-semibold tracking-wider">${currentLang === 'en' ? 'Estimated Cost' : 'Costo Estimado'}</div>
                     <div id="cost-total-pokeyen" class="text-2xl font-mono font-bold text-amber-400 tabular-nums">$0</div>
                 </div>
             </div>
@@ -150,11 +150,11 @@ export function renderBreedingView() {
         <div class="lg:col-span-3">
             <div class="panel p-5 rounded-xl border border-os-border min-h-[600px] overflow-auto relative">
                 <div class="flex justify-between items-center mb-4 border-b-2 border-[#2B2B2B] dark:border-[#35352E] pb-3 flex-wrap gap-2">
-                    <h2 class="text-xs font-tech font-bold text-[#1C1C17] dark:text-[#F4F1E8] uppercase tracking-wider">Árbol de Crianza de IVs</h2>
-                    <button id="btn-update-tree" class="min-h-[44px] px-4 py-2 bg-[#EDE8DC] dark:bg-[#2E2E27] hover:border-[#FFC800] text-[#1C1C17] dark:text-[#F4F1E8] border border-[#2B2B2B] dark:border-[#35352E] text-[13px] font-tech font-bold rounded-lg transition shadow-sm cursor-pointer flex items-center justify-center">Actualizar Árbol</button>
+                    <h2 class="text-xs font-tech font-bold text-[#1C1C17] dark:text-[#F4F1E8] uppercase tracking-wider">${currentLang === 'en' ? 'IV Breeding Tree' : 'Árbol de Crianza de IVs'}</h2>
+                    <button id="btn-update-tree" class="min-h-[44px] px-4 py-2 bg-[#EDE8DC] dark:bg-[#2E2E27] hover:border-[#FFC800] text-[#1C1C17] dark:text-[#F4F1E8] border border-[#2B2B2B] dark:border-[#35352E] text-[13px] font-tech font-bold rounded-lg transition shadow-sm cursor-pointer flex items-center justify-center">${currentLang === 'en' ? 'Update Tree' : 'Actualizar Árbol'}</button>
                 </div>
                 <div id="mermaid-container" class="w-full max-w-full overflow-x-auto flex justify-center mt-4 bg-[#FAF8F2] dark:bg-[#161614] p-3 rounded-xl border-2 border-[#2B2B2B]/30 dark:border-[#35352E] shadow-inner">
-                    <div class="text-[#5F5A4D] dark:text-[#A8A594] text-xs font-mono mt-10">Selecciona entre 2 y 6 IVs para generar el árbol...</div>
+                    <div class="text-[#5F5A4D] dark:text-[#A8A594] text-xs font-mono mt-10">${currentLang === 'en' ? 'Select between 2 and 6 IVs to generate the tree...' : 'Selecciona entre 2 y 6 IVs para generar el árbol...'}</div>
                 </div>
             </div>
         </div>
@@ -173,14 +173,14 @@ export function renderEggGroupModal() {
         <div class="p-5 border-b border-os-border flex-shrink-0 bg-os-border/10 rounded-t-xl">
             <h3 class="text-base font-bold text-white flex items-center gap-2">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/egg.png" class="w-5 h-5 pokemon-sprite" alt="Huevo">
-                <span>Grupo Huevo: <span id="egg-group-modal-title" class="text-os-blue uppercase"></span></span>
+                <span>${currentLang === 'en' ? 'Egg Group:' : 'Grupo Huevo:'} <span id="egg-group-modal-title" class="text-os-blue uppercase"></span></span>
             </h3>
-            <p class="text-xs text-os-muted mt-1 mb-3">Toca cualquier Pokémon para seleccionarlo como objetivo de crianza.</p>
+            <p class="text-xs text-os-muted mt-1 mb-3">${currentLang === 'en' ? 'Click any Pokémon to select as breeding target.' : 'Toca cualquier Pokémon para seleccionarlo como objetivo de crianza.'}</p>
             <div class="relative">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-os-muted">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </div>
-                <input type="text" id="egg-group-search-input" placeholder="Filtrar Pokémon de este grupo huevo..." class="w-full bg-os-bg border border-os-border text-xs pl-8 pr-3 py-2 rounded-lg text-os-text focus:border-os-blue outline-none font-mono">
+                <input type="text" id="egg-group-search-input" placeholder="${currentLang === 'en' ? 'Filter Pokémon in this egg group...' : 'Filtrar Pokémon de este grupo huevo...'}" class="w-full bg-os-bg border border-os-border text-xs pl-8 pr-3 py-2 rounded-lg text-os-text focus:border-os-blue outline-none font-mono">
             </div>
         </div>
         <div id="egg-group-modal-content" class="p-4 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-sm font-mono flex-1">
@@ -354,7 +354,7 @@ export async function fetchPokemonData() {
 
         if (eggGroupSpan) {
             if (eggGroups.length === 0) {
-                eggGroupSpan.innerHTML = '<span class="text-os-muted font-mono">Ninguno (No cría)</span>';
+                eggGroupSpan.innerHTML = `<span class="text-os-muted font-mono">${currentLang === 'en' ? 'None (Undiscovered)' : 'Ninguno (No cría)'}</span>`;
             } else {
                 eggGroupSpan.innerHTML = eggGroups.map(eg => 
                     `<button type="button" data-egggroup="${eg.name}" class="egg-group-btn text-xs bg-os-blue/15 hover:bg-os-blue hover:text-black border border-os-blue/40 text-os-blue font-semibold px-2 py-0.5 rounded transition uppercase mr-1.5 cursor-pointer shadow-sm font-mono">${eg.name}</button>`
@@ -376,7 +376,7 @@ export async function fetchPokemonData() {
 
         if (rate === -1) {
             cost = 0;
-            costText = "Sin género (Requiere Ditto)";
+            costText = currentLang === 'en' ? 'Genderless (Requires Ditto)' : 'Sin género (Requiere Ditto)';
         } else if (rate === 4) {
             cost = 5000;
             costText = "5,000¥ (50% M / 50% H)";
@@ -388,7 +388,7 @@ export async function fetchPokemonData() {
             costText = "21,000¥ (12.5% / 87.5%)";
         } else if (rate === 0 || rate === 8) {
             cost = 0;
-            costText = "100% un solo género";
+            costText = currentLang === 'en' ? '100% Single Gender' : '100% un solo género';
         } else {
             cost = 5000;
             costText = "5,000¥";
@@ -430,7 +430,7 @@ export async function generateBreedingTree() {
     }
 
     if (targetStats.length > 6) {
-        container.innerHTML = '<div class="text-red-400 text-sm mt-10">No puedes seleccionar más de 6 IVs.</div>';
+        container.innerHTML = '<div class="text-red-400 text-sm mt-10">${currentLang === 'en' ? 'Cannot select more than 6 IVs.' : 'No puedes seleccionar más de 6 IVs.'}</div>';
         return;
     }
 
@@ -500,7 +500,7 @@ export async function generateBreedingTree() {
             <div class="flex items-center justify-between border-b border-os-border/50 pb-2">
                 <span class="flex items-center gap-2">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${sprite}.png" class="w-4 h-4 pokemon-sprite" alt="${stat}">
-                    <span>${count}x ${BRACER_NAMES[stat]} (${stat})</span>
+                    <span>${count}x ${getBracerName(stat)} (${stat})</span>
                 </span>
                 <span class="text-os-blue font-bold tabular-nums">${(count*10).toLocaleString()}k</span>
             </div>
@@ -512,18 +512,18 @@ export async function generateBreedingTree() {
             <div class="flex items-center justify-between border-b border-os-border/50 pb-2">
                 <span class="flex items-center gap-2">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/everstone.png" class="w-4 h-4 pokemon-sprite" alt="Piedraeterna">
-                    <span>${everstones}x Piedraeterna</span>
+                    <span>${everstones}x ${currentLang === 'en' ? 'Everstone' : 'Piedraeterna'}</span>
                 </span>
                 <span class="text-amber-300 font-bold tabular-nums">~${(everstones*5).toLocaleString()}k</span>
             </div>
         `;
     }
 
-    htmlList += `<div class="mt-4 pt-2 mb-2 font-bold text-white uppercase text-xs">Criadores Base (1x31):</div>`;
+    htmlList += `<div class="mt-4 pt-2 mb-2 font-bold text-white uppercase text-xs">${currentLang === 'en' ? 'Base Breeders (1x31):' : 'Criadores Base (1x31):'}</div>`;
     for (const stat of Object.keys(breeders)) {
         let count = breeders[stat];
         let eggSuffix = currentEggGroup ? ` (${currentEggGroup})` : '';
-        let name = stat === 'Nature' ? `Pokémon con Naturaleza${eggSuffix}` : `Pokémon 1x31 en ${stat}${eggSuffix}`;
+        let name = stat === 'Nature' ? (currentLang === 'en' ? `Pokémon with Nature${eggSuffix}` : `Pokémon con Naturaleza${eggSuffix}`) : (currentLang === 'en' ? `1x31 Pokémon in ${stat}${eggSuffix}` : `Pokémon 1x31 en ${stat}${eggSuffix}`);
         htmlList += `
             <div class="flex justify-between text-[13px] text-os-muted py-0.5">
                 <span>&bull; ${count}x ${name}</span>
@@ -539,7 +539,7 @@ export async function generateBreedingTree() {
     if (currentGenderCost > 0) {
         htmlList += `
             <div class="flex justify-between border-b border-amber-900/50 pb-2 mt-4">
-                <span class="text-amber-400 font-semibold">${genderSelections}x Selección de Género (${(currentGenderCost/1000)}k)</span>
+                <span class="text-amber-400 font-semibold">${genderSelections}x ${currentLang === 'en' ? 'Gender Selection' : 'Selección de Género'} (${(currentGenderCost/1000)}k)</span>
                 <span class="text-amber-300 font-bold tabular-nums">~${(totalGenderCost/1000).toLocaleString()}k</span>
             </div>
         `;
@@ -563,7 +563,7 @@ export async function generateBreedingTree() {
              const ownN = parseInt(parts[0]);
              const ownNat = parts[1] === 'true';
              if (stats.length === ownN && hasNature === ownNat) {
-                 label = `(TU CAJA)<br/>${stats.length}x31${hasNature ? '<br/>+ Nat' : ''}`;
+                 label = `(${currentLang === 'en' ? 'YOUR PC BOX' : 'TU CAJA'})<br/>${stats.length}x31${hasNature ? '<br/>+ Nat' : ''}`;
                  isBase = true;
                  ownedGraphUsed = true;
              }
@@ -574,7 +574,7 @@ export async function generateBreedingTree() {
                 label = `1x31 ${stats[0]}`;
                 isBase = true;
             } else if (stats.length === 0 && hasNature) {
-                label = `Naturaleza`;
+                label = currentLang === 'en' ? 'Nature' : 'Naturaleza';
                 isBase = true;
             } else {
                 label = `${stats.length}x31${hasNature ? '<br/>+ Nat' : ''}`;
@@ -713,7 +713,7 @@ export function renderEggGroupFiltered(filter = '') {
         : currentEggGroupSpecies;
 
     if (filtered.length === 0) {
-        content.innerHTML = '<div class="col-span-full text-center text-os-muted py-8 text-xs">No se encontraron Pokémon con ese nombre en este grupo.</div>';
+        content.innerHTML = '<div class="col-span-full text-center text-os-muted py-8 text-xs">${currentLang === 'en' ? 'No Pokémon found with that name in this egg group.' : 'No se encontraron Pokémon con ese nombre en este grupo.'}</div>';
         return;
     }
 
@@ -745,7 +745,7 @@ export async function showEggGroupModal(groupName) {
     if (searchInput) searchInput.value = '';
     if (modal) modal.classList.remove('hidden');
     if (title) title.innerText = groupName;
-    if (content) content.innerHTML = '<div class="col-span-full text-center text-os-blue py-10 animate-pulse text-xs">Cargando Pokémon del grupo huevo...</div>';
+    if (content) content.innerHTML = '<div class="col-span-full text-center text-os-blue py-10 animate-pulse text-xs">${currentLang === 'en' ? 'Loading Pokémon from egg group...' : 'Cargando Pokémon del grupo huevo...'}</div>';
     
     try {
         const data = await fetchEggGroup(groupName);
