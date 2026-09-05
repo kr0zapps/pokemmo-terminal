@@ -50,6 +50,10 @@ export const DICT = {
         server_clock: 'POKÉMMO SERVER TIME',
         server_clock_desc: '• 1h real = 4h in-game • 24h Day = 6h real',
         next_reset: 'Next 6h reset:',
+        footer_disclaimer: 'Unofficial, open-source companion tool. Pokémon and PokéMMO belong to their respective creators.',
+        footer_github: 'Open Source (GitHub)',
+        footer_coffee: 'Buy Me a Coffee',
+        footer_feedback: 'Feedback Welcome',
         lang_name: 'English',
         lang_toggle_btn: 'ES',
 
@@ -331,6 +335,10 @@ export const DICT = {
         server_clock: 'HORARIO SERVIDOR POKÉMMO',
         server_clock_desc: '• 1h real = 4h en juego • Día 24h = 6h reales',
         next_reset: 'Próximo reinicio (6h):',
+        footer_disclaimer: 'Herramienta complementaria no oficial y de código abierto. Pokémon y PokéMMO pertenecen a sus respectivos creadores.',
+        footer_github: 'Código Abierto (GitHub)',
+        footer_coffee: 'Buy Me a Coffee',
+        footer_feedback: 'Feedback bienvenido',
         lang_name: 'Español',
         lang_toggle_btn: 'EN',
 
@@ -653,16 +661,16 @@ export function updateI18nDOM() {
     if (nextResetLabel) nextResetLabel.textContent = t('next_reset');
 
     const footerDisclaimer = document.querySelector('#footerDisclaimer');
-    if (footerDisclaimer) footerDisclaimer.textContent = t('footer_disclaimer');
+    if (footerDisclaimer) footerDisclaimer.textContent = t('footer_disclaimer', 'Herramienta complementaria no oficial y de código abierto. Pokémon y PokéMMO pertenecen a sus respectivos creadores.');
 
     const footerGithubText = document.querySelector('#footerGithubText');
-    if (footerGithubText) footerGithubText.textContent = t('footer_github');
+    if (footerGithubText) footerGithubText.textContent = t('footer_github', 'Código Abierto (GitHub)');
 
     const footerCoffeeText = document.querySelector('#footerCoffeeText');
-    if (footerCoffeeText) footerCoffeeText.textContent = t('footer_coffee');
+    if (footerCoffeeText) footerCoffeeText.textContent = t('footer_coffee', 'Buy Me a Coffee');
 
     const footerFeedbackText = document.querySelector('#footerFeedbackText');
-    if (footerFeedbackText) footerFeedbackText.textContent = t('footer_feedback');
+    if (footerFeedbackText) footerFeedbackText.textContent = t('footer_feedback', 'Feedback bienvenido');
 
     // 5. Actualizar pestañas de navegación móvil y desktop
     updateNavTabsText();
