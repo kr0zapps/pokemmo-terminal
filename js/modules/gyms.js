@@ -1,6 +1,7 @@
 import { state, subscribe } from '../state.js';
 import { formatTime } from '../utils/format.js';
 import { toggleGym, resetAllGyms } from '../db.js';
+import { t, currentLang } from '../i18n.js';
 export const GYM_DATA = {
     "Teselia / Unova": [
         { name: "Ciudad Gres (Striaton): Millo/Zeo/Maíz", reward: 9000 },
@@ -66,17 +67,17 @@ export function renderGymView() {
                 <!-- Línea Técnica con Título en Español -->
                 <div class="w-full h-1 bg-[#D8D4C7] dark:bg-[#3A3A34] border-b border-white/20 mb-3 flex items-center justify-between">
                     <div class="w-16 h-1 bg-[#2B2B2B] dark:bg-[#FFC800]"></div>
-                    <span class="font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594] font-bold tracking-wide bg-[#F4F1E8] dark:bg-[#1A1A16] px-2">Ganancias del Gym Run</span>
+                    <span class="font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594] font-bold tracking-wide bg-[#F4F1E8] dark:bg-[#1A1A16] px-2">${t('gym_earnings_title')}</span>
                     <div class="w-28 h-1 bg-[#FFC800]"></div>
                 </div>
                 <!-- Fila de Encabezado con Interruptor Deslizante -->
                 <div class="flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-2">
-                        <span class="font-tech font-bold text-xs tracking-wide text-[#5F5A4D] dark:text-[#A8A594]">Total estimado</span>
+                        <span class="font-tech font-bold text-xs tracking-wide text-[#5F5A4D] dark:text-[#A8A594]">${t('gym_estimated_total')}</span>
                     </div>
                     <!-- Interruptor Deslizante Mecánico: Moneda Amuleto +50% activa -->
                     <label class="flex items-center gap-2 bg-[#E2DDCF] dark:bg-[#242420] border-2 border-[#2B2B2B] dark:border-[#35352E] px-3 py-1.5 rounded-lg shadow-sm cursor-pointer select-none">
-                        <span class="font-tech font-extrabold text-[13px] tracking-wide text-[#2B2B2B] dark:text-[#F4F1E8]">Moneda Amuleto +50% activa</span>
+                        <span class="font-tech font-extrabold text-[13px] tracking-wide text-[#2B2B2B] dark:text-[#F4F1E8]">${t('gym_amulet_toggle')}</span>
                         <input type="checkbox" id="amuletCoinToggle" checked class="sr-only">
                         <div id="amuletToggleKnob" class="w-11 h-6 bg-[#2B2B2B] dark:bg-[#161614] rounded-full p-0.5 flex items-center transition-all shadow-inner">
                             <div class="w-5 h-5 rounded-full bg-[#FFC800] border border-[#2B2B2B] transform translate-x-5 transition-transform shadow-md flex items-center justify-center">
@@ -96,9 +97,9 @@ export function renderGymView() {
                         </span>
                     </div>
                     <div class="flex items-center gap-2 text-[13px] font-mono font-bold text-[#5F5A4D] dark:text-[#A8A594] mt-1 flex-wrap">
-                        <span class="bg-[#E4DFD0] dark:bg-[#242420] px-2 py-0.5 rounded border border-[#81765F]/30 dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8]" id="payoutBaseText">Base: $0</span>
+                        <span class="bg-[#E4DFD0] dark:bg-[#242420] px-2 py-0.5 rounded border border-[#81765F]/30 dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8]" id="payoutBaseText">${t('gym_base_payout')} $0</span>
                         <span class="text-[#2B2B2B] dark:text-[#F4F1E8] font-black">+</span>
-                        <span class="bg-[#FFDF92] dark:bg-[#473200] text-[#5C3800] dark:text-[#FFDF92] px-2 py-0.5 rounded border border-[#755B00]/40 font-black" id="payoutBonusText">Bono: +$0</span>
+                        <span class="bg-[#FFDF92] dark:bg-[#473200] text-[#5C3800] dark:text-[#FFDF92] px-2 py-0.5 rounded border border-[#755B00]/40 font-black" id="payoutBonusText">${t('gym_bonus_payout')} +$0</span>
                     </div>
                 </div>
                 <!-- Barra Recesiva de Progreso -->
@@ -126,24 +127,24 @@ export function renderGymView() {
                 <div class="flex items-center justify-between mb-2 px-1">
                     <span class="font-tech text-[14px] uppercase font-bold text-[#1C1C17] dark:text-[#F4F1E8] tracking-wider flex items-center gap-2">
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/amulet-coin.png" class="w-5 h-5 pokemon-sprite" alt="">
-                        Cronómetro de Moneda Amuleto
+                        ${t('gym_amulet_timer')}
                     </span>
-                    <span class="font-mono text-[13px] text-[#1B5E20] dark:text-[#10B981] font-bold">1 HORA</span>
+                    <span class="font-mono text-[13px] text-[#1B5E20] dark:text-[#10B981] font-bold">${t('gym_1_hour')}</span>
                 </div>
 
                 <!-- Pantalla LCD Verde Fósforo (Siempre activa con el mismo brillo retro) -->
                 <div class="lcd-screen-gb p-3 rounded border-2 border-[#181816] flex flex-col justify-between my-1">
                     <div class="flex justify-between text-[13px] font-bold opacity-80 border-b border-[#0F380F]/30 pb-1">
-                        <span>DURACIÓN AMULETO 1H</span>
-                        <span id="amuletStatusText">INACTIVO</span>
+                        <span>${t('gym_amulet_duration')}</span>
+                        <span id="amuletStatusText">${t('gym_inactive')}</span>
                     </div>
                     <div class="flex items-baseline justify-between my-2">
                         <span id="amuletTimerText" class="text-4xl font-black tracking-widest leading-none font-lcd">60:00</span>
                         <span class="text-[13px] font-bold uppercase tracking-wider font-tech">+50% BONO</span>
                     </div>
                     <div class="flex justify-between text-[13px] font-bold opacity-75 pt-1 border-t border-[#0F380F]/30">
-                        <span>RECARGA: CICLO 18H</span>
-                        <span>ESTADO: LISTO</span>
+                        <span>${t('gym_recharge_cycle')}</span>
+                        <span>${t('gym_status_ready')}</span>
                     </div>
                 </div>
 
@@ -163,21 +164,21 @@ export function renderGymView() {
         <section class="w-full bg-[#E5E0D0] dark:bg-[#242420] border-2 border-[#2B2B2B] dark:border-[#35352E] rounded-xl p-3 md:p-4 shadow-[2px_3px_0px_#2B2B2B] dark:shadow-[2px_3px_0px_#000] flex flex-col gap-2.5 mb-6 transition-colors">
             <div class="flex flex-wrap items-center justify-between gap-2">
                 <div class="flex items-center gap-2">
-                    <span class="font-tech font-bold text-sm text-[#1C1C17] dark:text-[#F4F1E8] tracking-wide">Progreso general de gimnasios (reinicio cada 18h)</span>
+                    <span class="font-tech font-bold text-sm text-[#1C1C17] dark:text-[#F4F1E8] tracking-wide">${t('gym_overall_progress')}</span>
                 </div>
                 <div class="flex items-center gap-3 font-mono font-bold text-xs">
-                    <span class="text-[#2B2B2B] dark:text-[#F4F1E8]">Gimnasios listos: <strong id="gymsReadyCount" class="text-[#1B5E20] dark:text-[#C3F400]">40</strong> / 40</span>
-                    <span id="gymsCooldownBadge" class="bg-[#D2CDBC] dark:bg-[#2E2E27] px-2 py-0.5 rounded border border-[#2B2B2B]/40 dark:border-[#35352E] text-[#5F5A4D] dark:text-[#A8A594]">0 en enfriamiento</span>
+                    <span class="text-[#2B2B2B] dark:text-[#F4F1E8]">${t('gym_ready_count_label')} <strong id="gymsReadyCount" class="text-[#1B5E20] dark:text-[#C3F400]">40</strong> / 40</span>
+                    <span id="gymsCooldownBadge" class="bg-[#D2CDBC] dark:bg-[#2E2E27] px-2 py-0.5 rounded border border-[#2B2B2B]/40 dark:border-[#35352E] text-[#5F5A4D] dark:text-[#A8A594]">0 ${t('gym_cooldown_badge_label')}</span>
                 </div>
             </div>
             <!-- Medidor de Combate Segmentado en 8 partes -->
             <div class="relative w-full h-8 bg-[#2B2B2B] dark:bg-[#161614] rounded-md p-1 border-2 border-[#181816] dark:border-[#35352E] shadow-inner flex items-center">
                 <div class="w-full h-full rounded bg-[#1C1C17] overflow-hidden flex relative">
                     <div id="gymHpReadyBar" class="h-full w-[100%] bg-gradient-to-r from-[#9BBC0F] via-[#CDF14B] to-[#FFC800] rounded-l flex items-center justify-end pr-2 transition-all duration-500 shadow-[inset_0_2px_0_rgba(255,255,255,0.6)]">
-                        <span id="gymHpClearanceText" class="font-mono font-black text-xs text-[#241A00] tracking-wider">100% listos</span>
+                        <span id="gymHpClearanceText" class="font-mono font-black text-xs text-[#241A00] tracking-wider">100% ${t('gym_ready_label')}</span>
                     </div>
                     <div id="gymHpCooldownBar" class="h-full w-[0%] bg-[#3D1B1E] flex items-center justify-center transition-all duration-500">
-                        <span class="font-mono font-bold text-[13px] text-[#FFA8A8] tracking-wider">Enfriamiento</span>
+                        <span class="font-mono font-bold text-[13px] text-[#FFA8A8] tracking-wider">${t('gym_cooldown_label')}</span>
                     </div>
                 </div>
                 <div class="absolute inset-x-1 inset-y-1 pointer-events-none grid grid-cols-8 divide-x-2 divide-[#2B2B2B]/70 dark:divide-[#161614]">
@@ -188,10 +189,10 @@ export function renderGymView() {
             <div class="flex flex-wrap items-center justify-between text-[13px] font-mono text-[#5F5A4D] dark:text-[#A8A594] pt-0.5">
                 <span class="flex items-center gap-1.5">
                     <svg class="w-3.5 h-3.5 text-[#755B00] dark:text-[#FFC800]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
-                    Ruta recomendada: <strong class="text-[#1C1C17] dark:text-[#F4F1E8]" id="gymOptimalRouteText">Azulona &gt; Azafrán &gt; Carmín &gt; Celeste &gt; Fucsia</strong>
+                    ${t('gym_recommended_route')} <strong class="text-[#1C1C17] dark:text-[#F4F1E8]" id="gymOptimalRouteText">Azulona &gt; Azafrán &gt; Carmín &gt; Celeste &gt; Fucsia</strong>
                 </span>
                 <button id="btn-reset-gyms" class="font-bold text-[#b7102a] dark:text-[#FFA8A8] hover:underline cursor-pointer uppercase text-[13px] tracking-wider">
-                    [ Reiniciar todos los gimnasios ]
+                    ${t('gym_reset_all_btn')}
                 </button>
             </div>
         </section>
@@ -200,9 +201,9 @@ export function renderGymView() {
         <div class="flex flex-col gap-4">
             <div class="flex items-center justify-between px-1">
                 <div class="flex items-center gap-2">
-                    <span class="font-tech font-black text-base text-[#1C1C17] dark:text-[#F4F1E8] tracking-wide">Rutas de Gimnasios por Región</span>
+                    <span class="font-tech font-black text-base text-[#1C1C17] dark:text-[#F4F1E8] tracking-wide">${t('gym_routes_by_region')}</span>
                 </div>
-                <span class="font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">Reinicio de líderes: 18 horas</span>
+                <span class="font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">${t('gym_leader_reset_info')}</span>
             </div>
 
             <!-- Tarjeta Principal de Región en Foco -->
@@ -322,6 +323,14 @@ export const OPTIMAL_ROUTES = {
     "Johto": "Malva > Azalea > Trigal > Iris > Orquídea > Olivo > Caoba > Endrino"
 };
 
+export const OPTIMAL_ROUTES_EN = {
+    "Kanto": "Celadon > Saffron > Vermilion > Cerulean > Fuchsia",
+    "Teselia / Unova": "Striaton > Nacrene > Castelia > Nimbasa > Driftveil > Mistralton > Icirrus > Opelucid",
+    "Sinnoh": "Oreburgh > Eterna > Hearthome > Veilstone > Pastoria > Canalave > Snowpoint > Sunyshore",
+    "Hoenn": "Rustboro > Dewford > Mauville > Lavaridge > Petalburg > Fortree > Mossdeep > Sootopolis",
+    "Johto": "Violet > Azalea > Goldenrod > Ecruteak > Cianwood > Olivine > Mahogany > Blackthorn"
+};
+
 export function renderGyms() {
     const kantoContainer = document.getElementById('kantoDeckContainer');
     const subContainer = document.getElementById('subRegionsDeckContainer');
@@ -335,7 +344,7 @@ export function renderGyms() {
     // Actualizar texto de secuencia óptima de rutas según la región en foco
     const optimalRouteEl = document.getElementById('gymOptimalRouteText');
     if (optimalRouteEl) {
-        optimalRouteEl.textContent = OPTIMAL_ROUTES[focusedRegion] || OPTIMAL_ROUTES['Kanto'];
+        optimalRouteEl.textContent = (currentLang === 'en' ? OPTIMAL_ROUTES_EN[focusedRegion] : OPTIMAL_ROUTES[focusedRegion]) || (currentLang === 'en' ? OPTIMAL_ROUTES_EN['Kanto'] : OPTIMAL_ROUTES['Kanto']);
     }
 
     kantoContainer.innerHTML = '';
@@ -365,11 +374,11 @@ export function renderGyms() {
             <!-- Sello Dinámico Físico Rotado -->
             ${isFocusedCleared ? `
                 <div class="absolute right-4 sm:right-6 top-4 sm:top-6 z-20 pointer-events-none stamp-cleared bg-[#FAF8F2]/95 dark:bg-[#242420]/95 px-3 py-1 font-mono font-black text-xs md:text-sm tracking-widest shadow-sm">
-                    ★ REGIÓN COMPLETADA ★
+                    ★ ${t('gym_circuit_cleared_stamp')} ★
                 </div>
             ` : `
                 <div class="absolute right-4 sm:right-6 top-4 sm:top-6 z-20 pointer-events-none stamp-progress bg-[#FAF8F2]/95 dark:bg-[#242420]/95 px-2.5 py-0.5 font-mono font-bold text-[13px] md:text-xs tracking-tight shadow-sm">
-                    PENDIENTE ${focusedList.length - focusedCompleted}/${focusedList.length}
+                    ${t('gym_circuit_pending_stamp')} ${focusedList.length - focusedCompleted}/${focusedList.length}
                 </div>
             `}
 
@@ -377,12 +386,12 @@ export function renderGyms() {
             <div class="flex flex-wrap items-center justify-between border-b-2 border-[#2B2B2B] dark:border-[#35352E] pb-2 mb-3 gap-2">
                 <div class="flex items-center gap-2">
                     <span class="bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] px-2 py-0.5 rounded border border-[#2B2B2B] dark:border-[#35352E]">${focusedRegionNumber}</span>
-                    <span class="font-tech font-black text-base md:text-lg text-[#1C1C17] dark:text-[#F4F1E8]">Liga de ${focusedRegion}</span>
-                    <span class="font-tech font-bold text-[13px] text-[#5C3800] dark:text-[#FFDF92] bg-[#FFDF92] dark:bg-[#473200] px-2 py-0.5 rounded">Región activa</span>
+                    <span class="font-tech font-black text-base md:text-lg text-[#1C1C17] dark:text-[#F4F1E8]">${currentLang === 'en' ? `${(focusedRegion === 'Teselia / Unova' ? 'Unova' : focusedRegion)} League` : `Liga de ${focusedRegion}`}</span>
+                    <span class="font-tech font-bold text-[13px] text-[#5C3800] dark:text-[#FFDF92] bg-[#FFDF92] dark:bg-[#473200] px-2 py-0.5 rounded">${t('gym_active_region')}</span>
                 </div>
                 <div class="flex items-center gap-1.5 z-10 mr-0 sm:mr-36 flex-wrap">
                     <button data-region="${focusedRegion}" data-action="mark-all" class="text-[13px] font-tech uppercase bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#10B981] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-2 rounded-lg font-bold transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Marcar todos los líderes de esta región como completados">
-                        ${isFocusedCleared ? 'Completado ✓' : 'Completar región'}
+                        ${isFocusedCleared ? t('gym_cleared') : t('gym_clear_region')}
                     </button>
                     <button data-region="${focusedRegion}" data-action="unmark-all" class="text-[13px] font-tech uppercase bg-[#E4DFD0] dark:bg-[#2E2E27] text-[#2B2B2B] dark:text-[#F4F1E8] hover:text-[#b7102a] dark:hover:text-[#FFA8A8] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-2 rounded-lg transition cursor-pointer min-h-[44px] flex items-center justify-center shadow-sm" title="Reiniciar región de ${focusedRegion}">
                         Reiniciar
@@ -395,7 +404,8 @@ export function renderGyms() {
                 ${focusedList.map((gym, idx) => {
                     const id = `gym-${cleanFocusedRegion}-${idx}`;
                     const isChecked = localStorage.getItem(id) === 'true';
-                    const [city, leader] = gym.name.includes(':') ? gym.name.split(':') : [gym.name, ''];
+                    const gymDisplayName = (currentLang === 'en' && gym.nameEn) ? gym.nameEn : gym.name;
+                    const [city, leader] = gymDisplayName.includes(':') ? gymDisplayName.split(':') : [gymDisplayName, ''];
                     return `
                         <div class="leader-tile ${isChecked ? 'bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B]/40 dark:border-[#35352E]' : 'bg-[#F0ECE1] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E]'} p-2.5 rounded-xl flex flex-col justify-between cursor-pointer hover:border-[#FFC800] transition select-none min-h-[76px]" data-gym-id="${id}">
                             <div class="flex items-center justify-between">
@@ -405,7 +415,7 @@ export function renderGyms() {
                                     <span class="w-4 h-4 rounded-full bg-[#2B2B2B] dark:bg-[#3E3E36] text-white text-[13px] font-black flex items-center justify-center">${idx + 1}</span>
                                 `}
                                 <span id="timer-${id}" class="font-mono text-[13px] ${isChecked ? 'text-[#5F5A4D] dark:text-[#A8A594] font-medium' : 'text-[#1B5E20] dark:text-[#C3F400] font-bold'}">
-                                    ${isChecked ? '--:--:--' : 'Listo'}
+                                    ${isChecked ? '--:--:--' : t('gym_ready')}
                                 </span>
                             </div>
                             <div class="mt-1.5 flex flex-col overflow-hidden">
@@ -475,7 +485,7 @@ export function renderGyms() {
             <div class="flex flex-wrap items-center justify-between border-b border-[#2B2B2B]/30 dark:border-[#35352E] pb-2 mb-3 gap-2">
                 <div class="flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition" data-region="${regionName}" data-action="focus-region" title="Clic para ver esta región en grande arriba">
                     <span class="bg-[#E4DFD0] dark:bg-[#2E2E27] text-[#2B2B2B] dark:text-[#F4F1E8] font-tech font-bold text-[13px] px-2 py-0.5 rounded border border-[#2B2B2B] dark:border-[#35352E]">${regionNumber}</span>
-                    <span class="font-tech font-bold text-sm text-[#1C1C17] dark:text-[#F4F1E8] hover:underline">${regionName}</span>
+                    <span class="font-tech font-bold text-sm text-[#1C1C17] dark:text-[#F4F1E8] hover:underline">${(currentLang === 'en' && regionName === 'Teselia / Unova') ? 'Unova' : regionName}</span>
                 </div>
                 <div class="flex items-center gap-1.5 z-10 flex-wrap">
                     ${actionBtnHtml}
@@ -693,9 +703,9 @@ export function updateAmuletUI() {
 
     if (!start || isNaN(start)) {
         if (timerEl) timerEl.innerText = '60:00';
-        if (statusEl) statusEl.innerText = 'INACTIVO';
+        if (statusEl) statusEl.innerText = t('gym_inactive');
         if (btnEl) {
-            btnEl.innerText = 'Iniciar cronómetro';
+            btnEl.innerText = t('gym_btn_start');
             btnEl.className = 'flex-1 py-1.5 bg-[#FFC800] text-[#241A00] hover:bg-[#FFE066] border-2 border-[#181816] font-tech font-black text-xs uppercase tracking-wider rounded shadow-[1px_2px_0px_#181816] active:translate-y-0.5 cursor-pointer';
         }
         return;
@@ -718,9 +728,9 @@ export function updateAmuletUI() {
             timerEl.innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
             timerEl.className = 'text-4xl font-black tracking-widest leading-none font-lcd';
         }
-        if (statusEl) statusEl.innerText = 'BONO ACTIVO';
+        if (statusEl) statusEl.innerText = currentLang === 'en' ? 'BOOST ACTIVE' : 'BONO ACTIVO';
         if (btnEl) {
-            btnEl.innerText = 'En curso (Activo)';
+            btnEl.innerText = currentLang === 'en' ? 'Running (Active)' : 'En curso (Activo)';
             btnEl.className = 'flex-1 py-1.5 bg-[#1B5E20] dark:bg-[#C3F400] text-white dark:text-[#181816] border-2 border-[#181816] font-tech font-black text-xs uppercase tracking-wider rounded shadow-[1px_2px_0px_#181816]';
         }
     }
@@ -748,7 +758,7 @@ export function updateTimers() {
                 localStorage.removeItem(id);
                 localStorage.removeItem(key);
                 if (timerEl) {
-                    timerEl.innerText = 'Listo';
+                    timerEl.innerText = t('gym_ready');
                     timerEl.className = "font-mono text-[13px] font-bold text-[#1B5E20] dark:text-[#C3F400]";
                     const label = document.getElementById(`label-${id}`);
                     if (label) {

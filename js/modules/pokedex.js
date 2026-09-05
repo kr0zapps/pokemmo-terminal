@@ -1,5 +1,6 @@
 import { state, setState, subscribe } from '../state.js';
 import { catchPokemon as dbCatchPokemon, uncatchPokemon as dbUncatchPokemon } from '../db.js';
+import { t, currentLang } from '../i18n.js';
 
 subscribe('caught', (serverCaught) => {
     if (Array.isArray(serverCaught) && serverCaught.length > 0) {
@@ -31,15 +32,15 @@ export function renderPokédexView() {
                 <div>
                     <div class="flex items-center gap-2.5">
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/town-map.png" class="w-7 h-7 pokemon-sprite">
-                        <span class="text-xl font-tech font-bold text-[#1C1C17] dark:text-[#F4F1E8]">Radar Pokédex</span>
-                        <span class="text-[13px] font-tech uppercase bg-[#FFDF92] dark:bg-[#473200] border border-[#755B00]/40 text-[#5C3800] dark:text-[#FFDF92] px-2 py-0.5 rounded font-bold">Rutas de Encuentro</span>
+                        <span class="text-xl font-tech font-bold text-[#1C1C17] dark:text-[#F4F1E8]">${t('dex_header_title')}</span>
+                        <span class="text-[13px] font-tech uppercase bg-[#FFDF92] dark:bg-[#473200] border border-[#755B00]/40 text-[#5C3800] dark:text-[#FFDF92] px-2 py-0.5 rounded font-bold">${t('dex_routes_badge')}</span>
                     </div>
-                    <p class="text-[13px] text-[#5F5A4D] dark:text-[#A8A594] mt-1 font-sans">Ruteo geográfico secuencial y optimización de captura salvaje por región.</p>
+                    <p class="text-[13px] text-[#5F5A4D] dark:text-[#A8A594] mt-1 font-sans">${t('dex_header_desc')}</p>
                 </div>
                 <div class="flex flex-wrap items-center gap-2">
                     <button onclick="window.pokedex.openCaughtModal()" class="border-2 border-[#2B2B2B] dark:border-[#35352E] bg-[#FAF8F2] dark:bg-[#242420] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#FFC800] px-3.5 py-1.5 text-[13px] font-tech font-bold transition flex items-center gap-2 rounded-lg shadow-sm cursor-pointer">
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" class="w-4 h-4 pixelated">
-                        <span>Capturados (<strong id="btnCaughtCount" class="tabular-nums text-[#10B981] dark:text-[#10B981]">0</strong>)</span>
+                        <span>${t('dex_caught_btn')} (<strong id="btnCaughtCount" class="tabular-nums text-[#10B981] dark:text-[#10B981]">0</strong>)</span>
                     </button>
                 </div>
             </div>
@@ -52,8 +53,8 @@ export function renderPokédexView() {
                         <button onclick="window.pokedex.setRegion('Johto')" id="reg-Johto" class="px-3.5 py-2 min-h-[44px] text-[13px] font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer flex items-center justify-center">Johto</button>
                         <button onclick="window.pokedex.setRegion('Hoenn')" id="reg-Hoenn" class="px-3.5 py-2 min-h-[44px] text-[13px] font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer flex items-center justify-center">Hoenn</button>
                         <button onclick="window.pokedex.setRegion('Sinnoh')" id="reg-Sinnoh" class="px-3.5 py-2 min-h-[44px] text-[13px] font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer flex items-center justify-center">Sinnoh</button>
-                        <button onclick="window.pokedex.setRegion('Unova')" id="reg-Unova" class="px-3.5 py-2 min-h-[44px] text-[13px] font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer flex items-center justify-center">Teselia</button>
-                        <button onclick="window.pokedex.setRegion('all')" id="reg-all" class="px-3.5 py-2 min-h-[44px] text-[13px] font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer flex items-center justify-center">Todas</button>
+                        <button onclick="window.pokedex.setRegion('Unova')" id="reg-Unova" class="px-3.5 py-2 min-h-[44px] text-[13px] font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer flex items-center justify-center">${currentLang === 'en' ? 'Unova' : 'Teselia'}</button>
+                        <button onclick="window.pokedex.setRegion('all')" id="reg-all" class="px-3.5 py-2 min-h-[44px] text-[13px] font-tech font-bold uppercase tracking-wider text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#1C1C17] dark:hover:text-[#F4F1E8] transition rounded-lg border border-transparent cursor-pointer flex items-center justify-center">${t('dex_tab_all')}</button>
                     </div>
                     
                     <div class="flex flex-wrap items-center gap-3">
@@ -80,11 +81,11 @@ export function renderPokédexView() {
                 <div class="w-full bg-[#FAF8F2] dark:bg-[#242420] border-2 border-[#2B2B2B] dark:border-[#35352E] rounded-xl p-3 md:p-4 shadow-[2px_3px_0px_#2B2B2B] dark:shadow-[2px_3px_0px_#000] flex flex-col gap-2.5 transition-colors">
                     <div class="flex flex-wrap items-center justify-between gap-2">
                         <div class="flex items-center gap-2">
-                            <span class="font-tech font-bold text-[13px] uppercase text-[#1C1C17] dark:text-[#F4F1E8] tracking-wide">Progreso de la Pokédex</span>
-                            <span class="font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">(Pokémon registrados)</span>
+                            <span class="font-tech font-bold text-[13px] uppercase text-[#1C1C17] dark:text-[#F4F1E8] tracking-wide">${t('dex_progress_title')}</span>
+                            <span class="font-mono text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">${t('dex_registered')}</span>
                         </div>
                         <div class="flex items-center gap-2 font-mono text-[13px] font-bold">
-                            <span class="text-[#5F5A4D] dark:text-[#A8A594]">Capturados:</span>
+                            <span class="text-[#5F5A4D] dark:text-[#A8A594]">${t('dex_caught_btn')}:</span>
                             <span id="dexProgressText" class="text-[#10B981] dark:text-[#10B981] font-black">0 / 0</span>
                         </div>
                     </div>
@@ -101,7 +102,7 @@ export function renderPokédexView() {
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#5F5A4D] dark:text-[#A8A594]">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                         </div>
-                        <input type="text" id="dexSearch" placeholder="Buscar Pokémon, Ruta (ej. Ruta 7) o Método..." oninput="window.pokedex.renderDexResults(true)" class="w-full pl-9 pr-3 py-2 text-[13px] bg-[#EDE8DC] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] rounded-lg focus:border-[#FFC800] outline-none font-sans">
+                        <input type="text" id="dexSearch" placeholder="${t('dex_search_input')}" oninput="window.pokedex.renderDexResults(true)" class="w-full pl-9 pr-3 py-2 text-[13px] bg-[#EDE8DC] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] rounded-lg focus:border-[#FFC800] outline-none font-sans">
                     </div>
                     <div>
                         <select id="dexSort" onchange="window.pokedex.renderDexResults(true)" class="w-full py-2 px-3 text-[13px] bg-[#EDE8DC] dark:bg-[#1A1A16] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] rounded-lg cursor-pointer font-sans">
@@ -676,12 +677,12 @@ export function renderDexResults(resetPage = false) {
             <!-- Barra Superior de Control y Paginación (Superficie Elevada Nivel 3) -->
             <div class="bg-[#EDE8DC] dark:bg-[#2E2E27] border-b-2 border-[#2B2B2B] dark:border-[#35352E] px-4 md:px-6 py-3 flex flex-wrap items-center justify-between gap-3 text-[13px] font-mono">
                 <div class="flex items-center gap-2 pl-3">
-                    <span class="font-tech font-bold text-sm uppercase text-[#1C1C17] dark:text-[#F4F1E8] tracking-wider">Encuentros y Rutas de Captura</span>
-                    <span class="text-[#5F5A4D] dark:text-[#A8A594]">• Mostrando <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${startIndex + 1} - ${Math.min(startIndex + dexPageSize, totalItems)}</strong> de <strong class="text-[#10B981]">${totalItems} Pokémon</strong></span>
+                    <span class="font-tech font-bold text-sm uppercase text-[#1C1C17] dark:text-[#F4F1E8] tracking-wider">${currentLang === 'en' ? 'Encounters & Catch Routes' : 'Encuentros y Rutas de Captura'}</span>
+                    <span class="text-[#5F5A4D] dark:text-[#A8A594]">• ${currentLang === 'en' ? 'Showing' : 'Mostrando'} <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${startIndex + 1} - ${Math.min(startIndex + dexPageSize, totalItems)}</strong> ${currentLang === 'en' ? 'of' : 'de'} <strong class="text-[#10B981]">${totalItems} Pokémon</strong></span>
                 </div>
                 <div class="flex items-center gap-1.5">
                     <button onclick="window.pokedex.changeDexPage(-1)" ${dexCurrentPage === 1 ? 'disabled class="px-3.5 py-2 min-h-[44px] bg-[#D8D4C7] dark:bg-[#242420] text-[#81765F] dark:text-[#666] border border-[#2B2B2B]/40 dark:border-[#35352E] cursor-not-allowed rounded-lg font-tech font-bold text-[13px] flex items-center justify-center"' : 'class="px-3.5 py-2 min-h-[44px] bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#FFC800] transition rounded-lg cursor-pointer shadow-sm flex items-center justify-center"'}>Anterior</button>
-                    <span class="px-2 text-[#5F5A4D] dark:text-[#A8A594] font-mono">Pág. <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${dexCurrentPage}</strong> / ${totalPages}</span>
+                    <span class="px-2 text-[#5F5A4D] dark:text-[#A8A594] font-mono">${currentLang === 'en' ? 'Page' : 'Pág.'} <strong class="text-[#1C1C17] dark:text-[#F4F1E8]">${dexCurrentPage}</strong> / ${totalPages}</span>
                     <button onclick="window.pokedex.changeDexPage(1)" ${dexCurrentPage >= totalPages ? 'disabled class="px-3.5 py-2 min-h-[44px] bg-[#D8D4C7] dark:bg-[#242420] text-[#81765F] dark:text-[#666] border border-[#2B2B2B]/40 dark:border-[#35352E] cursor-not-allowed rounded-lg font-tech font-bold text-[13px] flex items-center justify-center"' : 'class="px-3.5 py-2 min-h-[44px] bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] font-tech font-bold text-[13px] border border-[#2B2B2B] dark:border-[#35352E] hover:border-[#FFC800] transition rounded-lg cursor-pointer shadow-sm flex items-center justify-center"'}>Siguiente</button>
                 </div>
             </div>
@@ -754,7 +755,7 @@ export function renderDexResults(resetPage = false) {
                 <td class="py-3 px-2 text-center font-mono font-bold text-[13px]">${formatRateSlot(p.night)}</td>
                 <td class="py-3 px-4 text-center">
                     <button onclick="window.pokedex.catchPokemon(${p.id})" class="px-3.5 py-2 min-h-[44px] text-[13px] font-tech font-bold uppercase tracking-wider rounded-lg transition cursor-pointer flex items-center justify-center ${isCaught ? 'bg-[#EDE8DC] dark:bg-[#2E2E27] border border-[#2B2B2B] dark:border-[#35352E] text-[#7A131C] dark:text-[#FFB4AB] hover:bg-[#E63946] hover:text-white' : 'bg-[#EDE8DC] dark:bg-[#2E2E27] text-[#1C1C17] dark:text-[#F4F1E8] hover:border-[#10B981] hover:text-[#10B981] border border-[#2B2B2B] dark:border-[#35352E] shadow-sm'}">
-                        ${isCaught ? 'Liberar' : 'Capturar'}
+                        ${isCaught ? (currentLang === 'en' ? 'Release' : 'Liberar') : (currentLang === 'en' ? 'Catch' : 'Capturar')}
                     </button>
                 </td>
             </tr>

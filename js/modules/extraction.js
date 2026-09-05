@@ -1,6 +1,8 @@
 import { formatMoney, formatDate } from '../utils/format.js';
+import { t, currentLang } from '../i18n.js';
 import { 
-    SEED_NAMES, 
+    SEED_NAMES,
+    getSeedName, 
     SEED_COLORS, 
     DEFAULT_SEED_PRICES, 
     EXTRACTION_PROFILES, 
@@ -62,14 +64,14 @@ export function renderExtractionView() {
                     <div>
                         <div class="flex items-center gap-2">
                             <h1 class="text-xl sm:text-2xl font-tech font-bold uppercase tracking-wider text-[#1C1C17] dark:text-[#F4F1E8]">
-                                Extracción y Triturador de Semillas
+                                ${t('ext_header_title')}
                             </h1>
                             <span class="text-xs font-mono uppercase bg-[#FFC800]/10 border border-[#FFC800]/40 text-[#B45309] dark:text-[#FFC800] px-2 py-0.5 rounded font-bold">
-                                Auditoría GTL
+                                ${t('ext_audit_badge')}
                             </span>
                         </div>
                         <p class="text-xs font-sans text-[#5F5A4D] dark:text-[#A8A594] mt-0.5">
-                            Control de herramientas compradas, registro de drops reales obtenidos y verificación de rentabilidad en el mercado.
+                            ${t('ext_header_desc')}
                         </p>
                     </div>
                 </div>
@@ -77,15 +79,15 @@ export function renderExtractionView() {
                 <!-- Métricas Acumuladas Globales -->
                 <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
                     <div class="bg-[#FAF8F2] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E] px-3.5 py-1.5 rounded-xl text-right shadow-sm">
-                        <p class="text-[11px] text-[#5F5A4D] dark:text-[#A8A594] uppercase font-mono font-semibold">Herramientas Usadas</p>
+                        <p class="text-[11px] text-[#5F5A4D] dark:text-[#A8A594] uppercase font-mono font-semibold">${t('ext_tools_used')}</p>
                         <p class="text-base sm:text-lg font-mono font-bold text-[#1C1C17] dark:text-[#F4F1E8] tabular-nums" id="crusherTotalTools">0 u.</p>
                     </div>
                     <div class="bg-[#FAF8F2] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E] px-3.5 py-1.5 rounded-xl text-right shadow-sm">
-                        <p class="text-[11px] text-[#5F5A4D] dark:text-[#A8A594] uppercase font-mono font-semibold">Invertido Floristería</p>
+                        <p class="text-[11px] text-[#5F5A4D] dark:text-[#A8A594] uppercase font-mono font-semibold">${t('ext_spent_shop')}</p>
                         <p class="text-base sm:text-lg font-mono font-bold text-[#E63946] tabular-nums" id="crusherTotalSpent">$0</p>
                     </div>
                     <div class="bg-[#FAF8F2] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E] px-3.5 py-1.5 rounded-xl text-right shadow-sm">
-                        <p class="text-[11px] text-[#5F5A4D] dark:text-[#A8A594] uppercase font-mono font-semibold">Ganancia Neta Histórica</p>
+                        <p class="text-[11px] text-[#5F5A4D] dark:text-[#A8A594] uppercase font-mono font-semibold">${t('ext_net_profit_lifetime')}</p>
                         <p class="text-base sm:text-lg font-mono font-bold text-[#10B981] tabular-nums" id="crusherTotalProfit">$0</p>
                     </div>
                 </div>
@@ -99,16 +101,16 @@ export function renderExtractionView() {
                         <div class="flex items-center justify-between pb-3 mb-4 border-b border-[#2B2B2B]/20 dark:border-[#35352E]">
                             <h2 class="text-xs font-tech font-bold uppercase tracking-wider text-[#1C1C17] dark:text-[#F4F1E8] flex items-center gap-1.5">
                                 <span class="w-2.5 h-2.5 rounded-full bg-[#D97706]"></span>
-                                <span>1. Parámetros del Lote</span>
+                                <span>${t('ext_batch_params')}</span>
                             </h2>
-                            <span class="text-[11px] font-mono text-[#5F5A4D] dark:text-[#A8A594]">Sesión en Curso</span>
+                            <span class="text-[11px] font-mono text-[#5F5A4D] dark:text-[#A8A594]">${t('ext_session_active')}</span>
                         </div>
 
                         <div class="space-y-4">
                             <!-- Selector de Baya -->
                             <div>
                                 <label class="block text-[12px] font-mono uppercase font-bold text-[#5F5A4D] dark:text-[#A8A594] mb-1">
-                                    Especie de Baya Triturada
+                                    ${t('ext_crushed_berry')}
                                 </label>
                                 <select id="crusherBerrySelect" class="w-full p-2.5 text-xs font-mono rounded-lg bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] min-h-[42px] cursor-pointer">
                                     <optgroup label="Más Comunes / Lucrativas">
@@ -134,7 +136,7 @@ export function renderExtractionView() {
                                 </select>
                             </div>
 
-                            <!-- Herramientas Compradas / Usadas -->
+                            <!-- ${t('ext_tools_count')} -->
                             <div>
                                 <div class="flex justify-between items-center mb-1">
                                     <label class="text-[12px] font-mono uppercase font-bold text-[#5F5A4D] dark:text-[#A8A594]">
@@ -150,14 +152,14 @@ export function renderExtractionView() {
                             <div class="grid grid-cols-2 gap-3">
                                 <div>
                                     <label class="block text-[11px] font-mono uppercase font-bold text-[#5F5A4D] dark:text-[#A8A594] mb-1 truncate" title="Costo oficial por herramienta en tiendas NPC">
-                                        Precio Tool ($)
+                                        ${t('ext_tool_unit')}
                                     </label>
                                     <input type="number" id="crusherToolCost" value="350" min="0" step="10"
                                         class="w-full p-2 text-xs font-mono text-center rounded-lg bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] min-h-[42px]">
                                 </div>
                                 <div>
                                     <label class="block text-[11px] font-mono uppercase font-bold text-[#5F5A4D] dark:text-[#A8A594] mb-1 truncate" title="Comisión de venta en el GTL">
-                                        Comisión GTL (%)
+                                        ${t('ext_gtl_commission')}
                                     </label>
                                     <input type="number" id="crusherGTLFee" value="5" min="0" max="20" step="1"
                                         class="w-full p-2 text-xs font-mono text-center rounded-lg bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] min-h-[42px]">
@@ -166,7 +168,7 @@ export function renderExtractionView() {
 
                             <!-- Resumen Inversión en Herramientas -->
                             <div class="bg-[#EDE8DC] dark:bg-[#1E1E1A] p-3 rounded-lg border border-[#2B2B2B]/30 dark:border-[#35352E] flex justify-between items-center">
-                                <span class="text-xs font-mono text-[#5F5A4D] dark:text-[#A8A594] uppercase font-bold">Gasto Total Herramientas:</span>
+                                <span class="text-xs font-mono text-[#5F5A4D] dark:text-[#A8A594] uppercase font-bold">${t('ext_total_expense')}</span>
                                 <span id="crusherBatchExpense" class="text-sm font-mono font-bold text-[#E63946] tabular-nums">$35,000</span>
                             </div>
                         </div>
@@ -176,7 +178,7 @@ export function renderExtractionView() {
                     <div class="pt-4 mt-4 border-t border-[#2B2B2B]/20 dark:border-[#35352E] space-y-2">
                         <button type="button" id="btnFillExpectedDrops" class="w-full py-2.5 px-3 rounded-lg text-xs font-tech font-bold uppercase tracking-wider bg-[#EDE8DC] dark:bg-[#2E2E27] hover:bg-[#FFC800] hover:text-black text-[#1C1C17] dark:text-[#F4F1E8] border border-[#2B2B2B] dark:border-[#35352E] transition flex items-center justify-center gap-2 cursor-pointer shadow-sm">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                            <span>Cargar Estimación Teórica</span>
+                            <span>${t('btn_fill_theoretical')}</span>
                         </button>
                         <button type="button" id="btnClearCrusherDrops" class="w-full py-2 px-3 rounded-lg text-[11px] font-mono text-[#5F5A4D] dark:text-[#A8A594] hover:text-[#E63946] transition text-center cursor-pointer">
                             Reiniciar Conteo a 0
@@ -247,15 +249,15 @@ export function renderExtractionView() {
                     <table class="w-full text-left border-collapse">
                         <thead>
                             <tr class="bg-[#EDE8DC] dark:bg-[#2E2E27] border-b border-[#2B2B2B] dark:border-[#35352E] text-[11px] font-mono uppercase text-[#5F5A4D] dark:text-[#A8A594]">
-                                <th class="py-2.5 px-3">Fecha</th>
-                                <th class="py-2.5 px-3">Baya</th>
-                                <th class="py-2.5 px-3 text-center">Herramientas</th>
-                                <th class="py-2.5 px-3 text-center">Gasto Floristería</th>
-                                <th class="py-2.5 px-3 text-center">Semillas Recibidas</th>
-                                <th class="py-2.5 px-3 text-center">Ingreso Neto GTL</th>
-                                <th class="py-2.5 px-3 text-right">Ganancia Neta</th>
-                                <th class="py-2.5 px-3 text-center">ROI</th>
-                                <th class="py-2.5 px-3 text-center">Acción</th>
+                                <th class="py-2.5 px-3">${t('th_date')}</th>
+                                <th class="py-2.5 px-3">${t('th_berry')}</th>
+                                <th class="py-2.5 px-3 text-center">${t('th_tools')}</th>
+                                <th class="py-2.5 px-3 text-center">${t('th_flower_spent')}</th>
+                                <th class="py-2.5 px-3 text-center">${t('th_seeds_received')}</th>
+                                <th class="py-2.5 px-3 text-center">${t('th_net_gtl')}</th>
+                                <th class="py-2.5 px-3 text-right">${t('th_net_profit')}</th>
+                                <th class="py-2.5 px-3 text-center">${t('th_roi')}</th>
+                                <th class="py-2.5 px-3 text-center">${t('th_action')}</th>
                             </tr>
                         </thead>
                         <tbody id="crusherHistoryTableBody">
@@ -284,7 +286,7 @@ export function renderCrusherSeedInputs(berryKey) {
     const seedIds = Object.keys(extraction);
 
     seedIds.forEach(id => {
-        const name = SEED_NAMES[id] || id;
+        const name = (typeof getSeedName === 'function' ? getSeedName(id) : (SEED_NAMES[id] || id));
         const color = SEED_COLORS[id] || 'text-[#1C1C17]';
         const expectedRatio = extraction[id] || 0;
         const expectedCount = Math.round(toolsCount * expectedRatio);
@@ -303,13 +305,13 @@ export function renderCrusherSeedInputs(berryKey) {
                         </span>
                     </div>
                     <p class="text-[10px] font-mono text-[#5F5A4D] dark:text-[#A8A594] mb-2">
-                        Esperado: <span class="font-bold text-[#1C1C17] dark:text-[#F4F1E8]">${expectedCount} u.</span> (@ $${price}/u)
+                        ${currentLang === 'en' ? 'Expected:' : 'Esperado:'} <span class="font-bold text-[#1C1C17] dark:text-[#F4F1E8]">${expectedCount} u.</span> (@ ${price}/u)
                     </p>
                 </div>
 
                 <div class="space-y-1.5">
                     <label class="block text-[10px] font-mono uppercase text-[#5F5A4D] dark:text-[#A8A594]">
-                        Cantidad Obtenida:
+                        ${currentLang === 'en' ? 'Obtained Count:' : 'Cantidad Obtenida:'}
                     </label>
                     <div class="flex items-center gap-1.5">
                         <input type="number" id="drop_seed_${id}" value="${currentVal}" min="0" max="100000" step="1"
@@ -438,18 +440,18 @@ function renderVerdict(data) {
 
     if (data.isProfitable) {
         verdictTheme = 'border-[#10B981] bg-[#10B981]/5 shadow-[3px_4px_0px_#10B981]';
-        verdictTitle = 'ES A CUENTA // OPERACIÓN RENTABLE';
-        verdictBadge = '<span class="text-xs font-mono font-bold uppercase bg-[#10B981] text-black px-2.5 py-1 rounded">Rentable (+ ' + data.roi + '% ROI)</span>';
+        verdictTitle = currentLang === 'en' ? 'WORTH IT // PROFITABLE OPERATION' : 'ES A CUENTA // OPERACIÓN RENTABLE';
+        verdictBadge = `<span class="text-xs font-mono font-bold uppercase bg-[#10B981] text-black px-2.5 py-1 rounded">${currentLang === 'en' ? 'Profitable' : 'Rentable'} (+ ${data.roi}% ROI)</span>`;
         verdictSubtitle = `¡Operación provechosa! Obtuviste ${formatMoney(data.netSeedRevenue)} limpios en semillas tras pagar $350 por herramienta, logrando una ganancia neta de +${formatMoney(data.netProfit)} (${data.netProfitPerTool >= 0 ? '+' : ''}${formatMoney(data.netProfitPerTool)} limpios por cada herramienta usada).`;
     } else if (data.isBreakEven) {
         verdictTheme = 'border-[#FFC800] bg-[#FFC800]/5 shadow-[3px_4px_0px_#FFC800]';
-        verdictTitle = 'PUNTO DE EQUILIBRIO // NI GANANCIA NI PÉRDIDA';
-        verdictBadge = '<span class="text-xs font-mono font-bold uppercase bg-[#FFC800] text-black px-2.5 py-1 rounded">Equilibrio (0% ROI)</span>';
+        verdictTitle = currentLang === 'en' ? 'BREAK-EVEN // ZERO PROFIT/LOSS' : 'PUNTO DE EQUILIBRIO // NI GANANCIA NI PÉRDIDA';
+        verdictBadge = `<span class="text-xs font-mono font-bold uppercase bg-[#FFC800] text-black px-2.5 py-1 rounded">${currentLang === 'en' ? 'Break-even' : 'Equilibrio'} (0% ROI)</span>`;
         verdictSubtitle = `Recuperaste exactamente los ${formatMoney(data.totalToolExpense)} invertidos en herramientas.`;
     } else {
         verdictTheme = 'border-[#E63946] bg-[#E63946]/5 shadow-[3px_4px_0px_#E63946]';
         verdictTitle = 'NO ES A CUENTA // OPERACIÓN EN PÉRDIDA';
-        verdictBadge = '<span class="text-xs font-mono font-bold uppercase bg-[#E63946] text-white px-2.5 py-1 rounded">Pérdida (' + data.roi + '% ROI)</span>';
+        verdictBadge = `<span class="text-xs font-mono font-bold uppercase bg-[#E63946] text-white px-2.5 py-1 rounded">${currentLang === 'en' ? 'Loss' : 'Pérdida'} (${data.roi}% ROI)</span>`;
         verdictSubtitle = `Alerta: Las semillas obtenidas (${formatMoney(data.netSeedRevenue)} limpios) no cubren los ${formatMoney(data.totalToolExpense)} gastados en herramientas. Estás perdiendo -${formatMoney(Math.abs(data.netProfit))} (${formatMoney(data.netProfitPerTool)} por herramienta).`;
     }
 

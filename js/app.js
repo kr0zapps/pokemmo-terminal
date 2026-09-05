@@ -10,10 +10,14 @@ import * as berries from './modules/berries.js';
 import * as extraction from './modules/extraction.js';
 import * as pokedex from './modules/pokedex.js';
 import { getPokeMMOClock } from './utils/pokemmo-time.js';
+import { currentLang, toggleLanguage, setLanguage, t, updateI18nDOM } from './i18n.js';
 
 // Attach UI functions to window for inline HTML onclick handlers
 window.switchTab = switchTab;
 window.logout = logout;
+window.toggleLanguage = toggleLanguage;
+window.setLanguage = setLanguage;
+window.t = t;
 window.showAuthModal = () => {
     setGuestMode(false);
     isAppInitialized = false;
@@ -24,6 +28,50 @@ Object.assign(window, gyms, berries, extraction, pokedex);
 
 let isAppInitialized = false;
 let isAppInitializing = false;
+let breedingModule = null;
+
+export function reRenderAllViews() {
+    const main = document.getElementById('app-main');
+    if (!main) return;
+
+    const currentTab = state.preferences?.active_tab || 'gyms';
+
+    let viewsHtml = '';
+    if (gyms.renderGymView) viewsHtml += `<div id="view-gyms" class="block animate-fade-in">${gyms.renderGymView()}</div>`;
+    if (berries.renderBerryView) viewsHtml += berries.renderBerryView();
+    if (extraction.renderExtractionView) viewsHtml += extraction.renderExtractionView();
+    if (pokedex.renderPokédexView) viewsHtml += pokedex.renderPokédexView();
+
+    if (breedingModule && breedingModule.renderBreedingView) {
+        viewsHtml += breedingModule.renderBreedingView();
+    } else {
+        viewsHtml += `<div id="view-breeding" class="hidden animate-fade-in"><div class="panel p-6 text-center text-os-muted">${t('breeding_construction', 'Breeding Module loading...')}</div></div>`;
+    }
+
+    main.innerHTML = viewsHtml;
+
+    // Modals
+    document.querySelectorAll('#waterPreviewModal, #caughtModal').forEach(el => el.remove());
+    if (berries.renderWaterModal) document.body.insertAdjacentHTML('beforeend', berries.renderWaterModal());
+    if (pokedex.renderCaughtModal) document.body.insertAdjacentHTML('beforeend', pokedex.renderCaughtModal());
+
+    // Rebind module events and data
+    updateHeaderAuth();
+    if (gyms.initGyms) gyms.initGyms();
+    if (berries.initBerries) berries.initBerries();
+    if (extraction.initExtraction) extraction.initExtraction();
+    if (pokedex.initPokédex) pokedex.initPokédex();
+    if (breedingModule && breedingModule.initBreeding) breedingModule.initBreeding();
+
+    // Maintain active tab
+    switchTab(currentTab);
+}
+
+// Global listener triggered whenever language is toggled
+window.onLanguageChange = (lang) => {
+    updateI18nDOM();
+    reRenderAllViews();
+};
 
 async function initApp() {
     if (isAppInitializing || isAppInitialized) return;
@@ -41,7 +89,6 @@ async function initApp() {
         if (pokedex.renderPokédexView) viewsHtml += pokedex.renderPokédexView();
         
         // Carga dinámica del módulo de crianza
-        let breedingModule = null;
         try {
             const breeding = await import('./modules/breeding.js');
             if (breeding.renderBreedingView) {
@@ -55,7 +102,7 @@ async function initApp() {
             breedingModule = breeding;
         } catch(e) {
             console.warn('Breeding module not yet available', e);
-            viewsHtml += `<div id="view-breeding" class="hidden animate-fade-in"><div class="panel p-6 text-center text-os-muted">Módulo de Crianza en construcción...</div></div>`;
+            viewsHtml += `<div id="view-breeding" class="hidden animate-fade-in"><div class="panel p-6 text-center text-os-muted">${t('breeding_construction', 'Breeding Module loading...')}</div></div>`;
         }
 
         main.innerHTML = viewsHtml;
@@ -67,6 +114,7 @@ async function initApp() {
 
         // Inicializar router, cabecera y módulos al instante con datos locales
         initRouter();
+        updateI18nDOM();
         updateHeaderAuth();
         if (gyms.initGyms) gyms.initGyms();
         if (berries.initBerries) berries.initBerries();
@@ -110,13 +158,13 @@ export function applyTheme(theme) {
         document.body.classList.add('dark');
         sunIcons.forEach(el => el.classList.remove('hidden'));
         moonIcons.forEach(el => el.classList.add('hidden'));
-        themeTexts.forEach(el => el.textContent = 'Claro');
+        themeTexts.forEach(el => el.textContent = t('theme_light', 'Light'));
     } else {
         document.documentElement.classList.remove('dark');
         document.body.classList.remove('dark');
         sunIcons.forEach(el => el.classList.add('hidden'));
         moonIcons.forEach(el => el.classList.remove('hidden'));
-        themeTexts.forEach(el => el.textContent = 'Oscuro');
+        themeTexts.forEach(el => el.textContent = t('theme_dark', 'Dark'));
     }
     localStorage.setItem('pokemmo_theme', theme);
     document.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
@@ -139,22 +187,22 @@ async function updateHeaderAuth() {
         authArea.innerHTML = `
             <div class="w-full sm:w-auto flex flex-wrap items-center justify-between sm:justify-start gap-2 bg-[#FAF8F2] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-1.5 rounded-xl shadow-inner min-h-[44px]">
                 <div class="flex items-center gap-1.5">
-                    <span class="font-tech font-bold text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">ID:</span>
+                    <span class="font-tech font-bold text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">${t('auth_id', 'ID:')}</span>
                     <span class="font-mono font-bold text-[13px] text-[#1C1C17] dark:text-[#F4F1E8] tracking-wider bg-[#EDE8DC] dark:bg-[#1A1A16] px-2 py-0.5 rounded border border-[#81765F]/40 dark:border-[#35352E] max-w-[140px] truncate">${userDisplay}</span>
                 </div>
-                <button onclick="logout()" class="min-h-[44px] px-2 flex items-center font-tech font-bold text-[13px] text-[#b7102a] dark:text-[#FFA8A8] hover:underline uppercase cursor-pointer" title="Cerrar sesión">Cerrar sesión</button>
+                <button onclick="logout()" class="min-h-[44px] px-2 flex items-center font-tech font-bold text-[13px] text-[#b7102a] dark:text-[#FFA8A8] hover:underline uppercase cursor-pointer" title="${t('auth_logout', 'Log out')}">${t('auth_logout', 'Log out')}</button>
             </div>
         `;
     } else if (isGuestMode()) {
         authArea.innerHTML = `
             <div class="w-full sm:w-auto flex flex-wrap items-center justify-between sm:justify-start gap-2">
                 <div class="flex items-center gap-1.5 bg-[#FAF8F2] dark:bg-[#242420] border border-[#2B2B2B] dark:border-[#35352E] px-3 py-1.5 rounded-xl shadow-inner min-h-[44px]">
-                    <span class="font-tech font-bold text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">Modo:</span>
-                    <span class="font-mono font-bold text-[13px] text-[#5C3800] dark:text-[#FFDF92] bg-[#FFDF92] dark:bg-[#473200] px-2 py-0.5 rounded border border-[#755B00]/40">Invitado</span>
+                    <span class="font-tech font-bold text-[13px] text-[#5F5A4D] dark:text-[#A8A594]">${t('auth_mode', 'Mode:')}</span>
+                    <span class="font-mono font-bold text-[13px] text-[#5C3800] dark:text-[#FFDF92] bg-[#FFDF92] dark:bg-[#473200] px-2 py-0.5 rounded border border-[#755B00]/40">${t('auth_guest', 'Guest')}</span>
                 </div>
-                <button onclick="window.showAuthModal()" class="min-h-[44px] text-[13px] text-[#1C1C17] dark:text-[#F4F1E8] bg-[#FAF8F2] dark:bg-[#242420] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] px-3.5 py-1.5 rounded-xl font-tech uppercase font-bold flex items-center gap-1.5 cursor-pointer transition shadow-sm" title="Inicia sesión para sincronizar tu progreso entre PC y móvil">
+                <button onclick="window.showAuthModal()" class="min-h-[44px] text-[13px] text-[#1C1C17] dark:text-[#F4F1E8] bg-[#FAF8F2] dark:bg-[#242420] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] px-3.5 py-1.5 rounded-xl font-tech uppercase font-bold flex items-center gap-1.5 cursor-pointer transition shadow-sm" title="${t('auth_sync_tooltip', 'Sign in to sync your progress between PC and mobile')}">
                     <svg class="w-4 h-4 text-[#5F5A4D] dark:text-[#A8A594]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                    <span>Sincronizar</span>
+                    <span>${t('auth_sync', 'Sync')}</span>
                 </button>
             </div>
         `;

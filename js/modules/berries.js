@@ -1,6 +1,7 @@
 import { state, setState, subscribe } from '../state.js';
 import { addCrop, updateCrop, removeCrop, getCrops } from '../db.js';
 import { formatTime, formatMoney } from '../utils/format.js';
+import { t, currentLang } from '../i18n.js';
 // We're importing DOM functions if they existed, but we'll manipulate directly for now
 
 export const BERRY_DB = {
@@ -123,6 +124,26 @@ export const RECIPES = {
     chesto: { name: 'Atania (Chesto)', reqs: [{ id: 'seca', qty: 1, name: 'Semilla Seca', color: 'bg-blue-400' }]},
     rawst: { name: 'Safre (Rawst)', reqs: [{ id: 'amarga', qty: 1, name: 'Semilla Amarga', color: 'bg-green-500' }]},
     aspear: { name: 'Perasi (Aspear)', reqs: [{ id: 'acida', qty: 1, name: 'Semilla Ácida', color: 'bg-yellow-400' }]}
+};
+
+export const SEED_NAMES_EN = {
+    picante: 'Plain Spicy Seed',
+    dulce: 'Plain Sweet Seed',
+    seca: 'Plain Dry Seed',
+    amarga: 'Plain Bitter Seed',
+    acida: 'Plain Sour Seed',
+    v_picante: 'Very Spicy Seed',
+    v_dulce: 'Very Sweet Seed',
+    v_seca: 'Very Dry Seed',
+    v_amarga: 'Very Bitter Seed',
+    v_acida: 'Very Sour Seed'
+};
+
+export function getSeedName(id) {
+    if (typeof currentLang !== 'undefined' && currentLang === 'en') {
+        return SEED_NAMES_EN[id] || id;
+    }
+    return SEED_NAMES[id] || id;
 };
 
 export const SEED_NAMES = {
@@ -344,17 +365,17 @@ export function renderBerryView() {
                 <div>
                     <div class="flex items-center gap-2.5">
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/wailmer-pail.png" class="w-7 h-7 pokemon-sprite">
-                        <span class="text-xl font-pokemon text-amber-400">Cultivo de Bayas</span>
-                        <span class="text-[13px] font-mono uppercase bg-os-elevated border border-os-border text-os-green px-2 py-0.5 rounded font-semibold">Riego y Cosecha</span>
+                        <span class="text-xl font-pokemon text-amber-400">${t('berry_header_title')}</span>
+                        <span class="text-[13px] font-mono uppercase bg-os-elevated border border-os-border text-os-green px-2 py-0.5 rounded font-semibold">${t('berry_header_badge')}</span>
                     </div>
-                    <p class="text-xs text-os-muted mt-1">Monitoreo de hidratación de suelo, temporizadores de maduración y calculadora de rendimiento.</p>
+                    <p class="text-xs text-os-muted mt-1">${t('berry_header_desc')}</p>
                 </div>
                 <div class="text-right flex items-center gap-3">
                     <div class="bg-os-surface border border-os-border px-3.5 py-1.5 rounded-xl text-right">
-                        <p class="text-[13px] text-os-muted uppercase font-mono font-semibold tracking-wider">Rondas Cosechadas</p>
+                        <p class="text-[13px] text-os-muted uppercase font-mono font-semibold tracking-wider">${t('berry_rounds_harvested')}</p>
                         <p class="text-xl font-mono font-bold text-os-green tabular-nums" id="totalHarvested">0</p>
                     </div>
-                    <button id="btnResetHarvest" class="text-xs font-mono text-os-muted hover:text-os-red transition border border-os-border hover:border-os-red/40 p-2.5 rounded-lg cursor-pointer flex items-center justify-center" title="Reiniciar contador">
+                    <button id="btnResetHarvest" class="text-xs font-mono text-os-muted hover:text-os-red transition border border-os-border hover:border-os-red/40 p-2.5 rounded-lg cursor-pointer flex items-center justify-center" title="${t('btn_reset_harvest')}">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
                     </button>
                 </div>
@@ -363,7 +384,7 @@ export function renderBerryView() {
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
                 <!-- SEED CALCULATOR -->
                 <section class="panel p-5 rounded-xl">
-                    <h2 class="text-xs font-mono text-os-muted uppercase tracking-wider mb-4 font-semibold">Inventario de Semillas</h2>
+                    <h2 class="text-xs font-mono text-os-muted uppercase tracking-wider mb-4 font-semibold">${t('seed_inventory')}</h2>
                     
                     <div class="grid grid-cols-5 gap-2 mb-5">
                         <div><label class="block text-[13px] uppercase text-os-muted mb-1 truncate">Picante</label><input type="number" id="inv_picante" min="0" value="0" class="w-full p-2 text-xs text-center font-mono"></div>
@@ -391,9 +412,9 @@ export function renderBerryView() {
                 <div class="flex flex-col gap-6">
                     <!-- RECIPE LOOKUP -->
                     <section class="panel p-5 rounded-xl">
-                        <h2 class="text-xs font-mono text-os-muted uppercase tracking-wider mb-4 font-semibold">Recetario de Semillas</h2>
+                        <h2 class="text-xs font-mono text-os-muted uppercase tracking-wider mb-4 font-semibold">${t('berry_recipes')}</h2>
                         <select id="recipeSelect" class="w-full p-2.5 text-xs mb-4 cursor-pointer rounded-lg bg-os-bg border border-os-border text-os-text font-mono">
-                            <option value="" disabled selected>Consultar Baya...</option>
+                            <option value="" disabled selected>${t('berry_consult')}</option>
                             <optgroup label="Más Rentables">
                                 <option value="leppa">Zanama (Leppa) - Restaura PP</option>
                                 <option value="lum">Ziuela (Lum) - Cura todo</option>
@@ -520,7 +541,7 @@ export function renderProfitCalculatorHTML() {
                     </div>
                     <div>
                         <h2 class="text-sm sm:text-base font-tech font-bold uppercase tracking-wider text-[#1C1C17] dark:text-[#F4F1E8]">
-                            Rentabilidad de Semillas y Bayas (Calculadora GTL)
+                            ${t('calc_title')}
                         </h2>
                         <p class="text-xs font-sans text-[#5F5A4D] dark:text-[#A8A594]">
                             Simulador económico de trituración ($350/herramienta), reserva de semillas para replantar y venta de excedentes en el mercado.
@@ -529,14 +550,14 @@ export function renderProfitCalculatorHTML() {
                 </div>
                 <div class="flex items-center gap-2">
                     <span class="text-xs font-mono uppercase bg-[#10B981]/10 border border-[#10B981]/30 text-[#10B981] px-2.5 py-1 rounded-md font-bold">
-                        Módulo Económico
+                        ${t('calc_economic_module')}
                     </span>
                 </div>
             </div>
 
             <!-- Parámetros Principales de Cultivo -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
-                <!-- Especie de Baya -->
+                <!-- ${t('param_berry')} -->
                 <div>
                     <label class="block text-[13px] font-mono uppercase font-bold text-[#5F5A4D] dark:text-[#A8A594] mb-1">
                         Especie de Baya
@@ -621,10 +642,10 @@ export function renderProfitCalculatorHTML() {
                 <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                     <div class="flex items-center gap-2">
                         <span class="text-xs font-tech font-bold uppercase tracking-wider text-[#1C1C17] dark:text-[#F4F1E8] flex items-center gap-1.5">
-                            <span>Precios de Mercado en el GTL (Valores Editables)</span>
+                            <span>${t('gtl_prices_title')}</span>
                         </span>
                         <span id="profitSaveStatus" class="text-[11px] font-mono text-[#10B981] bg-[#10B981]/10 border border-[#10B981]/30 px-2 py-0.5 rounded font-medium transition">
-                            Precios guardados en memoria
+                            ${t('gtl_saved_tag')}
                         </span>
                     </div>
                     <div class="flex items-center gap-2">
@@ -1070,7 +1091,7 @@ export function renderProfitResults(data) {
                 <div class="flex items-center justify-between mb-2">
                     <h4 class="font-tech font-bold uppercase text-xs text-[#1C1C17] dark:text-[#F4F1E8] flex items-center gap-1.5">
                         <span class="w-2 h-2 rounded-full ${isCrushingBetter ? 'bg-[#10B981]' : 'bg-[#5F5A4D]'}"></span>
-                        <span>Estrategia A: Triturar + Vender Semillas</span>
+                        <span>${t('strat_a_title')}</span>
                     </h4>
                     ${isCrushingBetter ? '<span class="text-[10px] font-mono font-bold bg-[#10B981] text-black px-1.5 py-0.5 rounded uppercase">Recomendada</span>' : ''}
                 </div>
@@ -1104,7 +1125,7 @@ export function renderProfitResults(data) {
                 <div class="flex items-center justify-between mb-2">
                     <h4 class="font-tech font-bold uppercase text-xs text-[#1C1C17] dark:text-[#F4F1E8] flex items-center gap-1.5">
                         <span class="w-2 h-2 rounded-full ${!isCrushingBetter ? 'bg-[#D97706]' : 'bg-[#5F5A4D]'}"></span>
-                        <span>Estrategia B: Venta Directa de Bayas</span>
+                        <span>${t('strat_b_title')}</span>
                     </h4>
                     ${!isCrushingBetter ? '<span class="text-[10px] font-mono font-bold bg-[#D97706] text-black px-1.5 py-0.5 rounded uppercase">Recomendada</span>' : ''}
                 </div>
@@ -1657,7 +1678,7 @@ export function renderCrops() {
                 <!-- Estado de Humedad (Caja de Hardware Recesiva) -->
                 <div class="bg-[#2B2B2B] dark:bg-[#1E1E1A] border-2 border-[#181816] dark:border-[#33332D] p-3 mb-3 rounded-xl shadow-inner text-[#F4F1E8]">
                     <div class="flex justify-between items-center text-xs font-mono mb-1.5">
-                        <span class="font-tech text-[13px] text-[#A8A495] uppercase font-bold tracking-wider">Humedad de Suelo</span>
+                        <span class="font-tech text-[13px] text-[#A8A495] uppercase font-bold tracking-wider">${t('moisture_remaining')}</span>
                         <div id="crop-drops-${crop.id}"></div>
                     </div>
                     <p id="crop-advice-${crop.id}" class="text-xs text-[#D8D4C7] leading-tight font-mono">Calculando estado de hidratación...</p>
@@ -1665,11 +1686,11 @@ export function renderCrops() {
 
                 <div class="grid grid-cols-2 gap-2 mb-3">
                     <div class="bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#35352E] p-2 rounded-lg text-center shadow-sm">
-                        <p id="crop-water-label-${crop.id}" class="text-[13px] text-[#5F5A4D] dark:text-[#A8A594] uppercase tracking-wider mb-0.5 font-tech font-bold">Humedad Restante</p>
+                        <p id="crop-water-label-${crop.id}" class="text-[13px] text-[#5F5A4D] dark:text-[#A8A594] uppercase tracking-wider mb-0.5 font-tech font-bold">${t('moisture_remaining')}</p>
                         <p id="crop-water-time-${crop.id}" class="font-lcd text-lg font-black text-[#1C1C17] dark:text-[#F4F1E8] tabular-nums tracking-wider">--:--:--</p>
                     </div>
                     <div class="bg-[#EDE8DC] dark:bg-[#20201C] border border-[#2B2B2B] dark:border-[#35352E] p-2 rounded-lg text-center shadow-sm">
-                        <p class="text-[13px] text-[#5F5A4D] dark:text-[#A8A594] uppercase tracking-wider mb-0.5 font-tech font-bold">Cosecha Total</p>
+                        <p class="text-[13px] text-[#5F5A4D] dark:text-[#A8A594] uppercase tracking-wider mb-0.5 font-tech font-bold">${currentLang === 'en' ? 'Harvest In' : 'Cosecha Total'}</p>
                         <p id="crop-harvest-time-${crop.id}" class="font-lcd text-lg font-black text-[#1C1C17] dark:text-[#F4F1E8] tabular-nums tracking-wider">--:--:--</p>
                     </div>
                 </div>
@@ -1679,8 +1700,8 @@ export function renderCrops() {
                 </div>
             </div>
             <div class="flex gap-2 mt-auto z-10 relative pt-2">
-                <button id="btn-water-${crop.id}" class="flex-1 bg-[#EDE8DC] dark:bg-[#2E2E27] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] py-2 px-2 text-xs font-tech font-bold uppercase transition rounded-lg shadow-[1px_2px_0px_#2B2B2B] cursor-pointer">Regar</button>
-                <button id="btn-harvest-${crop.id}" class="flex-1 bg-[#E4DFD0] dark:bg-[#2E2E27] border-2 border-[#2B2B2B] dark:border-[#35352E] text-[#2B2B2B] dark:text-[#F4F1E8] hover:text-[#E63946] py-2 px-2 text-xs font-tech font-bold uppercase transition rounded-lg cursor-pointer">Cancelar</button>
+                <button id="btn-water-${crop.id}" class="flex-1 bg-[#EDE8DC] dark:bg-[#2E2E27] hover:border-[#FFC800] border border-[#2B2B2B] dark:border-[#35352E] text-[#1C1C17] dark:text-[#F4F1E8] py-2 px-2 text-xs font-tech font-bold uppercase transition rounded-lg shadow-[1px_2px_0px_#2B2B2B] cursor-pointer">${t('btn_water')}</button>
+                <button id="btn-harvest-${crop.id}" class="flex-1 bg-[#E4DFD0] dark:bg-[#2E2E27] border-2 border-[#2B2B2B] dark:border-[#35352E] text-[#2B2B2B] dark:text-[#F4F1E8] hover:text-[#E63946] py-2 px-2 text-xs font-tech font-bold uppercase transition rounded-lg cursor-pointer">${t('btn_cancel_crop')}</button>
             </div>
         `;
         container.appendChild(card);

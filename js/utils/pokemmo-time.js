@@ -17,6 +17,8 @@
  *    - Marzo, Julio, Noviembre: Otoño
  *    - Abril, Agosto, Diciembre: Invierno
  */
+import { t } from '../i18n.js';
+
 export function getPokeMMOClock(date = new Date()) {
     const utcHours = date.getUTCHours();
     const utcMinutes = date.getUTCMinutes();
@@ -37,16 +39,16 @@ export function getPokeMMOClock(date = new Date()) {
     const timeStr = `${pad(inGameHours)}:${pad(inGameMinutes)}:${pad(inGameSeconds)}`;
 
     // Fases del día oficiales en PokéMMO
-    let phase = 'Noche';
+    let phase = t('phase_night');
     let phaseBadgeClass = 'bg-[#1C2333] text-[#93C5FD] border border-[#3B82F6]/50';
     let phaseIconSvg = `<svg class="w-3.5 h-3.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>`;
 
     if (inGameHours >= 4 && inGameHours < 11) {
-        phase = 'Mañana';
+        phase = t('phase_morning');
         phaseBadgeClass = 'bg-[#451A03] text-[#FDE68A] border border-[#F59E0B]/50';
         phaseIconSvg = `<svg class="w-3.5 h-3.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v2m0 14v2m9-9h-2M5 12H3m14.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>`;
     } else if (inGameHours >= 11 && inGameHours < 21) {
-        phase = 'Día';
+        phase = t('phase_day');
         phaseBadgeClass = 'bg-[#713F12] text-[#FEF08A] border border-[#EAB308]/60';
         phaseIconSvg = `<svg class="w-3.5 h-3.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.071-7.071l-1.414 1.414M8.343 15.657l-1.414 1.414m11.142 0l-1.414-1.414M8.343 8.343L6.929 6.929M12 6a6 6 0 100 12 6 6 0 000-12z"></path></svg>`;
     }
@@ -55,25 +57,25 @@ export function getPokeMMOClock(date = new Date()) {
     const seasonIndex = date.getUTCMonth() % 4;
     const seasonData = [
         {
-            name: 'Primavera',
+            name: t('season_spring'),
             badgeClass: 'bg-[#831843] text-[#FBCFE8] border border-[#EC4899]/50',
             iconSvg: `<svg class="w-3.5 h-3.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>`,
             desc: 'Formas de Deerling y brotes de temporada'
         },
         {
-            name: 'Verano',
+            name: t('season_summer'),
             badgeClass: 'bg-[#78350F] text-[#FDE68A] border border-[#F59E0B]/50',
-            iconSvg: `<svg class="w-3.5 h-3.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>`,
+            iconSvg: `<svg class="w-3.5 h-3.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>`;
             desc: 'Climas calurosos y formas estivales'
         },
         {
-            name: 'Otoño',
+            name: t('season_autumn'),
             badgeClass: 'bg-[#7C2D12] text-[#FED7AA] border border-[#EA580C]/50',
             iconSvg: `<svg class="w-3.5 h-3.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>`,
             desc: 'Hojas secas y caminos desbloqueados'
         },
         {
-            name: 'Invierno',
+            name: t('season_winter'),
             badgeClass: 'bg-[#164E63] text-[#BAE6FD] border border-[#38BDF8]/50',
             iconSvg: `<svg class="w-3.5 h-3.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v18m9-9H3m15.364-6.364L5.636 18.364m12.728 0L5.636 5.636"></path></svg>`,
             desc: 'Nieve profunda y nuevas áreas accesibles'

@@ -1,6 +1,7 @@
 import { fetchPokemonSpecies, fetchEggGroup } from '../utils/api.js';
 import { formatMoney } from '../utils/format.js';
 import { $ } from '../utils/dom.js';
+import { t, currentLang } from '../i18n.js';
 
 const BRACER_NAMES = {
     'HP': 'Pesa Recia',
@@ -10,6 +11,22 @@ const BRACER_NAMES = {
     'SpD': 'Banda Recia',
     'Spe': 'Franja Recia'
 };
+
+const BRACER_NAMES_EN = {
+    'HP': 'Power Weight',
+    'Atk': 'Power Bracer',
+    'Def': 'Power Belt',
+    'SpA': 'Power Lens',
+    'SpD': 'Power Band',
+    'Spe': 'Power Anklet'
+};
+
+function getBracerName(stat) {
+    if (typeof currentLang !== 'undefined' && currentLang === 'en') {
+        return BRACER_NAMES_EN[stat] || stat;
+    }
+    return BRACER_NAMES[stat] || stat;
+}
 
 const POWER_SPRITES = {
     'HP': 'power-weight',
@@ -32,10 +49,10 @@ export function renderBreedingView() {
         <div>
             <div class="flex items-center gap-2.5">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/egg.png" class="w-6 h-6 pokemon-sprite" alt="Crianza">
-                <span class="text-xl font-pokemon text-amber-400">Crianza y Genética</span>
-                <span class="text-[13px] font-mono uppercase bg-os-elevated border border-os-border text-os-blue px-2 py-0.5 rounded font-semibold">Simulador IVs</span>
+                <span class="text-xl font-pokemon text-amber-400">${t('breeding_title')}</span>
+                <span class="text-[13px] font-mono uppercase bg-os-elevated border border-os-border text-os-blue px-2 py-0.5 rounded font-semibold">${t('breeding_iv_sim')}</span>
             </div>
-            <p class="text-xs text-os-muted mt-1">Generador de árboles genealógicos y presupuesto exacto de brazales para el GTL.</p>
+            <p class="text-xs text-os-muted mt-1">${t('breeding_subtitle')}</p>
         </div>
     </div>
 
@@ -45,56 +62,56 @@ export function renderBreedingView() {
             <div class="panel p-5 rounded-xl">
                 
                 <div class="mb-4 border-b border-os-border pb-4">
-                    <label class="block text-xs font-mono text-os-muted mb-2">Pokémon Objetivo (Opcional):</label>
+                    <label class="block text-xs font-mono text-os-muted mb-2">${t('breeding_target')}</label>
                     <div class="flex gap-2">
-                        <input type="text" id="breeding-target" list="pokedex-list-breeding" class="w-full bg-os-bg border border-os-border text-xs p-2.5 rounded-lg text-os-text focus:border-os-blue outline-none font-mono" placeholder="Ej. Garchomp">
+                        <input type="text" id="breeding-target" list="pokedex-list-breeding" class="w-full bg-os-bg border border-os-border text-xs p-2.5 rounded-lg text-os-text focus:border-os-blue outline-none font-mono" placeholder="${currentLang === 'en' ? 'e.g. Garchomp' : 'Ej. Garchomp'}">
                         <button id="btn-fetch-pokemon" class="px-3 bg-os-elevated hover:bg-os-blue hover:text-black border border-os-border text-os-text rounded-lg transition cursor-pointer flex items-center justify-center" title="Buscar especie">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                         </button>
                     </div>
                     <div id="target-info" class="text-xs text-os-muted mt-2.5 hidden flex-col gap-1.5 bg-os-bg p-2.5 rounded-lg border border-os-border">
                         <div class="flex items-center gap-1.5 flex-wrap">
-                            <span class="text-os-muted font-mono">Grupos Huevo:</span>
+                            <span class="text-os-muted font-mono">${t('breeding_egg_groups')}</span>
                             <span id="target-egg-group" class="text-white font-bold flex flex-wrap gap-1"></span>
                         </div>
-                        <div class="font-mono">Costo Género: <span id="target-gender-cost" class="text-amber-400 font-bold tabular-nums"></span> por cruce</div>
+                        <div class="font-mono">${t('breeding_gender_cost')} <span id="target-gender-cost" class="text-amber-400 font-bold tabular-nums"></span> ${t('breeding_per_breed')}</div>
                     </div>
                 </div>
                 <datalist id="pokedex-list-breeding"></datalist>
 
-                <h2 class="text-xs font-mono font-semibold text-os-text mb-3 uppercase tracking-wider border-b border-os-border pb-2">Selección de IVs a 31</h2>
+                <h2 class="text-xs font-mono font-semibold text-os-text mb-3 uppercase tracking-wider border-b border-os-border pb-2">${t('breeding_select_ivs')}</h2>
                 
                 <div class="grid grid-cols-2 gap-2 mb-4">
                     <label class="stat-chip border-emerald-500/30 hover:border-emerald-500/60">
                         <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-emerald-500" value="HP" checked>
-                        <span class="text-xs font-mono text-emerald-400">HP (Salud)</span>
+                        <span class="text-xs font-mono text-emerald-400">${currentLang === 'en' ? 'HP' : 'HP (Salud)'}</span>
                     </label>
                     <label class="stat-chip border-orange-500/30 hover:border-orange-500/60">
                         <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-orange-500" value="Atk" checked>
-                        <span class="text-xs font-mono text-orange-400">Ataque</span>
+                        <span class="text-xs font-mono text-orange-400">${currentLang === 'en' ? 'Attack' : 'Ataque'}</span>
                     </label>
                     <label class="stat-chip border-sky-500/30 hover:border-sky-500/60">
                         <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-sky-500" value="Def" checked>
-                        <span class="text-xs font-mono text-sky-400">Defensa</span>
+                        <span class="text-xs font-mono text-sky-400">${currentLang === 'en' ? 'Defense' : 'Defensa'}</span>
                     </label>
                     <label class="stat-chip border-purple-500/30 hover:border-purple-500/60">
                         <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-purple-500" value="SpA">
-                        <span class="text-xs font-mono text-purple-400">Atq. Esp</span>
+                        <span class="text-xs font-mono text-purple-400">${currentLang === 'en' ? 'Sp. Atk' : 'Atq. Esp'}</span>
                     </label>
                     <label class="stat-chip border-amber-500/30 hover:border-amber-500/60">
                         <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-amber-500" value="SpD" checked>
-                        <span class="text-xs font-mono text-amber-400">Def. Esp</span>
+                        <span class="text-xs font-mono text-amber-400">${currentLang === 'en' ? 'Sp. Def' : 'Def. Esp'}</span>
                     </label>
                     <label class="stat-chip border-pink-500/30 hover:border-pink-500/60">
                         <input type="checkbox" class="iv-checkbox w-4 h-4 rounded border-os-border bg-os-bg accent-pink-500" value="Spe" checked>
-                        <span class="text-xs font-mono text-pink-400">Velocidad</span>
+                        <span class="text-xs font-mono text-pink-400">${currentLang === 'en' ? 'Speed' : 'Velocidad'}</span>
                     </label>
                 </div>
 
                 <div class="border-t border-os-border pt-4">
                     <label class="flex items-center gap-2 p-2 border border-amber-500/30 bg-amber-500/10 rounded-lg cursor-pointer transition mb-4 select-none">
                         <input type="checkbox" id="breeding-nature" class="w-4 h-4 rounded border-os-border bg-os-bg accent-amber-500" checked>
-                        <span class="text-xs font-mono text-amber-300 font-semibold">Heredar Naturaleza</span>
+                        <span class="text-xs font-mono text-amber-300 font-semibold">${t('breeding_inherit_nature')}</span>
                     </label>
                     
                     <label class="block text-xs font-mono text-os-muted mb-2">Ahorro: Ya poseo en mi caja...</label>
