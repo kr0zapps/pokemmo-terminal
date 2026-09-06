@@ -59,9 +59,9 @@ export const BERRY_DB = {
         name: 'Básicas (Oran, Cheri, Pecha...)', 
         totalHours: 16, 
         stageHours: 4.0,
-        dropDurationHours: 1.9,    // 5 gotas duran ~9.5h
-        initialDryHours: 3.8,      // Las 2 gotas base duran ~3.8h
-        fullMoistureHours: 9.5,    // Las 5 gotas duran 9.5h
+        dropDurationHours: 2.35,   // En PokéMMO las bayas básicas consumen 1 gota cada ~2.35h (las 2 iniciales duran ~4.7h y las 5 duran ~11.75h)
+        initialDryHours: 4.7,      // Las 2 gotas base duran ~4.7h
+        fullMoistureHours: 11.75,  // Las 5 gotas duran ~11.75h
         yield: '3-6 bayas',
         effect: 'Cura Estados / 10 HP',
         sprite: 'cheri-berry'
